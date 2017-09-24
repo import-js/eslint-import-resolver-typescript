@@ -1,0 +1,13 @@
+{
+  "name": "eslint-plugin-import-typescript-resolver",
+  "version": "1.0.0",
+  "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
+  "main": "index.js",
+  "files": ["index.js"],
+  "keywords": ["typescript", "eslint", "import", "resolver", "plugin"],
+  "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "resolve": "^1.4.0"
+  }
+}
