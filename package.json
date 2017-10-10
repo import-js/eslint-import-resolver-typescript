@@ -1,11 +1,15 @@
 {
-  "name": "eslint-plugin-import-typescript-resolver",
+  "name": "eslint-import-resolver-typescript",
   "version": "1.0.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "main": "index.js",
   "files": [
     "index.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript"
+  },
   "keywords": [
     "typescript",
     "eslint",

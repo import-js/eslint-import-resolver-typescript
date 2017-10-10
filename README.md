@@ -1,4 +1,4 @@
-# eslint-plugin-import-typescript-resolver
+# eslint-import-resolver-typescript
 
 This plugin allows you to use `eslint-plugin-import` with `.ts` and `.tsx` files.
 
@@ -7,7 +7,7 @@ This plugin allows you to use `eslint-plugin-import` with `.ts` and `.tsx` files
 ## Installation
 
 ```
-npm install --save-dev eslint-plugin-import-typescript-resolver
+npm install --save-dev eslint-import-resolver-typescript
 ```
 
 Add the following to your eslint config:
@@ -16,7 +16,8 @@ Add the following to your eslint config:
 "settings": {
   "import/resolver": {
     "node": true,
-    "eslint-plugin-import-typescript-resolver": true
+    "eslint-import-resolver-typescript": true
   }
 }
 ```
+
