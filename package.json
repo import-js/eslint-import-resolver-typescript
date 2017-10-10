@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "main": "index.js",
   "files": [
