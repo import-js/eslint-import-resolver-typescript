@@ -5,7 +5,7 @@ module.exports.interfaceVersion = 2;
 
 function opts(file, config) {
   return Object.assign(
-    { extensions: ['.ts', '.tsx'] },
+    { extensions: ['.ts', '.tsx', '.d.ts'] },
     config,
     // path.resolve will handle paths relative to CWD
     { basedir: path.dirname(path.resolve(file)) },
