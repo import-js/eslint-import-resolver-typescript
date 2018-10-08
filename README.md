@@ -4,7 +4,7 @@ This plugin adds typescript support to [`eslint-plugin-import`](https://www.npmj
 
 This means you can:
 
-- `import`/`require` files with extension `.ts`/`.tsx` **without** using `--ext`!
+- `import`/`require` files with extension `.ts`/`.tsx`!
 - Use [`paths`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in `tsconfig.json`.
 
 ## Installation
