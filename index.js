@@ -24,28 +24,33 @@ function resolveFile(source, file, config) {
     }
   }
 
+  let foundTsPath = null
+  const extensions = Object.keys(require.extensions).concat('.ts', '.tsx', '.d.ts')
+
   // setup tsconfig-paths
   const searchStart = config.directory || process.cwd()
   const configLoaderResult = tsconfigPaths.loadConfig(searchStart)
-  if (configLoaderResult.resultType !== 'success') {
-    throw new Error(`Unable to find tsconfig in ${searchStart}: ${configLoaderResult.message}`)
-  }
-  const matchPath = tsconfigPaths.createMatchPath(
-    configLoaderResult.absoluteBaseUrl,
-    configLoaderResult.paths,
-  )
+  if (configLoaderResult.resultType === 'success') {
+    const matchPath = tsconfigPaths.createMatchPath(
+      configLoaderResult.absoluteBaseUrl,
+      configLoaderResult.paths,
+    )
 
-  // look for files based on setup tsconfig "paths"
-  const extensions = Object.keys(require.extensions).concat('.ts', '.tsx', '.d.ts')
-  const foundTsPath = matchPath(
-    source,
-    undefined,
-    undefined,
-    extensions,
-  )
+    // look for files based on setup tsconfig "paths"
+    foundTsPath = matchPath(
+      source,
+      undefined,
+      undefined,
+      extensions,
+    )
 
-  if (foundTsPath) {
-    log('matched ts path:', foundTsPath)
+    if (foundTsPath) {
+      log('matched ts path:', foundTsPath)
+    }
+  } else {
+    log('failed to init tsconfig-paths:', configLoaderResult.message)
+    // this can happen if the user has problems with their tsconfig
+    // or if it's valid, but they don't have baseUrl set
   }
 
   // note that even if we match via tsconfig-paths, we still need to do a final resolve
