@@ -34,6 +34,6 @@
     "typescript": "^3.1.1"
   },
   "scripts": {
-    "test": "eslint ./tests/index.ts"
+    "test": "eslint ./tests/withPaths/index.ts && eslint ./tests/withoutPaths/index.ts"
   }
 }

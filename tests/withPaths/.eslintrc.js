@@ -16,7 +16,7 @@ module.exports = {
     },
     settings: {
         'import/resolver': {
-            [path.resolve(`${__dirname}/../index.js`)]: {
+            [path.resolve(`${__dirname}/../../index.js`)]: {
                 directory: __dirname,
             },
         },
