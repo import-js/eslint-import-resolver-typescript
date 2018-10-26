@@ -28,7 +28,7 @@ function resolveFile(source, file, config) {
   const extensions = Object.keys(require.extensions).concat(
     '.ts',
     '.tsx',
-    '.d.ts',
+    '.d.ts'
   );
 
   // setup tsconfig-paths
@@ -37,7 +37,7 @@ function resolveFile(source, file, config) {
   if (configLoaderResult.resultType === 'success') {
     const matchPath = tsconfigPaths.createMatchPath(
       configLoaderResult.absoluteBaseUrl,
-      configLoaderResult.paths,
+      configLoaderResult.paths
     );
 
     // look for files based on setup tsconfig "paths"
