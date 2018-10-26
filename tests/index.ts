@@ -12,3 +12,4 @@ import 'folder/subfolder/tsxImportee'
 
 // import from node_module
 import 'typescript'
+import 'dummy.js'

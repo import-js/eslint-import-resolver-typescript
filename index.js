@@ -49,10 +49,15 @@ function resolveFile(source, file, config) {
   }
 
   // note that even if we match via tsconfig-paths, we still need to do a final resolve
-  const foundNodePath = resolve.sync(foundTsPath || source, {
-    extensions,
-    basedir: path.dirname(path.resolve(file)),
-  })
+  let foundNodePath;
+  try {
+    foundNodePath = resolve.sync(foundTsPath || source, {
+      extensions,
+      basedir: path.dirname(path.resolve(file)),
+    })
+  } catch (err) {
+    foundNodePath = null;
+  }
 
   if (foundNodePath) {
     log('matched node path:', foundNodePath)

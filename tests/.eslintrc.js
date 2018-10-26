@@ -13,6 +13,7 @@ module.exports = {
     ],
     rules: {
         'import/no-unresolved': 'error',
+        'import/extensions': 'error',
     },
     settings: {
         'import/resolver': {
