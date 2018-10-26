@@ -29,11 +29,12 @@
     "eslint-plugin-import": "*"
   },
   "devDependencies": {
+    "dummy.js": "file:dummy.js",
     "eslint": "^5.6.1",
     "eslint-plugin-import": "^2.14.0",
     "typescript": "^3.1.1"
   },
   "scripts": {
-    "test": "eslint ./tests/index.ts"
+    "test": "eslint ./tests/withPaths/index.ts && eslint ./tests/withoutPaths/index.ts"
   }
 }

@@ -1,6 +1,6 @@
 const path = require('path')
 
-module.exports = {
+module.exports = (dirname) => ({
     env: {
         es6: true,
     },
@@ -13,13 +13,22 @@ module.exports = {
     ],
     rules: {
         'import/no-unresolved': 'error',
-        'import/extensions': 'error',
+        'import/extensions': [
+            'error',
+            'ignorePackages',
+            {
+                js: 'never',
+                jsx: 'never',
+                ts: 'never',
+                tsx: 'never',
+            },
+        ],
     },
     settings: {
         'import/resolver': {
             [path.resolve(`${__dirname}/../index.js`)]: {
-                directory: __dirname,
+                directory: dirname,
             },
         },
     },
-}
+})

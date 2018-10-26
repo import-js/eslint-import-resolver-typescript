@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "jsx": "react",
+        "paths": {
+            "folder/*": ["*"],
+            "*": ["../../node_modules/*"]
+        },
+    },
+    "files": [
+        "index.ts",
+        "tsImportee.ts",
+        "tsxImportee.tsx"
+    ]
+}
