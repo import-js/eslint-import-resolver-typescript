@@ -1,5 +1,7 @@
 # eslint-import-resolver-typescript
 
+[![Build Status](https://travis-ci.org/alexgorbatchev/eslint-import-resolver-typescript.svg?branch=master)](https://travis-ci.org/alexgorbatchev/eslint-import-resolver-typescript)
+
 This plugin adds typescript support to [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import).
 
 This means you can:
@@ -45,3 +47,7 @@ Add the following to your `.eslintrc` config:
 
 - Make sure your change is covered by a test import.
 - Make sure that `npm test` passes without a failure.
+- Make sure your code is formatted `npm format`.
+
+We have an [automatic travis build](https://travis-ci.org/alexgorbatchev/eslint-import-resolver-typescript) which will run the above on your PRs.
+If either fails, we won't be able to merge your PR until it's fixed.
