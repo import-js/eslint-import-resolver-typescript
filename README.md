@@ -19,15 +19,13 @@ Add the following to your `.eslintrc` config:
 
 ```CJSON
 {
+  "parser": "typescript-eslint-parser",
+  "plugins": ["import"],
+  "rules": {
+    // turn on errors for missing imports
+    "import/no-unresolved": "error"
+  },
   "settings": {
-    "parser": "typescript-eslint-parser",
-    "plugins": [
-      "import"
-    ],
-    "rules": {
-      // turn on errors for missing imports
-      "import/no-unresolved": "error"
-    },
     "import/resolver": {
       // use <root>/tsconfig.json
       "typescript": {},
