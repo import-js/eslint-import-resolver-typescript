@@ -28,7 +28,7 @@ Add the following to your `.eslintrc` config:
   },
   "settings": {
     "import/parsers": {
-      "typescript-eslint-parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       // use <root>/tsconfig.json
