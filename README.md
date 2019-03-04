@@ -12,7 +12,7 @@ This means you can:
 ## Installation
 
 ```bash
-npm install --save-dev eslint-plugin-import typescript-eslint-parser eslint-import-resolver-typescript
+npm install --save-dev eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript
 ```
 
 ## Configuration
