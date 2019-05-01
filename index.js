@@ -74,7 +74,16 @@ function resolveFile(source, file, config) {
   }
 
   log('didnt find', source);
-
+  
+  // naive attempt at @types/* resolution, 
+  // iff path is neither absolute nor relative
+  if (!path.isAbsolute(source) && source[0] !== ".") {
+    const definitely = resolveFile("@types/"+source, file, config)
+    if (definitely.found) {
+      return definitely
+    }
+  }
+  
   return {
     found: false,
   };
