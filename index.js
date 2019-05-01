@@ -32,7 +32,7 @@ function resolveFile(source, file, config) {
   );
 
   // setup tsconfig-paths
-  const searchStart = config.directory || process.cwd();
+  const searchStart = (config && config.directory) || process.cwd();
   const configLoaderResult = tsconfigPaths.loadConfig(searchStart);
   if (configLoaderResult.resultType === 'success') {
     const matchPath = tsconfigPaths.createMatchPath(
