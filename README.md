@@ -30,11 +30,12 @@ Add the following to your `.eslintrc` config:
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
-    "import/resolver": {
-      // use <root>/tsconfig.json
-      "typescript": {},
-
-      // use <root>/path/to/folder/tsconfig.json
+    
+    // use <root>/tsconfig.json:
+    "import/resolver": "typescript",
+    
+    // use <root>/path/to/folder/tsconfig.json:
+    "import/resolver: {
       "typescript": {
         "directory": "./path/to/folder"
       }
