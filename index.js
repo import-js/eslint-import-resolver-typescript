@@ -66,13 +66,17 @@ function resolveFile(source, file, config) {
   // iff path is neither absolute nor relative
   if (
     /\.jsx?$/.test(foundNodePath) &&
-    !/^@types[\/\\]/.test(source) &&
+    !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     source[0] !== '.'
   ) {
-    const definitely = resolveFile('@types/' + source, file, config);
-    if (definitely.found) {
-      return definitely;
+    const definitelyTyped = resolveFile(
+      '@types' + path.sep + mangleScopedPackage(source),
+      file,
+      config,
+    );
+    if (definitelyTyped.found) {
+      return definitelyTyped;
     }
   }
 
@@ -91,10 +95,27 @@ function resolveFile(source, file, config) {
     found: false,
   };
 }
+
 function packageFilter(pkg) {
   pkg.main =
     pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main;
   return pkg;
+}
+
+/**
+ * For a scoped package, we must look in `@types/foo__bar` instead of `@types/@foo/bar`.
+ *
+ * @param {string} moduleName
+ * @returns {string}
+ */
+function mangleScopedPackage(moduleName) {
+  if (moduleName[0] === '@') {
+    const replaceSlash = moduleName.replace(path.sep, '__');
+    if (replaceSlash !== moduleName) {
+      return replaceSlash.slice(1); // Take off the "@"
+    }
+  }
+  return moduleName;
 }
 
 module.exports = {
