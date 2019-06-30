@@ -25,11 +25,9 @@ function resolveFile(source, file, config) {
   }
 
   let foundTsPath = null;
-  const extensions = Object.keys(require.extensions).concat(
-    '.ts',
-    '.tsx',
-    '.d.ts',
-  );
+  const extensions = Object.keys(require.extensions);
+
+  extensions.unshift('.ts', '.tsx', '.d.ts');
 
   // setup tsconfig-paths
   const searchStart = config.directory || process.cwd();
@@ -64,6 +62,20 @@ function resolveFile(source, file, config) {
     foundNodePath = null;
   }
 
+  // naive attempt at @types/* resolution,
+  // iff path is neither absolute nor relative
+  if (
+    /\.jsx?$/.test(foundNodePath) &&
+    !/^@types[\/\\]/.test(source) &&
+    !path.isAbsolute(source) &&
+    source[0] !== '.'
+  ) {
+    const definitely = resolveFile('@types/' + source, file, config);
+    if (definitely.found) {
+      return definitely;
+    }
+  }
+
   if (foundNodePath) {
     log('matched node path:', foundNodePath);
 
@@ -73,7 +85,7 @@ function resolveFile(source, file, config) {
     };
   }
 
-  log('didnt find', source);
+  log("didn't find", source);
 
   return {
     found: false,
