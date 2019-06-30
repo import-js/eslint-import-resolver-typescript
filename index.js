@@ -92,9 +92,8 @@ function resolveFile(source, file, config) {
   };
 }
 function packageFilter(pkg) {
-  if (pkg['jsnext:main']) {
-    pkg['main'] = pkg['jsnext:main'];
-  }
+  pkg.main =
+    pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main;
   return pkg;
 }
 
