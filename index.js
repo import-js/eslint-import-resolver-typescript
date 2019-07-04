@@ -25,9 +25,9 @@ function resolveFile(source, file, config) {
   }
 
   let foundTsPath = null;
-  const extensions = Object.keys(require.extensions);
-
-  extensions.unshift('.ts', '.tsx', '.d.ts');
+  const extensions = ['.ts', '.tsx', '.d.ts'].concat(
+    Object.keys(require.extensions),
+  );
 
   // setup tsconfig-paths
   const searchStart = config.directory || process.cwd();
