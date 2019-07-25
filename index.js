@@ -65,7 +65,8 @@ function resolveFile(source, file, config) {
   // naive attempt at @types/* resolution,
   // if path is neither absolute nor relative
   if (
-    (config.alwaysTryTypes || /\.jsx?$/.test(foundNodePath)) &&
+    (/\.jsx?$/.test(foundNodePath) ||
+      (config.alwaysTryTypes && !foundNodePath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     source[0] !== '.'
