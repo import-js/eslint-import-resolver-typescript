@@ -21,6 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^4.0.1",
+    "glob": "^7.1.4",
+    "is-glob": "^4.0.1",
     "resolve": "^1.4.0",
     "tsconfig-paths": "^3.6.0"
   },

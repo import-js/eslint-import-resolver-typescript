@@ -4,6 +4,8 @@ const path = require('path');
 const resolve = require('resolve');
 const tsconfigPaths = require('tsconfig-paths');
 const debug = require('debug');
+const globSync = require('glob').sync;
+const isGlob = require('is-glob');
 
 const log = debug('eslint-import-resolver-typescript');
 
@@ -105,6 +107,12 @@ function initMappers(options) {
       : [process.cwd()];
 
   mappers = configPaths
+    // turn glob patterns into paths
+    .reduce(
+      (paths, path) => paths.concat(isGlob(path) ? globSync(path) : path),
+      [],
+    )
+
     .map(path => tsconfigPaths.loadConfig(path))
     .filter(configLoaderResult => {
       const success = configLoaderResult.resultType === 'success';
