@@ -19,7 +19,7 @@ npm install --save-dev eslint-plugin-import @typescript-eslint/parser eslint-imp
 
 Add the following to your `.eslintrc` config:
 
-```CJSON
+```JSONC
 {
   "plugins": ["import"],
   "rules": {
