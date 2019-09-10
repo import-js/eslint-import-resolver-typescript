@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-ts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "main": "index.js",
   "files": [
@@ -20,11 +20,11 @@
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "debug": "^4.0.1",
+    "debug": "^4.1.1",
     "glob": "^7.1.4",
     "is-glob": "^4.0.1",
-    "resolve": "^1.4.0",
-    "tsconfig-paths": "^3.6.0"
+    "resolve": "^1.12.0",
+    "tsconfig-paths": "^3.8.0"
   },
   "peerDependencies": {
     "eslint": "*",
@@ -33,14 +33,14 @@
   "devDependencies": {
     "@types/unist": "^2.0.3",
     "dummy.js": "file:dummy.js",
-    "eslint": "^5.6.1",
-    "eslint-plugin-import": "^2.14.0",
-    "prettier": "^1.14.3",
-    "typescript": "^3.1.1"
+    "eslint": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
   },
   "scripts": {
     "test": "eslint ./tests/withPaths/index.ts && eslint ./tests/withoutPaths/index.ts && eslint ./tests/multipleTsconfigs/**/index.ts",
-    "check-format": "prettier --config prettier.config.js index.js -l",
-    "format": "prettier --config prettier.config.js index.js --write"
+    "check-format": "prettier index.js -l",
+    "format": "prettier index.js --write"
   }
 }
