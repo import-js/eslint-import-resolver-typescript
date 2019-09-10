@@ -21,6 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^4.0.1",
+    "glob": "^7.1.4",
+    "is-glob": "^4.0.1",
     "resolve": "^1.4.0",
     "tsconfig-paths": "^3.6.0"
   },
@@ -37,7 +39,7 @@
     "typescript": "^3.1.1"
   },
   "scripts": {
-    "test": "eslint ./tests/withPaths/index.ts && eslint ./tests/withoutPaths/index.ts",
+    "test": "eslint ./tests/withPaths/index.ts && eslint ./tests/withoutPaths/index.ts && eslint ./tests/multipleTsconfigs/**/index.ts",
     "check-format": "prettier --config prettier.config.js index.js -l",
     "format": "prettier --config prettier.config.js index.js --write"
   }

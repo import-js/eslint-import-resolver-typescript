@@ -19,7 +19,7 @@ npm install --save-dev eslint-plugin-import @typescript-eslint/parser eslint-imp
 
 Add the following to your `.eslintrc` config:
 
-```CJSON
+```JSONC
 {
   "plugins": ["import"],
   "rules": {
@@ -37,6 +37,29 @@ Add the following to your `.eslintrc` config:
       // use <root>/path/to/folder/tsconfig.json
       "typescript": {
         "directory": "./path/to/folder"
+      },
+
+      // Multiple tsconfigs (Useful for monorepos)
+
+      // use a glob pattern
+      "typescript": {
+        "directory": "./packages/**/tsconfig.json"
+      },
+
+      // use an array
+      "typescript": {
+        "directory": [
+          "./packages/module-a/tsconfig.json",
+          "./packages/module-b/tsconfig.json"
+        ]
+      },
+
+      // use an array of glob patterns
+      "typescript": {
+        "directory": [
+          "./packages/**/tsconfig.json",
+          "./other-packages/**/tsconfig.json"
+        ]
       }
     }
   }
