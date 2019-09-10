@@ -26,6 +26,7 @@ module.exports = dirname => ({
     'import/resolver': {
       [path.resolve(`${__dirname}/../index.js`)]: {
         directory: dirname,
+        alwaysTryTypes: true
       },
     },
   },

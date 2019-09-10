@@ -9,10 +9,8 @@ const isGlob = require('is-glob');
 
 const log = debug('eslint-import-resolver-typescript');
 
-const extensions = Object.keys(require.extensions).concat(
-  '.ts',
-  '.tsx',
-  '.d.ts',
+const extensions = ['.ts', '.tsx', '.d.ts'].concat(
+  Object.keys(require.extensions),
 );
 
 /**
@@ -50,6 +48,25 @@ function resolveFile(source, file, options = {}) {
     foundNodePath = null;
   }
 
+  // naive attempt at @types/* resolution,
+  // if path is neither absolute nor relative
+  if (
+    (/\.jsx?$/.test(foundNodePath) ||
+      (options.alwaysTryTypes && !foundNodePath)) &&
+    !/^@types[/\\]/.test(source) &&
+    !path.isAbsolute(source) &&
+    source[0] !== '.'
+  ) {
+    const definitelyTyped = resolveFile(
+      '@types' + path.sep + mangleScopedPackage(source),
+      file,
+      options,
+    );
+    if (definitelyTyped.found) {
+      return definitelyTyped;
+    }
+  }
+
   if (foundNodePath) {
     log('matched node path:', foundNodePath);
 
@@ -59,7 +76,7 @@ function resolveFile(source, file, options = {}) {
     };
   }
 
-  log('didnt find', source);
+  log("didn't find", source);
 
   return {
     found: false,
@@ -67,9 +84,8 @@ function resolveFile(source, file, options = {}) {
 }
 
 function packageFilter(pkg) {
-  if (pkg['jsnext:main']) {
-    pkg['main'] = pkg['jsnext:main'];
-  }
+  pkg.main =
+    pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main;
   return pkg;
 }
 
@@ -139,6 +155,22 @@ function initMappers(options) {
         return matchPath(source, undefined, undefined, extensions);
       };
     });
+}
+
+/*
+ * For a scoped package, we must look in `@types/foo__bar` instead of `@types/@foo/bar`.
+ *
+ * @param {string} moduleName
+ * @returns {string}
+ */
+function mangleScopedPackage(moduleName) {
+  if (moduleName[0] === '@') {
+    const replaceSlash = moduleName.replace(path.sep, '__');
+    if (replaceSlash !== moduleName) {
+      return replaceSlash.slice(1); // Take off the "@"
+    }
+  }
+  return moduleName;
 }
 
 module.exports = {
