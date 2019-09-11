@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-ts",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "repository": "git@github.com/rx-ts/eslint-import-resolver-ts.git",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
@@ -72,5 +72,8 @@
     "rollup": "^1.21.2",
     "type-coverage": "^2.2.0",
     "typescript": "^3.6.3"
+  },
+  "typeCoverage": {
+    "atLeast": 100
   }
 }
