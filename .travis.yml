@@ -1,9 +1,34 @@
-dist: trusty
 language: node_js
-node_js:
-  - '10'
-  - '8'
-install: npm i
+
+node_js: --lts
+
+cache: yarn
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - git config --global user.name 'JounQin'
+  - git config --global user.email 'admin@1stg.me'
+
+install: yarn --frozen-lockfile
+
 script:
-  - npm run check-format
-  - npm run test
+  - yarn lint
+  - yarn build
+  - yarn test
+
+# after_success:
+#   - yarn global add codecov codacy-coverage
+#   - codecov
+#   - cat ./coverage/lcov.info | codacy-coverage
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: bash deploy.sh
+  on:
+    branch: master
+
+after_script:
+  - yarn add -D @codechecks/client @codechecks/build-size-watcher @codechecks/type-coverage-watcher
+  - yarn codechecks

@@ -2,13 +2,27 @@
   "name": "eslint-import-resolver-ts",
   "version": "0.2.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
-  "main": "index.js",
+  "repository": "git@github.com/rx-ts/eslint-import-resolver-ts.git",
+  "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
+  "license": "ISC",
+  "engines": {
+    "node": ">=4"
+  },
+  "main": "lib/cjs.js",
+  "module": "lib/index.js",
+  "fesm5": "lib/esm.js",
+  "es2015": "lib/es2015.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "index.js"
+    "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rx-ts/eslint-import-resolver-ts"
+  "scripts": {
+    "build": "rimraf lib && tsc -b src && r",
+    "lint:md": "cross-env EFF_NO_LINK_RULES=true eslint . --ext md -f friendly",
+    "lint:src": "cross-env EFF_NO_LINK_RULES=true eslint src --ext js,ts -f friendly",
+    "lint": "run-p lint:*",
+    "pretest": "r",
+    "test": "eslint tests/**/index.ts"
   },
   "keywords": [
     "typescript",
@@ -17,8 +31,10 @@
     "resolver",
     "plugin"
   ],
-  "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
-  "license": "ISC",
+  "peerDependencies": {
+    "eslint": "*",
+    "eslint-plugin-import": "*"
+  },
   "dependencies": {
     "debug": "^4.1.1",
     "glob": "^7.1.4",
@@ -26,21 +42,33 @@
     "resolve": "^1.12.0",
     "tsconfig-paths": "^3.8.0"
   },
-  "peerDependencies": {
-    "eslint": "*",
-    "eslint-plugin-import": "*"
-  },
   "devDependencies": {
+    "@1stg/babel-preset": "^0.6.1",
+    "@1stg/eslint-config": "^0.9.3",
+    "@1stg/husky-config": "^0.3.0",
+    "@1stg/prettier-config": "^0.2.0",
+    "@1stg/remark-config": "^0.2.1",
+    "@1stg/rollup-config": "^0.9.3",
+    "@1stg/tsconfig": "^0.5.0",
+    "@babel/core": "^7.6.0",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@types/debug": "^4.1.5",
+    "@types/glob": "^7.1.1",
+    "@types/node": "^12.7.4",
+    "@types/resolve": "^0.0.8",
     "@types/unist": "^2.0.3",
-    "dummy.js": "file:dummy.js",
+    "cross-env": "^5.2.1",
+    "dummy.js": "link:dummy.js",
     "eslint": "^6.3.0",
+    "eslint-formatter-friendly": "^7.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.21.2",
     "typescript": "^3.6.3"
-  },
-  "scripts": {
-    "test": "eslint ./tests/withPaths/index.ts && eslint ./tests/withoutPaths/index.ts && eslint ./tests/multipleTsconfigs/**/index.ts",
-    "check-format": "prettier index.js -l",
-    "format": "prettier index.js --write"
   }
 }

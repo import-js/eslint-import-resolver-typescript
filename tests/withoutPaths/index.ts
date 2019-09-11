@@ -13,5 +13,5 @@ import 'dummy.js'
 // import from `@types/`
 import 'json5'
 
-// enable alwaysTryTypes 
+// enable alwaysTryTypes
 import 'unist'

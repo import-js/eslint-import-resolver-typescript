@@ -1,0 +1,67 @@
+name: Node CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node: [8.x, 10.x, 12.x]
+        os: [macOS-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: setup yarn
+        run: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+          export PATH="$HOME/.yarn/bin:$PATH"
+      - name: build, lint, test
+        run: |
+          yarn --frozen-lockfile
+          yarn lint
+          yarn build
+          yarn test
+        env:
+          CI: true
+
+  # codecov:
+  #   runs-on: macOS-latest
+  #   needs: build
+  #   steps:
+  #     - name: Report Test Code Coverage
+  #       if: matrix.node == '12.x'
+  #       run: |
+  #         yarn global add codecov codacy-coverage
+  #         codecov
+  #         cat ./coverage/lcov.info | codacy-coverage
+  #       env:
+  #         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  deploy:
+    runs-on: macOS-latest
+    needs: build
+    steps:
+      - name: Publish Release and npm Package
+        if: github.event_name == 'push' && github.ref	== 'master' && matrix.node == '12.x'
+        run: bash deploy.sh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_BRANCH: ${{ github.ref }}
+          GH_REPO: ${{ github.repository }}
+
+  codecheck:
+    runs-on: macOS-latest
+    needs: [build, deploy]
+    steps:
+      - name: Code Check
+        if: matrix.node == '12.x'
+        run: |
+          yarn add -D @codechecks/client @codechecks/build-size-watcher
+          yarn codechecks
+        env:
+          CC_SECRET: ${{ secrets.CC_SECRET }}

@@ -1,10 +1,6 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-    },
-    "files": [
-        "index.ts",
-        "tsImportee.ts",
-        "tsxImportee.tsx"
-    ]
+  "compilerOptions": {
+    "jsx": "react"
+  },
+  "files": ["index.ts", "tsImportee.ts", "tsxImportee.tsx"]
 }

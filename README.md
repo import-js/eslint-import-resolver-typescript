@@ -72,7 +72,6 @@ Add the following to your `.eslintrc` config:
 }
 ```
 
-
 ## Contributing
 
 - Make sure your change is covered by a test import.

@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = dirname => ({
   env: {
@@ -24,10 +24,10 @@ module.exports = dirname => ({
   },
   settings: {
     'import/resolver': {
-      [path.resolve(`${__dirname}/../index.js`)]: {
+      [path.resolve(__dirname, '../lib/cjs.js')]: {
         directory: dirname,
-        alwaysTryTypes: true
+        alwaysTryTypes: true,
       },
     },
   },
-});
+})
