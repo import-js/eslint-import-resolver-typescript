@@ -1,0 +1,9 @@
+checks:
+  - name: build-size-watcher
+    options:
+      files:
+        - path: 'lib/**/*.*'
+  - name: type-coverage-watcher
+    options:
+      ignoreCatch: true
+      strict: true

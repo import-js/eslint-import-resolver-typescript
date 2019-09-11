@@ -22,7 +22,8 @@
     "lint:src": "cross-env EFF_NO_LINK_RULES=true eslint src --ext js,ts -f friendly",
     "lint": "run-p lint:*",
     "pretest": "r",
-    "test": "eslint tests/**/index.ts"
+    "test": "eslint tests/**/index.ts",
+    "type-coverage": "type-coverage --cache --ignore-catch --detail --strict"
   },
   "keywords": [
     "typescript",
@@ -69,6 +70,7 @@
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
     "rollup": "^1.21.2",
+    "type-coverage": "^2.2.0",
     "typescript": "^3.6.3"
   }
 }
