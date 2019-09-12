@@ -18,11 +18,9 @@
   ],
   "scripts": {
     "build": "rimraf lib && tsc -b src && r",
-    "lint:md": "cross-env EFF_NO_LINK_RULES=true eslint . --ext md -f friendly",
-    "lint:src": "cross-env EFF_NO_LINK_RULES=true eslint src --ext js,ts -f friendly",
-    "lint": "run-p lint:*",
+    "lint": "cross-env EFF_NO_LINK_RULES=true eslint . --ext md,js,ts -f friendly --ignore-pattern tests",
     "pretest": "r",
-    "test": "eslint tests/**/index.ts",
+    "test": "cross-env EFF_NO_LINK_RULES=true eslint tests/**/*.{ts,tsx} -f friendly",
     "type-coverage": "type-coverage --cache --ignore-catch --detail --strict"
   },
   "keywords": [
@@ -47,6 +45,7 @@
     "@1stg/babel-preset": "^0.6.1",
     "@1stg/eslint-config": "^0.9.3",
     "@1stg/husky-config": "^0.3.0",
+    "@1stg/lint-staged": "^0.6.0",
     "@1stg/prettier-config": "^0.2.0",
     "@1stg/remark-config": "^0.2.1",
     "@1stg/rollup-config": "^0.9.3",
@@ -56,7 +55,7 @@
     "@commitlint/config-conventional": "^8.1.0",
     "@types/debug": "^4.1.5",
     "@types/glob": "^7.1.1",
-    "@types/node": "^12.7.4",
+    "@types/node": "^12.7.5",
     "@types/resolve": "^0.0.8",
     "@types/unist": "^2.0.3",
     "cross-env": "^5.2.1",

@@ -1,9 +1,9 @@
-const { md, mdx } = require('@1stg/eslint-config/overrides')
+const { js, md, mdx } = require('@1stg/eslint-config/overrides')
 
 module.exports = {
-  extends: ['plugin:prettier/recommended'],
-  overrides: [md, mdx],
+  extends: ['@1stg'],
+  overrides: [js, md, mdx],
   rules: {
-    'prettier/prettier': 2,
+    'node/no-unsupported-features/es-syntax': 0,
   },
 }

@@ -48,6 +48,11 @@
   resolved "https://registry.yarnpkg.com/@1stg/husky-config/-/husky-config-0.3.0.tgz#dcf89d1f791dfd04d8d1a3fc1b59ba97c57ed6be"
   integrity sha512-YKVLG5lc/qKPyY9by/mVPdZLMe3s1FuO1d0mCmCogYl6VTWW/98LW80B4pMcDTmHPBTjZfKUAwgVBIvaYVthBA==
 
+"@1stg/lint-staged@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@1stg/lint-staged/-/lint-staged-0.6.0.tgz#cdb0bca89e3815f1dfe28a9282b882d50b6bb241"
+  integrity sha512-NedCH9PEjEVy0R/FH0LoviWJP/aX2a0MDiDFqv+Jv68MqCeXWFFT9suY3NcZTjEf034Ofn9+dJ+9Z80qujFHyA==
+
 "@1stg/prettier-config@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@1stg/prettier-config/-/prettier-config-0.2.0.tgz#853c1142834f31d9287cd9e30f2b91d46e4961d6"
@@ -1411,6 +1416,11 @@
   version "12.7.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.4.tgz#64db61e0359eb5a8d99b55e05c729f130a678b04"
   integrity sha512-W0+n1Y+gK/8G2P/piTkBBN38Qc5Q1ZSO6B5H3QmPCUewaiXOo2GCAWZ4ElZCcNhjJuBSUSLGFUJnmlCn5+nxOQ==
+
+"@types/node@^12.7.5":
+  version "12.7.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.5.tgz#e19436e7f8e9b4601005d73673b6dc4784ffcc2f"
+  integrity sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"

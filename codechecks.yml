@@ -5,5 +5,6 @@ checks:
         - path: 'lib/**/*.*'
   - name: type-coverage-watcher
     options:
+      atLeast: 100
       ignoreCatch: true
       strict: true

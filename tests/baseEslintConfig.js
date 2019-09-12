@@ -1,18 +1,27 @@
 const path = require('path')
 
 module.exports = dirname => ({
-  env: {
-    es6: true,
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/errors',
+    'plugin:import/typescript',
+  ],
+  settings: {
+    'import/resolver': {
+      [path.resolve(__dirname, '../lib/cjs.js')]: {
+        directory: dirname,
+        alwaysTryTypes: true,
+      },
+    },
   },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  plugins: ['import'],
   rules: {
-    'import/no-unresolved': 'error',
+    'import/no-duplicates': 0,
+    'import/no-unresolved': 2,
     'import/extensions': [
-      'error',
+      2,
       'ignorePackages',
       {
         js: 'never',
@@ -21,13 +30,7 @@ module.exports = dirname => ({
         tsx: 'never',
       },
     ],
-  },
-  settings: {
-    'import/resolver': {
-      [path.resolve(__dirname, '../lib/cjs.js')]: {
-        directory: dirname,
-        alwaysTryTypes: true,
-      },
-    },
+    'node/no-extraneous-import': 0,
+    'node/no-missing-import': 0,
   },
 })
