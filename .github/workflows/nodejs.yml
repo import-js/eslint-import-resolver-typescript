@@ -24,9 +24,10 @@ jobs:
           yarn --frozen-lockfile
           yarn lint
           yarn build
-          yarn test
+          yarn eslint -f friendly tests/**/*.{ts,tsx}
         env:
           CI: true
+          EFF_NO_LINK_RULES: true
 
   # codecov:
   #   runs-on: macOS-latest

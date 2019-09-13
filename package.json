@@ -18,9 +18,9 @@
   ],
   "scripts": {
     "build": "rimraf lib && tsc -b src && r",
-    "lint": "cross-env EFF_NO_LINK_RULES=true eslint . --ext md,js,ts -f friendly --ignore-pattern tests",
+    "lint": "eslint --ext md,js,ts -f friendly --ignore-pattern tests .",
     "pretest": "r",
-    "test": "cross-env EFF_NO_LINK_RULES=true eslint tests/**/*.{ts,tsx} -f friendly",
+    "test": "eslint -f friendly tests/**/*.{ts,tsx}",
     "type-coverage": "type-coverage --cache --ignore-catch --detail --strict"
   },
   "keywords": [
@@ -39,11 +39,11 @@
     "glob": "^7.1.4",
     "is-glob": "^4.0.1",
     "resolve": "^1.12.0",
-    "tsconfig-paths": "^3.8.0"
+    "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
     "@1stg/babel-preset": "^0.6.1",
-    "@1stg/eslint-config": "^0.9.3",
+    "@1stg/eslint-config": "^0.10.0",
     "@1stg/husky-config": "^0.3.0",
     "@1stg/lint-staged": "^0.6.0",
     "@1stg/prettier-config": "^0.2.0",
@@ -58,7 +58,6 @@
     "@types/node": "^12.7.5",
     "@types/resolve": "^0.0.8",
     "@types/unist": "^2.0.3",
-    "cross-env": "^5.2.1",
     "dummy.js": "link:dummy.js",
     "eslint": "^6.3.0",
     "eslint-formatter-friendly": "^7.0.0",
