@@ -1,10 +1,5 @@
 #!/bin/sh
 
-set -e
-
-GH_BRANCH=${GH_BRANCH:-$TRAVIS_BRANCH}
-GH_REPO=${GH_REPO:-$TRAVIS_REPO_SLUG}
-
 git remote set-url origin "https://user:$GH_TOKEN@github.com/$GH_REPO.git"
 npm set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
 
