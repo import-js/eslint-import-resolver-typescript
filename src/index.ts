@@ -123,6 +123,7 @@ function getMappedPath(source: string, file: string) {
     .map(mapper => mapper(source, file))
     .filter(path => !!path)
 
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   if (paths.length > 1) {
     log('found multiple matching ts paths:', paths)
   }
@@ -190,6 +191,7 @@ function mangleScopedPackage(moduleName: string) {
   if (moduleName.startsWith('@')) {
     const replaceSlash = moduleName.replace(path.sep, '__')
     if (replaceSlash !== moduleName) {
+      // eslint-disable-next-line @typescript-eslint/no-magic-numbers
       return replaceSlash.slice(1) // Take off the "@"
     }
   }
