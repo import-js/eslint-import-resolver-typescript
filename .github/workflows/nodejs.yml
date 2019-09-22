@@ -22,8 +22,8 @@ jobs:
       - name: build, lint, test
         run: |
           yarn --frozen-lockfile
-          yarn lint
           yarn build
+          yarn lint
           yarn eslint -f friendly tests/**/*.{ts,tsx}
         env:
           CI: true

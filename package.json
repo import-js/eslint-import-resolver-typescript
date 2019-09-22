@@ -8,18 +8,19 @@
   "engines": {
     "node": ">=4"
   },
-  "main": "lib/cjs.js",
-  "module": "lib/index.js",
-  "fesm5": "lib/esm.js",
-  "es2015": "lib/es2015.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/cjs",
+  "module": "lib",
+  "fesm5": "lib/esm",
+  "es2015": "lib/es2015",
+  "types": "lib",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "rimraf lib && tsc -b src && r",
+    "build:ts": "tsc -b src",
+    "build:bundle": "r",
+    "build": "run-p build:*",
     "lint": "eslint --ext md,js,ts -f friendly --ignore-pattern tests .",
-    "pretest": "r",
     "test": "eslint -f friendly tests/**/*.{ts,tsx}",
     "type-coverage": "type-coverage --cache --ignore-catch --detail --strict"
   },
@@ -42,14 +43,14 @@
     "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.6.2",
+    "@1stg/babel-preset": "^0.7.0",
     "@1stg/commitlint-config": "^0.1.0",
-    "@1stg/eslint-config": "^0.12.1",
+    "@1stg/eslint-config": "^0.12.10",
     "@1stg/husky-config": "^0.3.0",
-    "@1stg/lint-staged": "^0.6.1",
+    "@1stg/lint-staged": "^0.7.4",
     "@1stg/prettier-config": "^0.2.0",
     "@1stg/remark-config": "^0.2.1",
-    "@1stg/rollup-config": "^0.9.4",
+    "@1stg/rollup-config": "^0.9.5",
     "@1stg/tsconfig": "^0.5.1",
     "@babel/core": "^7.6.0",
     "@commitlint/cli": "^8.2.0",
@@ -64,10 +65,13 @@
     "lint-staged": "^9.2.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
-    "rimraf": "^3.0.0",
+    "react": "^16.9.0",
     "rollup": "^1.21.4",
     "type-coverage": "^2.3.0",
     "typescript": "^3.6.3"
+  },
+  "resolutions": {
+    "eslint-import-resolver-ts": "link:."
   },
   "typeCoverage": {
     "atLeast": 100

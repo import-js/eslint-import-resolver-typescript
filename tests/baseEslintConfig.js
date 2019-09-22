@@ -1,6 +1,4 @@
-const path = require('path')
-
-module.exports = dirname => ({
+module.exports = directory => ({
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
@@ -11,8 +9,8 @@ module.exports = dirname => ({
   ],
   settings: {
     'import/resolver': {
-      [path.resolve(__dirname, '../lib/cjs.js')]: {
-        directory: dirname,
+      ts: {
+        directory,
         alwaysTryTypes: true,
       },
     },
