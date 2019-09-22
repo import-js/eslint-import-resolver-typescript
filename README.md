@@ -69,7 +69,7 @@ Add the following to your `.eslintrc` config:
 
       // use a glob pattern
       "ts": {
-        "directory": "./packages/**/tsconfig.json"
+        "directory": "./packages/*/tsconfig.json"
       },
 
       // use an array
@@ -83,8 +83,8 @@ Add the following to your `.eslintrc` config:
       // use an array of glob patterns
       "ts": {
         "directory": [
-          "./packages/**/tsconfig.json",
-          "./other-packages/**/tsconfig.json"
+          "./packages/*/tsconfig.json",
+          "./other-packages/*/tsconfig.json"
         ]
       }
     }

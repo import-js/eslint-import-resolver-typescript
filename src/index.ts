@@ -6,11 +6,11 @@ import {
   loadConfig,
   ConfigLoaderResult,
 } from 'tsconfig-paths'
-import isGlob from 'is-glob'
+import globSync from 'tiny-glob/sync'
 
+import isGlob from 'is-glob'
 import { isCore, sync } from 'resolve'
 import debug from 'debug'
-import { sync as globSync } from 'glob'
 
 const log = debug('eslint-import-resolver-ts')
 
@@ -96,7 +96,7 @@ export function resolve(
     }
   }
 
-  log("didn't find", source)
+  log("didn't find ", source)
 
   return {
     found: false,
@@ -151,7 +151,7 @@ function initMappers(options: TsResolverOptions) {
       (paths, path) => paths.concat(isGlob(path) ? globSync(path) : path),
       [],
     )
-    .map(path => loadConfig(path))
+    .map(loadConfig)
     .filter(isConfigLoaderSuccessResult)
     .map(configLoaderResult => {
       const matchPath = createMatchPath(
