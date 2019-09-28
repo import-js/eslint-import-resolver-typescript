@@ -1,6 +1,6 @@
 {
-  "name": "eslint-import-resolver-ts",
-  "version": "0.4.0",
+  "name": "eslint-import-resolver-typescript",
+  "version": "2.0.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "repository": "git@github.com/rx-ts/eslint-import-resolver-ts.git",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build:ts": "tsc -b src",
-    "build:bundle": "r --externals tiny-glob/sync",
+    "build:bundle": "r",
     "build": "run-p build:*",
     "lint": "eslint --ext md,js,ts -f friendly --ignore-pattern tests .",
     "test": "eslint -f friendly tests/**/*.{ts,tsx}",
@@ -50,7 +50,7 @@
     "@1stg/lint-staged": "^0.7.4",
     "@1stg/prettier-config": "^0.2.0",
     "@1stg/remark-config": "^0.2.1",
-    "@1stg/rollup-config": "^0.9.5",
+    "@1stg/rollup-config": "^0.11.4",
     "@1stg/tsconfig": "^0.5.1",
     "@babel/core": "^7.6.0",
     "@commitlint/cli": "^8.2.0",
@@ -61,6 +61,7 @@
     "@types/unist": "^2.0.3",
     "dummy.js": "link:dummy.js",
     "eslint": "^6.4.0",
+    "eslint-import-resolver-typescript": "link:.",
     "husky": "^3.0.5",
     "lint-staged": "^9.3.0",
     "npm-run-all": "^4.1.5",
@@ -71,7 +72,7 @@
     "typescript": "^3.6.3"
   },
   "resolutions": {
-    "eslint-import-resolver-ts": "link:."
+    "eslint-import-resolver-typescript": "link:."
   },
   "typeCoverage": {
     "atLeast": 100

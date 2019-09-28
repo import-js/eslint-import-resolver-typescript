@@ -9,7 +9,7 @@ module.exports = directory => ({
   ],
   settings: {
     'import/resolver': {
-      ts: {
+      typescript: {
         directory,
         alwaysTryTypes: true,
       },
