@@ -1,0 +1,10 @@
+checks:
+  - name: build-size-watcher
+    options:
+      files:
+        - path: 'lib/index.js'
+  - name: type-coverage-watcher
+    options:
+      atLeast: 100
+      ignoreCatch: true
+      strict: true
