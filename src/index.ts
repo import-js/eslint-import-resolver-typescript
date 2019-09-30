@@ -17,6 +17,7 @@ const log = debug('eslint-import-resolver-ts')
 const extensions = ['.ts', '.tsx', '.d.ts'].concat(
   // eslint-disable-next-line node/no-deprecated-api
   Object.keys(require.extensions),
+  '.jsx',
 )
 
 export const interfaceVersion = 2
