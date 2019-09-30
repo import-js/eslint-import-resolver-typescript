@@ -14,7 +14,7 @@ import debug from 'debug'
 
 const log = debug('eslint-import-resolver-ts')
 
-const extensions = ['.ts', '.tsx', '.d.ts'].concat(
+const extensions = ['.ts', '.tsx', '.d.ts', '.jsx'].concat(
   // eslint-disable-next-line node/no-deprecated-api
   Object.keys(require.extensions),
 )
