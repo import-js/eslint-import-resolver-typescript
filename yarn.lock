@@ -93,30 +93,6 @@
     remark-preset-lint-recommended "^3.0.3"
     remark-preset-prettier "^0.2.2"
 
-"@1stg/rollup-config@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@1stg/rollup-config/-/rollup-config-0.12.0.tgz#8c62b21686705ab6b2ce30572949b443d5675c7e"
-  integrity sha512-VG0j3p+gNTCSxf5dXjcPTi467rN4UgD7z2p/YdqGivisue2owDZtdKkoL9knf1rawQ1ZsAJxAlfYndvE9myWYQ==
-  dependencies:
-    "@babel/preset-env" "^7.6.2"
-    "@pkgr/named-exports" "^0.2.3"
-    "@pkgr/umd-globals" "^0.2.2"
-    "@rxts/rollup-plugin-alias" "^0.1.0-beta"
-    builtin-modules "^3.1.0"
-    commander "^3.0.1"
-    debug "^4.1.1"
-    jsox "^1.1.115"
-    lodash "^4.17.15"
-    rollup-plugin-babel "^4.3.3"
-    rollup-plugin-commonjs "^10.1.0"
-    rollup-plugin-json "^4.0.0"
-    rollup-plugin-node-resolve "^5.2.0"
-    rollup-plugin-postcss "^2.0.3"
-    rollup-plugin-replace "^2.2.0"
-    rollup-plugin-terser "^5.1.2"
-    rollup-plugin-typescript "^1.0.1"
-    rollup-plugin-url "^2.2.2"
-
 "@1stg/tsconfig@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@1stg/tsconfig/-/tsconfig-0.6.0.tgz#1157f7474fb217b9f56b511677e19cd569ff5072"
@@ -1330,15 +1306,39 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@pkgr/named-exports@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@pkgr/named-exports/-/named-exports-0.2.3.tgz#812d20384e8bed05c15805ea54a71f3940bcf70b"
-  integrity sha512-b/xD79VwTGytC2IYYy2vDzrWfLHFx2VFW+ujjUgeBn0RdXtAOnm0tBtjmg0QiKDNukO3BhxtiOXgPt4oNWsC7Q==
+"@pkgr/named-exports@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@pkgr/named-exports/-/named-exports-0.3.0.tgz#fffb72c50eb359f71d22066f5ae9eefa9a8c15e2"
+  integrity sha512-oNStMLh73dEmn443mmqPtdzAqY7FzudJDQXsgBI0lk0m/DI8SqH50IwHVX4NQaaAeIQ+5mx52qEaO34khHIUuA==
 
-"@pkgr/umd-globals@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.2.2.tgz#3ef9803bdcfde67806d3b06b20edae0b9f272ab3"
-  integrity sha512-hKRNzCZMs9ZOLdLb5hWFiCTDydpUlcPmA2lpYrYrC6Wpews1p/LUfaHPKZzw1C4SN8KjJAunU4eF5Ym+2AY1GA==
+"@pkgr/rollup@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@pkgr/rollup/-/rollup-0.2.4.tgz#5872bf5b7624f4fe4ebe4c851a6d650798506a6c"
+  integrity sha512-BSjncoN2BXkwNd858yR8H57u0F01pFJ99hoq4Jr/8jpJbB2gPo2JkO1NruhhkLy9t41FnDpjRdhsVN0Y/M6/BQ==
+  dependencies:
+    "@babel/preset-env" "^7.6.2"
+    "@pkgr/named-exports" "^0.3.0"
+    "@pkgr/umd-globals" "^0.3.0"
+    "@rxts/rollup-plugin-alias" "^0.1.0-beta"
+    builtin-modules "^3.1.0"
+    commander "^3.0.2"
+    debug "^4.1.1"
+    jsox "^1.1.115"
+    lodash "^4.17.15"
+    rollup-plugin-babel "^4.3.3"
+    rollup-plugin-commonjs "^10.1.0"
+    rollup-plugin-json "^4.0.0"
+    rollup-plugin-node-resolve "^5.2.0"
+    rollup-plugin-postcss "^2.0.3"
+    rollup-plugin-replace "^2.2.0"
+    rollup-plugin-terser "^5.1.2"
+    rollup-plugin-typescript "^1.0.1"
+    rollup-plugin-url "^2.2.2"
+
+"@pkgr/umd-globals@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@pkgr/umd-globals/-/umd-globals-0.3.0.tgz#ba82ddc4b6c2f864b4635fa8a6257f65f57b40b3"
+  integrity sha512-tnSeL23iFiqgmN6ISWG5cTJ/Cv7Kol81MolfPowYj63rAtEXyr0p1uHBXxFWUyM7WNUGJSUw98xdOdTzh1+BaQ==
 
 "@prettier/plugin-pug@^1.0.4":
   version "1.0.4"
@@ -2191,7 +2191,7 @@ commander@^2.20.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.1.tgz#3863ce3ca92d0831dcf2a102f5fb4b5926afd0f9"
   integrity sha512-cCuLsMhJeWQ/ZpsFTbE765kvVfoeSddc4nU3up4fV+fDBcfUXnbITJ+JzhkdjzOqhURjZgujxaioam4RM9yGUg==
 
-commander@^3.0.1:
+commander@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
   integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
