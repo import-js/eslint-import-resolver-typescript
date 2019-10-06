@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "inlineSources": true,
-    "outDir": "../lib"
-  }
-}
