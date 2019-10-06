@@ -1,0 +1,3 @@
+{
+  "extends": "@1stg/eslint-config/recommended"
+}
