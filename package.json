@@ -2,7 +2,7 @@
   "name": "eslint-import-resolver-typescript",
   "version": "2.0.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
-  "repository": "git@github.com/rx-ts/eslint-import-resolver-ts.git",
+  "repository": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
   "license": "ISC",
   "engines": {
