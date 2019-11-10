@@ -25,9 +25,16 @@ This means you can:
 
 ## TOC <!-- omit in toc -->
 
+- [Notice](#notice)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
+
+## Notice
+
+After version 2.0.0, `.d.ts` will take higher priority then normal `.js` files on resolving `node_modules` packages in favor of `@types/*` definitions.
+
+If you're facing some problems on rules `import/default` or `import/named` from [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import), do not post any issue here, because they are just working exactly as [expected](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/31#issuecomment-539751607) on our sides, take <https://github.com/benmosher/eslint-plugin-import/issues/1525> as reference or post a new issue to [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) instead.
 
 ## Installation
 
@@ -62,29 +69,29 @@ Add the following to your `.eslintrc` config:
 
       // use <root>/path/to/folder/tsconfig.json
       "typescript": {
-        "directory": "./path/to/folder"
+        "directory": "path/to/folder"
       },
 
       // Multiple tsconfigs (Useful for monorepos)
 
       // use a glob pattern
       "typescript": {
-        "directory": "./packages/*/tsconfig.json"
+        "directory": "packages/*/tsconfig.json"
       },
 
       // use an array
       "typescript": {
         "directory": [
-          "./packages/module-a/tsconfig.json",
-          "./packages/module-b/tsconfig.json"
+          "packages/module-a/tsconfig.json",
+          "packages/module-b/tsconfig.json"
         ]
       },
 
       // use an array of glob patterns
       "typescript": {
         "directory": [
-          "./packages/*/tsconfig.json",
-          "./other-packages/*/tsconfig.json"
+          "packages/*/tsconfig.json",
+          "other-packages/*/tsconfig.json"
         ]
       }
     }

@@ -7,7 +7,6 @@ import {
   ConfigLoaderResult,
 } from 'tsconfig-paths'
 import globSync from 'tiny-glob/sync'
-
 import isGlob from 'is-glob'
 import { isCore, sync } from 'resolve'
 import debug from 'debug'
