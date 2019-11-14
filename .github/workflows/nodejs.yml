@@ -6,8 +6,8 @@ jobs:
   default:
     strategy:
       matrix:
-        node: [12]
-        os: [macOS-latest, ubuntu-latest]
+        node: [10, 12]
+        os: [macOS-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v1
@@ -22,34 +22,10 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Build, Lint and Test
-        run: |
-          yarn build
-          yarn lint
-          yarn test
+        run: yarn run-s build lint test type-coverage
         env:
           EFF_NO_LINK_RULES: 'true'
           PARSER_NO_WATCH: 'true'
-
-      - name: Codecov
-        if: matrix.os == 'macOS-latest'
-        run: |
-          yarn global add codecov codacy-coverage
-          codecov
-          cat ./coverage/lcov.info | codacy-coverage --username JounQin --projectName babel-preset-proposal-typescript
-        env:
-          CI: 'true'
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          CODACY_ACCOUNT_TOKEN: ${{ secrets.CODACY_ACCOUNT_TOKEN }}
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
-
-      - name: Code Checks
-        if: matrix.os == 'macOS-latest'
-        run: |
-          yarn global add @codechecks/client @codechecks/build-size-watcher
-          codechecks
-        env:
-          CI: 'true'
-          CC_SECRET: ${{ secrets.CC_SECRET }}
 
       - name: Publish GitHub Release and npm Package
         if: matrix.os == 'macOS-latest' && github.event_name == 'push' && github.ref	== 'refs/heads/master'

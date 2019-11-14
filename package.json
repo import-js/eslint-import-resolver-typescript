@@ -28,10 +28,10 @@
     "build:r": "r",
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
-    "lint:es": "cross-env PARSER_NO_WATCH=true eslint src --ext md,js,ts -f friendly",
+    "lint:es": "cross-env PARSER_NO_WATCH=true eslint src --cache --ext md,js,ts -f friendly",
     "lint:tsc": "tsc --noEmit",
     "pretest": "r",
-    "test": "cross-env PARSER_NO_WATCH=true eslint tests/**/*.{ts,tsx} -f friendly",
+    "test": "cross-env PARSER_NO_WATCH=true eslint tests/**/*.{ts,tsx} --cache -f friendly",
     "type-coverage": "type-coverage --cache --detail --ignore-catch --strict"
   },
   "peerDependencies": {
@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^0.1.13",
-    "@pkgr/rollup": "^0.8.2",
     "@types/debug": "^4.1.5",
     "@types/is-glob": "^4.0.1",
     "@types/node": "^12.12.7",
@@ -62,9 +61,7 @@
   },
   "resolutions": {
     "@babel/core": "^7.7.2",
-    "eslint-import-resolver-typescript": "link:.",
-    "prettier": "^1.19.1",
-    "rollup": "~1.25.2"
+    "eslint-import-resolver-typescript": "link:."
   },
   "typeCoverage": {
     "atLeast": 100
