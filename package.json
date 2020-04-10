@@ -33,6 +33,7 @@
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint src --cache --ext md,js,ts -f friendly",
     "lint:tsc": "tsc --incremental false --noEmit",
+    "prepublishOnly": "yarn build",
     "pretest": "r",
     "test:withPaths": "eslint --ext ts,tsx tests/withPaths",
     "test:withoutPaths": "eslint --ext ts,tsx tests/withoutPaths",
