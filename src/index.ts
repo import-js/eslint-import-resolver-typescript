@@ -33,11 +33,13 @@ export interface TsResolverOptions {
 export function resolve(
   source: string,
   file: string,
-  options: TsResolverOptions = {},
+  options: TsResolverOptions | null,
 ): {
   found: boolean
   path?: string | null
 } {
+  options = options || {}
+
   log('looking for:', source)
 
   // don't worry about core node modules
