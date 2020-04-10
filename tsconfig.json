@@ -1,5 +1,5 @@
 {
-  "extends": "@1stg/tsconfig/lib",
+  "extends": "./node_modules/@1stg/tsconfig/lib.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "lib"

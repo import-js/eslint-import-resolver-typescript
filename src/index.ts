@@ -6,12 +6,12 @@ import {
   loadConfig,
   ConfigLoaderResult,
 } from 'tsconfig-paths'
-import globSync from 'tiny-glob/sync'
+import { sync as globSync } from 'glob'
 import isGlob from 'is-glob'
 import { isCore, sync } from 'resolve'
 import debug from 'debug'
 
-const log = debug('eslint-import-resolver-ts')
+const log = debug('eslint-import-resolver-typescript')
 
 const extensions = ['.ts', '.tsx', '.d.ts'].concat(
   // eslint-disable-next-line node/no-deprecated-api

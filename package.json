@@ -4,6 +4,9 @@
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "repository": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
+  "contributors": [
+    "JounQin <admin@1stg.me>"
+  ],
   "license": "ISC",
   "engines": {
     "node": ">=4"
@@ -29,9 +32,12 @@
     "build:ts": "tsc -b",
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint src --cache --ext md,js,ts -f friendly",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc --incremental false --noEmit",
     "pretest": "r",
-    "test": "cross-env PARSER_NO_WATCH=true eslint tests/**/*.{ts,tsx} --cache -f friendly",
+    "test:withPaths": "eslint --ext ts,tsx tests/withPaths",
+    "test:withoutPaths": "eslint --ext ts,tsx tests/withoutPaths",
+    "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
+    "test": "run-p test:*",
     "type-coverage": "type-coverage --cache --detail --ignore-catch --strict"
   },
   "peerDependencies": {
@@ -40,27 +46,27 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
+    "glob": "^7.1.6",
     "is-glob": "^4.0.1",
-    "resolve": "^1.12.0",
-    "tiny-glob": "^0.2.6",
+    "resolve": "^1.15.1",
     "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^0.1.13",
+    "@1stg/lib-config": "^0.4.5",
     "@types/debug": "^4.1.5",
+    "@types/glob": "^7.1.1",
     "@types/is-glob": "^4.0.1",
-    "@types/node": "^12.12.7",
-    "@types/resolve": "^0.0.8",
+    "@types/node": "^13.11.1",
+    "@types/resolve": "^1.14.0",
     "@types/unist": "^2.0.3",
     "dummy.js": "link:dummy.js",
     "eslint-import-resolver-typescript": "link:.",
     "npm-run-all": "^4.1.5",
-    "react": "^16.11.0",
-    "type-coverage": "^2.3.0",
-    "typescript": "^3.7.2"
+    "react": "^16.13.1",
+    "type-coverage": "^2.4.2",
+    "typescript": "^3.8.3"
   },
   "resolutions": {
-    "@babel/core": "^7.7.2",
     "eslint-import-resolver-typescript": "link:."
   },
   "typeCoverage": {
