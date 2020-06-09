@@ -13,7 +13,7 @@ import debug from 'debug'
 
 const log = debug('eslint-import-resolver-typescript')
 
-const extensions = ['.ts', '.tsx', '.d.ts'].concat(
+const defaultExtensions = ['.ts', '.tsx', '.d.ts'].concat(
   // eslint-disable-next-line node/no-deprecated-api
   Object.keys(require.extensions),
   '.jsx',
@@ -24,6 +24,8 @@ export const interfaceVersion = 2
 export interface TsResolverOptions {
   alwaysTryTypes?: boolean
   directory?: string | string[]
+  extensions?: string[]
+  packageFilter?: (pkg: Record<string, string>) => Record<string, string>
 }
 
 /**
@@ -62,9 +64,9 @@ export function resolve(
   let foundNodePath: string | null | undefined
   try {
     foundNodePath = sync(mappedPath || source, {
-      extensions,
+      extensions: options.extensions || defaultExtensions,
       basedir: path.dirname(path.resolve(file)),
-      packageFilter,
+      packageFilter: options.packageFilter || packageFilterDefault,
     })
   } catch (err) {
     foundNodePath = null
@@ -105,7 +107,7 @@ export function resolve(
   }
 }
 
-function packageFilter(pkg: Record<string, string>) {
+function packageFilterDefault(pkg: Record<string, string>) {
   pkg.main =
     pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main
   return pkg
@@ -168,7 +170,12 @@ function initMappers(options: TsResolverOptions) {
         }
 
         // look for files based on setup tsconfig "paths"
-        return matchPath(source, undefined, undefined, extensions)
+        return matchPath(
+          source,
+          undefined,
+          undefined,
+          options.extensions || defaultExtensions,
+        )
       }
     })
 }
