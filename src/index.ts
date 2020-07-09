@@ -111,6 +111,7 @@ function packageFilter(pkg: Record<string, string>) {
   return pkg
 }
 
+let mappersBuildForOptions: TsResolverOptions
 let mappers:
   | Array<(source: string, file: string) => string | undefined>
   | undefined
@@ -133,7 +134,7 @@ function getMappedPath(source: string, file: string) {
 }
 
 function initMappers(options: TsResolverOptions) {
-  if (mappers) {
+  if (mappers && mappersBuildForOptions === options) {
     return
   }
 
@@ -171,6 +172,8 @@ function initMappers(options: TsResolverOptions) {
         return matchPath(source, undefined, undefined, extensions)
       }
     })
+
+  mappersBuildForOptions = options
 }
 
 function isConfigLoaderSuccessResult(

@@ -35,10 +35,11 @@
     "lint:tsc": "tsc --incremental false --noEmit",
     "prepublishOnly": "yarn build",
     "pretest": "r",
+    "test": "run-p test:*",
+    "test:multipleEslintrcs": "eslint --ext ts,tsx tests/multipleEslintrcs",
+    "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
     "test:withPaths": "eslint --ext ts,tsx tests/withPaths",
     "test:withoutPaths": "eslint --ext ts,tsx tests/withoutPaths",
-    "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
-    "test": "run-p test:*",
     "type-coverage": "type-coverage --cache --detail --ignore-catch --strict"
   },
   "peerDependencies": {
