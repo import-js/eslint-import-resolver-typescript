@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.1.0...v2.2.0) (2020-07-30)
+
+
+### Features
+
+* rename option `directory` to `project` - close [#23](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/23) ([a662fc1](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/a662fc14f6833daf3b7a71f9137d1cbf9abb2b7c))
+
 ## [2.1.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.0.0...v2.1.0) (2020-07-30)
 
 
