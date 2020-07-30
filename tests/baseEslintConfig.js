@@ -1,4 +1,4 @@
-module.exports = directory => ({
+module.exports = project => ({
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
@@ -10,7 +10,7 @@ module.exports = directory => ({
   settings: {
     'import/resolver': {
       typescript: {
-        directory,
+        project,
         alwaysTryTypes: true,
       },
     },

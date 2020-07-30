@@ -69,19 +69,19 @@ Add the following to your `.eslintrc` config:
 
       // use <root>/path/to/folder/tsconfig.json
       "typescript": {
-        "directory": "path/to/folder"
+        "project": "path/to/folder"
       },
 
       // Multiple tsconfigs (Useful for monorepos)
 
       // use a glob pattern
       "typescript": {
-        "directory": "packages/*/tsconfig.json"
+        "project": "packages/*/tsconfig.json"
       },
 
       // use an array
       "typescript": {
-        "directory": [
+        "project": [
           "packages/module-a/tsconfig.json",
           "packages/module-b/tsconfig.json"
         ]
@@ -89,7 +89,7 @@ Add the following to your `.eslintrc` config:
 
       // use an array of glob patterns
       "typescript": {
-        "directory": [
+        "project": [
           "packages/*/tsconfig.json",
           "other-packages/*/tsconfig.json"
         ]

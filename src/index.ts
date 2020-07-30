@@ -11,7 +11,9 @@ import isGlob from 'is-glob'
 import { isCore, sync } from 'resolve'
 import debug from 'debug'
 
-const log = debug('eslint-import-resolver-typescript')
+const IMPORTER_NAME = 'eslint-import-resolver-typescript'
+
+const log = debug(IMPORTER_NAME)
 
 const defaultExtensions = ['.ts', '.tsx', '.d.ts'].concat(
   // eslint-disable-next-line node/no-deprecated-api
@@ -23,7 +25,11 @@ export const interfaceVersion = 2
 
 export interface TsResolverOptions {
   alwaysTryTypes?: boolean
+  /**
+   * @deprecated use `project` instead
+   */
   directory?: string | string[]
+  project?: string | string[]
   extensions?: string[]
   packageFilter?: (pkg: Record<string, string>) => Record<string, string>
 }
@@ -31,6 +37,7 @@ export interface TsResolverOptions {
 /**
  * @param {string} source the module to resolve; i.e './some-module'
  * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
+ * @param {TsResolverOptions} options
  */
 export function resolve(
   source: string,
@@ -140,17 +147,24 @@ function initMappers(options: TsResolverOptions) {
     return
   }
 
-  const isArrayOfStrings = (array?: string | string[]) =>
-    Array.isArray(array) && array.every(o => typeof o === 'string')
+  if (options.directory) {
+    console.warn(
+      `[${IMPORTER_NAME}]: option \`directory\` is deprecated, please use \`project\` instead`,
+    )
+
+    if (!options.project) {
+      options.project = options.directory
+    }
+  }
 
   const configPaths =
-    typeof options.directory === 'string'
-      ? [options.directory]
-      : isArrayOfStrings(options.directory)
-      ? options.directory
+    typeof options.project === 'string'
+      ? [options.project]
+      : Array.isArray(options.project)
+      ? options.project
       : [process.cwd()]
 
-  mappers = configPaths!
+  mappers = configPaths
     // turn glob patterns into paths
     .reduce<string[]>(
       (paths, path) => paths.concat(isGlob(path) ? globSync(path) : path),
