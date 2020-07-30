@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.0.0...v2.1.0) (2020-07-30)
+
+
+### Bug Fixes
+
+* options could be null - close [#42](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/42) ([81db8eb](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/81db8eb0ae81af437e11b6341d8f237bc4bc4e39))
+* typo ([#40](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/40)) ([585509e](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/585509e95f93adf8b7ef5839029c19c55edbe76e))
+* wrong path resolution in multiple eslintrc configurations ([#51](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/51)) ([d563eeb](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/d563eeb2af2938b9ff7f75e0492a5a26112a4772)), closes [#50](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/50)
+
 ## [2.0.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v1.1.1...v2.0.0) (2019-10-17)
 
 
