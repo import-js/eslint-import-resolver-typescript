@@ -26,13 +26,3 @@ jobs:
         env:
           EFF_NO_LINK_RULES: 'true'
           PARSER_NO_WATCH: 'true'
-
-      - name: Publish GitHub Release and npm Package
-        if: matrix.os == 'macOS-latest' && github.event_name == 'push' && github.ref	== 'refs/heads/master'
-        run: bash scripts/deploy.sh
-        env:
-          CI: 'true'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_BRANCH: master
-          GH_REPO: ${{ github.repository }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
