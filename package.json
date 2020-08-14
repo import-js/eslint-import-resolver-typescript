@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "repository": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
@@ -33,7 +33,7 @@
     "lint": "run-p lint:*",
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint src --cache --ext md,js,ts -f friendly",
     "lint:tsc": "tsc --incremental false --noEmit",
-    "postinstall": "yarn-deduplicate || exit 0",
+    "prepare": "yarn-deduplicate || exit 0",
     "prepublishOnly": "yarn build",
     "pretest": "r",
     "release": "sh scripts/release.sh",
