@@ -8,7 +8,7 @@ import {
 } from 'tsconfig-paths'
 import { sync as globSync } from 'glob'
 import isGlob from 'is-glob'
-import { isCore, sync } from 'resolve'
+import { isCore, sync, SyncOpts } from 'resolve'
 import debug from 'debug'
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
@@ -70,7 +70,7 @@ export function resolve(
   // note that even if we map the path, we still need to do a final resolve
   let foundNodePath: string | null | undefined
   try {
-    foundNodePath = sync(mappedPath || source, {
+    foundNodePath = tsResolve(mappedPath || source, {
       extensions: options.extensions || defaultExtensions,
       basedir: path.dirname(path.resolve(file)),
       packageFilter: options.packageFilter || packageFilterDefault,
@@ -120,6 +120,27 @@ function packageFilterDefault(pkg: Record<string, string>) {
   return pkg
 }
 
+/**
+ * Like `sync` from `resolve` package, but considers that the module id
+ * could have a .js or .jsx extension.
+ */
+function tsResolve(id: string, opts?: SyncOpts): string {
+  try {
+    return sync(id, opts)
+  } catch (error) {
+    const idWithoutJsExt = removeJsExtension(id)
+    if (idWithoutJsExt !== id) {
+      return sync(idWithoutJsExt, opts)
+    }
+    throw error
+  }
+}
+
+/** Remove .js or .jsx extension from module id. */
+function removeJsExtension(id: string) {
+  return id.replace(/\.jsx?$/, '')
+}
+
 let mappersBuildForOptions: TsResolverOptions
 let mappers:
   | Array<(source: string, file: string) => string | undefined>
@@ -140,6 +161,24 @@ function getMappedPath(source: string, file: string) {
   }
 
   return paths[0]
+}
+
+/**
+ * Like `createMatchPath` from `tsconfig-paths` package, but considers
+ * that the module id could have a .js or .jsx extension.
+ */
+const createExtendedMatchPath: typeof createMatchPath = (
+  absoluteBaseUrl,
+  paths,
+  ...rest
+) => {
+  const matchPath = createMatchPath(absoluteBaseUrl, paths, ...rest)
+
+  return (id, ...otherArgs) => {
+    const match = matchPath(id, ...otherArgs)
+    if (match != null) return match
+    return matchPath(removeJsExtension(id), ...otherArgs)
+  }
 }
 
 function initMappers(options: TsResolverOptions) {
@@ -175,7 +214,7 @@ function initMappers(options: TsResolverOptions) {
     // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
     .filter(isConfigLoaderSuccessResult)
     .map(configLoaderResult => {
-      const matchPath = createMatchPath(
+      const matchPath = createExtendedMatchPath(
         configLoaderResult.absoluteBaseUrl,
         configLoaderResult.paths,
       )
