@@ -177,7 +177,11 @@ const createExtendedMatchPath: typeof createMatchPath = (
   return (id, ...otherArgs) => {
     const match = matchPath(id, ...otherArgs)
     if (match != null) return match
-    return matchPath(removeJsExtension(id), ...otherArgs)
+
+    const idWithoutJsExt = removeJsExtension(id)
+    if (idWithoutJsExt !== id) {
+      return matchPath(idWithoutJsExt, ...otherArgs)
+    }
   }
 }
 
