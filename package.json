@@ -40,6 +40,7 @@
     "test": "run-p test:*",
     "test:multipleEslintrcs": "eslint --ext ts,tsx tests/multipleEslintrcs",
     "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
+    "test:withJsExtension": "node tests/withJsExtension/test.js && eslint --ext ts,tsx tests/withJsExtension",
     "test:withPaths": "eslint --ext ts,tsx tests/withPaths",
     "test:withoutPaths": "eslint --ext ts,tsx tests/withoutPaths",
     "type-coverage": "type-coverage --cache --detail --ignore-catch --strict --update"
@@ -77,6 +78,6 @@
     "prettier": "^2.0.5"
   },
   "typeCoverage": {
-    "atLeast": 98.73
+    "atLeast": 99.27
   }
 }
