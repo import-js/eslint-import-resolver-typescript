@@ -167,12 +167,8 @@ function getMappedPath(source: string, file: string) {
  * Like `createMatchPath` from `tsconfig-paths` package, but considers
  * that the module id could have a .js or .jsx extension.
  */
-const createExtendedMatchPath: typeof createMatchPath = (
-  absoluteBaseUrl,
-  paths,
-  ...rest
-) => {
-  const matchPath = createMatchPath(absoluteBaseUrl, paths, ...rest)
+const createExtendedMatchPath: typeof createMatchPath = (...createArgs) => {
+  const matchPath = createMatchPath(...createArgs)
 
   return (id, ...otherArgs) => {
     const match = matchPath(id, ...otherArgs)
