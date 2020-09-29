@@ -17,7 +17,7 @@
   "fesm5": "lib/esm",
   "types": "lib",
   "files": [
-    "lib"
+    "lib/*.{js,js.map,d.ts}"
   ],
   "keywords": [
     "typescript",
