@@ -62,33 +62,26 @@ Add the following to your `.eslintrc` config:
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
-      // use <root>/tsconfig.json
       "typescript": {
-        "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-      },
+        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
-      // use <root>/path/to/folder/tsconfig.json
-      "typescript": {
-        "project": "path/to/folder"
-      },
+        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
-      // Multiple tsconfigs (Useful for monorepos)
+        // use <root>/path/to/folder/tsconfig.json
+        "project": "path/to/folder",
 
-      // use a glob pattern
-      "typescript": {
-        "project": "packages/*/tsconfig.json"
-      },
+        // Multiple tsconfigs (Useful for monorepos)
 
-      // use an array
-      "typescript": {
+        // use a glob pattern
+        "project": "packages/*/tsconfig.json",
+
+        // use an array
         "project": [
           "packages/module-a/tsconfig.json",
           "packages/module-b/tsconfig.json"
-        ]
-      },
+        ],
 
-      // use an array of glob patterns
-      "typescript": {
+        // use an array of glob patterns
         "project": [
           "packages/*/tsconfig.json",
           "other-packages/*/tsconfig.json"
