@@ -51,6 +51,8 @@ export function resolve(
 
   log('looking for:', source)
 
+  source = removeQuerystring(source)
+
   // don't worry about core node modules
   if (isCore(source)) {
     log('matched core:', source)
@@ -134,6 +136,15 @@ function tsResolve(id: string, opts?: SyncOpts): string {
     }
     throw error
   }
+}
+
+/** Remove any trailing querystring from module id. */
+function removeQuerystring(id: string) {
+  const querystringIndex = id.lastIndexOf('?')
+  if (querystringIndex >= 0) {
+    return id.slice(0, querystringIndex)
+  }
+  return id
 }
 
 /** Remove .js or .jsx extension from module id. */
