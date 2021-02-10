@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "root/",
+    "paths": {
+      "other/*": ["../other/*"]
+    }
+  },
+  "files": ["root/foo.ts", "other/bar.ts"]
+}
