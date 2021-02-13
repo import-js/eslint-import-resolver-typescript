@@ -64,7 +64,7 @@ export function resolve(
   }
 
   initMappers(options)
-  const mappedPath = getMappedPath(source, file)
+  const mappedPath = getMappedPath(source)
   if (mappedPath) {
     log('matched ts path:', mappedPath)
   }
@@ -153,19 +153,15 @@ function removeJsExtension(id: string) {
 }
 
 let mappersBuildForOptions: TsResolverOptions
-let mappers:
-  | Array<(source: string, file: string) => string | undefined>
-  | undefined
+let mappers: Array<(source: string) => string | undefined> | undefined
 
 /**
  * @param {string} source the module to resolve; i.e './some-module'
  * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
  * @returns The mapped path of the module or undefined
  */
-function getMappedPath(source: string, file: string) {
-  const paths = mappers!
-    .map(mapper => mapper(source, file))
-    .filter(path => !!path)
+function getMappedPath(source: string) {
+  const paths = mappers!.map(mapper => mapper(source)).filter(path => !!path)
 
   if (paths.length > 1) {
     log('found multiple matching ts paths:', paths)
@@ -230,12 +226,7 @@ function initMappers(options: TsResolverOptions) {
         configLoaderResult.paths,
       )
 
-      return (source: string, file: string) => {
-        // exclude files that are not part of the config base url
-        if (!file.includes(configLoaderResult.absoluteBaseUrl)) {
-          return
-        }
-
+      return (source: string) => {
         // look for files based on setup tsconfig "paths"
         return matchPath(
           source,
