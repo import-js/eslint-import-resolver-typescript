@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.3.0...v2.4.0) (2021-02-16)
+
+
+### Features
+
+* remove any querystring from imports ([#67](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/67)) ([82ef357](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/82ef3573fa1258e0de8d8181de57ae7109e35ec5))
+
+
+### Bug Fixes
+
+* remove .tsbuildinfo and d.ts.map files from package ([#57](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/57)) ([15f2849](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/15f2849c49bf1b4eb7719f027c61ca48b6e1f2a2))
+* remove redundant condition ([#69](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/69)) ([ba62e65](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/ba62e65e7cfe382ff976238de3f100cd41c73e8f))
+
 ## [2.3.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.2.1...v2.3.0) (2020-09-01)
 
 
