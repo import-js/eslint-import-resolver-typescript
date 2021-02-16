@@ -15,11 +15,14 @@ const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
 const log = debug(IMPORTER_NAME)
 
-const defaultExtensions = ['.ts', '.tsx', '.d.ts'].concat(
+const defaultExtensions = [
+  '.ts',
+  '.tsx',
+  '.d.ts',
   // eslint-disable-next-line node/no-deprecated-api
-  Object.keys(require.extensions),
+  ...Object.keys(require.extensions),
   '.jsx',
-)
+]
 
 export const interfaceVersion = 2
 
@@ -213,7 +216,7 @@ function initMappers(options: TsResolverOptions) {
   mappers = configPaths
     // turn glob patterns into paths
     .reduce<string[]>(
-      (paths, path) => paths.concat(isGlob(path) ? globSync(path) : path),
+      (paths, path) => [...paths, ...(isGlob(path) ? globSync(path) : [path])],
       [],
     )
     // eslint-disable-next-line unicorn/no-fn-reference-in-iterator

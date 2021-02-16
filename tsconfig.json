@@ -2,6 +2,7 @@
   "extends": "./node_modules/@1stg/tsconfig/lib.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "declarationMap": false,
     "outDir": "lib"
   },
   "include": ["src"]

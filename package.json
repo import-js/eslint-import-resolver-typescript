@@ -17,7 +17,8 @@
   "fesm5": "lib/esm",
   "types": "lib",
   "files": [
-    "lib/*.{js,js.map,d.ts}"
+    "!*.tsbuildinfo",
+    "lib"
   ],
   "keywords": [
     "typescript",
@@ -52,34 +53,34 @@
     "eslint-plugin-import": "*"
   },
   "dependencies": {
-    "debug": "^4.1.1",
+    "debug": "^4.3.1",
     "glob": "^7.1.6",
     "is-glob": "^4.0.1",
-    "resolve": "^1.17.0",
+    "resolve": "^1.20.0",
     "tsconfig-paths": "^3.9.0"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^0.5.5",
+    "@1stg/lib-config": "^1.0.1",
     "@types/debug": "^4.1.5",
     "@types/glob": "^7.1.3",
     "@types/is-glob": "^4.0.1",
-    "@types/node": "^14.6.2",
-    "@types/resolve": "^1.17.1",
+    "@types/node": "^14.14.28",
+    "@types/resolve": "^1.19.0",
     "@types/unist": "^2.0.3",
     "dummy.js": "link:dummy.js",
     "eslint-import-resolver-typescript": "link:.",
     "npm-run-all": "^4.1.5",
-    "react": "^16.13.1",
-    "standard-version": "^8.0.2",
-    "type-coverage": "^2.9.0",
-    "typescript": "^4.0.2",
-    "yarn-deduplicate": "^3.0.0"
+    "react": "^17.0.1",
+    "standard-version": "^9.1.0",
+    "type-coverage": "^2.14.9",
+    "typescript": "^4.1.5",
+    "yarn-deduplicate": "^3.1.0"
   },
   "resolutions": {
     "eslint-import-resolver-typescript": "link:.",
-    "prettier": "^2.1.1"
+    "prettier": "^2.2.1"
   },
   "typeCoverage": {
-    "atLeast": 99.27
+    "atLeast": 99.28
   }
 }
