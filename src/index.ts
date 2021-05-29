@@ -19,7 +19,7 @@ const defaultExtensions = [
   '.ts',
   '.tsx',
   '.d.ts',
-  // eslint-disable-next-line node/no-deprecated-api
+  // eslint-disable-next-line node/no-deprecated-api, sonar/deprecation
   ...Object.keys(require.extensions),
   '.jsx',
 ]
@@ -31,8 +31,8 @@ export interface TsResolverOptions {
   /**
    * @deprecated use `project` instead
    */
-  directory?: string | string[]
-  project?: string | string[]
+  directory?: string[] | string
+  project?: string[] | string
   extensions?: string[]
   packageFilter?: (pkg: Record<string, string>) => Record<string, string>
 }
@@ -50,7 +50,7 @@ export function resolve(
   found: boolean
   path?: string | null
 } {
-  options = options || {}
+  options = options ?? {}
 
   log('looking for:', source)
 
@@ -75,10 +75,10 @@ export function resolve(
   // note that even if we map the path, we still need to do a final resolve
   let foundNodePath: string | null | undefined
   try {
-    foundNodePath = tsResolve(mappedPath || source, {
-      extensions: options.extensions || defaultExtensions,
+    foundNodePath = tsResolve(mappedPath ?? source, {
+      extensions: options.extensions ?? defaultExtensions,
       basedir: path.dirname(path.resolve(file)),
-      packageFilter: options.packageFilter || packageFilterDefault,
+      packageFilter: options.packageFilter ?? packageFilterDefault,
     })
   } catch {
     foundNodePath = null
@@ -196,12 +196,14 @@ function initMappers(options: TsResolverOptions) {
     return
   }
 
+  // eslint-disable-next-line sonar/deprecation
   if (options.directory) {
     console.warn(
       `[${IMPORTER_NAME}]: option \`directory\` is deprecated, please use \`project\` instead`,
     )
 
     if (!options.project) {
+      // eslint-disable-next-line sonar/deprecation
       options.project = options.directory
     }
   }
@@ -219,9 +221,7 @@ function initMappers(options: TsResolverOptions) {
       (paths, path) => [...paths, ...(isGlob(path) ? globSync(path) : [path])],
       [],
     )
-    // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
     .map(loadConfig)
-    // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
     .filter(isConfigLoaderSuccessResult)
     .map(configLoaderResult => {
       const matchPath = createExtendedMatchPath(
@@ -229,15 +229,14 @@ function initMappers(options: TsResolverOptions) {
         configLoaderResult.paths,
       )
 
-      return (source: string) => {
+      return (source: string) =>
         // look for files based on setup tsconfig "paths"
-        return matchPath(
+        matchPath(
           source,
           undefined,
           undefined,
-          options.extensions || defaultExtensions,
+          options.extensions ?? defaultExtensions,
         )
-      }
     })
 
   mappersBuildForOptions = options
