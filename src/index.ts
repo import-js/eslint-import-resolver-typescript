@@ -26,7 +26,7 @@ const defaultExtensions = [
 
 export const interfaceVersion = 2
 
-export interface TsResolverOptions {
+export type TsResolverOptions = SyncOpts & {
   alwaysTryTypes?: boolean
   /**
    * @deprecated use `project` instead
@@ -76,6 +76,7 @@ export function resolve(
   let foundNodePath: string | null | undefined
   try {
     foundNodePath = tsResolve(mappedPath ?? source, {
+      ...options,
       extensions: options.extensions ?? defaultExtensions,
       basedir: path.dirname(path.resolve(file)),
       packageFilter: options.packageFilter ?? packageFilterDefault,
