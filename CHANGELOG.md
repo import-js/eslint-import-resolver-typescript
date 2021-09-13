@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.4.0...v2.5.0) (2021-09-13)
+
+
+### Features
+
+* allow passing through custom options to resolve ([#79](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/79)) ([34c94c8](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/34c94c87066ba42fb2b52727b95f3e34259c227f))
+
+
+### Bug Fixes
+
+* bump (dev)Dependencies, apply stricter rules ([#75](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/75)) ([866f32f](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/866f32f2191dc7fc8df7d973cdacefa48c64a927))
+
 ## [2.4.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.3.0...v2.4.0) (2021-02-16)
 
 

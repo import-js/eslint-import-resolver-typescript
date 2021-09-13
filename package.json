@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "repository": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
