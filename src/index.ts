@@ -5,6 +5,7 @@ import {
   createMatchPath,
   loadConfig,
   ConfigLoaderResult,
+  MatchPath,
 } from 'tsconfig-paths'
 import { sync as globSync } from 'glob'
 import isGlob from 'is-glob'
@@ -15,13 +16,17 @@ const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
 const log = debug(IMPORTER_NAME)
 
+/**
+ * .mts, .cts, .d.mts, .d.cts, .mjs, .cjs are not included because .cjs and .mjs must be used explicitly.
+ */
 const defaultExtensions = [
   '.ts',
   '.tsx',
   '.d.ts',
-  // eslint-disable-next-line node/no-deprecated-api, sonar/deprecation
-  ...Object.keys(require.extensions),
+  '.js',
   '.jsx',
+  '.json',
+  '.node',
 ]
 
 export const interfaceVersion = 2
@@ -69,15 +74,16 @@ export function resolve(
   initMappers(options)
   const mappedPath = getMappedPath(source)
   if (mappedPath) {
-    log('matched ts path:', mappedPath)
+    log('matched ts path:', mappedPath.path)
   }
 
   // note that even if we map the path, we still need to do a final resolve
   let foundNodePath: string | null | undefined
   try {
-    foundNodePath = tsResolve(mappedPath ?? source, {
+    foundNodePath = tsResolve(mappedPath?.path ?? source, {
       ...options,
-      extensions: options.extensions ?? defaultExtensions,
+      extensions:
+        mappedPath?.extensions ?? options.extensions ?? defaultExtensions,
       basedir: path.dirname(path.resolve(file)),
       packageFilter: options.packageFilter ?? packageFilterDefault,
     })
@@ -126,17 +132,46 @@ function packageFilterDefault(pkg: Record<string, string>) {
   return pkg
 }
 
+function resolveExtension(id: string) {
+  const idWithoutJsExt = removeJsExtension(id)
+
+  if (idWithoutJsExt === id) {
+    return
+  }
+
+  if (id.endsWith('.mjs')) {
+    return {
+      path: idWithoutJsExt,
+      extensions: ['.mts', '.d.mts'],
+    }
+  }
+
+  if (id.endsWith('.cjs')) {
+    return {
+      path: idWithoutJsExt,
+      extensions: ['.cts', '.d.cts'],
+    }
+  }
+
+  return {
+    path: idWithoutJsExt,
+  }
+}
+
 /**
  * Like `sync` from `resolve` package, but considers that the module id
  * could have a .js or .jsx extension.
  */
-function tsResolve(id: string, opts?: SyncOpts): string {
+function tsResolve(id: string, opts: SyncOpts): string {
   try {
     return sync(id, opts)
   } catch (error) {
-    const idWithoutJsExt = removeJsExtension(id)
-    if (idWithoutJsExt !== id) {
-      return sync(idWithoutJsExt, opts)
+    const resolved = resolveExtension(id)
+    if (resolved) {
+      return sync(resolved.path, {
+        ...opts,
+        extensions: resolved.extensions ?? opts.extensions,
+      })
     }
     throw error
   }
@@ -153,11 +188,20 @@ function removeQuerystring(id: string) {
 
 /** Remove .js or .jsx extension from module id. */
 function removeJsExtension(id: string) {
-  return id.replace(/\.jsx?$/, '')
+  return id.replace(/\.([cm]js|jsx?)$/, '')
 }
 
 let mappersBuildForOptions: TsResolverOptions
-let mappers: Array<(source: string) => string | undefined> | undefined
+let mappers:
+  | Array<
+      (source: string) =>
+        | {
+            path: string
+            extensions?: string[]
+          }
+        | undefined
+    >
+  | undefined
 
 /**
  * @param {string} source the module to resolve; i.e './some-module'
@@ -176,18 +220,45 @@ function getMappedPath(source: string) {
 
 /**
  * Like `createMatchPath` from `tsconfig-paths` package, but considers
- * that the module id could have a .js or .jsx extension.
+ * that the module id could have a .mjs, .cjs, .js or .jsx extension.
+ *
+ * The default resolved path does not include the extension, so we need to return it for reusing,
+ * otherwise `.mts`, `.cts`, `.d.mts`, `.d.cts` will not be used by default, see also @link {defaultExtensions}.
  */
-const createExtendedMatchPath: typeof createMatchPath = (...createArgs) => {
+const createExtendedMatchPath: (
+  ...createArgs: Parameters<typeof createMatchPath>
+) => (...matchArgs: Parameters<MatchPath>) =>
+  | {
+      path: string
+      extensions?: string[]
+    }
+  | undefined = (...createArgs) => {
   const matchPath = createMatchPath(...createArgs)
 
-  return (id, ...otherArgs) => {
-    const match = matchPath(id, ...otherArgs)
-    if (match != null) return match
+  return (id, readJson, fileExists, extensions) => {
+    const match = matchPath(id, readJson, fileExists, extensions)
 
-    const idWithoutJsExt = removeJsExtension(id)
-    if (idWithoutJsExt !== id) {
-      return matchPath(idWithoutJsExt, ...otherArgs)
+    if (match != null) {
+      return {
+        path: match,
+      }
+    }
+
+    const resolved = resolveExtension(id)
+
+    if (resolved) {
+      const match = matchPath(
+        resolved.path,
+        readJson,
+        fileExists,
+        resolved.extensions ?? extensions,
+      )
+      if (match) {
+        return {
+          path: match,
+          extensions: resolved.extensions,
+        }
+      }
     }
   }
 }
