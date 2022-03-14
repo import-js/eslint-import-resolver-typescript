@@ -56,7 +56,7 @@
     "glob": "^7.1.7",
     "is-glob": "^4.0.1",
     "resolve": "^1.20.0",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.14.0"
   },
   "devDependencies": {
     "@1stg/lib-config": "^2.1.0",
