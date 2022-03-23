@@ -1,15 +1,15 @@
 import path from 'path'
 
+import debug from 'debug'
+import { sync as globSync } from 'glob'
+import isGlob from 'is-glob'
+import { isCore, sync, SyncOpts } from 'resolve'
 import {
   ConfigLoaderSuccessResult,
   createMatchPath,
   loadConfig,
   ConfigLoaderResult,
 } from 'tsconfig-paths'
-import { sync as globSync } from 'glob'
-import isGlob from 'is-glob'
-import { isCore, sync, SyncOpts } from 'resolve'
-import debug from 'debug'
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
