@@ -26,19 +26,37 @@ function assertResolve(id, relativePath) {
 
 // import relative
 
+assertResolve('./jsImportee.js', 'jsImportee.js')
+
+assertResolve('./cjsImportee.cjs', 'cjsImportee.cjs')
+
+assertResolve('./mjsImportee.mjs', 'mjsImportee.mjs')
+
 assertResolve('./tsImportee.js', 'tsImportee.ts')
 
 assertResolve('./tsxImportee.jsx', 'tsxImportee.tsx')
 
+assertResolve('./ctsImportee.cjs', 'ctsImportee.cts')
+
+assertResolve('./mtsImportee.mjs', 'mtsImportee.mts')
+
 assertResolve('./dtsImportee.js', 'dtsImportee.d.ts')
 
 assertResolve('./dtsImportee.jsx', 'dtsImportee.d.ts')
+
+assertResolve('./d-ctsImportee.cjs', 'd-ctsImportee.d.cts')
+
+assertResolve('./d-mtsImportee.mjs', 'd-mtsImportee.d.mts')
 
 assertResolve('./foo', 'foo/index.ts')
 
 assertResolve('./foo.js', 'foo.js/index.ts')
 
 assertResolve('./foo.jsx', 'foo.jsx/index.ts')
+
+assertResolve('./foo.cjs', 'foo.cjs/index.ts')
+
+assertResolve('./foo.mjs', 'foo.mjs/index.ts')
 
 assertResolve('./bar', 'bar/index.tsx')
 
@@ -48,9 +66,21 @@ assertResolve('#/tsImportee.js', 'tsImportee.ts')
 
 assertResolve('#/tsxImportee.jsx', 'tsxImportee.tsx')
 
+assertResolve('#/cjsImportee.cjs', 'cjsImportee.cjs')
+
+assertResolve('#/mjsImportee.mjs', 'mjsImportee.mjs')
+
+assertResolve('#/ctsImportee.cjs', 'ctsImportee.cts')
+
+assertResolve('#/mtsImportee.mjs', 'mtsImportee.mts')
+
 assertResolve('#/dtsImportee.js', 'dtsImportee.d.ts')
 
 assertResolve('#/dtsImportee.jsx', 'dtsImportee.d.ts')
+
+assertResolve('#/d-ctsImportee.cjs', 'd-ctsImportee.d.cts')
+
+assertResolve('#/d-mtsImportee.mjs', 'd-mtsImportee.d.mts')
 
 assertResolve('#/foo', 'foo/index.ts')
 
@@ -66,9 +96,21 @@ assertResolve('tsImportee.js', 'tsImportee.ts')
 
 assertResolve('tsxImportee.jsx', 'tsxImportee.tsx')
 
+assertResolve('cjsImportee.cjs', 'cjsImportee.cjs')
+
+assertResolve('mjsImportee.mjs', 'mjsImportee.mjs')
+
+assertResolve('ctsImportee.cjs', 'ctsImportee.cts')
+
+assertResolve('mtsImportee.mjs', 'mtsImportee.mts')
+
 assertResolve('dtsImportee.js', 'dtsImportee.d.ts')
 
 assertResolve('dtsImportee.jsx', 'dtsImportee.d.ts')
+
+assertResolve('d-ctsImportee.cjs', 'd-ctsImportee.d.cts')
+
+assertResolve('d-mtsImportee.mjs', 'd-mtsImportee.d.mts')
 
 assertResolve('foo', 'foo/index.ts')
 
