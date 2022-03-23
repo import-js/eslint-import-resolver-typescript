@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.6.0...v2.7.0) (2022-03-23)
+
+
+### Features
+
+* support `.cjs` `.mjs` `.cts` `.mts` extensions ([#84](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/84)) ([1e39028](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/1e39028d33e660fbd0321ea045488ba8ba8b9783))
+
 ## [2.6.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.5.0...v2.6.0) (2022-03-23)
 
 
