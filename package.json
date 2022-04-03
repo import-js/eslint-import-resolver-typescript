@@ -14,9 +14,12 @@
   "main": "lib/index.cjs",
   "module": "lib/index.es2015.mjs",
   "exports": {
-    "require": "./lib/index.cjs",
-    "import": "./lib/index.es2015.mjs",
-    "types": "./lib/index.d.ts"
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.es2015.mjs",
+      "types": "./lib/index.d.ts"
+    },
+    "./package.json": "./package.json"
   },
   "es2015": "lib/index.es2015.mjs",
   "types": "lib/index.d.ts",
