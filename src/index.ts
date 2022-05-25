@@ -1,7 +1,7 @@
 import path from 'path'
 
 import debug from 'debug'
-import { sync as globSync } from 'glob'
+import { sync as globSync } from 'globby'
 import isGlob from 'is-glob'
 import { isCore, sync, SyncOpts } from 'resolve'
 import {
@@ -287,17 +287,17 @@ function initMappers(options: TsResolverOptions) {
       ? options.project
       : [process.cwd()]
 
-  const ignore = ['./node_modules/**']
+  const ignore = ['!**/node_modules/**']
 
-  mappers = configPaths
-    // turn glob patterns into paths
-    .reduce<string[]>(
-      (paths, path) => [
-        ...paths,
-        ...(isGlob(path) ? globSync(path, { ignore }) : [path]),
-      ],
-      [],
-    )
+  // turn glob patterns into paths
+  const projectPaths = [
+    ...new Set([
+      ...configPaths.filter(path => !isGlob(path)),
+      ...globSync([...configPaths.filter(path => isGlob(path)), ...ignore]),
+    ]),
+  ]
+
+  mappers = projectPaths
     .map(loadConfig)
     .filter(isConfigLoaderSuccessResult)
     .map(configLoaderResult => {
