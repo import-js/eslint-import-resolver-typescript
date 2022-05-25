@@ -287,10 +287,15 @@ function initMappers(options: TsResolverOptions) {
       ? options.project
       : [process.cwd()]
 
+  const ignore = ['./node_modules/**']
+
   mappers = configPaths
     // turn glob patterns into paths
     .reduce<string[]>(
-      (paths, path) => [...paths, ...(isGlob(path) ? globSync(path) : [path])],
+      (paths, path) => [
+        ...paths,
+        ...(isGlob(path) ? globSync(path, { ignore }) : [path]),
+      ],
       [],
     )
     .map(loadConfig)
