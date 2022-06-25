@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.7.1...v3.0.0) (2022-06-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove depracated directory option
+* use get-tsconfig to replace tsconfig-paths
+* bump globby, use synckit for sync fn
+* **deps:** bump tsconfig-paths to ^4.0.0 (#104)
+
+### Features
+
+* bump globby, use synckit for sync fn ([322cb29](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/322cb291f9af6f7ce1d6330cf13c33ce5a70f9a7))
+* ignore `node_modules` folder in `projects` option glob ([#105](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/105)) ([1e1b5a6](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/1e1b5a6f09c71685d58aef400ac6254af892d669))
+* remove depracated directory option ([67c8d59](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/67c8d59f51dc7fc58a0abb0838274c001c1dec6c))
+* use get-tsconfig to replace tsconfig-paths ([78a08e0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/78a08e082dcd5ff9e3490759f4919316e715d3ff))
+
+
+* **deps:** bump tsconfig-paths to ^4.0.0 ([#104](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/104)) ([b2edbc8](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/b2edbc85a6700c590d73887ce65211677305b914))
+
 ### [2.7.1](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.7.0...v2.7.1) (2022-04-03)
 
 

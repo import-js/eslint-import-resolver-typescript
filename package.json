@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "2.7.1",
+  "version": "3.0.0",
   "type": "module",
   "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
   "repository": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript",
@@ -24,6 +24,7 @@
     "./package.json": "./package.json"
   },
   "es2015": "lib/index.es2015.mjs",
+  "fesm2015": "lib/index.es2015.mjs",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
@@ -87,7 +88,6 @@
     "eslint-import-resolver-typescript": "link:.",
     "prettier": "^2.7.1"
   },
-  "fes2015": "lib/index.es2015.mjs",
   "typeCoverage": {
     "atLeast": 100,
     "cache": true,
