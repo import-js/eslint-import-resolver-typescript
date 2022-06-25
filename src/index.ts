@@ -40,7 +40,20 @@ const defaultExtensions = [
   '.node',
 ]
 
-const defaultMainFields = ['types', 'typings', 'module', 'jsnext:main', 'main']
+const defaultMainFields = [
+  'types',
+  'typings',
+  'module',
+  'jsnext:main',
+
+  // https://angular.io/guide/angular-package-format
+  'esm2020',
+  'es2020',
+  'fesm2020',
+  'fesm2015',
+
+  'main',
+]
 
 export const interfaceVersion = 2
 
