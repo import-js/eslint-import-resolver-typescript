@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v3.0.0...v3.1.0) (2022-06-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* use enhanced-resolve instead
+
+### Features
+
+* support angular-package-format out of box ([7e0cd04](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/7e0cd043e66f1a6ccc89ac57fe7d695228d5a2df))
+* use enhanced-resolve instead ([39ab8b1](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/39ab8b1d0e99e76a7a333f3c74498fd21add0b4a)), closes [#85](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/85) [#107](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/107)
+
 ## [3.0.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v2.7.1...v3.0.0) (2022-06-25)
 
 
