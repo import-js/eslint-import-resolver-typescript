@@ -25,10 +25,6 @@ export const interfaceVersion = 2
 
 export type TsResolverOptions = SyncOpts & {
   alwaysTryTypes?: boolean
-  /**
-   * @deprecated use `project` instead
-   */
-  directory?: string[] | string
   project?: string[] | string
   extensions?: string[]
   packageFilter?: (pkg: Record<string, string>) => Record<string, string>
@@ -255,18 +251,6 @@ function getMappedPath(
 function initMappers(options: TsResolverOptions) {
   if (mappers && mappersBuildForOptions === options) {
     return
-  }
-
-  // eslint-disable-next-line sonar/deprecation
-  if (options.directory) {
-    console.warn(
-      `[${IMPORTER_NAME}]: option \`directory\` is deprecated, please use \`project\` instead`,
-    )
-
-    if (!options.project) {
-      // eslint-disable-next-line sonar/deprecation
-      options.project = options.directory
-    }
   }
 
   const configPaths =
