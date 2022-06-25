@@ -1,3 +1,6 @@
+/**
+ * @param {string} project
+ */
 module.exports = project => ({
   parser: '@typescript-eslint/parser',
   extends: [

@@ -5169,6 +5169,11 @@ get-symbol-description@^1.0.0:
     call-bind "^1.0.2"
     get-intrinsic "^1.1.1"
 
+get-tsconfig@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/get-tsconfig/-/get-tsconfig-4.0.6.tgz#31ee086022b1261fccf89cfc7460db0f3c02fa57"
+  integrity sha512-yK9g+lk9PSaYS4RM9jnlmFSyymNDdLaIk42h6uOO6DOvqKEpL4KhUAcI1/7/sWe8+FWZe1/EjFXFfvv6T+cgPA==
+
 git-raw-commits@^2.0.0, git-raw-commits@^2.0.8:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/git-raw-commits/-/git-raw-commits-2.0.11.tgz#bc3576638071d18655e1cc60d7f524920008d723"
@@ -10260,15 +10265,6 @@ tsconfig-paths@^3.14.1:
   dependencies:
     "@types/json5" "^0.0.29"
     json5 "^1.0.1"
-    minimist "^1.2.6"
-    strip-bom "^3.0.0"
-
-tsconfig-paths@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-4.0.0.tgz#1082f5d99fd127b72397eef4809e4dd06d229b64"
-  integrity sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==
-  dependencies:
-    json5 "^2.2.1"
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 

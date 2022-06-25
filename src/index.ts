@@ -2,16 +2,10 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import debug from 'debug'
+import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import isGlob from 'is-glob'
-import * as _resolve from 'resolve'
+import { isCore, type PackageJSON, sync, SyncOpts } from 'resolve'
 import { createSyncFn } from 'synckit'
-import {
-  ConfigLoaderSuccessResult,
-  createMatchPath,
-  loadConfig,
-  ConfigLoaderResult,
-  MatchPath,
-} from 'tsconfig-paths'
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
@@ -26,22 +20,9 @@ const globSync = createSyncFn<typeof import('globby').globby>(
   path.resolve(_dirname, 'worker.mjs'),
 )
 
-/**
- * .mts, .cts, .d.mts, .d.cts, .mjs, .cjs are not included because .cjs and .mjs must be used explicitly.
- */
-const defaultExtensions = [
-  '.ts',
-  '.tsx',
-  '.d.ts',
-  '.js',
-  '.jsx',
-  '.json',
-  '.node',
-]
-
 export const interfaceVersion = 2
 
-export type TsResolverOptions = _resolve.SyncOpts & {
+export type TsResolverOptions = SyncOpts & {
   alwaysTryTypes?: boolean
   /**
    * @deprecated use `project` instead
@@ -72,7 +53,7 @@ export function resolve(
   source = removeQuerystring(source)
 
   // don't worry about core node modules
-  if (_resolve.isCore(source)) {
+  if (isCore(source)) {
     log('matched core:', source)
 
     return {
@@ -84,16 +65,14 @@ export function resolve(
   initMappers(options)
   const mappedPath = getMappedPath(source)
   if (mappedPath) {
-    log('matched ts path:', mappedPath.path)
+    log('matched ts path:', mappedPath)
   }
 
   // note that even if we map the path, we still need to do a final resolve
   let foundNodePath: string | null | undefined
   try {
-    foundNodePath = tsResolve(mappedPath?.path ?? source, {
+    foundNodePath = tsResolve(mappedPath ?? source, {
       ...options,
-      extensions:
-        mappedPath?.extensions ?? options.extensions ?? defaultExtensions,
       basedir: path.dirname(path.resolve(file)),
       packageFilter: options.packageFilter ?? packageFilterDefault,
     })
@@ -136,7 +115,7 @@ export function resolve(
   }
 }
 
-function packageFilterDefault(pkg: _resolve.PackageJSON) {
+function packageFilterDefault(pkg: PackageJSON) {
   pkg.main =
     pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main
   return pkg
@@ -172,13 +151,13 @@ function resolveExtension(id: string) {
  * Like `sync` from `resolve` package, but considers that the module id
  * could have a .js or .jsx extension.
  */
-function tsResolve(id: string, opts: _resolve.SyncOpts): string {
+function tsResolve(id: string, opts: SyncOpts): string {
   try {
-    return _resolve.sync(id, opts)
+    return sync(id, opts)
   } catch (error) {
     const resolved = resolveExtension(id)
     if (resolved) {
-      return _resolve.sync(resolved.path, {
+      return sync(resolved.path, {
         ...opts,
         extensions: resolved.extensions ?? opts.extensions,
       })
@@ -202,75 +181,26 @@ function removeJsExtension(id: string) {
 }
 
 let mappersBuildForOptions: TsResolverOptions
-let mappers:
-  | Array<
-      (source: string) =>
-        | {
-            path: string
-            extensions?: string[]
-          }
-        | undefined
-    >
-  | undefined
+let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
 /**
  * @param {string} source the module to resolve; i.e './some-module'
- * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
  * @returns The mapped path of the module or undefined
  */
 function getMappedPath(source: string) {
-  const paths = mappers!.map(mapper => mapper(source)).filter(path => !!path)
+  const paths = mappers!
+    .map(mapper => mapper?.(source))
+    .filter(path => !!path)
+    .flat()
+
+  console.log('source:', source)
+  console.log('paths:', paths)
 
   if (paths.length > 1) {
     log('found multiple matching ts paths:', paths)
   }
 
   return paths[0]
-}
-
-/**
- * Like `createMatchPath` from `tsconfig-paths` package, but considers
- * that the module id could have a .mjs, .cjs, .js or .jsx extension.
- *
- * The default resolved path does not include the extension, so we need to return it for reusing,
- * otherwise `.mts`, `.cts`, `.d.mts`, `.d.cts` will not be used by default, see also @link {defaultExtensions}.
- */
-const createExtendedMatchPath: (
-  ...createArgs: Parameters<typeof createMatchPath>
-) => (...matchArgs: Parameters<MatchPath>) =>
-  | {
-      path: string
-      extensions?: string[]
-    }
-  | undefined = (...createArgs) => {
-  const matchPath = createMatchPath(...createArgs)
-
-  return (id, readJson, fileExists, extensions) => {
-    const match = matchPath(id, readJson, fileExists, extensions)
-
-    if (match != null) {
-      return {
-        path: match,
-      }
-    }
-
-    const resolved = resolveExtension(id)
-
-    if (resolved) {
-      const match = matchPath(
-        resolved.path,
-        readJson,
-        fileExists,
-        resolved.extensions ?? extensions,
-      )
-      if (match) {
-        return {
-          path: match,
-          extensions: resolved.extensions,
-        }
-      }
-    }
-  }
 }
 
 function initMappers(options: TsResolverOptions) {
@@ -307,38 +237,12 @@ function initMappers(options: TsResolverOptions) {
     ]),
   ]
 
-  mappers = projectPaths
-    .map(loadConfig)
-    .filter(isConfigLoaderSuccessResult)
-    .map(configLoaderResult => {
-      const matchPath = createExtendedMatchPath(
-        configLoaderResult.absoluteBaseUrl,
-        configLoaderResult.paths,
-      )
-
-      return (source: string) =>
-        // look for files based on setup tsconfig "paths"
-        matchPath(
-          source,
-          undefined,
-          undefined,
-          options.extensions ?? defaultExtensions,
-        )
-    })
+  mappers = projectPaths.map(projectPath => {
+    const tsconfigResult = getTsconfig(projectPath)
+    return tsconfigResult && createPathsMatcher(tsconfigResult)
+  })
 
   mappersBuildForOptions = options
-}
-
-function isConfigLoaderSuccessResult(
-  configLoaderResult: ConfigLoaderResult,
-): configLoaderResult is ConfigLoaderSuccessResult {
-  if (configLoaderResult.resultType !== 'success') {
-    // this can happen if the user has problems with their tsconfig
-    // or if it's valid, but they don't have baseUrl set
-    log('failed to init tsconfig-paths:', configLoaderResult.message)
-    return false
-  }
-  return true
 }
 
 /**
