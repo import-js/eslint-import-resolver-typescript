@@ -15,3 +15,6 @@ import 'json5'
 
 // enable alwaysTryTypes
 import 'unist'
+
+// exports
+import '@mozilla/glean/webext'

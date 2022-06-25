@@ -127,4 +127,5 @@ assertResolve(
   '../../node_modules/typescript/lib/typescript.js',
 )
 
-assertResolve('dummy.js', '../../node_modules/dummy.js/index.js')
+// resolves symlinks by default
+assertResolve('dummy.js', '../../dummy.js/index.js')

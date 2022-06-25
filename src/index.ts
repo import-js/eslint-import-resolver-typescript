@@ -3,9 +3,15 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import debug from 'debug'
+import {
+  FileSystem,
+  ResolveOptions,
+  Resolver,
+  ResolverFactory,
+} from 'enhanced-resolve'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
+import isCore from 'is-core-module'
 import isGlob from 'is-glob'
-import { isCore, type PackageJSON, sync, SyncOpts } from 'resolve'
 import { createSyncFn } from 'synckit'
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
@@ -21,14 +27,36 @@ const globSync = createSyncFn<typeof import('globby').globby>(
   path.resolve(_dirname, 'worker.mjs'),
 )
 
+/**
+ * .mts, .cts, .d.mts, .d.cts, .mjs, .cjs are not included because .cjs and .mjs must be used explicitly.
+ */
+const defaultExtensions = [
+  '.ts',
+  '.tsx',
+  '.d.ts',
+  '.js',
+  '.jsx',
+  '.json',
+  '.node',
+]
+
+const defaultMainFields = ['types', 'typings', 'module', 'jsnext:main', 'main']
+
 export const interfaceVersion = 2
 
-export type TsResolverOptions = SyncOpts & {
+export interface TsResolverOptions
+  extends Omit<ResolveOptions, 'fileSystem' | 'useSyncFileSystemCalls'> {
   alwaysTryTypes?: boolean
   project?: string[] | string
   extensions?: string[]
   packageFilter?: (pkg: Record<string, string>) => Record<string, string>
 }
+
+const fileSystem = fs as FileSystem
+
+let mappersBuildForOptions: TsResolverOptions
+let mappers: Array<((specifier: string) => string[]) | null> | undefined
+let resolver: Resolver
 
 /**
  * @param {string} source the module to resolve; i.e './some-module'
@@ -38,12 +66,20 @@ export type TsResolverOptions = SyncOpts & {
 export function resolve(
   source: string,
   file: string,
-  options: TsResolverOptions | null,
+  options?: TsResolverOptions | null,
 ): {
   found: boolean
   path?: string | null
 } {
-  options = options ?? {}
+  const opts: ResolveOptions & TsResolverOptions = {
+    ...options,
+    extensions: options?.extensions ?? defaultExtensions,
+    mainFields: options?.mainFields ?? defaultMainFields,
+    fileSystem,
+    useSyncFileSystemCalls: true,
+  }
+
+  resolver = ResolverFactory.createResolver(opts)
 
   log('looking for:', source)
 
@@ -59,7 +95,7 @@ export function resolve(
     }
   }
 
-  initMappers(options)
+  initMappers(opts)
 
   const mappedPath = getMappedPath(source, file, true)
   if (mappedPath) {
@@ -69,11 +105,9 @@ export function resolve(
   // note that even if we map the path, we still need to do a final resolve
   let foundNodePath: string | null | undefined
   try {
-    foundNodePath = tsResolve(mappedPath ?? source, {
-      ...options,
-      basedir: path.dirname(path.resolve(file)),
-      packageFilter: options.packageFilter ?? packageFilterDefault,
-    })
+    foundNodePath =
+      tsResolve(mappedPath ?? source, path.dirname(path.resolve(file)), opts) ||
+      null
   } catch {
     foundNodePath = null
   }
@@ -82,7 +116,7 @@ export function resolve(
   // if path is neither absolute nor relative
   if (
     (/\.jsx?$/.test(foundNodePath!) ||
-      (options.alwaysTryTypes && !foundNodePath)) &&
+      (opts.alwaysTryTypes && !foundNodePath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     !source.startsWith('.')
@@ -111,12 +145,6 @@ export function resolve(
   return {
     found: false,
   }
-}
-
-function packageFilterDefault(pkg: PackageJSON) {
-  pkg.main =
-    pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main
-  return pkg
 }
 
 function resolveExtension(id: string) {
@@ -149,16 +177,21 @@ function resolveExtension(id: string) {
  * Like `sync` from `resolve` package, but considers that the module id
  * could have a .js or .jsx extension.
  */
-function tsResolve(id: string, opts: SyncOpts): string {
+function tsResolve(
+  source: string,
+  base: string,
+  options: ResolveOptions,
+): string | false {
   try {
-    return sync(id, opts)
+    return resolver.resolveSync({}, base, source)
   } catch (error) {
-    const resolved = resolveExtension(id)
+    const resolved = resolveExtension(source)
     if (resolved) {
-      return sync(resolved.path, {
-        ...opts,
-        extensions: resolved.extensions ?? opts.extensions,
+      const resolver = ResolverFactory.createResolver({
+        ...options,
+        extensions: resolved.extensions ?? options.extensions,
       })
+      return resolver.resolveSync({}, base, resolved.path)
     }
     throw error
   }
@@ -177,9 +210,6 @@ function removeQuerystring(id: string) {
 function removeJsExtension(id: string) {
   return id.replace(/\.([cm]js|jsx?)$/, '')
 }
-
-let mappersBuildForOptions: TsResolverOptions
-let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
 const JS_EXT_PATTERN = /\.([cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(\/.*)?$/
