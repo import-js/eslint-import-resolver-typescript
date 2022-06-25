@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -63,7 +64,8 @@ export function resolve(
   }
 
   initMappers(options)
-  const mappedPath = getMappedPath(source)
+
+  const mappedPath = getMappedPath(source, file, true)
   if (mappedPath) {
     log('matched ts path:', mappedPath)
   }
@@ -183,18 +185,65 @@ function removeJsExtension(id: string) {
 let mappersBuildForOptions: TsResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
+const JS_EXT_PATTERN = /\.([cm]js|jsx?)$/
+const RELATIVE_PATH_PATTERN = /^\.{1,2}(\/.*)?$/
+
+const isFile = (path?: string | undefined): path is string => {
+  try {
+    return !!path && fs.statSync(path).isFile()
+  } catch {
+    return false
+  }
+}
+
 /**
  * @param {string} source the module to resolve; i.e './some-module'
+ * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
  * @returns The mapped path of the module or undefined
  */
-function getMappedPath(source: string) {
-  const paths = mappers!
-    .map(mapper => mapper?.(source))
-    .filter(path => !!path)
-    .flat()
+function getMappedPath(
+  source: string,
+  file: string,
+  retry?: boolean,
+): string | undefined {
+  let paths: string[] | undefined = []
 
-  console.log('source:', source)
-  console.log('paths:', paths)
+  if (RELATIVE_PATH_PATTERN.test(source)) {
+    const resolved = path.resolve(path.dirname(file), source)
+    if (isFile(resolved)) {
+      paths = [resolved]
+    }
+  } else {
+    paths = mappers!.flatMap(mapper => mapper?.(source)).filter(isFile)
+  }
+
+  if (retry && paths.length === 0) {
+    if (JS_EXT_PATTERN.test(source)) {
+      const jsExt = path.extname(source)
+      const tsExt = jsExt.replace('js', 'ts')
+      const basename = source.replace(JS_EXT_PATTERN, '')
+      return (
+        getMappedPath(basename + tsExt, file) ||
+        getMappedPath(source + '/index.ts', file) ||
+        getMappedPath(source + '/index.tsx', file) ||
+        getMappedPath(source + '/index.js', file) ||
+        getMappedPath(
+          basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
+          file,
+          false,
+        )
+      )
+    }
+    return (
+      getMappedPath(source + '.ts', file) ||
+      getMappedPath(source + '.tsx', file) ||
+      getMappedPath(source + '.js', file) ||
+      getMappedPath(source + '.d.ts', file) ||
+      getMappedPath(source + '/index.ts', file) ||
+      getMappedPath(source + '/index.tsx', file) ||
+      getMappedPath(source + '/index.js', file)
+    )
+  }
 
   if (paths.length > 1) {
     log('found multiple matching ts paths:', paths)
