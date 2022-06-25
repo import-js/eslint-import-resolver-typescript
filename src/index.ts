@@ -1,9 +1,10 @@
-import path from 'path'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import debug from 'debug'
-import { sync as globSync } from 'globby'
 import isGlob from 'is-glob'
-import { isCore, sync, SyncOpts } from 'resolve'
+import * as _resolve from 'resolve'
+import { createSyncFn } from 'synckit'
 import {
   ConfigLoaderSuccessResult,
   createMatchPath,
@@ -15,6 +16,15 @@ import {
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
 const log = debug(IMPORTER_NAME)
+
+const _dirname =
+  typeof __dirname === 'undefined'
+    ? path.dirname(fileURLToPath(import.meta.url))
+    : __dirname
+
+const globSync = createSyncFn<typeof import('globby').globby>(
+  path.resolve(_dirname, 'worker.mjs'),
+)
 
 /**
  * .mts, .cts, .d.mts, .d.cts, .mjs, .cjs are not included because .cjs and .mjs must be used explicitly.
@@ -31,7 +41,7 @@ const defaultExtensions = [
 
 export const interfaceVersion = 2
 
-export type TsResolverOptions = SyncOpts & {
+export type TsResolverOptions = _resolve.SyncOpts & {
   alwaysTryTypes?: boolean
   /**
    * @deprecated use `project` instead
@@ -62,7 +72,7 @@ export function resolve(
   source = removeQuerystring(source)
 
   // don't worry about core node modules
-  if (isCore(source)) {
+  if (_resolve.isCore(source)) {
     log('matched core:', source)
 
     return {
@@ -126,7 +136,7 @@ export function resolve(
   }
 }
 
-function packageFilterDefault(pkg: Record<string, string>) {
+function packageFilterDefault(pkg: _resolve.PackageJSON) {
   pkg.main =
     pkg.types || pkg.typings || pkg.module || pkg['jsnext:main'] || pkg.main
   return pkg
@@ -162,13 +172,13 @@ function resolveExtension(id: string) {
  * Like `sync` from `resolve` package, but considers that the module id
  * could have a .js or .jsx extension.
  */
-function tsResolve(id: string, opts: SyncOpts): string {
+function tsResolve(id: string, opts: _resolve.SyncOpts): string {
   try {
-    return sync(id, opts)
+    return _resolve.sync(id, opts)
   } catch (error) {
     const resolved = resolveExtension(id)
     if (resolved) {
-      return sync(resolved.path, {
+      return _resolve.sync(resolved.path, {
         ...opts,
         extensions: resolved.extensions ?? opts.extensions,
       })

@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "plugin:prettier/recommended",
     "plugin:mdx/recommended"
