@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v3.1.0...v3.1.1) (2022-06-27)
+
+
+### Bug Fixes
+
+* add conditionNames support ([#114](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/114)) ([c74fe0e](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/commit/c74fe0e99d219e4a28348e833fc605664f02be18))
+
 ## [3.1.0](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v3.0.0...v3.1.0) (2022-06-25)
 
 
