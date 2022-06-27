@@ -55,6 +55,16 @@ const defaultMainFields = [
   'main',
 ]
 
+const defaultConditionNames = [
+  'types',
+  'import',
+  'require',
+  'node',
+  'node-addons',
+  'browser',
+  'default',
+]
+
 export const interfaceVersion = 2
 
 export interface TsResolverOptions
@@ -63,6 +73,7 @@ export interface TsResolverOptions
   project?: string[] | string
   extensions?: string[]
   packageFilter?: (pkg: Record<string, string>) => Record<string, string>
+  conditionNamesMapper?: Record<string, string[]>
 }
 
 const fileSystem = fs as FileSystem
@@ -88,6 +99,7 @@ export function resolve(
     ...options,
     extensions: options?.extensions ?? defaultExtensions,
     mainFields: options?.mainFields ?? defaultMainFields,
+    conditionNames: options?.conditionNames ?? defaultConditionNames,
     fileSystem,
     useSyncFileSystemCalls: true,
   }
