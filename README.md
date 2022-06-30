@@ -1,27 +1,28 @@
 # eslint-import-resolver-typescript
 
-[![GitHub Actions](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/workflows/CI/badge.svg)](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/actions/workflows/ci.yml)
-[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Falexgorbatchev%2Feslint-import-resolver-typescript%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
+[![GitHub Actions](https://github.com/import-js/eslint-import-resolver-typescript/workflows/CI/badge.svg)](https://github.com/import-js/eslint-import-resolver-typescript/actions/workflows/ci.yml)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fimport-js%2Feslint-import-resolver-typescript%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![npm](https://img.shields.io/npm/v/eslint-import-resolver-typescript.svg)](https://www.npmjs.com/package/eslint-import-resolver-typescript)
-[![GitHub Release](https://img.shields.io/github/release/alexgorbatchev/eslint-import-resolver-typescript)](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/releases)
+[![GitHub Release](https://img.shields.io/github/release/import-js/eslint-import-resolver-typescript)](https://github.com/import-js/eslint-import-resolver-typescript/releases)
 
-[![David Peer](https://img.shields.io/david/peer/alexgorbatchev/eslint-import-resolver-typescript.svg)](https://david-dm.org/alexgorbatchev/eslint-import-resolver-typescript?type=peer)
-[![David](https://img.shields.io/david/alexgorbatchev/eslint-import-resolver-typescript.svg)](https://david-dm.org/alexgorbatchev/eslint-import-resolver-typescript)
-[![David Dev](https://img.shields.io/david/dev/alexgorbatchev/eslint-import-resolver-typescript.svg)](https://david-dm.org/alexgorbatchev/eslint-import-resolver-typescript?type=dev)
+[![David Peer](https://img.shields.io/david/peer/import-js/eslint-import-resolver-typescript.svg)](https://david-dm.org/import-js/eslint-import-resolver-typescript?type=peer)
+[![David](https://img.shields.io/david/import-js/eslint-import-resolver-typescript.svg)](https://david-dm.org/import-js/eslint-import-resolver-typescript)
+[![David Dev](https://img.shields.io/david/dev/import-js/eslint-import-resolver-typescript.svg)](https://david-dm.org/import-js/eslint-import-resolver-typescript?type=dev)
 
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
+[![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/atlassian/changesets)
 
 This plugin adds TypeScript support to [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import).
 
 This means you can:
 
-- `import`/`require` files with extension `.ts`/`.tsx`!
+- `import`/`require` files with extension `.cts`/`.mts`/`.ts`/`.tsx`!
 - Use [`paths`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in `tsconfig.json`.
 - Prefer resolve `@types/*` definitions over plain `.js`.
 - Multiple tsconfigs support just like normal.
+- `exports` fields support in `package.json`
 
 ## TOC <!-- omit in toc -->
 
@@ -29,21 +30,26 @@ This means you can:
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
+- [Changelog](#changelog)
+- [License](#license)
 
 ## Notice
 
 After version 2.0.0, `.d.ts` will take higher priority then normal `.js` files on resolving `node_modules` packages in favor of `@types/*` definitions.
 
-If you're facing some problems on rules `import/default` or `import/named` from [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import), do not post any issue here, because they are just working exactly as [expected](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/31#issuecomment-539751607) on our sides, take <https://github.com/benmosher/eslint-plugin-import/issues/1525> as reference or post a new issue to [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) instead.
+If you're facing some problems on rules `import/default` or `import/named` from [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import), do not post any issue here, because they are just working exactly as [expected](https://github.com/import-js/eslint-import-resolver-typescript/issues/31#issuecomment-539751607) on our sides, take <https://github.com/benmosher/eslint-plugin-import/issues/1525> as reference or post a new issue to [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) instead.
 
 ## Installation
 
 ```sh
 # npm
-npm i -D eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript
+npm i -D eslint-plugin-import eslint-import-resolver-typescript
+
+# pnpm
+pnpm i -D eslint-plugin-import eslint-import-resolver-typescript
 
 # yarn
-yarn add -D eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript
+yarn add -D eslint-plugin-import eslint-import-resolver-typescript
 ```
 
 ## Configuration
@@ -99,6 +105,16 @@ Add the following to your `.eslintrc` config:
 - Make sure that `yarn lint` passes without conflicts.
 - Make sure your code changes match our [type-coverage](https://github.com/plantain-00/type-coverage) settings: `yarn type-coverage`.
 
-We have [GitHub Actions](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/actions) which will run the above commands on your PRs.
+We have [GitHub Actions](https://github.com/import-js/eslint-import-resolver-typescript/actions) which will run the above commands on your PRs.
 
 If either fails, we won't be able to merge your PR until it's fixed.
+
+## Changelog
+
+Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.md).
+
+## License
+
+[ISC][]
+
+[isc]: https://opensource.org/licenses/ISC

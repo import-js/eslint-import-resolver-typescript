@@ -2,11 +2,11 @@
   "name": "eslint-import-resolver-typescript",
   "version": "3.1.1",
   "type": "module",
-  "description": "TypeScript .ts .tsx module resolver for `eslint-plugin-import`.",
-  "repository": "https://github.com/alexgorbatchev/eslint-import-resolver-typescript",
+  "description": "TypeScript `.cts`, `.mts`, `.ts`, `.tsx` module resolver for `eslint-plugin-import`",
+  "repository": "git+https://github.com/import-js/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
   "contributors": [
-    "JounQin <admin@1stg.me>"
+    "JounQin (https://www.1stG.me) <admin@1stg.me>"
   ],
   "license": "ISC",
   "packageManager": "yarn@1.22.19",
