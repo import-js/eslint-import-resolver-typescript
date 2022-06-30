@@ -6,8 +6,6 @@
 
 - [#118](https://github.com/import-js/eslint-import-resolver-typescript/pull/118) [`01f525e`](https://github.com/import-js/eslint-import-resolver-typescript/commit/01f525ecd02523ef02d127bc280d591ac26e8cfe) Thanks [@JounQin](https://github.com/JounQin)! - docs: update repository, document `exports` support
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
 ### [3.1.1](https://github.com/alexgorbatchev/eslint-import-resolver-typescript/compare/v3.1.0...v3.1.1) (2022-06-27)
 
 ### Bug Fixes
