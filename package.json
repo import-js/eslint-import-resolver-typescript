@@ -46,7 +46,7 @@
     "lint:tsc": "tsc --noEmit",
     "prepare": "simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "prerelease": "yarn build",
-    "release": "changesets publish",
+    "release": "changeset publish",
     "test": "run-p test:*",
     "test:multipleEslintrcs": "eslint --ext ts,tsx tests/multipleEslintrcs",
     "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
