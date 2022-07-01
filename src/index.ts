@@ -231,13 +231,13 @@ function removeQuerystring(id: string) {
   return id
 }
 
+const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
+const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
+
 /** Remove .js or .jsx extension from module id. */
 function removeJsExtension(id: string) {
-  return id.replace(/\.([cm]js|jsx?)$/, '')
+  return id.replace(JS_EXT_PATTERN, '')
 }
-
-const JS_EXT_PATTERN = /\.([cm]js|jsx?)$/
-const RELATIVE_PATH_PATTERN = /^\.{1,2}(\/.*)?$/
 
 const isFile = (path?: string | undefined): path is string => {
   try {
