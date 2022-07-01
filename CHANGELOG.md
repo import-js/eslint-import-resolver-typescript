@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.3
+
+### Patch Changes
+
+- [#121](https://github.com/import-js/eslint-import-resolver-typescript/pull/121) [`35d3022`](https://github.com/import-js/eslint-import-resolver-typescript/commit/35d30226b964522bc698e842eb32eccfcf92545d) Thanks [@JounQin](https://github.com/JounQin)! - fix: try index.d.ts automatically
+
 ## 3.1.2
 
 ### Patch Changes
