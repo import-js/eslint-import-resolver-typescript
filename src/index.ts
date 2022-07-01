@@ -281,7 +281,6 @@ function getMappedPath(
         getMappedPath(
           basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
           file,
-          false,
         ) ||
         getMappedPath(source + '/index.js', file)
       )
