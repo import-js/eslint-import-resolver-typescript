@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.4
+
+### Patch Changes
+
+- [`f88a8c9`](https://github.com/import-js/eslint-import-resolver-typescript/commit/f88a8c9f3bc2061d3b896764acf79e0cc3886f69) Thanks [@JounQin](https://github.com/JounQin)! - refactor: use non-capturing groups for perf
+
 ## 3.1.3
 
 ### Patch Changes
