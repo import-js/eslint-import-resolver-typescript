@@ -1,6 +1,3 @@
 {
-  "extends": "@1stg",
-  "rules": {
-    "regexp/no-unused-capturing-group": "off"
-  }
+  "extends": "@1stg"
 }
