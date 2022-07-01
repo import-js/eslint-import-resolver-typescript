@@ -71,7 +71,7 @@
     "synckit": "^0.7.1"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^7.0.0",
+    "@1stg/lib-config": "^7.1.0",
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
     "@mozilla/glean": "^1.0.0",

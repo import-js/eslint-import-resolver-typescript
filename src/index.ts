@@ -277,12 +277,12 @@ function getMappedPath(
         getMappedPath(basename + tsExt, file) ||
         getMappedPath(source + '/index.ts', file) ||
         getMappedPath(source + '/index.tsx', file) ||
-        getMappedPath(source + '/index.js', file) ||
+        getMappedPath(source + '/index.d.ts', file) ||
         getMappedPath(
           basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
           file,
-          false,
-        )
+        ) ||
+        getMappedPath(source + '/index.js', file)
       )
     }
     return (
@@ -292,6 +292,7 @@ function getMappedPath(
       getMappedPath(source + '.d.ts', file) ||
       getMappedPath(source + '/index.ts', file) ||
       getMappedPath(source + '/index.tsx', file) ||
+      getMappedPath(source + '/index.d.ts', file) ||
       getMappedPath(source + '/index.js', file)
     )
   }
