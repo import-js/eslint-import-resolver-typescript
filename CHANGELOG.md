@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.5
+
+### Patch Changes
+
+- [#126](https://github.com/import-js/eslint-import-resolver-typescript/pull/126) [`9cf60cb`](https://github.com/import-js/eslint-import-resolver-typescript/commit/9cf60cb1e7929884039c7d67317b0713aad50031) Thanks [@JounQin](https://github.com/JounQin)! - fix: auto try extensions
+
 ## 3.1.4
 
 ### Patch Changes
