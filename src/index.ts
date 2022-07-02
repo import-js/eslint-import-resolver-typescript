@@ -252,6 +252,7 @@ const isFile = (path?: string | undefined): path is string => {
  * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
  * @returns The mapped path of the module or undefined
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 function getMappedPath(
   source: string,
   file: string,
@@ -265,7 +266,16 @@ function getMappedPath(
       paths = [resolved]
     }
   } else {
-    paths = mappers!.flatMap(mapper => mapper?.(source)).filter(isFile)
+    paths = mappers!
+      .map(mapper =>
+        mapper?.(source).map(item =>
+          path.extname(item)
+            ? item
+            : ['ts', 'tsx', '.d.ts', 'js'].map(ext => `${item}.${ext}`),
+        ),
+      )
+      .flat(2)
+      .filter(isFile)
   }
 
   if (retry && paths.length === 0) {

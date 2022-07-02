@@ -8,6 +8,38 @@
   "contributors": [
     "JounQin (https://www.1stG.me) <admin@1stg.me>"
   ],
+  "donate": {
+    "recipients": [
+      {
+        "name": "unts",
+        "platform": "opencollective",
+        "address": "https://opencollective.com/unts",
+        "weight": 60
+      },
+      {
+        "name": "rxts",
+        "platform": "opencollective",
+        "address": "https://opencollective.com/rxts",
+        "weight": 20
+      },
+      {
+        "name": "1stG",
+        "email": "i@1stg.me",
+        "weight": 20,
+        "platforms": [
+          {
+            "platform": "opencollective",
+            "address": "https://opencollective.com/1stG"
+          },
+          {
+            "platform": "patreon",
+            "address": "https://www.patreon.com/1stG"
+          }
+        ]
+      }
+    ]
+  },
+  "funding": "https://opencollective.com/unts",
   "license": "ISC",
   "packageManager": "yarn@1.22.19",
   "engines": {
@@ -71,7 +103,7 @@
     "synckit": "^0.7.1"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^7.2.0",
+    "@1stg/lib-config": "^7.2.3",
     "@changesets/changelog-github": "^0.4.5",
     "@changesets/cli": "^2.23.0",
     "@mozilla/glean": "^1.0.0",
