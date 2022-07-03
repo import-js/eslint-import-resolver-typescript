@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- [#128](https://github.com/import-js/eslint-import-resolver-typescript/pull/128) [`56775b3`](https://github.com/import-js/eslint-import-resolver-typescript/commit/56775b3e574efb712fe8f449667524c5bc0042f1) Thanks [@JounQin](https://github.com/JounQin)! - refactor: support custom extensions on resolving
+
+- [#128](https://github.com/import-js/eslint-import-resolver-typescript/pull/128) [`56775b3`](https://github.com/import-js/eslint-import-resolver-typescript/commit/56775b3e574efb712fe8f449667524c5bc0042f1) Thanks [@JounQin](https://github.com/JounQin)! - feat: try extensionless file by default
+
 ## 3.1.5
 
 ### Patch Changes
