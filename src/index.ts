@@ -78,6 +78,9 @@ export interface TsResolverOptions
 
 const fileSystem = fs as FileSystem
 
+const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
+const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
+
 let mappersBuildForOptions: TsResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
 let resolver: Resolver
@@ -95,7 +98,14 @@ export function resolve(
   found: boolean
   path?: string | null
 } {
-  const opts: ResolveOptions & TsResolverOptions = {
+  const opts: Required<
+    Pick<
+      ResolveOptions,
+      'conditionNames' | 'extensions' | 'mainFields' | 'useSyncFileSystemCalls'
+    >
+  > &
+    ResolveOptions &
+    TsResolverOptions = {
     ...options,
     extensions: options?.extensions ?? defaultExtensions,
     mainFields: options?.mainFields ?? defaultMainFields,
@@ -122,7 +132,7 @@ export function resolve(
 
   initMappers(opts)
 
-  const mappedPath = getMappedPath(source, file, true)
+  const mappedPath = getMappedPath(source, file, opts.extensions, true)
   if (mappedPath) {
     log('matched ts path:', mappedPath)
   }
@@ -140,7 +150,7 @@ export function resolve(
   // naive attempt at @types/* resolution,
   // if path is neither absolute nor relative
   if (
-    (/\.jsx?$/.test(foundNodePath!) ||
+    (JS_EXT_PATTERN.test(foundNodePath!) ||
       (opts.alwaysTryTypes && !foundNodePath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
@@ -179,17 +189,17 @@ function resolveExtension(id: string) {
     return
   }
 
-  if (id.endsWith('.mjs')) {
-    return {
-      path: idWithoutJsExt,
-      extensions: ['.mts', '.d.mts'],
-    }
-  }
-
   if (id.endsWith('.cjs')) {
     return {
       path: idWithoutJsExt,
       extensions: ['.cts', '.d.cts'],
+    }
+  }
+
+  if (id.endsWith('.mjs')) {
+    return {
+      path: idWithoutJsExt,
+      extensions: ['.mts', '.d.mts'],
     }
   }
 
@@ -200,7 +210,7 @@ function resolveExtension(id: string) {
 
 /**
  * Like `sync` from `resolve` package, but considers that the module id
- * could have a .js or .jsx extension.
+ * could have a .cjs, .mjs, .js or .jsx extension.
  */
 function tsResolve(
   source: string,
@@ -231,10 +241,7 @@ function removeQuerystring(id: string) {
   return id
 }
 
-const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
-const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
-
-/** Remove .js or .jsx extension from module id. */
+/** Remove .cjs, .mjs, .js or .jsx extension from module id. */
 function removeJsExtension(id: string) {
   return id.replace(JS_EXT_PATTERN, '')
 }
@@ -250,14 +257,19 @@ const isFile = (path?: string | undefined): path is string => {
 /**
  * @param {string} source the module to resolve; i.e './some-module'
  * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
+ * @param {string[]} extensions the extensions to try
+ * @param {boolean} retry should retry on failed to resolve
  * @returns The mapped path of the module or undefined
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
 function getMappedPath(
   source: string,
   file: string,
+  extensions = defaultExtensions,
   retry?: boolean,
 ): string | undefined {
+  extensions = ['', ...extensions]
+
   let paths: string[] | undefined = []
 
   if (RELATIVE_PATH_PATTERN.test(source)) {
@@ -268,43 +280,40 @@ function getMappedPath(
   } else {
     paths = mappers!
       .map(mapper =>
-        mapper?.(source).map(item =>
-          path.extname(item)
-            ? item
-            : ['ts', 'tsx', '.d.ts', 'js'].map(ext => `${item}.${ext}`),
-        ),
+        mapper?.(source).map(item => extensions.map(ext => `${item}${ext}`)),
       )
       .flat(2)
       .filter(isFile)
   }
 
   if (retry && paths.length === 0) {
-    if (JS_EXT_PATTERN.test(source)) {
+    const isJs = JS_EXT_PATTERN.test(source)
+    if (isJs) {
       const jsExt = path.extname(source)
       const tsExt = jsExt.replace('js', 'ts')
       const basename = source.replace(JS_EXT_PATTERN, '')
-      return (
+
+      const resolved =
         getMappedPath(basename + tsExt, file) ||
-        getMappedPath(source + '/index.ts', file) ||
-        getMappedPath(source + '/index.tsx', file) ||
-        getMappedPath(source + '/index.d.ts', file) ||
         getMappedPath(
           basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
           file,
-        ) ||
-        getMappedPath(source + '/index.js', file)
-      )
+        )
+
+      if (resolved) {
+        return resolved
+      }
     }
-    return (
-      getMappedPath(source + '.ts', file) ||
-      getMappedPath(source + '.tsx', file) ||
-      getMappedPath(source + '.js', file) ||
-      getMappedPath(source + '.d.ts', file) ||
-      getMappedPath(source + '/index.ts', file) ||
-      getMappedPath(source + '/index.tsx', file) ||
-      getMappedPath(source + '/index.d.ts', file) ||
-      getMappedPath(source + '/index.js', file)
-    )
+
+    for (const ext of extensions) {
+      const resolved =
+        (isJs ? null : getMappedPath(source + ext, file)) ||
+        getMappedPath(source + `/index${ext}`, file)
+
+      if (resolved) {
+        return resolved
+      }
+    }
   }
 
   if (paths.length > 1) {
