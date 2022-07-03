@@ -241,7 +241,7 @@ function removeQuerystring(id: string) {
   return id
 }
 
-/** Remove .js or .jsx extension from module id. */
+/** Remove .cjs, .mjs, .js or .jsx extension from module id. */
 function removeJsExtension(id: string) {
   return id.replace(JS_EXT_PATTERN, '')
 }
