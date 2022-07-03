@@ -78,6 +78,9 @@ export interface TsResolverOptions
 
 const fileSystem = fs as FileSystem
 
+const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
+const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
+
 let mappersBuildForOptions: TsResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
 let resolver: Resolver
@@ -147,7 +150,7 @@ export function resolve(
   // naive attempt at @types/* resolution,
   // if path is neither absolute nor relative
   if (
-    (/\.jsx?$/.test(foundNodePath!) ||
+    (JS_EXT_PATTERN.test(foundNodePath!) ||
       (opts.alwaysTryTypes && !foundNodePath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
@@ -238,9 +241,6 @@ function removeQuerystring(id: string) {
   return id
 }
 
-const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
-const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
-
 /** Remove .js or .jsx extension from module id. */
 function removeJsExtension(id: string) {
   return id.replace(JS_EXT_PATTERN, '')
@@ -268,6 +268,8 @@ function getMappedPath(
   extensions = defaultExtensions,
   retry?: boolean,
 ): string | undefined {
+  extensions = ['', ...extensions]
+
   let paths: string[] | undefined = []
 
   if (RELATIVE_PATH_PATTERN.test(source)) {
@@ -278,9 +280,7 @@ function getMappedPath(
   } else {
     paths = mappers!
       .map(mapper =>
-        mapper?.(source).map(item =>
-          ['', ...extensions].map(ext => `${item}${ext}`),
-        ),
+        mapper?.(source).map(item => extensions.map(ext => `${item}${ext}`)),
       )
       .flat(2)
       .filter(isFile)
