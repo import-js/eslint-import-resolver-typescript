@@ -287,7 +287,8 @@ function getMappedPath(
   }
 
   if (retry && paths.length === 0) {
-    if (JS_EXT_PATTERN.test(source)) {
+    const isJs = JS_EXT_PATTERN.test(source)
+    if (isJs) {
       const jsExt = path.extname(source)
       const tsExt = jsExt.replace('js', 'ts')
       const basename = source.replace(JS_EXT_PATTERN, '')
@@ -306,7 +307,7 @@ function getMappedPath(
 
     for (const ext of extensions) {
       const resolved =
-        getMappedPath(source + ext, file) ||
+        (isJs ? null : getMappedPath(source + ext, file)) ||
         getMappedPath(source + `/index${ext}`, file)
 
       if (resolved) {
