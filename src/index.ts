@@ -189,17 +189,17 @@ function resolveExtension(id: string) {
     return
   }
 
-  if (id.endsWith('.mjs')) {
-    return {
-      path: idWithoutJsExt,
-      extensions: ['.mts', '.d.mts'],
-    }
-  }
-
   if (id.endsWith('.cjs')) {
     return {
       path: idWithoutJsExt,
       extensions: ['.cts', '.d.cts'],
+    }
+  }
+
+  if (id.endsWith('.mjs')) {
+    return {
+      path: idWithoutJsExt,
+      extensions: ['.mts', '.d.mts'],
     }
   }
 
@@ -210,7 +210,7 @@ function resolveExtension(id: string) {
 
 /**
  * Like `sync` from `resolve` package, but considers that the module id
- * could have a .js or .jsx extension.
+ * could have a .cjs, .mjs, .js or .jsx extension.
  */
 function tsResolve(
   source: string,
