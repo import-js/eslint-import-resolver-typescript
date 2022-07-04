@@ -268,6 +268,7 @@ function getMappedPath(
   extensions = defaultExtensions,
   retry?: boolean,
 ): string | undefined {
+  const originalExtensions = extensions
   extensions = ['', ...extensions]
 
   let paths: string[] | undefined = []
@@ -280,7 +281,10 @@ function getMappedPath(
   } else {
     paths = mappers!
       .map(mapper =>
-        mapper?.(source).map(item => extensions.map(ext => `${item}${ext}`)),
+        mapper?.(source).map(item => [
+          ...extensions.map(ext => `${item}${ext}`),
+          ...originalExtensions.map(ext => `${item}/index${ext}`),
+        ]),
       )
       .flat(2)
       .filter(isFile)
