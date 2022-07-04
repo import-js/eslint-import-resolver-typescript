@@ -1,5 +1,5 @@
 {
-  "extends": "@1stg/tsconfig/node16.json",
+  "extends": "@1stg/tsconfig/node16",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "lib"

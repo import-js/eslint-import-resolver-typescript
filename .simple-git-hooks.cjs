@@ -1,1 +1,4 @@
-module.exports = require('@1stg/simple-git-hooks')
+module.exports = {
+  'pre-commit': 'yarn lint-staged',
+  'commit-msg': `yarn commitlint -e`,
+}
