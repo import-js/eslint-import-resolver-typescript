@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.1
+
+### Patch Changes
+
+- [#131](https://github.com/import-js/eslint-import-resolver-typescript/pull/131) [`fb88af2`](https://github.com/import-js/eslint-import-resolver-typescript/commit/fb88af2ecf797f014bfe0b38994f040a535dcdba) Thanks [@JounQin](https://github.com/JounQin)! - fix: try index file with extensions automatically
+
 ## 3.2.0
 
 ### Minor Changes
