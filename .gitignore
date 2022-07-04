@@ -1,5 +1,10 @@
 .type-coverage
+.yarn
 lib
 node_modules
 *.log
 .eslintcache
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/versions
+!/.pnp.*
