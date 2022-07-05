@@ -1,15 +1,13 @@
 # eslint-import-resolver-typescript
 
 [![GitHub Actions](https://github.com/import-js/eslint-import-resolver-typescript/workflows/CI/badge.svg)](https://github.com/import-js/eslint-import-resolver-typescript/actions/workflows/ci.yml)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/import-js/eslint-import-resolver-typescript.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/import-js/eslint-import-resolver-typescript/context:javascript)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fimport-js%2Feslint-import-resolver-typescript%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![npm](https://img.shields.io/npm/v/eslint-import-resolver-typescript.svg)](https://www.npmjs.com/package/eslint-import-resolver-typescript)
 [![GitHub Release](https://img.shields.io/github/release/import-js/eslint-import-resolver-typescript)](https://github.com/import-js/eslint-import-resolver-typescript/releases)
 
-[![David Peer](https://img.shields.io/david/peer/import-js/eslint-import-resolver-typescript.svg)](https://david-dm.org/import-js/eslint-import-resolver-typescript?type=peer)
-[![David](https://img.shields.io/david/import-js/eslint-import-resolver-typescript.svg)](https://david-dm.org/import-js/eslint-import-resolver-typescript)
-[![David Dev](https://img.shields.io/david/dev/import-js/eslint-import-resolver-typescript.svg)](https://david-dm.org/import-js/eslint-import-resolver-typescript?type=dev)
-
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/atlassian/changesets)
