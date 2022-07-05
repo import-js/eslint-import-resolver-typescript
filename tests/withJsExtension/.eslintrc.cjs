@@ -1,6 +1,6 @@
 /* eslint-env node */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const config = require('../baseEslintConfig')(__dirname)
+const config = require('../baseEslintConfig.cjs')(__dirname)
 
 module.exports = {
   ...config,

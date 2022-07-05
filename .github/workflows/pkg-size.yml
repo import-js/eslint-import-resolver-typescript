@@ -18,9 +18,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
 
       - name: Package Size Report
         uses: pkg-size/action@v1
+        with:
+          build-command: yarn build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

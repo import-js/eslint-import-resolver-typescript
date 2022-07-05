@@ -265,7 +265,7 @@ const isFile = (path?: string | undefined): path is string => {
 function getMappedPath(
   source: string,
   file: string,
-  extensions = defaultExtensions,
+  extensions: string[] = defaultExtensions,
   retry?: boolean,
 ): string | undefined {
   const originalExtensions = extensions

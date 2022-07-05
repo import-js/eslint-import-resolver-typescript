@@ -1,6 +1,6 @@
 {
-    "name": "dummy.js",
-    "version": "1.0.0",
-    "main": "index.js",
-    "private": true
+  "name": "dummy.js",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js"
 }

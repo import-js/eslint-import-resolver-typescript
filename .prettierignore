@@ -1,3 +1,8 @@
+.type-coverage
+.pnp.*
+.yarn
+.yarnrc.yml
+dist
 lib
 node_modules
 CHANGELOG.md

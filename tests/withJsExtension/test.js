@@ -124,7 +124,7 @@ assertResolve('bar', 'bar/index.tsx')
 
 assertResolve(
   'typescript/lib/typescript.js',
-  '../../node_modules/typescript/lib/typescript.js',
+  path.relative(__dirname, require.resolve('typescript/lib/typescript.js')),
 )
 
 // resolves symlinks by default
