@@ -34,4 +34,12 @@ module.exports = project => ({
     'node/no-extraneous-import': 0,
     'node/no-missing-import': 0,
   },
+  overrides: [
+    {
+      files: '**/.*.cjs',
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+  ],
 })

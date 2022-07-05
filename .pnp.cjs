@@ -2560,7 +2560,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "get-tsconfig",\
-        "npm:4.1.0"\
+        "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."\
       ],\
       [\
         "git-raw-commits",\
@@ -5296,19 +5296,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.0.1"],\
             ["@types/unist", "npm:2.0.6"],\
             ["commitlint", "npm:17.0.3"],\
+            ["cross-env", "npm:7.0.3"],\
             ["debug", "virtual:8d661b8a4a34b328480ba9f61773c9a9cf0fa02010367bd0a9e6f98413fa50ef2a19e99658c0b732c084022e35a39e3811101e06691d274b99904133e76ecf03#npm:4.3.4"],\
             ["dummy.js", "link:dummy.js::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["enhanced-resolve", "npm:5.10.0"],\
             ["eslint", "npm:8.19.0"],\
             ["eslint-import-resolver-typescript", "link:.::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["eslint-plugin-import", "virtual:8eb3fa6dc255b56af33059920e3d7d3166234f0def1ed22906ffdd9cab5fe8209c102c8be0e88597579d268642d2b536975440924ac54b16c2672fae413eb605#npm:2.26.0"],\
-            ["esprima", "npm:4.0.1"],\
-            ["get-tsconfig", "npm:4.1.0"],\
+            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["globby", "npm:13.1.2"],\
             ["is-core-module", "npm:2.9.0"],\
             ["is-glob", "npm:4.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
             ["npm-run-all", "npm:4.1.5"],\
+            ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["simple-git-hooks", "npm:2.8.0"],\
             ["synckit", "npm:0.7.2"],\
@@ -14396,19 +14397,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.0.1"],\
             ["@types/unist", "npm:2.0.6"],\
             ["commitlint", "npm:17.0.3"],\
+            ["cross-env", "npm:7.0.3"],\
             ["debug", "virtual:8d661b8a4a34b328480ba9f61773c9a9cf0fa02010367bd0a9e6f98413fa50ef2a19e99658c0b732c084022e35a39e3811101e06691d274b99904133e76ecf03#npm:4.3.4"],\
             ["dummy.js", "link:dummy.js::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["enhanced-resolve", "npm:5.10.0"],\
             ["eslint", "npm:8.19.0"],\
             ["eslint-import-resolver-typescript", "link:.::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["eslint-plugin-import", "virtual:7960bf92e9a5b04f80bf84eca9e2663ccf88f1fd7c5430816aee359a8f4f3620b694271d24ef24e2660133fe30f12d125eb4900c24b2850ba168f1e4e78d9b70#npm:2.26.0"],\
-            ["esprima", "npm:4.0.1"],\
-            ["get-tsconfig", "npm:4.1.0"],\
+            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["globby", "npm:13.1.2"],\
             ["is-core-module", "npm:2.9.0"],\
             ["is-glob", "npm:4.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
             ["npm-run-all", "npm:4.1.5"],\
+            ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["simple-git-hooks", "npm:2.8.0"],\
             ["synckit", "npm:0.7.2"],\
@@ -14438,19 +14440,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.0.1"],\
             ["@types/unist", "npm:2.0.6"],\
             ["commitlint", "npm:17.0.3"],\
+            ["cross-env", "npm:7.0.3"],\
             ["debug", "virtual:8d661b8a4a34b328480ba9f61773c9a9cf0fa02010367bd0a9e6f98413fa50ef2a19e99658c0b732c084022e35a39e3811101e06691d274b99904133e76ecf03#npm:4.3.4"],\
             ["dummy.js", "link:dummy.js::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["enhanced-resolve", "npm:5.10.0"],\
             ["eslint", "npm:8.19.0"],\
             ["eslint-import-resolver-typescript", "link:.::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["eslint-plugin-import", "virtual:8eb3fa6dc255b56af33059920e3d7d3166234f0def1ed22906ffdd9cab5fe8209c102c8be0e88597579d268642d2b536975440924ac54b16c2672fae413eb605#npm:2.26.0"],\
-            ["esprima", "npm:4.0.1"],\
-            ["get-tsconfig", "npm:4.1.0"],\
+            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["globby", "npm:13.1.2"],\
             ["is-core-module", "npm:2.9.0"],\
             ["is-glob", "npm:4.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
             ["npm-run-all", "npm:4.1.5"],\
+            ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["simple-git-hooks", "npm:2.8.0"],\
             ["synckit", "npm:0.7.2"],\
@@ -16105,10 +16108,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["get-tsconfig", [\
-        ["npm:4.1.0", {\
-          "packageLocation": "./.yarn/cache/get-tsconfig-npm-4.1.0-625beb501f-a1a29cdf53.zip/node_modules/get-tsconfig/",\
+        ["patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A.", {\
+          "packageLocation": "./.yarn/cache/get-tsconfig-patch-8682d7db64-2906b7505f.zip/node_modules/get-tsconfig/",\
           "packageDependencies": [\
-            ["get-tsconfig", "npm:4.1.0"]\
+            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."]\
           ],\
           "linkType": "HARD"\
         }]\

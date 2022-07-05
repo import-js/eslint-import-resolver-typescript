@@ -115,19 +115,21 @@
     "@types/node": "^18.0.0",
     "@types/unist": "^2.0.6",
     "commitlint": "^17.0.3",
+    "cross-env": "^7.0.3",
     "dummy.js": "link:dummy.js",
     "eslint": "^8.19.0",
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import": "^2.26.0",
-    "esprima": "^4.0.1",
     "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "simple-git-hooks": "^2.8.0",
     "type-coverage": "^2.21.2",
     "typescript": "^4.7.4"
   },
   "resolutions": {
+    "get-tsconfig": "patch:get-tsconfig@npm:4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch",
     "prettier": "^2.7.1"
   },
   "dependenciesMeta": {

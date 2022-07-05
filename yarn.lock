@@ -6399,19 +6399,20 @@ __metadata:
     "@types/node": ^18.0.0
     "@types/unist": ^2.0.6
     commitlint: ^17.0.3
+    cross-env: ^7.0.3
     debug: ^4.3.4
     dummy.js: "link:dummy.js"
     enhanced-resolve: ^5.10.0
     eslint: ^8.19.0
     eslint-import-resolver-typescript: "link:."
     eslint-plugin-import: ^2.26.0
-    esprima: ^4.0.1
     get-tsconfig: ^4.1.0
     globby: ^13.1.2
     is-core-module: ^2.9.0
     is-glob: ^4.0.3
     lint-staged: ^13.0.3
     npm-run-all: ^4.1.5
+    prettier: ^2.7.1
     react: ^18.2.0
     simple-git-hooks: ^2.8.0
     synckit: ^0.7.1
@@ -7624,10 +7625,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-tsconfig@npm:^4.1.0":
+"get-tsconfig@npm:4.1.0":
   version: 4.1.0
   resolution: "get-tsconfig@npm:4.1.0"
   checksum: a1a29cdf53609a1e9e111bf863ea209494c03e425964ed2603e3a2657ed1d38213d4a8e3efbfd945f2ec908fe99b76d3ee87422fac5d8ec4fdd858bbb502efbf
+  languageName: node
+  linkType: hard
+
+"get-tsconfig@patch:get-tsconfig@npm:4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::locator=eslint-import-resolver-typescript%40workspace%3A.":
+  version: 4.1.0
+  resolution: "get-tsconfig@patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."
+  checksum: 2906b7505f3a322f2d30e80cc08ba86d6d28c38f3df02c96ea0d6afb5d247a8a0f5dbd36f5ad23771d90e7800780fac8dfa0c6f5dc5672a6388667d10043a842
   languageName: node
   linkType: hard
 

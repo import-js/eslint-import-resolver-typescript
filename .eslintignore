@@ -1,5 +1,5 @@
 dist
 lib
 CHANGELOG.md
-!/.*.cjs
-/.pnp.*
+.pnp.*
+!.*.cjs
