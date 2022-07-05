@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.2
+
+### Patch Changes
+
+- [#133](https://github.com/import-js/eslint-import-resolver-typescript/pull/133) [`d944b26`](https://github.com/import-js/eslint-import-resolver-typescript/commit/d944b26e44c3f4e56ce41bb21584b86f8b4b8da5) Thanks [@JounQin](https://github.com/JounQin)! - fix: use yarn v3 with PnP linker, close #130
+
 ## 3.2.1
 
 ### Patch Changes
