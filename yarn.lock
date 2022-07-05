@@ -6422,7 +6422,7 @@ __metadata:
     eslint: ^8.19.0
     eslint-import-resolver-typescript: "link:."
     eslint-plugin-import: ^2.26.0
-    get-tsconfig: ^4.1.0
+    get-tsconfig: "npm:@unts/get-tsconfig@^4.1.1"
     globby: ^13.1.2
     is-core-module: ^2.9.0
     is-glob: ^4.0.3
@@ -7641,17 +7641,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-tsconfig@npm:4.1.0":
-  version: 4.1.0
-  resolution: "get-tsconfig@npm:4.1.0"
-  checksum: a1a29cdf53609a1e9e111bf863ea209494c03e425964ed2603e3a2657ed1d38213d4a8e3efbfd945f2ec908fe99b76d3ee87422fac5d8ec4fdd858bbb502efbf
-  languageName: node
-  linkType: hard
-
-"get-tsconfig@patch:get-tsconfig@npm:4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::locator=eslint-import-resolver-typescript%40workspace%3A.":
-  version: 4.1.0
-  resolution: "get-tsconfig@patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."
-  checksum: 2906b7505f3a322f2d30e80cc08ba86d6d28c38f3df02c96ea0d6afb5d247a8a0f5dbd36f5ad23771d90e7800780fac8dfa0c6f5dc5672a6388667d10043a842
+"get-tsconfig@npm:@unts/get-tsconfig@^4.1.1":
+  version: 4.1.1
+  resolution: "@unts/get-tsconfig@npm:4.1.1"
+  checksum: dff677518c6bb9452aeb96a8d5935d0a93da1671ec17f92a8b1dfedc957447b12a4a1e8cade4b8dbacfef97a7b1761de40787f315ec62eebe65aa20675fc4944
   languageName: node
   linkType: hard
 

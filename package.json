@@ -96,7 +96,7 @@
   "dependencies": {
     "debug": "^4.3.4",
     "enhanced-resolve": "^5.10.0",
-    "get-tsconfig": "^4.1.0",
+    "get-tsconfig": "npm:@unts/get-tsconfig@^4.1.1",
     "globby": "^13.1.2",
     "is-core-module": "^2.9.0",
     "is-glob": "^4.0.3",
@@ -164,7 +164,6 @@
     "typescript": "^4.7.4"
   },
   "resolutions": {
-    "get-tsconfig": "patch:get-tsconfig@npm:4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch",
     "prettier": "^2.7.1"
   },
   "typeCoverage": {

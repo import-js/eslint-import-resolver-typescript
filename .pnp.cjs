@@ -2560,7 +2560,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "get-tsconfig",\
-        "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."\
+        [\
+          "@unts/get-tsconfig",\
+          "npm:4.1.1"\
+        ]\
       ],\
       [\
         "git-raw-commits",\
@@ -5303,7 +5306,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.19.0"],\
             ["eslint-import-resolver-typescript", "link:.::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["eslint-plugin-import", "virtual:8eb3fa6dc255b56af33059920e3d7d3166234f0def1ed22906ffdd9cab5fe8209c102c8be0e88597579d268642d2b536975440924ac54b16c2672fae413eb605#npm:2.26.0"],\
-            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."],\
+            ["get-tsconfig", [\
+              "@unts/get-tsconfig",\
+              "npm:4.1.1"\
+            ]],\
             ["globby", "npm:13.1.2"],\
             ["is-core-module", "npm:2.9.0"],\
             ["is-glob", "npm:4.0.3"],\
@@ -11212,6 +11218,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@unts/get-tsconfig", [\
+        ["npm:4.1.1", {\
+          "packageLocation": "./.yarn/cache/@unts-get-tsconfig-npm-4.1.1-cd923b7adf-dff677518c.zip/node_modules/@unts/get-tsconfig/",\
+          "packageDependencies": [\
+            ["@unts/get-tsconfig", "npm:4.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@vue/babel-helper-vue-jsx-merge-props", [\
         ["npm:1.2.1", {\
           "packageLocation": "./.yarn/cache/@vue-babel-helper-vue-jsx-merge-props-npm-1.2.1-d3cb2b14f0-1fad42dfb9.zip/node_modules/@vue/babel-helper-vue-jsx-merge-props/",\
@@ -14418,7 +14433,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.19.0"],\
             ["eslint-import-resolver-typescript", "link:.::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["eslint-plugin-import", "virtual:41f9f1229652e4c33460a8539e3f8c817b034972cd5a0a56e68930a51745e344d8e81b1235e5883f6863651bff2903f5d37289d99b292790f7828234cc07e8c1#npm:2.26.0"],\
-            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."],\
+            ["get-tsconfig", [\
+              "@unts/get-tsconfig",\
+              "npm:4.1.1"\
+            ]],\
             ["globby", "npm:13.1.2"],\
             ["is-core-module", "npm:2.9.0"],\
             ["is-glob", "npm:4.0.3"],\
@@ -14461,7 +14479,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.19.0"],\
             ["eslint-import-resolver-typescript", "link:.::locator=eslint-import-resolver-typescript%40workspace%3A."],\
             ["eslint-plugin-import", "virtual:8eb3fa6dc255b56af33059920e3d7d3166234f0def1ed22906ffdd9cab5fe8209c102c8be0e88597579d268642d2b536975440924ac54b16c2672fae413eb605#npm:2.26.0"],\
-            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."],\
+            ["get-tsconfig", [\
+              "@unts/get-tsconfig",\
+              "npm:4.1.1"\
+            ]],\
             ["globby", "npm:13.1.2"],\
             ["is-core-module", "npm:2.9.0"],\
             ["is-glob", "npm:4.0.3"],\
@@ -16117,15 +16138,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["get-symbol-description", "npm:1.0.0"],\
             ["call-bind", "npm:1.0.2"],\
             ["get-intrinsic", "npm:1.1.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["get-tsconfig", [\
-        ["patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A.", {\
-          "packageLocation": "./.yarn/cache/get-tsconfig-patch-8682d7db64-2906b7505f.zip/node_modules/get-tsconfig/",\
-          "packageDependencies": [\
-            ["get-tsconfig", "patch:get-tsconfig@npm%3A4.1.0#.yarn/patches/get-tsconfig-npm-4.1.0-625beb501f.patch::version=4.1.0&hash=2ea638&locator=eslint-import-resolver-typescript%40workspace%3A."]\
           ],\
           "linkType": "HARD"\
         }]\

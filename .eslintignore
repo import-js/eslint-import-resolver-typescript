@@ -1,7 +1,7 @@
+!.*.cjs
 .pnp.*
 .yarn
 .yarnrc.yml
-!.*.cjs
 dist
 lib
 CHANGELOG.md
