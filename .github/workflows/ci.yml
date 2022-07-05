@@ -29,7 +29,8 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Build, Lint and Test
-        run: yarn run-s build lint test typecov
+        run: yarn run-s build lint test
+        # typecov
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
