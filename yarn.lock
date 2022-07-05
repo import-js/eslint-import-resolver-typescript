@@ -6460,6 +6460,10 @@ __metadata:
       unplugged: true
     "@1stg/tsconfig@2.2.2":
       unplugged: true
+    "@changesets/changelog-github@0.4.5":
+      unplugged: true
+    "@changesets/cli@2.23.0":
+      unplugged: true
   languageName: unknown
   linkType: soft
 

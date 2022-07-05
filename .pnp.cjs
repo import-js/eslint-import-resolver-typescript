@@ -8893,7 +8893,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],\
       ["@changesets/changelog-github", [\
         ["npm:0.4.5", {\
-          "packageLocation": "./.yarn/cache/@changesets-changelog-github-npm-0.4.5-565ca35441-9c1643e083.zip/node_modules/@changesets/changelog-github/",\
+          "packageLocation": "./.yarn/unplugged/@changesets-changelog-github-npm-0.4.5-565ca35441/node_modules/@changesets/changelog-github/",\
           "packageDependencies": [\
             ["@changesets/changelog-github", "npm:0.4.5"],\
             ["@changesets/get-github-info", "npm:0.5.1"],\
@@ -8905,7 +8905,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],\
       ["@changesets/cli", [\
         ["npm:2.23.0", {\
-          "packageLocation": "./.yarn/cache/@changesets-cli-npm-2.23.0-9319cc7281-86cad96c14.zip/node_modules/@changesets/cli/",\
+          "packageLocation": "./.yarn/unplugged/@changesets-cli-npm-2.23.0-9319cc7281/node_modules/@changesets/cli/",\
           "packageDependencies": [\
             ["@changesets/cli", "npm:2.23.0"],\
             ["@babel/runtime", "npm:7.18.6"],\
