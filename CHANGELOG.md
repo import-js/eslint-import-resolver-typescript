@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.3
+
+### Patch Changes
+
+- [#137](https://github.com/import-js/eslint-import-resolver-typescript/pull/137) [`a3f6ba3`](https://github.com/import-js/eslint-import-resolver-typescript/commit/a3f6ba3cd87aa1a0d9de68a5923ad2939759f83d) Thanks [@JounQin](https://github.com/JounQin)! - fix: run prerelease manually for yarn v3
+
 ## 3.2.2
 
 ### Patch Changes
