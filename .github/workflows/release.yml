@@ -34,7 +34,9 @@ jobs:
         with:
           version: yarn changeset version
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn prerelease && yarn release
+          publish: |
+            yarn prerelease
+            yarn release
           commit: 'chore: release eslint-import-resolver-typescript'
           title: 'chore: release eslint-import-resolver-typescript'
         env:
