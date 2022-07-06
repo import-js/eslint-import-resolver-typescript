@@ -171,7 +171,7 @@ packages:
       eslint-plugin-import: 2.26.0_gwbrqbpvvjqmnlge5ow6pczcpm
       eslint-plugin-jest: 26.5.3_cbxtyx3d4qwpnm7p4q4ovvhj5y
       eslint-plugin-jsdoc: 39.3.3_eslint@8.19.0
-      eslint-plugin-json-schema-validator: 3.1.2_eslint@8.19.0
+      eslint-plugin-json-schema-validator: 3.1.3_eslint@8.19.0
       eslint-plugin-jsonc: 2.3.1_eslint@8.19.0
       eslint-plugin-markup: 0.9.0_eslint@8.19.0
       eslint-plugin-mdx: 2.0.1_eslint@8.19.0
@@ -3854,7 +3854,7 @@ packages:
         integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==,
       }
     dependencies:
-      '@types/estree': 0.0.52
+      '@types/estree': 0.0.51
     dev: true
 
   /@types/babel__core/7.1.19:
@@ -7219,10 +7219,10 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-json-schema-validator/3.1.2_eslint@8.19.0:
+  /eslint-plugin-json-schema-validator/3.1.3_eslint@8.19.0:
     resolution:
       {
-        integrity: sha512-78j4OqKCBb/k6pPto8/UDzZVxoI29L+BUx0IaAkG8QUlKQQ53qRBlqC24ala2x/gyFESIJDFCOPYmCWVxfXZuQ==,
+        integrity: sha512-4McQAC6OooHHIfPQV5u3utPbC7d1AKrT5fACqw4/lXYg7JtC74fxxmgFP3FRyOsLYPd2SfQqS/usdYsjzqYJyQ==,
       }
     engines: { node: ^14.17.0 || >=16.0.0 }
     peerDependencies:
