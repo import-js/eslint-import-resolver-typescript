@@ -103,15 +103,15 @@
     "synckit": "^0.7.2"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^7.2.6",
+    "@1stg/lib-config": "^8.0.0",
     "@changesets/changelog-github": "^0.4.5",
-    "@changesets/cli": "^2.23.0",
+    "@changesets/cli": "^2.23.1",
     "@mozilla/glean": "^1.0.0",
     "@types/debug": "^4.1.7",
     "@types/enhanced-resolve": "^3.0.7",
     "@types/is-core-module": "^2.2.0",
     "@types/is-glob": "^4.0.2",
-    "@types/node": "^18.0.1",
+    "@types/node": "^18.0.3",
     "@types/unist": "^2.0.6",
     "dummy.js": "link:dummy.js",
     "eslint-import-resolver-typescript": "link:.",

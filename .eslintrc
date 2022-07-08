@@ -8,6 +8,8 @@
   },
   "extends": [
     "plugin:prettier/recommended",
+    "plugin:jsonc/recommended-with-json",
+    "plugin:json-schema-validator/recommended",
     "plugin:mdx/recommended"
   ]
 }
