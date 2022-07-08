@@ -3,7 +3,8 @@ name: Package Size Report
 on:
   pull_request:
     branches:
-      - master
+      - develop
+      # - master # disable because it sucks for pnpm...
 
 jobs:
   pkg-size-report:
@@ -14,14 +15,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: pnpm
 
       - name: Package Size Report
         uses: pkg-size/action@v1
         with:
-          build-command: yarn build
+          build-command: pnpm build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

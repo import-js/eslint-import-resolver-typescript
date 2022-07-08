@@ -1,7 +1,6 @@
-!.*.cjs
-.pnp.*
-.yarn
-.yarnrc.yml
 dist
 lib
 CHANGELOG.md
+/pnpm-*.yml
+!/.*.cjs
+!/.changeset/*.json
