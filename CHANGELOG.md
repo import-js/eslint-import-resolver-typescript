@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.5
+
+### Patch Changes
+
+- [#136](https://github.com/import-js/eslint-import-resolver-typescript/pull/136) [`abf8907`](https://github.com/import-js/eslint-import-resolver-typescript/commit/abf89078298ab9de2dcdf197d73cd39452fa043b) Thanks [@JounQin](https://github.com/JounQin)! - build: use pnpm as manager, yarn pnp is still supported
+
 ## 3.2.4
 
 ### Patch Changes
