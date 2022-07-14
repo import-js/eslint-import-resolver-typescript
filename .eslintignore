@@ -1,6 +1,6 @@
 dist
 lib
 CHANGELOG.md
-/pnpm-*.yml
+/pnpm-lock.yml
 !/.*.cjs
-!/.changeset/*.json
+!/.changeset

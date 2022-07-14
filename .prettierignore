@@ -1,6 +1,6 @@
-.npmrc
 .type-coverage
 dist
 lib
 node_modules
 CHANGELOG.md
+/pnpm-lock.yaml
