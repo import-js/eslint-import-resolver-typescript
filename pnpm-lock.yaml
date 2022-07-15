@@ -24,7 +24,7 @@ specifiers:
   dummy.js: link:dummy.js
   enhanced-resolve: ^5.10.0
   eslint-import-resolver-typescript: link:.
-  get-tsconfig: npm:@unts/get-tsconfig@^4.1.1
+  get-tsconfig: ^4.2.0
   globby: ^13.1.2
   is-core-module: ^2.9.0
   is-glob: ^4.0.3
@@ -37,7 +37,7 @@ specifiers:
 dependencies:
   debug: 4.3.4
   enhanced-resolve: 5.10.0
-  get-tsconfig: /@unts/get-tsconfig/4.1.1
+  get-tsconfig: 4.2.0
   globby: 13.1.2
   is-core-module: 2.9.0
   is-glob: 4.0.3
@@ -3174,6 +3174,7 @@ packages:
 
   /@unts/get-tsconfig/4.1.1:
     resolution: {integrity: sha512-8mPf1bBzF2S+fyuyYOQWjDcaJTTgJ14UAnXW9I3KwrqioRWG1byRXHwciYdqXpbdOiu7Fg4WJbymBIakGk+aMA==}
+    dev: true
 
   /@vue/babel-helper-vue-jsx-merge-props/1.2.1:
     resolution: {integrity: sha512-QOi5OW45e2R20VygMSNhyQHvpdUwQZqGPc748JLGCYEy+yp8fNFNdbNIGAgZmi9e+2JHPd6i6idRuqivyicIkA==}
@@ -5882,6 +5883,10 @@ packages:
       call-bind: 1.0.2
       get-intrinsic: 1.1.2
     dev: true
+
+  /get-tsconfig/4.2.0:
+    resolution: {integrity: sha512-X8u8fREiYOE6S8hLbq99PeykTDoLVnxvF4DjWKJmz9xy2nNRdUcV8ZN9tniJFeKyTU3qnC9lL8n4Chd6LmVKHg==}
+    dev: false
 
   /git-raw-commits/2.0.11:
     resolution: {integrity: sha512-VnctFhw+xfj8Va1xtfEqCUD2XDrbAPSJx+hSrE5K7fGdjZruW7XV+QOrN7LF/RJyvspRiD2I0asWsxFp0ya26A==}
