@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.6
+
+### Patch Changes
+
+- [#146](https://github.com/import-js/eslint-import-resolver-typescript/pull/146) [`7edb823`](https://github.com/import-js/eslint-import-resolver-typescript/commit/7edb82307676f507b5094448431eb117b035a712) Thanks [@JounQin](https://github.com/JounQin)! - chore: use latest `get-tsconfig` package
+
 ## 3.2.5
 
 ### Patch Changes
