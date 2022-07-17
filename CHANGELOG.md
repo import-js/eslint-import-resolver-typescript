@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.7
+
+### Patch Changes
+
+- [`60ff431`](https://github.com/import-js/eslint-import-resolver-typescript/commit/60ff431a4d3812dbdd793d40b6213b79c8b2db9d) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump synckit
+
 ## 3.2.6
 
 ### Patch Changes
