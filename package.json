@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "type": "module",
   "description": "TypeScript `.cts`, `.mts`, `.ts`, `.tsx` module resolver for `eslint-plugin-import`",
   "repository": "git+https://github.com/import-js/eslint-import-resolver-typescript",
