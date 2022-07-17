@@ -100,7 +100,7 @@
     "globby": "^13.1.2",
     "is-core-module": "^2.9.0",
     "is-glob": "^4.0.3",
-    "synckit": "^0.7.2"
+    "synckit": "^0.8.1"
   },
   "devDependencies": {
     "@1stg/lib-config": "^9.0.0",
@@ -112,7 +112,7 @@
     "@types/enhanced-resolve": "^3.0.7",
     "@types/is-core-module": "^2.2.0",
     "@types/is-glob": "^4.0.2",
-    "@types/node": "^18.0.4",
+    "@types/node": "^18.0.5",
     "@types/unist": "^2.0.6",
     "dummy.js": "link:dummy.js",
     "eslint-import-resolver-typescript": "link:.",
