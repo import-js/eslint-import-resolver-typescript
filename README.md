@@ -226,7 +226,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [ISC][]
 
-[`eslint-plugin-import`]: https://www.npmjs.com/package/eslint-plugin-import
+[`eslint-plugin-import`]: https://github.com/import-js/eslint-plugin-import
 [`enhanced-resolve`]: https://github.com/webpack/enhanced-resolve
 [`typescript`]: https://www.typescriptlang.org
 [isc]: https://opensource.org/licenses/ISC
