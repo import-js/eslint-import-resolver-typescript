@@ -94,15 +94,30 @@ export interface TsResolverOptions
   extensions?: string[]
 }
 
+type InternalResolverOptions = Required<
+  Pick<
+    ResolveOptions,
+    | 'conditionNames'
+    | 'extensionAlias'
+    | 'extensions'
+    | 'mainFields'
+    | 'useSyncFileSystemCalls'
+  >
+> &
+  ResolveOptions &
+  TsResolverOptions
+
 const fileSystem = fs as FileSystem
 
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
 
-let mappersCachedOptions: TsResolverOptions
+let cachedOptions: InternalResolverOptions | undefined
+
+let mappersCachedOptions: InternalResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
-let resolverCachedOptions: TsResolverOptions
+let resolverCachedOptions: InternalResolverOptions
 let resolver: Resolver | undefined
 
 /**
@@ -119,30 +134,21 @@ export function resolve(
   found: boolean
   path?: string | null
 } {
-  const opts: Required<
-    Pick<
-      ResolveOptions,
-      | 'conditionNames'
-      | 'extensionAlias'
-      | 'extensions'
-      | 'mainFields'
-      | 'useSyncFileSystemCalls'
-    >
-  > &
-    ResolveOptions &
-    TsResolverOptions = {
-    ...options,
-    conditionNames: options?.conditionNames ?? defaultConditionNames,
-    extensions: options?.extensions ?? defaultExtensions,
-    extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
-    mainFields: options?.mainFields ?? defaultMainFields,
-    fileSystem,
-    useSyncFileSystemCalls: true,
+  if (!cachedOptions || cachedOptions !== options) {
+    cachedOptions = {
+      ...options,
+      conditionNames: options?.conditionNames ?? defaultConditionNames,
+      extensions: options?.extensions ?? defaultExtensions,
+      extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
+      mainFields: options?.mainFields ?? defaultMainFields,
+      fileSystem,
+      useSyncFileSystemCalls: true,
+    }
   }
 
-  if (!resolver || resolverCachedOptions !== opts) {
-    resolver = ResolverFactory.createResolver(opts)
-    resolverCachedOptions = opts
+  if (!resolver || resolverCachedOptions !== cachedOptions) {
+    resolver = ResolverFactory.createResolver(cachedOptions)
+    resolverCachedOptions = cachedOptions
   }
 
   log('looking for:', source)
@@ -159,9 +165,9 @@ export function resolve(
     }
   }
 
-  initMappers(opts)
+  initMappers(cachedOptions)
 
-  const mappedPath = getMappedPath(source, file, opts.extensions, true)
+  const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
   if (mappedPath) {
     log('matched ts path:', mappedPath)
   }
@@ -183,7 +189,7 @@ export function resolve(
   // if path is neither absolute nor relative
   if (
     (JS_EXT_PATTERN.test(foundNodePath!) ||
-      (opts.alwaysTryTypes && !foundNodePath)) &&
+      (cachedOptions.alwaysTryTypes && !foundNodePath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     !source.startsWith('.')
@@ -304,7 +310,7 @@ function getMappedPath(
   return paths[0]
 }
 
-function initMappers(options: TsResolverOptions) {
+function initMappers(options: InternalResolverOptions) {
   if (mappers && mappersCachedOptions === options) {
     return
   }
