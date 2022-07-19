@@ -2,7 +2,7 @@
   "name": "eslint-import-resolver-typescript",
   "version": "3.2.7",
   "type": "module",
-  "description": "TypeScript `.cts`, `.mts`, `.ts`, `.tsx` module resolver for `eslint-plugin-import`",
+  "description": "TypeScript `.cts`/`.mts`/`.ts`/`.tsx`/`.d.cts`/`.d.mts`/`.d.ts` module resolver for `eslint-plugin-import`",
   "repository": "git+https://github.com/import-js/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
   "contributors": [
