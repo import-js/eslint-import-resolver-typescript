@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.3.0
+
+### Minor Changes
+
+- [#154](https://github.com/import-js/eslint-import-resolver-typescript/pull/154) [`42f2dd6`](https://github.com/import-js/eslint-import-resolver-typescript/commit/42f2dd6f57c4b053f7773081ea7f1e07f73a513d) Thanks [@JounQin](https://github.com/JounQin)! - feat: add `externsionAlias` option support, `.d.([cm]?ts|tsx)` are always preferred than `.([cm]?js|jsx)`
+
+  `typescript` resolves `typescript/lib/typescript.d.ts` instead of `typescript/lib/typescript.js` by default
+
+- [#154](https://github.com/import-js/eslint-import-resolver-typescript/pull/154) [`42f2dd6`](https://github.com/import-js/eslint-import-resolver-typescript/commit/42f2dd6f57c4b053f7773081ea7f1e07f73a513d) Thanks [@JounQin](https://github.com/JounQin)! - feat: exports `globSync`, `defaultExtensions`, `defaultMainFields`, `defaultConditionNames` and `defaultExtensionAlias` for reusing
+
+### Patch Changes
+
+- [#154](https://github.com/import-js/eslint-import-resolver-typescript/pull/154) [`42f2dd6`](https://github.com/import-js/eslint-import-resolver-typescript/commit/42f2dd6f57c4b053f7773081ea7f1e07f73a513d) Thanks [@JounQin](https://github.com/JounQin)! - perf: cache `options` and `resolver`
+
+- [#154](https://github.com/import-js/eslint-import-resolver-typescript/pull/154) [`42f2dd6`](https://github.com/import-js/eslint-import-resolver-typescript/commit/42f2dd6f57c4b053f7773081ea7f1e07f73a513d) Thanks [@JounQin](https://github.com/JounQin)! - chore: align with Angular Package Format correctly
+
+  reference: https://angular.io/guide/angular-package-format
+
+- [#156](https://github.com/import-js/eslint-import-resolver-typescript/pull/156) [`4bd60c3`](https://github.com/import-js/eslint-import-resolver-typescript/commit/4bd60c37ab27d87be0e554d2563f0fea59fd4058) Thanks [@JounQin](https://github.com/JounQin)! - docs: document options from `enhanced-resolve`
+
 ## 3.2.7
 
 ### Patch Changes
