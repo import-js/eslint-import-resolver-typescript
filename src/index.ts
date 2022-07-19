@@ -23,14 +23,14 @@ const _dirname =
     ? path.dirname(fileURLToPath(import.meta.url))
     : __dirname
 
-const globSync = createSyncFn<typeof import('globby').globby>(
+export const globSync = createSyncFn<typeof import('globby').globby>(
   path.resolve(_dirname, 'worker.mjs'),
 )
 
 /**
  * .mts, .cts, .d.mts, .d.cts, .mjs, .cjs are not included because .cjs and .mjs must be used explicitly.
  */
-const defaultExtensions = [
+export const defaultExtensions = [
   '.ts',
   '.tsx',
   '.d.ts',
@@ -40,30 +40,50 @@ const defaultExtensions = [
   '.node',
 ]
 
-const defaultMainFields = [
+export const defaultMainFields = [
   'types',
   'typings',
-  'module',
-  'jsnext:main',
 
-  // https://angular.io/guide/angular-package-format
-  'esm2020',
-  'es2020',
+  // APF: https://angular.io/guide/angular-package-format
   'fesm2020',
   'fesm2015',
+  'esm2020',
+  'es2020',
+
+  'module',
+  'jsnext:main',
 
   'main',
 ]
 
-const defaultConditionNames = [
+export const defaultConditionNames = [
   'types',
   'import',
+
+  // APF
+  'esm2020',
+  'es2020',
+  'es2015',
+
   'require',
   'node',
   'node-addons',
   'browser',
   'default',
 ]
+
+export const defaultExtensionAlias = {
+  '.js': [
+    '.ts',
+    // `.tsx` can also be compiled as `.js`
+    '.tsx',
+    '.d.ts',
+    '.js',
+  ],
+  '.jsx': ['.tsx', '.d.ts', '.jsx'],
+  '.cjs': ['.cts', '.d.cts', '.cjs'],
+  '.mjs': ['.mts', '.d.mts', '.mjs'],
+}
 
 export const interfaceVersion = 2
 
@@ -72,24 +92,40 @@ export interface TsResolverOptions
   alwaysTryTypes?: boolean
   project?: string[] | string
   extensions?: string[]
-  packageFilter?: (pkg: Record<string, string>) => Record<string, string>
-  conditionNamesMapper?: Record<string, string[]>
 }
+
+type InternalResolverOptions = Required<
+  Pick<
+    ResolveOptions,
+    | 'conditionNames'
+    | 'extensionAlias'
+    | 'extensions'
+    | 'mainFields'
+    | 'useSyncFileSystemCalls'
+  >
+> &
+  ResolveOptions &
+  TsResolverOptions
 
 const fileSystem = fs as FileSystem
 
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
 
-let mappersBuildForOptions: TsResolverOptions
+let cachedOptions: InternalResolverOptions | undefined
+
+let mappersCachedOptions: InternalResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
-let resolver: Resolver
+
+let resolverCachedOptions: InternalResolverOptions
+let resolver: Resolver | undefined
 
 /**
- * @param {string} source the module to resolve; i.e './some-module'
- * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
- * @param {TsResolverOptions} options
+ * @param source the module to resolve; i.e './some-module'
+ * @param file the importing file's full path; i.e. '/usr/local/bin/file.js'
+ * @param options
  */
+// eslint-disable-next-line sonarjs/cognitive-complexity
 export function resolve(
   source: string,
   file: string,
@@ -98,23 +134,22 @@ export function resolve(
   found: boolean
   path?: string | null
 } {
-  const opts: Required<
-    Pick<
-      ResolveOptions,
-      'conditionNames' | 'extensions' | 'mainFields' | 'useSyncFileSystemCalls'
-    >
-  > &
-    ResolveOptions &
-    TsResolverOptions = {
-    ...options,
-    extensions: options?.extensions ?? defaultExtensions,
-    mainFields: options?.mainFields ?? defaultMainFields,
-    conditionNames: options?.conditionNames ?? defaultConditionNames,
-    fileSystem,
-    useSyncFileSystemCalls: true,
+  if (!cachedOptions || cachedOptions !== options) {
+    cachedOptions = {
+      ...options,
+      conditionNames: options?.conditionNames ?? defaultConditionNames,
+      extensions: options?.extensions ?? defaultExtensions,
+      extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
+      mainFields: options?.mainFields ?? defaultMainFields,
+      fileSystem,
+      useSyncFileSystemCalls: true,
+    }
   }
 
-  resolver = ResolverFactory.createResolver(opts)
+  if (!resolver || resolverCachedOptions !== cachedOptions) {
+    resolver = ResolverFactory.createResolver(cachedOptions)
+    resolverCachedOptions = cachedOptions
+  }
 
   log('looking for:', source)
 
@@ -130,28 +165,31 @@ export function resolve(
     }
   }
 
-  initMappers(opts)
+  initMappers(cachedOptions)
 
-  const mappedPath = getMappedPath(source, file, opts.extensions, true)
+  const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
   if (mappedPath) {
     log('matched ts path:', mappedPath)
   }
 
   // note that even if we map the path, we still need to do a final resolve
-  let foundNodePath: string | null | undefined
+  let foundNodePath: string | null
   try {
     foundNodePath =
-      tsResolve(mappedPath ?? source, path.dirname(path.resolve(file)), opts) ||
-      null
+      resolver.resolveSync(
+        {},
+        path.dirname(path.resolve(file)),
+        mappedPath ?? source,
+      ) || null
   } catch {
     foundNodePath = null
   }
 
-  // naive attempt at @types/* resolution,
+  // naive attempt at `@types/*` resolution,
   // if path is neither absolute nor relative
   if (
     (JS_EXT_PATTERN.test(foundNodePath!) ||
-      (opts.alwaysTryTypes && !foundNodePath)) &&
+      (cachedOptions.alwaysTryTypes && !foundNodePath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     !source.startsWith('.')
@@ -182,56 +220,6 @@ export function resolve(
   }
 }
 
-function resolveExtension(id: string) {
-  const idWithoutJsExt = removeJsExtension(id)
-
-  if (idWithoutJsExt === id) {
-    return
-  }
-
-  if (id.endsWith('.cjs')) {
-    return {
-      path: idWithoutJsExt,
-      extensions: ['.cts', '.d.cts'],
-    }
-  }
-
-  if (id.endsWith('.mjs')) {
-    return {
-      path: idWithoutJsExt,
-      extensions: ['.mts', '.d.mts'],
-    }
-  }
-
-  return {
-    path: idWithoutJsExt,
-  }
-}
-
-/**
- * Like `sync` from `resolve` package, but considers that the module id
- * could have a .cjs, .mjs, .js or .jsx extension.
- */
-function tsResolve(
-  source: string,
-  base: string,
-  options: ResolveOptions,
-): string | false {
-  try {
-    return resolver.resolveSync({}, base, source)
-  } catch (error) {
-    const resolved = resolveExtension(source)
-    if (resolved) {
-      const resolver = ResolverFactory.createResolver({
-        ...options,
-        extensions: resolved.extensions ?? options.extensions,
-      })
-      return resolver.resolveSync({}, base, resolved.path)
-    }
-    throw error
-  }
-}
-
 /** Remove any trailing querystring from module id. */
 function removeQuerystring(id: string) {
   const querystringIndex = id.lastIndexOf('?')
@@ -239,11 +227,6 @@ function removeQuerystring(id: string) {
     return id.slice(0, querystringIndex)
   }
   return id
-}
-
-/** Remove .cjs, .mjs, .js or .jsx extension from module id. */
-function removeJsExtension(id: string) {
-  return id.replace(JS_EXT_PATTERN, '')
 }
 
 const isFile = (path?: string | undefined): path is string => {
@@ -327,8 +310,8 @@ function getMappedPath(
   return paths[0]
 }
 
-function initMappers(options: TsResolverOptions) {
-  if (mappers && mappersBuildForOptions === options) {
+function initMappers(options: InternalResolverOptions) {
+  if (mappers && mappersCachedOptions === options) {
     return
   }
 
@@ -354,7 +337,7 @@ function initMappers(options: TsResolverOptions) {
     return tsconfigResult && createPathsMatcher(tsconfigResult)
   })
 
-  mappersBuildForOptions = options
+  mappersCachedOptions = options
 }
 
 /**
