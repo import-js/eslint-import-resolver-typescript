@@ -27,8 +27,24 @@ export const globSync = createSyncFn<typeof import('globby').globby>(
   path.resolve(_dirname, 'worker.mjs'),
 )
 
+export const defaultConditionNames = [
+  'types',
+  'import',
+
+  // APF: https://angular.io/guide/angular-package-format
+  'esm2020',
+  'es2020',
+  'es2015',
+
+  'require',
+  'node',
+  'node-addons',
+  'browser',
+  'default',
+]
+
 /**
- * .mts, .cts, .d.mts, .d.cts, .mjs, .cjs are not included because .cjs and .mjs must be used explicitly.
+ * `.mts`, `.cts`, `.d.mts`, `.d.cts`, `.mjs`, `.cjs` are not included because `.cjs` and `.mjs` must be used explicitly
  */
 export const defaultExtensions = [
   '.ts',
@@ -39,6 +55,19 @@ export const defaultExtensions = [
   '.json',
   '.node',
 ]
+
+export const defaultExtensionAlias = {
+  '.js': [
+    '.ts',
+    // `.tsx` can also be compiled as `.js`
+    '.tsx',
+    '.d.ts',
+    '.js',
+  ],
+  '.jsx': ['.tsx', '.d.ts', '.jsx'],
+  '.cjs': ['.cts', '.d.cts', '.cjs'],
+  '.mjs': ['.mts', '.d.mts', '.mjs'],
+}
 
 export const defaultMainFields = [
   'types',
@@ -55,35 +84,6 @@ export const defaultMainFields = [
 
   'main',
 ]
-
-export const defaultConditionNames = [
-  'types',
-  'import',
-
-  // APF
-  'esm2020',
-  'es2020',
-  'es2015',
-
-  'require',
-  'node',
-  'node-addons',
-  'browser',
-  'default',
-]
-
-export const defaultExtensionAlias = {
-  '.js': [
-    '.ts',
-    // `.tsx` can also be compiled as `.js`
-    '.tsx',
-    '.d.ts',
-    '.js',
-  ],
-  '.jsx': ['.tsx', '.d.ts', '.jsx'],
-  '.cjs': ['.cts', '.d.cts', '.cjs'],
-  '.mjs': ['.mts', '.d.mts', '.mjs'],
-}
 
 export const interfaceVersion = 2
 
