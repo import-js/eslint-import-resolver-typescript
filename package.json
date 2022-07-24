@@ -2,7 +2,7 @@
   "name": "eslint-import-resolver-typescript",
   "version": "3.3.0",
   "type": "module",
-  "description": "TypeScript `.cts`/`.mts`/`.ts`/`.tsx`/`.d.cts`/`.d.mts`/`.d.ts` module resolver for `eslint-plugin-import`",
+  "description": "This plugin adds `TypeScript` support to `eslint-plugin-import`",
   "repository": "git+https://github.com/import-js/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
   "contributors": [
@@ -41,7 +41,7 @@
   },
   "funding": "https://opencollective.com/unts",
   "license": "ISC",
-  "packageManager": "pnpm@7.5.2",
+  "packageManager": "pnpm@7.6.0",
   "engines": {
     "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
@@ -104,8 +104,8 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^9.0.1",
-    "@changesets/changelog-github": "^0.4.5",
-    "@changesets/cli": "^2.23.2",
+    "@changesets/changelog-github": "^0.4.6",
+    "@changesets/cli": "^2.24.0",
     "@mozilla/glean": "^1.1.0",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@types/debug": "^4.1.7",
