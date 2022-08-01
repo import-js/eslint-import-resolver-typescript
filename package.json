@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "type": "module",
   "description": "This plugin adds `TypeScript` support to `eslint-plugin-import`",
   "repository": "git+https://github.com/import-js/eslint-import-resolver-typescript",
@@ -82,8 +82,8 @@
     "test": "run-p test:*",
     "test:multipleEslintrcs": "eslint --ext ts,tsx tests/multipleEslintrcs",
     "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
-    "test:withJsconfig": "eslint --ext js tests/withJsconfig",
     "test:withJsExtension": "node tests/withJsExtension/test.js && eslint --ext ts,tsx tests/withJsExtension",
+    "test:withJsconfig": "eslint --ext js tests/withJsconfig",
     "test:withPaths": "eslint --ext ts,tsx tests/withPaths",
     "test:withPathsAndNestedBaseUrl": "eslint --ext ts,tsx tests/withPathsAndNestedBaseUrl",
     "test:withQuerystring": "eslint --ext ts,tsx tests/withQuerystring",

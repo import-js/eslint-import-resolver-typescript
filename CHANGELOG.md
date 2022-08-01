@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.0
+
+### Minor Changes
+
+- [#161](https://github.com/import-js/eslint-import-resolver-typescript/pull/161) [`82d090b`](https://github.com/import-js/eslint-import-resolver-typescript/commit/82d090b2411853f94909a3c9a0ed3b8bbe1bef11) Thanks [@rbong](https://github.com/rbong)! - feat: add support for `jsconfig.json`
+
 ## 3.3.0
 
 ### Minor Changes
