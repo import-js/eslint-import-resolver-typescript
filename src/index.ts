@@ -10,6 +10,7 @@ import {
   ResolverFactory,
 } from 'enhanced-resolve'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
+import type { TsConfigResult } from 'get-tsconfig'
 import isCore from 'is-core-module'
 import isGlob from 'is-glob'
 import { createSyncFn } from 'synckit'
@@ -333,7 +334,15 @@ function initMappers(options: InternalResolverOptions) {
   ]
 
   mappers = projectPaths.map(projectPath => {
-    const tsconfigResult = getTsconfig(projectPath)
+    let tsconfigResult: TsConfigResult | null
+
+    if (isFile(projectPath)) {
+      const { dir, base } = path.parse(projectPath)
+      tsconfigResult = getTsconfig(dir, base)
+    } else {
+      tsconfigResult = getTsconfig(projectPath)
+    }
+
     return tsconfigResult && createPathsMatcher(tsconfigResult)
   })
 
