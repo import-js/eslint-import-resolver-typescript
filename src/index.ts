@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import debug from 'debug'
 import {
   FileSystem,
+  CachedInputFileSystem,
   ResolveOptions,
   Resolver,
   ResolverFactory,
@@ -113,6 +114,7 @@ const fileSystem = fs as FileSystem
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
 
+let previousOptions: TsResolverOptions | null | undefined
 let cachedOptions: InternalResolverOptions | undefined
 
 let mappersCachedOptions: InternalResolverOptions
@@ -135,14 +137,15 @@ export function resolve(
   found: boolean
   path?: string | null
 } {
-  if (!cachedOptions || cachedOptions !== options) {
+  if (!cachedOptions || previousOptions !== options) {
+    previousOptions = options
     cachedOptions = {
       ...options,
       conditionNames: options?.conditionNames ?? defaultConditionNames,
       extensions: options?.extensions ?? defaultExtensions,
       extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
       mainFields: options?.mainFields ?? defaultMainFields,
-      fileSystem,
+      fileSystem: new CachedInputFileSystem(fileSystem, 500),
       useSyncFileSystemCalls: true,
     }
   }
