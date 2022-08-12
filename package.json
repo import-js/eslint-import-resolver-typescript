@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-typescript",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "type": "module",
   "description": "This plugin adds `TypeScript` support to `eslint-plugin-import`",
   "repository": "git+https://github.com/import-js/eslint-import-resolver-typescript",
