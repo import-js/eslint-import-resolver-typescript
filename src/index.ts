@@ -145,7 +145,7 @@ export function resolve(
       extensions: options?.extensions ?? defaultExtensions,
       extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
       mainFields: options?.mainFields ?? defaultMainFields,
-      fileSystem: new CachedInputFileSystem(fileSystem, 5000),
+      fileSystem: new CachedInputFileSystem(fileSystem, 5 * 1000),
       useSyncFileSystemCalls: true,
     }
   }
