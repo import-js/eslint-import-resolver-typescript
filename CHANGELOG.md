@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.1
+
+### Patch Changes
+
+- [#166](https://github.com/import-js/eslint-import-resolver-typescript/pull/166) [`8892a8c`](https://github.com/import-js/eslint-import-resolver-typescript/commit/8892a8c1d0b54965501dd03113873ac66a50f74f) Thanks [@thatsmydoing](https://github.com/thatsmydoing)! - perf: add filesystem caching support
+
 ## 3.4.0
 
 ### Minor Changes
