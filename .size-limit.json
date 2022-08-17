@@ -1,0 +1,10 @@
+[
+  {
+    "path": "./lib/index.js",
+    "limit": "2.8kB"
+  },
+  {
+    "path": "./lib/worker.mjs",
+    "limit": "180B"
+  }
+]
