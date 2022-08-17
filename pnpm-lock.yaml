@@ -30,7 +30,7 @@ specifiers:
   is-glob: ^4.0.3
   react: ^18.2.0
   size-limit: ^7.0.8
-  synckit: ^0.8.1
+  synckit: ^0.8.3
   type-coverage: ^2.22.0
   typescript: ^4.7.4
 
@@ -41,7 +41,7 @@ dependencies:
   globby: 13.1.2
   is-core-module: 2.9.0
   is-glob: 4.0.3
-  synckit: 0.8.1
+  synckit: 0.8.3
 
 devDependencies:
   '@1stg/lib-config': 9.0.2_typescript@4.7.4
@@ -4043,8 +4043,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      is-text-path: 1.0.1
       JSONStream: 1.3.5
+      is-text-path: 1.0.1
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
@@ -4917,7 +4917,7 @@ packages:
       globby: 13.1.2
       is-core-module: 2.9.0
       is-glob: 4.0.3
-      synckit: 0.8.1
+      synckit: 0.8.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4937,7 +4937,7 @@ packages:
       remark-mdx: 2.1.2
       remark-parse: 10.0.1
       remark-stringify: 10.0.2
-      synckit: 0.8.1
+      synckit: 0.8.3
       tslib: 2.4.0
       unified: 10.1.2
       unist-util-visit: 4.1.0
@@ -5101,7 +5101,7 @@ packages:
       json-schema-migrate: 2.0.0
       jsonc-eslint-parser: 2.1.0
       minimatch: 5.1.0
-      synckit: 0.8.1
+      synckit: 0.8.3
       toml-eslint-parser: 0.4.0
       tunnel-agent: 0.6.0
       yaml-eslint-parser: 1.0.1
@@ -5143,7 +5143,7 @@ packages:
       eslint: 8.20.0
       eslint-plugin-utils: 0.3.1_eslint@8.20.0
       markuplint: 2.10.0
-      synckit: 0.8.1
+      synckit: 0.8.3
       tslib: 2.4.0
     transitivePeerDependencies:
       - supports-color
@@ -10534,8 +10534,8 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /synckit/0.8.1:
-    resolution: {integrity: sha512-rJEeygO5PNmcZICmrgnbOd2usi5zWE1ESc0Gn5tTmJlongoU8zCTwMFQtar2UgMSiR68vK9afPQ+uVs2lURSIA==}
+  /synckit/0.8.3:
+    resolution: {integrity: sha512-1goXnDYNJlKwCM37f5MTzRwo+8SqutgVtg2d37D6YnHHT4E3IhQMRfKiGdfTZU7LBlI6T8inCQUxnMBFHrbqWw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.3.0
