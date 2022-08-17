@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.4.2
+
+### Patch Changes
+
+- [`594df9c`](https://github.com/import-js/eslint-import-resolver-typescript/commit/594df9c586fccab3cf29add6e9116c1dfece7935) Thanks [@JounQin](https://github.com/JounQin)! - chore(deps): update dependency synckit to ^0.8.3 for yarn PnP ([#169](https://github.com/import-js/eslint-import-resolver-typescript/pull/169))
+
 ## 3.4.1
 
 ### Patch Changes
