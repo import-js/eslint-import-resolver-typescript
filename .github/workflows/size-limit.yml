@@ -1,7 +1,7 @@
 name: Size Limit
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - master
 
@@ -16,10 +16,10 @@ jobs:
         with:
           version: latest
 
-      - name: Setup Node.js ${{ matrix.node }}
+      - name: Setup Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 16
           cache: pnpm
 
       - name: Install Dependencies
