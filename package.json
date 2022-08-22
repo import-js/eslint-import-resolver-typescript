@@ -62,6 +62,7 @@
   "types": "lib/index.d.ts",
   "files": [
     "lib",
+    "shim.d.ts",
     "!**/*.tsbuildinfo"
   ],
   "keywords": [

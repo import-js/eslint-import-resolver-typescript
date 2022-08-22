@@ -10,6 +10,7 @@ import {
   Resolver,
   ResolverFactory,
 } from 'enhanced-resolve'
+import { hashObject } from 'eslint-module-utils/hash.js'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
 import isCore from 'is-core-module'
@@ -114,7 +115,8 @@ const fileSystem = fs as FileSystem
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
 
-let previousOptions: TsResolverOptions | null | undefined
+let previousOptionsHash: string
+let optionsHash: string
 let cachedOptions: InternalResolverOptions | undefined
 
 let mappersCachedOptions: InternalResolverOptions
@@ -122,6 +124,9 @@ let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
 let resolverCachedOptions: InternalResolverOptions
 let resolver: Resolver | undefined
+
+const digestHashObject = (value: object | null | undefined) =>
+  hashObject(value ?? {}).digest('hex')
 
 /**
  * @param source the module to resolve; i.e './some-module'
@@ -137,8 +142,11 @@ export function resolve(
   found: boolean
   path?: string | null
 } {
-  if (!cachedOptions || previousOptions !== options) {
-    previousOptions = options
+  if (
+    !cachedOptions ||
+    previousOptionsHash !== (optionsHash = digestHashObject(options))
+  ) {
+    previousOptionsHash = optionsHash
     cachedOptions = {
       ...options,
       conditionNames: options?.conditionNames ?? defaultConditionNames,
