@@ -1,5 +1,5 @@
 ---
-"eslint-import-resolver-typescript": patch
+'eslint-import-resolver-typescript': patch
 ---
 
 fix: incorrect exports mapping

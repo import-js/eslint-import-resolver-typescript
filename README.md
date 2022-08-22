@@ -12,7 +12,7 @@
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/changesets/changesets)
 
-This plugin adds [`TypeScript`][] support to [`eslint-plugin-import`][]
+This plugin adds [`TypeScript`][] support to [`eslint-plugin-import`][] (Or maybe you want to try [`eslint-plugin-i`][] for faster speed)
 
 This means you can:
 
@@ -189,7 +189,7 @@ Default:
 
 ### Other options
 
-You can pass through other options of [`enhanced-resolve`] directly
+You can pass through other options of [`enhanced-resolve`][] directly
 
 ### Default options
 
@@ -226,6 +226,7 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [ISC][]
 
+[`eslint-plugin-i`]: https://github.com/un-es/eslint-plugin-i
 [`eslint-plugin-import`]: https://github.com/import-js/eslint-plugin-import
 [`enhanced-resolve`]: https://github.com/webpack/enhanced-resolve
 [`typescript`]: https://www.typescriptlang.org
