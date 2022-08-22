@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.5.0
+
+### Minor Changes
+
+- [#174](https://github.com/import-js/eslint-import-resolver-typescript/pull/174) [`66a3e6c`](https://github.com/import-js/eslint-import-resolver-typescript/commit/66a3e6c4349fe1821a5ada967b7cff1b8191dfe4) Thanks [@JounQin](https://github.com/JounQin)! - feat: reuse `eslint-module-utils/hash.js` for better caching
+
+### Patch Changes
+
+- [#172](https://github.com/import-js/eslint-import-resolver-typescript/pull/172) [`00abb6f`](https://github.com/import-js/eslint-import-resolver-typescript/commit/00abb6fed2c9b9bedd053a5a7c575a367a707692) Thanks [@JounQin](https://github.com/JounQin)! - fix: incorrect exports mapping
+
 ## 3.4.2
 
 ### Patch Changes
