@@ -41,7 +41,7 @@
   },
   "funding": "https://opencollective.com/unts",
   "license": "ISC",
-  "packageManager": "pnpm@7.9.3",
+  "packageManager": "pnpm@7.9.5",
   "engines": {
     "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
