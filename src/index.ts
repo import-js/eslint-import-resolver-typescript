@@ -243,8 +243,9 @@ function removeQuerystring(id: string) {
 
 const isFile = (path?: string | undefined): path is string => {
   try {
-    return !!path && fs.statSync(path).isFile()
+    return !!(path && fs.statSync(path, { throwIfNoEntry: false })?.isFile())
   } catch {
+    // Node 12 does not support throwIfNoEntry.
     return false
   }
 }
