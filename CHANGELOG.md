@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.1
+
+### Patch Changes
+
+- [#182](https://github.com/import-js/eslint-import-resolver-typescript/pull/182) [`afeb928`](https://github.com/import-js/eslint-import-resolver-typescript/commit/afeb928b304e7196b10f71aec873fca739a9ad93) Thanks [@chenxinyanc](https://github.com/chenxinyanc)! - perf: disable `throwIfNoEntry` on Node 14+
+
 ## 3.5.0
 
 ### Minor Changes
