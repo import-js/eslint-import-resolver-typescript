@@ -1,7 +1,7 @@
 name: Size Limit
 
 on:
-  pull_request_target:
+  pull_request:
     branches:
       - master
 
@@ -16,10 +16,10 @@ jobs:
         with:
           version: latest
 
-      - name: Setup Node.js 16
+      - name: Setup Node.js LTS
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: lts/*
           cache: pnpm
 
       - name: Install Dependencies

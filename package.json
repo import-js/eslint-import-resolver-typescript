@@ -8,40 +8,9 @@
   "contributors": [
     "JounQin (https://www.1stG.me) <admin@1stg.me>"
   ],
-  "donate": {
-    "recipients": [
-      {
-        "name": "unts",
-        "platform": "opencollective",
-        "address": "https://opencollective.com/unts",
-        "weight": 60
-      },
-      {
-        "name": "rxts",
-        "platform": "opencollective",
-        "address": "https://opencollective.com/rxts",
-        "weight": 20
-      },
-      {
-        "name": "1stG",
-        "email": "i@1stg.me",
-        "weight": 20,
-        "platforms": [
-          {
-            "platform": "opencollective",
-            "address": "https://opencollective.com/1stG"
-          },
-          {
-            "platform": "patreon",
-            "address": "https://www.patreon.com/1stG"
-          }
-        ]
-      }
-    ]
-  },
-  "funding": "https://opencollective.com/unts",
+  "funding": "https://opencollective.com/unts/projects/eslint-import-resolver-ts",
   "license": "ISC",
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.12.1",
   "engines": {
     "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
@@ -103,10 +72,10 @@
     "globby": "^13.1.2",
     "is-core-module": "^2.10.0",
     "is-glob": "^4.0.3",
-    "synckit": "^0.8.3"
+    "synckit": "^0.8.4"
   },
   "devDependencies": {
-    "@1stg/lib-config": "^10.1.1",
+    "@1stg/lib-config": "^10.3.0",
     "@changesets/changelog-github": "^0.4.6",
     "@changesets/cli": "^2.24.4",
     "@mozilla/glean": "^1.1.0",
@@ -114,14 +83,14 @@
     "@types/enhanced-resolve": "^3.0.7",
     "@types/is-core-module": "^2.2.0",
     "@types/is-glob": "^4.0.2",
-    "@types/node": "^18.7.9",
+    "@types/node": "^18.7.18",
     "@types/unist": "^2.0.6",
     "dummy.js": "link:dummy.js",
     "react": "^18.2.0",
-    "size-limit": "^8.0.1",
+    "size-limit": "^8.1.0",
     "size-limit-preset-node-lib": "^0.1.0",
     "type-coverage": "^2.22.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.3"
   },
   "resolutions": {
     "eslint-import-resolver-typescript": "link:.",
