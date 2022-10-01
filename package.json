@@ -10,7 +10,7 @@
   ],
   "funding": "https://opencollective.com/unts/projects/eslint-import-resolver-ts",
   "license": "ISC",
-  "packageManager": "pnpm@7.12.1",
+  "packageManager": "pnpm@7.12.2",
   "engines": {
     "node": "^12.20.0 || ^14.18.0 || >=16.0.0"
   },
