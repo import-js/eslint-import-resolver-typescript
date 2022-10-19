@@ -251,7 +251,7 @@ const isFile = (path?: string | undefined): path is string => {
 }
 
 const isModule = (modulePath?: string | undefined): modulePath is string => {
-  return !!modulePath && isFile(`${modulePath}${path.sep}package.json`)
+  return !!modulePath && isFile(path.resolve(modulePath, 'package.json'))
 }
 
 /**
