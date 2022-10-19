@@ -250,8 +250,8 @@ const isFile = (path?: string | undefined): path is string => {
   }
 }
 
-const isModule = (path?: string | undefined): path is string => {
-  return !!path && isFile(`${path}/package.json`)
+const isModule = (modulePath?: string | undefined): modulePath is string => {
+  return !!modulePath && isFile(`${modulePath}${path.sep}package.json`)
 }
 
 /**
@@ -287,7 +287,7 @@ function getMappedPath(
         ]),
       )
       .flat(2)
-      .filter(path => isFile(path) || isModule(path))
+      .filter(mappedPath => isFile(mappedPath) || isModule(mappedPath))
   }
 
   if (retry && paths.length === 0) {
