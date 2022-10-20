@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.5.2
+
+### Patch Changes
+
+- [#193](https://github.com/import-js/eslint-import-resolver-typescript/pull/193) [`8756a26`](https://github.com/import-js/eslint-import-resolver-typescript/commit/8756a26aec2ad55b94a1198ec5be9660d2eac3f7) Thanks [@Rialgar](https://github.com/Rialgar)! - chore(package): remove node 12 from engines field
+
+- [#187](https://github.com/import-js/eslint-import-resolver-typescript/pull/187) [`7a91daf`](https://github.com/import-js/eslint-import-resolver-typescript/commit/7a91daf305ab968b7dd54eae8b727bcdb9c6d9a2) Thanks [@scott-ut](https://github.com/scott-ut)! - fix: resolve modules if folder contains a package.json file
+
 ## 3.5.1
 
 ### Patch Changes
