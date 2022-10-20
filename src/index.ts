@@ -250,6 +250,10 @@ const isFile = (path?: string | undefined): path is string => {
   }
 }
 
+const isModule = (modulePath?: string | undefined): modulePath is string => {
+  return !!modulePath && isFile(path.resolve(modulePath, 'package.json'))
+}
+
 /**
  * @param {string} source the module to resolve; i.e './some-module'
  * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
@@ -267,7 +271,7 @@ function getMappedPath(
   const originalExtensions = extensions
   extensions = ['', ...extensions]
 
-  let paths: string[] | undefined = []
+  let paths: Array<string | undefined> | undefined = []
 
   if (RELATIVE_PATH_PATTERN.test(source)) {
     const resolved = path.resolve(path.dirname(file), source)
@@ -283,7 +287,7 @@ function getMappedPath(
         ]),
       )
       .flat(2)
-      .filter(isFile)
+      .filter(mappedPath => isFile(mappedPath) || isModule(mappedPath))
   }
 
   if (retry && paths.length === 0) {
