@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@1stg/lib-config": "^10.3.0",
-    "@changesets/changelog-github": "^0.4.6",
+    "@changesets/changelog-github": "^0.4.7",
     "@changesets/cli": "^2.24.4",
     "@mozilla/glean": "^1.1.0",
     "@types/debug": "^4.1.7",
