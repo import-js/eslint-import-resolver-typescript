@@ -13,7 +13,7 @@ specifiers:
   '@types/enhanced-resolve': ^3.0.7
   '@types/is-core-module': ^2.2.0
   '@types/is-glob': ^4.0.2
-  '@types/node': ^18.7.18
+  '@types/node': ^18.11.10
   '@types/unist': ^2.0.6
   debug: ^4.3.4
   dummy.js: link:dummy.js
@@ -47,7 +47,7 @@ devDependencies:
   '@types/enhanced-resolve': 3.0.7
   '@types/is-core-module': 2.2.0
   '@types/is-glob': 4.0.2
-  '@types/node': 18.7.18
+  '@types/node': 18.11.10
   '@types/unist': 2.0.6
   dummy.js: link:dummy.js
   react: 18.2.0
@@ -3167,7 +3167,7 @@ packages:
   /@types/concat-stream/2.0.0:
     resolution: {integrity: sha512-t3YCerNM7NTVjLuICZo5gYAXYoDvpuuTceCcFQWcDQz26kxUR5uIWolxbIR5jRNIXpMqhOpW/b8imCR1LEmuJw==}
     dependencies:
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
     dev: true
 
   /@types/debug/4.1.7:
@@ -3179,7 +3179,7 @@ packages:
   /@types/enhanced-resolve/3.0.7:
     resolution: {integrity: sha512-H23Fzk0BCz4LoKq1ricnLSRQuzoXTv57bGUwC+Cn84kKPaoHIS7bhFhfy4DzMeSBxoXc6jFziYoqpCab1U511w==}
     dependencies:
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
       '@types/tapable': 0.2.5
     dev: true
 
@@ -3200,14 +3200,14 @@ packages:
   /@types/fs-extra/8.1.2:
     resolution: {integrity: sha512-SvSrYXfWSc7R4eqnOzbQF4TZmfpNSM9FrSWLU3EUnWBuyZqNBOrv1B1JA3byUDPUl9z4Ab3jeZG2eDdySlgNMg==}
     dependencies:
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
     dev: true
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 3.0.5
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
     dev: true
 
   /@types/hast/2.3.4:
@@ -3264,8 +3264,8 @@ packages:
     resolution: {integrity: sha512-LhF+9fbIX4iPzhsRLpK5H7iPdvW8L4IwGciXQIOEcuF62+9nw/VQVsOViAOOGxY3OlOKGLFv0sWwJXdwQeTn6A==}
     dev: true
 
-  /@types/node/18.7.18:
-    resolution: {integrity: sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==}
+  /@types/node/18.11.10:
+    resolution: {integrity: sha512-juG3RWMBOqcOuXC643OAdSA525V44cVgGV6dUDuiFtss+8Fk5x1hI93Rsld43VeJVIeqlP9I7Fn9/qaVqoEAuQ==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -3279,7 +3279,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
     dev: true
 
   /@types/semver/6.2.3:
@@ -7090,7 +7090,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -11295,7 +11295,7 @@ packages:
       '@types/concat-stream': 2.0.0
       '@types/debug': 4.1.7
       '@types/is-empty': 1.2.1
-      '@types/node': 18.7.18
+      '@types/node': 18.11.10
       '@types/unist': 2.0.6
       concat-stream: 2.0.0
       debug: 4.3.4
