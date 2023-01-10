@@ -287,7 +287,26 @@ function getMappedPath(
         ]),
       )
       .flat(2)
-      .filter(mappedPath => isFile(mappedPath) || isModule(mappedPath))
+      .filter(mappedPath => {
+        if (mappedPath === undefined) {
+          return false
+        }
+
+        try {
+          const stat = fs.statSync(mappedPath, { throwIfNoEntry: false })
+          if (stat === undefined) return false
+          if (stat.isFile()) return true
+
+          // Maybe this is a module dir?
+          if (stat.isDirectory()) {
+            return isModule(mappedPath)
+          }
+        } catch {
+          return false
+        }
+
+        return false
+      })
   }
 
   if (retry && paths.length === 0) {
