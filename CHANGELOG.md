@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.3
+
+### Patch Changes
+
+- [#206](https://github.com/import-js/eslint-import-resolver-typescript/pull/206) [`6531bad`](https://github.com/import-js/eslint-import-resolver-typescript/commit/6531bad1c58831ef63124b9f660b8c457f1d9e44) Thanks [@marvinhagemeister](https://github.com/marvinhagemeister)! - Only try to resolve a module directory when we know that the path is a directory. This can lead to a 15% speedup on projects with many files.
+
 ## 3.5.2
 
 ### Patch Changes
