@@ -25,7 +25,7 @@ specifiers:
   react: ^18.2.0
   size-limit: ^8.1.0
   size-limit-preset-node-lib: ^0.1.0
-  synckit: ^0.8.4
+  synckit: ^0.8.5
   type-coverage: ^2.22.0
   typescript: ^4.8.4
 
@@ -36,7 +36,7 @@ dependencies:
   globby: 13.1.2
   is-core-module: 2.10.0
   is-glob: 4.0.3
-  synckit: 0.8.4
+  synckit: 0.8.5
 
 devDependencies:
   '@1stg/lib-config': 10.3.0_typescript@4.8.4
@@ -120,7 +120,7 @@ packages:
       npm-run-all: 4.1.5
       prettier: 2.7.1
       simple-git-hooks: 2.8.0
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -2698,7 +2698,7 @@ packages:
       glob: 7.2.3
       mustache: 4.2.0
       prettier: 2.7.1
-      tslib: 2.4.0
+      tslib: 2.5.0
       typescript: 4.8.4
     transitivePeerDependencies:
       - supports-color
@@ -2715,7 +2715,7 @@ packages:
       glob: 7.2.3
       jsonc: 2.0.0
       minimatch: 5.1.0
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2726,7 +2726,7 @@ packages:
       '@markuplint/ml-ast': 2.0.1-dev.20220307.0
       '@markuplint/parser-utils': 2.2.1
       parse5: 6.0.1
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2768,7 +2768,7 @@ packages:
       debug: 4.3.4
       dom-accessibility-api: 0.5.14
       postcss-selector-parser: 6.0.10
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2776,7 +2776,7 @@ packages:
   /@markuplint/ml-spec/2.1.1:
     resolution: {integrity: sha512-OP9MWxNZYbUPYun6C73fg6FAMpHHj39ixZQaShD4Vw7I6xbVLHgdyA6dAoKdKxcoqP35LX7NKYGsdKz0owiVMQ==}
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.5.0
     dev: true
 
   /@markuplint/parser-utils/2.2.1:
@@ -2784,7 +2784,7 @@ packages:
     dependencies:
       '@markuplint/ml-ast': 2.0.1-dev.20220307.0
       '@markuplint/types': 2.2.0
-      tslib: 2.4.0
+      tslib: 2.5.0
       uuid: 8.3.2
     transitivePeerDependencies:
       - supports-color
@@ -2799,7 +2799,7 @@ packages:
       '@markuplint/types': 2.2.0
       debug: 4.3.4
       html-entities: 2.3.3
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2811,7 +2811,7 @@ packages:
       '@markuplint/ml-ast': 2.0.1-dev.20220307.0
       '@markuplint/parser-utils': 2.2.1
       svelte: 3.49.0
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2834,7 +2834,7 @@ packages:
       '@markuplint/html-parser': 2.2.2
       '@markuplint/ml-ast': 2.0.1-dev.20220307.0
       '@markuplint/parser-utils': 2.2.1
-      tslib: 2.4.0
+      tslib: 2.5.0
       vue-eslint-parser: 8.3.0_eslint@8.23.1
     transitivePeerDependencies:
       - eslint
@@ -2951,7 +2951,7 @@ packages:
       rollup-plugin-unassert: 0.5.0
       rollup-plugin-vue: 6.0.0
       rollup-plugin-vue-jsx-compat: 0.0.6
-      tslib: 2.4.0
+      tslib: 2.5.0
       unassert: 2.0.0
     transitivePeerDependencies:
       - '@types/babel__core'
@@ -2973,7 +2973,7 @@ packages:
       open: 8.4.0
       picocolors: 1.0.0
       tiny-glob: 0.2.9
-      tslib: 2.4.0
+      tslib: 2.5.0
 
   /@prettier/plugin-pug/2.2.0_prettier@2.7.1:
     resolution: {integrity: sha512-W5CIXtMauz6xB4b0TeBW1Jxtk2ArggKMwqDHdGOfQ9ahABsttg2YZoQgLytETuo8Gjq0QkaGhAGD1pfDaUOZUQ==}
@@ -5509,8 +5509,8 @@ packages:
       remark-mdx: 2.1.3
       remark-parse: 10.0.1
       remark-stringify: 10.0.2
-      synckit: 0.8.4
-      tslib: 2.4.0
+      synckit: 0.8.5
+      tslib: 2.5.0
       unified: 10.1.2
       unist-util-visit: 4.1.1
       uvu: 0.5.6
@@ -5676,7 +5676,7 @@ packages:
       json-schema-migrate: 2.0.0
       jsonc-eslint-parser: 2.1.0
       minimatch: 5.1.0
-      synckit: 0.8.4
+      synckit: 0.8.5
       toml-eslint-parser: 0.4.0
       tunnel-agent: 0.6.0
       yaml-eslint-parser: 1.1.0
@@ -5718,8 +5718,8 @@ packages:
       eslint: 8.23.1
       eslint-plugin-utils: 0.3.1_eslint@8.23.1
       markuplint: 2.10.1
-      synckit: 0.8.4
-      tslib: 2.4.0
+      synckit: 0.8.5
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5736,7 +5736,7 @@ packages:
       remark-mdx: 2.1.3
       remark-parse: 10.0.1
       remark-stringify: 10.0.2
-      tslib: 2.4.0
+      tslib: 2.5.0
       unified: 10.1.2
       vfile: 5.3.4
     transitivePeerDependencies:
@@ -7529,7 +7529,7 @@ packages:
       '@markuplint/ml-ast': 2.0.0
       '@markuplint/parser-utils': 2.2.1
       angular-html-parser: 1.8.0
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7560,7 +7560,7 @@ packages:
       os-locale: 5.0.0
       strict-event-emitter: 0.2.4
       strip-ansi: 6.0.1
-      tslib: 2.4.0
+      tslib: 2.5.0
       uuid: 8.3.2
     transitivePeerDependencies:
       - supports-color
@@ -9243,7 +9243,7 @@ packages:
       mvdan-sh: 0.10.1
       prettier: 2.7.1
       sh-syntax: 0.3.7
-      synckit: 0.8.4
+      synckit: 0.8.5
     dev: true
 
   /prettier-plugin-stylus/0.0.1-beta.8_prettier@2.7.1:
@@ -10460,7 +10460,7 @@ packages:
   /rxjs/7.5.6:
     resolution: {integrity: sha512-dnyv2/YsXhnm461G+R/Pe5bWP41Nm6LBXEYWI6eiFP4fiwx6WRI/CD0zbdVAudd9xwLEF2IDcKXLHit0FYjUzw==}
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.5.0
     dev: true
 
   /sade/1.8.1:
@@ -10549,7 +10549,7 @@ packages:
     resolution: {integrity: sha512-xIB/uRniZ9urxAuXp1Ouh/BKSI1VK8RSqfwGj7cV57HvGrFo3vHdJfv8Tdp/cVcxJgXQTkmHr5mG5rqJW8r4wQ==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
-      tslib: 2.4.0
+      tslib: 2.5.0
     dev: true
 
   /shebang-command/1.2.0:
@@ -10602,7 +10602,7 @@ packages:
     dependencies:
       '@size-limit/esbuild': 7.0.8_size-limit@8.1.0
       nanoid: 3.3.4
-      tslib: 2.4.0
+      tslib: 2.5.0
     transitivePeerDependencies:
       - size-limit
     dev: true
@@ -10997,12 +10997,12 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /synckit/0.8.4:
-    resolution: {integrity: sha512-Dn2ZkzMdSX827QbowGbU/4yjWuvNaCoScLLoMo/yKbu+P4GBR6cRGKZH27k6a9bRzdqcyd1DE96pQtQ6uNkmyw==}
+  /synckit/0.8.5:
+    resolution: {integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==}
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.3.1
-      tslib: 2.4.0
+      tslib: 2.5.0
 
   /tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -11139,6 +11139,10 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+    dev: true
+
+  /tslib/2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
 
   /tsutils/3.21.0_typescript@4.8.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
@@ -11192,7 +11196,7 @@ packages:
       fast-glob: 3.2.11
       minimatch: 5.1.0
       normalize-path: 3.0.0
-      tslib: 2.4.0
+      tslib: 2.5.0
       tsutils: 3.21.0_typescript@4.8.4
       typescript: 4.8.4
     dev: true

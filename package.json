@@ -72,7 +72,7 @@
     "globby": "^13.1.2",
     "is-core-module": "^2.10.0",
     "is-glob": "^4.0.3",
-    "synckit": "^0.8.4"
+    "synckit": "^0.8.5"
   },
   "devDependencies": {
     "@1stg/lib-config": "^10.3.0",
