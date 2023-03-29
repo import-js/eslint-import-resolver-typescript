@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.5.4
+
+### Patch Changes
+
+- [`25f3920`](https://github.com/import-js/eslint-import-resolver-typescript/commit/25f3920cdef31701396fe25dd0942c472400b3a6) Thanks [@JounQin](https://github.com/JounQin)! - fix: enhanced-resolve is commonjs only - close #213
+
+- [#219](https://github.com/import-js/eslint-import-resolver-typescript/pull/219) [`0bf6ffb`](https://github.com/import-js/eslint-import-resolver-typescript/commit/0bf6ffb82bad35e96b22b7b7b91b94aa7ed875f8) Thanks [@lsmurray](https://github.com/lsmurray)! - fix: check if cwd changed to bust mapper cache
+
 ## 3.5.3
 
 ### Patch Changes
