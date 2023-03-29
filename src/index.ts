@@ -119,6 +119,8 @@ let previousOptionsHash: string
 let optionsHash: string
 let cachedOptions: InternalResolverOptions | undefined
 
+let prevCwd: string
+
 let mappersCachedOptions: InternalResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
@@ -347,9 +349,14 @@ function getMappedPath(
 }
 
 function initMappers(options: InternalResolverOptions) {
-  if (mappers && mappersCachedOptions === options) {
+  if (
+    mappers &&
+    mappersCachedOptions === options &&
+    prevCwd === process.cwd()
+  ) {
     return
   }
+  prevCwd = process.cwd()
 
   const configPaths =
     typeof options.project === 'string'
