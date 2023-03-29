@@ -3,13 +3,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import debug from 'debug'
-import {
-  FileSystem,
-  CachedInputFileSystem,
-  ResolveOptions,
-  Resolver,
-  ResolverFactory,
-} from 'enhanced-resolve'
+import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
+import enhancedResolve from 'enhanced-resolve'
 import { hashObject } from 'eslint-module-utils/hash.js'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
@@ -155,13 +150,16 @@ export function resolve(
       extensions: options?.extensions ?? defaultExtensions,
       extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
       mainFields: options?.mainFields ?? defaultMainFields,
-      fileSystem: new CachedInputFileSystem(fileSystem, 5 * 1000),
+      fileSystem: new enhancedResolve.CachedInputFileSystem(
+        fileSystem,
+        5 * 1000,
+      ),
       useSyncFileSystemCalls: true,
     }
   }
 
   if (!resolver || resolverCachedOptions !== cachedOptions) {
-    resolver = ResolverFactory.createResolver(cachedOptions)
+    resolver = enhancedResolve.ResolverFactory.createResolver(cachedOptions)
     resolverCachedOptions = cachedOptions
   }
 
