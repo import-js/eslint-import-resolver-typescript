@@ -95,7 +95,7 @@
   "resolutions": {
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import": "^2.27.5",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.7"
   },
   "typeCoverage": {
     "atLeast": 100,
