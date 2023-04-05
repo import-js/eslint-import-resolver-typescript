@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.5
+
+### Patch Changes
+
+- [`84b0649`](https://github.com/import-js/eslint-import-resolver-typescript/commit/84b0649096d81c4556bc506285fd2e3e56dadf09) Thanks [@JounQin](https://github.com/JounQin)! - fix: mark eslint-module-utils as dep
+
 ## 3.5.4
 
 ### Patch Changes
