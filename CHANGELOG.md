@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- [#235](https://github.com/import-js/eslint-import-resolver-typescript/pull/235) [`b5ea367`](https://github.com/import-js/eslint-import-resolver-typescript/commit/b5ea367d8361d3a71154545831dfcf8e03aca8e1) Thanks [@SukkaW](https://github.com/SukkaW)! - refactor: drop `globby` and `synckit`
+
 ## 3.5.5
 
 ### Patch Changes
