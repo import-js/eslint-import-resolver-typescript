@@ -83,7 +83,7 @@
     "@types/is-core-module": "^2.2.0",
     "@types/is-glob": "^4.0.2",
     "@types/node": "^18.15.11",
-    "@types/unist": "^2.0.6",
+    "@types/unist": "^2.0.8",
     "dummy.js": "link:dummy.js",
     "react": "^18.2.0",
     "size-limit": "^8.2.4",
