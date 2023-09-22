@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   eslint-import-resolver-typescript: link:.
   eslint-plugin-import: ^2.27.5
@@ -19,7 +23,7 @@ dependencies:
     specifier: ^2.7.4
     version: 2.7.4(@typescript-eslint/parser@5.57.1)(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@)(eslint@8.37.0)
   eslint-plugin-import:
-    specifier: '*'
+    specifier: ^2.27.5
     version: 2.27.5(@typescript-eslint/parser@5.57.1)(eslint-import-resolver-typescript@)(eslint@8.37.0)
   fast-glob:
     specifier: ^3.3.1
@@ -284,7 +288,7 @@ packages:
   /@1stg/prettier-config@3.9.2(prettier@2.8.7)(svelte@3.49.0):
     resolution: {integrity: sha512-MXCSY5l40CsB0ybiAeG4uuuYz5Yit0FnCPL1nLsymyKaLmElTGAepC+B2gEDmPaUeONql45Yh4eT+jYCfe8GzQ==}
     peerDependencies:
-      prettier: '>=1.18.0'
+      prettier: ^2.8.7
     dependencies:
       '@1stg/config': 0.2.1
       '@prettier/plugin-pug': 2.2.0(prettier@2.8.7)
@@ -3140,7 +3144,7 @@ packages:
     resolution: {integrity: sha512-W5CIXtMauz6xB4b0TeBW1Jxtk2ArggKMwqDHdGOfQ9ahABsttg2YZoQgLytETuo8Gjq0QkaGhAGD1pfDaUOZUQ==}
     engines: {node: '>=14.6.0', npm: '>=6.0.0'}
     peerDependencies:
-      prettier: ^2.3.0
+      prettier: ^2.8.7
     dependencies:
       prettier: 2.8.7
       pug-lexer: 5.0.1
@@ -4248,7 +4252,7 @@ packages:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
     dependencies:
       function-bind: 1.1.1
-      get-intrinsic: 1.1.2
+      get-intrinsic: 1.2.0
 
   /callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -4888,34 +4892,6 @@ packages:
       is-arrayish: 0.2.1
     dev: true
 
-  /es-abstract@1.20.1:
-    resolution: {integrity: sha512-WEm2oBhfoI2sImeM4OF2zE2V3BYdSF+KnSi9Sidz51fQHd7+JuF8Xgcj9/0o+OWeIeIS/MiuNnlruQrJf16GQA==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      call-bind: 1.0.2
-      es-to-primitive: 1.2.1
-      function-bind: 1.1.1
-      function.prototype.name: 1.1.5
-      get-intrinsic: 1.1.2
-      get-symbol-description: 1.0.0
-      has: 1.0.3
-      has-property-descriptors: 1.0.0
-      has-symbols: 1.0.3
-      internal-slot: 1.0.3
-      is-callable: 1.2.4
-      is-negative-zero: 2.0.2
-      is-regex: 1.1.4
-      is-shared-array-buffer: 1.0.2
-      is-string: 1.0.7
-      is-weakref: 1.0.2
-      object-inspect: 1.12.2
-      object-keys: 1.1.1
-      object.assign: 4.1.4
-      regexp.prototype.flags: 1.4.3
-      string.prototype.trimend: 1.0.5
-      string.prototype.trimstart: 1.0.5
-      unbox-primitive: 1.0.2
-
   /es-abstract@1.21.2:
     resolution: {integrity: sha512-y/B5POM2iBnIxCiernH1G7rC9qQoM77lLIMQLuob0zhp8C56Po81+2Nj0WFKnd0pNReDTnkYryc+zhOzpEIROg==}
     engines: {node: '>= 0.4'}
@@ -4990,7 +4966,7 @@ packages:
     resolution: {integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==}
     engines: {node: '>= 0.4'}
     dependencies:
-      is-callable: 1.2.4
+      is-callable: 1.2.7
       is-date-object: 1.0.5
       is-symbol: 1.0.4
 
@@ -5142,7 +5118,7 @@ packages:
     resolution: {integrity: sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==}
     peerDependencies:
       eslint: ^8.0.1
-      eslint-plugin-import: ^2.25.2
+      eslint-plugin-import: ^2.27.5
       eslint-plugin-n: ^15.0.0
       eslint-plugin-promise: ^6.0.0
     dependencies:
@@ -5414,7 +5390,7 @@ packages:
     peerDependencies:
       eslint: '>=7.28.0'
       eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
+      prettier: ^2.8.7
     peerDependenciesMeta:
       eslint-config-prettier:
         optional: true
@@ -6031,7 +6007,7 @@ packages:
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.4
-      es-abstract: 1.20.1
+      es-abstract: 1.21.2
       functions-have-names: 1.2.3
 
   /functional-red-black-tree@1.0.1:
@@ -6056,13 +6032,6 @@ packages:
     dependencies:
       global-modules: 1.0.0
     dev: true
-
-  /get-intrinsic@1.1.2:
-    resolution: {integrity: sha512-Jfm3OyCxHh9DJyc28qGk+JmfkpO41A4XkneDSujN9MDXrm4oDKdHvndhZ2dN94+ERNfkYJWDclW6k2L/ZGHjXA==}
-    dependencies:
-      function-bind: 1.1.1
-      has: 1.0.3
-      has-symbols: 1.0.3
 
   /get-intrinsic@1.2.0:
     resolution: {integrity: sha512-L049y6nFOuom5wGyRc3/gdTLO94dySVKRACj1RmJZBQXlbTMhtNIgkWkUHq+jYmZvKf14EW1EoJnnjbmoHij0Q==}
@@ -6093,7 +6062,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.2
-      get-intrinsic: 1.1.2
+      get-intrinsic: 1.2.0
 
   /get-tsconfig@4.5.0:
     resolution: {integrity: sha512-MjhiaIWCJ1sAU4pIQ5i5OfOuHHxVo1oYeNsWTON7jxYkod8pHocXeh+SSbmu5OZZZK73B6cbJ2XADzXehLyovQ==}
@@ -6256,7 +6225,7 @@ packages:
   /has-property-descriptors@1.0.0:
     resolution: {integrity: sha512-62DVLZGoiEBDHQyqG4w9xCuZ7eJEwNmJRWw2VY84Oedb7WFcA27fiEVe8oUQx9hAUJ4ekurquucTGwsyO1XGdQ==}
     dependencies:
-      get-intrinsic: 1.1.2
+      get-intrinsic: 1.2.0
 
   /has-proto@1.0.1:
     resolution: {integrity: sha512-7qE+iP+O+bgF9clE5+UoBFzE65mlBiVj3tKCrlNQ0Ogwm0BjpT/gK4SlLYDMybDh5I3TCTKnPPa0oMG7JDYrhg==}
@@ -6407,14 +6376,6 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     dev: true
 
-  /internal-slot@1.0.3:
-    resolution: {integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      get-intrinsic: 1.1.2
-      has: 1.0.3
-      side-channel: 1.0.4
-
   /internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
     engines: {node: '>= 0.4'}
@@ -6499,10 +6460,6 @@ packages:
     dependencies:
       builtin-modules: 3.3.0
     dev: true
-
-  /is-callable@1.2.4:
-    resolution: {integrity: sha512-nsuwtxZfMX67Oryl9LCQ+upnC0Z0BgpwntpS89m1H/TLF0zNfzfLMV/9Wa/6MZsj0acpEjAO0KF1xT6ZdLl95w==}
-    engines: {node: '>= 0.4'}
 
   /is-callable@1.2.7:
     resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
@@ -8079,9 +8036,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /object-inspect@1.12.2:
-    resolution: {integrity: sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==}
-
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
 
@@ -8497,7 +8451,7 @@ packages:
     resolution: {integrity: sha512-XPRRMQR5oseJXdfK8kQDj2LCV1UjmTuDlPbbJ8C2WLaATNhdvZLhQO0+NtWnRrQTP+erLR5cVxfcwyqF+3R8SA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     peerDependencies:
-      prettier: ^2.0.0
+      prettier: ^2.8.7
     dependencies:
       prettier: 2.8.7
     dev: true
@@ -8512,7 +8466,7 @@ packages:
     resolution: {integrity: sha512-VOq8h2Gn5UzrCIKm4p/nAScXJbN09HdyFDknAcxt6Qu/tv/juu9bahxSrcnM9XWYA+Spz1F1ANJ4LhfwB7+Q1Q==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     peerDependencies:
-      prettier: ^2.0.0
+      prettier: ^2.8.7
     dependencies:
       mvdan-sh: 0.10.1
       prettier: 2.8.7
@@ -8523,7 +8477,7 @@ packages:
   /prettier-plugin-stylus@0.0.1-beta.8(prettier@2.8.7):
     resolution: {integrity: sha512-EjM9yiMC2PNbfNpc/3WQVNnyTnQaMvlkNNv2odLWiyoqhmv1QzSvib3CEF9MeumENTNT1bNrqjPJUA2qYfskJg==}
     peerDependencies:
-      prettier: '*'
+      prettier: ^2.8.7
     dependencies:
       prettier: 2.8.7
       stylus: 0.57.0
@@ -8534,7 +8488,7 @@ packages:
   /prettier-plugin-svelte@2.7.0(prettier@2.8.7)(svelte@3.49.0):
     resolution: {integrity: sha512-fQhhZICprZot2IqEyoiUYLTRdumULGRvw0o4dzl5jt0jfzVWdGqeYW27QTWAeXhoupEZJULmNoH3ueJwUWFLIA==}
     peerDependencies:
-      prettier: ^1.16.4 || ^2.0.0
+      prettier: ^2.8.7
       svelte: ^3.2.0
     dependencies:
       prettier: 2.8.7
@@ -9503,7 +9457,7 @@ packages:
     resolution: {integrity: sha512-1+cZaM080zTlhQIvZDOj7SFWvW9zevfxsLjTZspLEsBYivMDwCyTodvNvaZLc9p5dUSMik/BjMFKicfhZXh7qg==}
     engines: {node: '>=14.8'}
     peerDependencies:
-      prettier: '>=1.0.0'
+      prettier: ^2.8.7
     dependencies:
       prettier: 2.8.7
     dev: true
@@ -9827,8 +9781,8 @@ packages:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
       call-bind: 1.0.2
-      get-intrinsic: 1.1.2
-      object-inspect: 1.12.2
+      get-intrinsic: 1.2.0
+      object-inspect: 1.12.3
 
   /signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
@@ -10069,26 +10023,12 @@ packages:
       define-properties: 1.1.4
       es-abstract: 1.21.2
 
-  /string.prototype.trimend@1.0.5:
-    resolution: {integrity: sha512-I7RGvmjV4pJ7O3kdf+LXFpVfdNOxtCW/2C8f6jNiW4+PQchwxkCDzlk1/7p+Wl4bqFIZeF47qAHXLuHHWKAxog==}
-    dependencies:
-      call-bind: 1.0.2
-      define-properties: 1.1.4
-      es-abstract: 1.20.1
-
   /string.prototype.trimend@1.0.6:
     resolution: {integrity: sha512-JySq+4mrPf9EsDBEDYMOb/lM7XQLulwg5R/m1r0PXEFqrV0qHvl58sdTilSXtKOflCsK2E8jxf+GKC0T07RWwQ==}
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.4
       es-abstract: 1.21.2
-
-  /string.prototype.trimstart@1.0.5:
-    resolution: {integrity: sha512-THx16TJCGlsN0o6dl2o6ncWUsdgnLRSA23rRE5pyGBw/mLr3Ej/R2LaqCtgP8VNMGZsvMWnf9ooZPyY2bHvUFg==}
-    dependencies:
-      call-bind: 1.0.2
-      define-properties: 1.1.4
-      es-abstract: 1.20.1
 
   /string.prototype.trimstart@1.0.6:
     resolution: {integrity: sha512-omqjMDaY92pbn5HOX7f9IccLA+U1tA9GvtU4JrodiXFfYB7jPzzHpRzpglLAjtUV6bB557zwClJezTqnAiYnQA==}
