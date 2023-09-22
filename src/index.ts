@@ -5,13 +5,13 @@ import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
 import enhancedResolve from 'enhanced-resolve'
 import { hashObject } from 'eslint-module-utils/hash.js'
-import FastGlob from 'fast-glob'
+import fg from 'fast-glob'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
 import isCore from 'is-core-module'
 import isGlob from 'is-glob'
 
-const { sync: globSync } = FastGlob
+const { globSync } = fg
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
