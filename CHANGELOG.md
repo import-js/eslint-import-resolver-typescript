@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.6.1
+
+### Patch Changes
+
+- [#241](https://github.com/import-js/eslint-import-resolver-typescript/pull/241) [`cf5d67f`](https://github.com/import-js/eslint-import-resolver-typescript/commit/cf5d67f8482bbb2b8ef3e7572f4791a00b4119aa) Thanks [@klippx](https://github.com/klippx)! - Fix CJS import to make it compatible with ESM projects
+
 ## 3.6.0
 
 ### Minor Changes
