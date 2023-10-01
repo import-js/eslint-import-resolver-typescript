@@ -86,7 +86,7 @@
     "@types/unist": "^2.0.8",
     "dummy.js": "link:dummy.js",
     "react": "^18.2.0",
-    "size-limit": "^8.2.4",
+    "size-limit": "^8.2.6",
     "size-limit-preset-node-lib": "^0.2.0",
     "type-coverage": "^2.25.0",
     "typescript": "^5.0.4"
