@@ -73,11 +73,11 @@ devDependencies:
     specifier: ^18.2.0
     version: 18.2.0
   size-limit:
-    specifier: ^8.2.4
-    version: 8.2.4
+    specifier: ^8.2.6
+    version: 8.2.6
   size-limit-preset-node-lib:
     specifier: ^0.2.0
-    version: 0.2.0(size-limit@8.2.4)
+    version: 0.2.0(size-limit@8.2.6)
   type-coverage:
     specifier: ^2.25.0
     version: 2.25.0(typescript@5.0.4)
@@ -3263,7 +3263,7 @@ packages:
       rollup: 3.20.2
     dev: true
 
-  /@size-limit/esbuild@8.2.4(size-limit@8.2.4):
+  /@size-limit/esbuild@8.2.4(size-limit@8.2.6):
     resolution: {integrity: sha512-kPgNfpwUvBD98s5axlf1UciFg4Ki4AYSl/cOmSyyYBuzksHiwW7Myeu0w4mTxtV9nwBFbkrrNXqszE7b+OhFLA==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3271,17 +3271,17 @@ packages:
     dependencies:
       esbuild: 0.17.14
       nanoid: 3.3.4
-      size-limit: 8.2.4
+      size-limit: 8.2.6
     dev: true
 
-  /@size-limit/file@8.2.4(size-limit@8.2.4):
+  /@size-limit/file@8.2.4(size-limit@8.2.6):
     resolution: {integrity: sha512-xLuF97W7m7lxrRJvqXRlxO/4t7cpXtfxOnjml/t4aRVUCMXLdyvebRr9OM4jjoK8Fmiz8jomCbETUCI3jVhLzA==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
       size-limit: 8.2.4
     dependencies:
       semver: 7.3.8
-      size-limit: 8.2.4
+      size-limit: 8.2.6
     dev: true
 
   /@toml-tools/lexer@0.3.1:
@@ -6186,7 +6186,7 @@ packages:
       array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.3.1
-      ignore: 5.2.0
+      ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
 
@@ -6885,11 +6885,6 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-
-  /lilconfig@2.0.6:
-    resolution: {integrity: sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==}
-    engines: {node: '>=10'}
-    dev: true
 
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
@@ -9794,37 +9789,37 @@ packages:
     requiresBuild: true
     dev: true
 
-  /size-limit-node-esbuild@0.2.0(size-limit@8.2.4):
+  /size-limit-node-esbuild@0.2.0(size-limit@8.2.6):
     resolution: {integrity: sha512-iiIfHBH/+ZxgsE7YVQDEejAUGZYEu4QIai/QNZloEGxA+cmow79O8uGdu4sK64V8kafryqR1grK7nl7xIGv6rw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
-      '@size-limit/esbuild': 8.2.4(size-limit@8.2.4)
+      '@size-limit/esbuild': 8.2.4(size-limit@8.2.6)
       nanoid: 3.3.4
       tslib: 2.5.0
     transitivePeerDependencies:
       - size-limit
     dev: true
 
-  /size-limit-preset-node-lib@0.2.0(size-limit@8.2.4):
+  /size-limit-preset-node-lib@0.2.0(size-limit@8.2.6):
     resolution: {integrity: sha512-qWfiB6VPcxgyCZq85WhnIC5D5fjLz82pKo0ehmxJYi0oqLNvYouSquDcMF5mEG7Rh+Qwl3lKG9yjKl9omFALbg==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
-      '@size-limit/file': 8.2.4(size-limit@8.2.4)
-      size-limit-node-esbuild: 0.2.0(size-limit@8.2.4)
+      '@size-limit/file': 8.2.4(size-limit@8.2.6)
+      size-limit-node-esbuild: 0.2.0(size-limit@8.2.6)
       tslib: 2.5.0
     transitivePeerDependencies:
       - size-limit
     dev: true
 
-  /size-limit@8.2.4:
-    resolution: {integrity: sha512-Un16nSreD1v2CYwSorattiJcHuAWqXvg4TsGgzpjnoByqQwsSfCIEQHuaD14HNStzredR8cdsO9oGH91ibypTA==}
+  /size-limit@8.2.6:
+    resolution: {integrity: sha512-zpznim/tX/NegjoQuRKgWTF4XiB0cn2qt90uJzxYNTFAqexk4b94DOAkBD3TwhC6c3kw2r0KcnA5upziVMZqDg==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     dependencies:
       bytes-iec: 3.1.1
       chokidar: 3.5.3
       globby: 11.1.0
-      lilconfig: 2.0.6
+      lilconfig: 2.1.0
       nanospinner: 1.1.0
       picocolors: 1.0.0
     dev: true
