@@ -102,6 +102,7 @@ const fileSystem = fs as FileSystem
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
 
+let packageJsonPaths: string[] = []
 let previousOptionsHash: string
 let optionsHash: string
 let cachedOptions: InternalResolverOptions | undefined
@@ -169,6 +170,7 @@ export function resolve(
     }
   }
 
+  packageJsonPaths = fastGlob.sync(["**/package.json", "!**/node_modules/**"]);
   initMappers(cachedOptions)
 
   const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
@@ -271,6 +273,11 @@ function getMappedPath(
       paths = [resolved]
     }
   } else {
+    const packageJsonPath = packageJsonPaths.find((p) => {
+      const { dir } = path.parse(p)
+      return !!dir && file.includes(dir)
+    })
+
     paths = mappers!
       .map(mapper =>
         mapper?.(source).map(item => [
@@ -299,6 +306,7 @@ function getMappedPath(
 
         return false
       })
+      .filter((item) => item.includes(packageJsonPath))
   }
 
   if (retry && paths.length === 0) {
