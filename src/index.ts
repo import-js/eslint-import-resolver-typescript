@@ -170,7 +170,7 @@ export function resolve(
     }
   }
 
-  packageJsonPaths = fg.sync(["**/package.json", "!**/node_modules/**"]);
+  packageJsonPaths = fg.sync(['**/package.json', '!**/node_modules/**']);
   initMappers(cachedOptions)
 
   const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
@@ -273,7 +273,7 @@ function getMappedPath(
       paths = [resolved]
     }
   } else {
-    const packageJsonPath = packageJsonPaths.find((p) => {
+    const packageJsonPath = packageJsonPaths.find(p => {
       const { dir } = path.parse(p)
       return !!dir && file.includes(dir)
     })
@@ -306,7 +306,7 @@ function getMappedPath(
 
         return false
       })
-      .filter((item) => packageJsonPath && item?.includes(packageJsonPath))
+      .filter(item => packageJsonPath && item?.includes(packageJsonPath))
   }
 
   if (retry && paths.length === 0) {
