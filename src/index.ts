@@ -306,7 +306,7 @@ function getMappedPath(
 
         return false
       })
-      .filter((item) => item?.includes(packageJsonPath))
+      .filter((item) => packageJsonPath && item?.includes(packageJsonPath))
   }
 
   if (retry && paths.length === 0) {
