@@ -170,7 +170,7 @@ export function resolve(
     }
   }
 
-  packageJsonPaths = fg.sync(['**/package.json', '!**/node_modules/**']);
+  packageJsonPaths = fg.sync(['**/package.json', '!**/node_modules/**'])
   initMappers(cachedOptions)
 
   const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
