@@ -170,7 +170,7 @@ export function resolve(
     }
   }
 
-  packageJsonPaths = fastGlob.sync(["**/package.json", "!**/node_modules/**"]);
+  packageJsonPaths = fg.sync(["**/package.json", "!**/node_modules/**"]);
   initMappers(cachedOptions)
 
   const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
@@ -306,7 +306,7 @@ function getMappedPath(
 
         return false
       })
-      .filter((item) => item.includes(packageJsonPath))
+      .filter((item) => item?.includes(packageJsonPath))
   }
 
   if (retry && paths.length === 0) {
