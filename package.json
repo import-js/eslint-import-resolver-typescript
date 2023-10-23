@@ -62,8 +62,7 @@
     "typecov": "type-coverage"
   },
   "peerDependencies": {
-    "eslint": "*",
-    "eslint-plugin-import": "*"
+    "eslint": "*"
   },
   "dependencies": {
     "debug": "^4.3.4",
