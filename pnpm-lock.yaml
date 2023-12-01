@@ -58,8 +58,8 @@ devDependencies:
     specifier: ^2.2.0
     version: 2.2.0
   '@types/is-glob':
-    specifier: ^4.0.3
-    version: 4.0.3
+    specifier: ^4.0.4
+    version: 4.0.4
   '@types/node':
     specifier: ^18.18.8
     version: 18.18.8
@@ -3374,8 +3374,8 @@ packages:
     resolution: {integrity: sha512-a3xgqnFTuNJDm1fjsTjHocYJ40Cz3t8utYpi5GNaxzrJC2HSD08ym+whIL7fNqiqBCdM9bcqD1H/tORWAFXoZw==}
     dev: true
 
-  /@types/is-glob@4.0.3:
-    resolution: {integrity: sha512-tqNnLL4n5kvr6Kq2hGfs9xlqPilqBizbEgAXMfdSVsXle0Hrj5PhSeDg56fMCU+qWLRX4rR9kj4jj++rHPErjw==}
+  /@types/is-glob@4.0.4:
+    resolution: {integrity: sha512-3mFBtIPQ0TQetKRDe94g8YrxJZxdMillMGegyv6zRBXvq4peRRhf2wLZ/Dl53emtTsC29dQQBwYvovS20yXpiQ==}
     dev: true
 
   /@types/json-schema@7.0.11:
