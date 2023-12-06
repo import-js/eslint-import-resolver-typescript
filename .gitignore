@@ -1,5 +1,7 @@
 .*cache
 .type-coverage
+.yarn/*
+!.yarn/plugins
 lib
 node_modules
 *.log

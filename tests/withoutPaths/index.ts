@@ -17,4 +17,4 @@ import 'json5'
 import 'unist'
 
 // exports
-import '@mozilla/glean/webext'
+import '@mozilla/glean/web'
