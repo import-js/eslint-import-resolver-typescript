@@ -79,8 +79,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0(size-limit@8.2.6)
   type-coverage:
-    specifier: ^2.25.0
-    version: 2.25.0(typescript@5.0.4)
+    specifier: ^2.27.0
+    version: 2.27.0(typescript@5.0.4)
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -7953,6 +7953,13 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
+  /minimatch@9.0.3:
+    resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimist-options@4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
     engines: {node: '>= 6'}
@@ -10510,25 +10517,25 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
 
-  /type-coverage-core@2.25.0(typescript@5.0.4):
-    resolution: {integrity: sha512-+ROv68mmveRCpYKq4kLEPDerCqj2YGzR8tSPXH2LLMxY5xk3zJM23Ztv/cAGoHEge4CI3S4xrcTJoWlwlhEKYA==}
+  /type-coverage-core@2.26.3(typescript@5.0.4):
+    resolution: {integrity: sha512-rzNdW/tClHJvsUiy787b/UX53bNh1Dn7A5KqZDQjkL3j7iKFv/KnTolxDBBgTPcK4Zn9Ab7WLrik7cXw2oZZqw==}
     peerDependencies:
       typescript: 2 || 3 || 4 || 5
     dependencies:
       fast-glob: 3.3.1
-      minimatch: 5.1.0
+      minimatch: 9.0.3
       normalize-path: 3.0.0
       tslib: 2.5.0
       tsutils: 3.21.0(typescript@5.0.4)
       typescript: 5.0.4
     dev: true
 
-  /type-coverage@2.25.0(typescript@5.0.4):
-    resolution: {integrity: sha512-Zp4x/yQlv5Le8nNR3vXlaZRtPUvtbqSXFpGhcEvocbMxVD359GsQctCUlHgHmT42CURnvRJL0PHIaFlewL64aw==}
+  /type-coverage@2.27.0(typescript@5.0.4):
+    resolution: {integrity: sha512-Gs4HcUPrZ+Z7De/eqZfw60SOEjzN30CI94p/2luye0IUI1y9TsWVOkchrqArR3khpN+ACXXQyxsiqH0FdoN48Q==}
     hasBin: true
     dependencies:
       minimist: 1.2.6
-      type-coverage-core: 2.25.0(typescript@5.0.4)
+      type-coverage-core: 2.26.3(typescript@5.0.4)
     transitivePeerDependencies:
       - typescript
     dev: true
