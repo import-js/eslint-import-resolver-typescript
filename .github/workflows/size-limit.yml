@@ -15,20 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Setup Node.js LTS
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: pnpm
+          cache: yarn
 
       - name: Install Dependencies
-        run: pnpm i
+        run: yarn --immutable
 
       - uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_step: install
-          script: pnpm size-limit --json
+          script: yarn size-limit --json
