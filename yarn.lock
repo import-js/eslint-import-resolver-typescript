@@ -3741,12 +3741,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.0.0, @types/node@npm:^18.19.2":
+"@types/node@npm:^18.0.0":
   version: 18.19.2
   resolution: "@types/node@npm:18.19.2"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 122958ac4be81ea2b53da53de29441f8d98d572cc5c704c6bba788343281a47185a405cf0c650a702b7549e09584a7a39a51f27658088a8d8192163bcac079a0
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.19.4":
+  version: 18.19.4
+  resolution: "@types/node@npm:18.19.4"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 4eaf6e1bb588da960c7e5974e8a0112633138b5468f0e48fc959d5585863baca549bc8c5f5f7b751c61dd282b8c2879842220f6eeed33aa54c255e876ec16536
   languageName: node
   linkType: hard
 
@@ -6166,7 +6175,7 @@ __metadata:
     "@types/debug": "npm:^4.1.12"
     "@types/is-core-module": "npm:^2.2.2"
     "@types/is-glob": "npm:^4.0.4"
-    "@types/node": "npm:^18.19.2"
+    "@types/node": "npm:^18.19.4"
     "@types/unist": "npm:^2.0.10"
     debug: "npm:^4.3.4"
     dummy.js: "link:dummy.js"
