@@ -44,19 +44,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@1stg/common-config@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@1stg/common-config@npm:9.0.0"
+"@1stg/common-config@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "@1stg/common-config@npm:9.0.1"
   dependencies:
     "@1stg/babel-preset": "npm:^3.2.3"
     "@1stg/commitlint-config": "npm:^3.2.0"
-    "@1stg/eslint-config": "npm:^7.0.0"
+    "@1stg/eslint-config": "npm:^7.0.1"
     "@1stg/lint-staged": "npm:^3.4.1"
     "@1stg/markuplint-config": "npm:^3.0.1"
     "@1stg/prettier-config": "npm:^3.9.2"
     "@1stg/remark-preset": "npm:^2.0.0"
     "@1stg/simple-git-hooks": "npm:^0.2.3"
-    "@1stg/tsconfig": "npm:^2.3.2"
+    "@1stg/tsconfig": "npm:^2.3.3"
     "@babel/core": "npm:^7.22.5"
     "@commitlint/cli": "npm:^17.6.5"
     eslint: "npm:^8.43.0"
@@ -65,7 +65,7 @@ __metadata:
     prettier: "npm:^2.8.8"
     simple-git-hooks: "npm:^2.8.1"
     tslib: "npm:^2.5.3"
-  checksum: 914bb61d876f1fa21c10f55e32a239052ee05f8429ba3cdda833411fdba90b658dc933b21214e113aa9e05c40640f8f8b7f9c701e024d3fb61f137187126b973
+  checksum: 5803eef0f372734bdcc02a0a4b89273c4ffce3c52ce0da1f9e3c6ce66775f5336f9f496821942696abab063338d2b2b29f9aa4e285968d9ca2986bf3c5146ffc
   languageName: node
   linkType: hard
 
@@ -76,9 +76,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@1stg/eslint-config@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@1stg/eslint-config@npm:7.0.0"
+"@1stg/eslint-config@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "@1stg/eslint-config@npm:7.0.1"
   dependencies:
     "@1stg/config": "npm:^0.2.1"
     "@angular-eslint/eslint-plugin": "npm:^16.0.3"
@@ -121,17 +121,17 @@ __metadata:
     eslint-plugin-yml: "npm:^1.8.0"
   peerDependencies:
     eslint: ">=8.0.0"
-  checksum: a228dcc416dfa304db065a1616a4e9c8ca6be2b8d2bde4f3c422713583657f6969151a0b6d863878bdec4a3fcec42a9cd2645d1ead2c87c403d3bb4672dd579f
+  checksum: 3f0c5f1b4d24e83729ef7ba7b334a2aa9771b5cee85994ec570bec5a3ee81e4655364d8d0b2cabe6807a5ba14efafe6102d475a541cd4c49df0c3dba670ae789
   languageName: node
   linkType: hard
 
-"@1stg/lib-config@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "@1stg/lib-config@npm:12.0.0"
+"@1stg/lib-config@npm:^12.0.1":
+  version: 12.0.1
+  resolution: "@1stg/lib-config@npm:12.0.1"
   dependencies:
-    "@1stg/common-config": "npm:^9.0.0"
+    "@1stg/common-config": "npm:^9.0.1"
     "@pkgr/rollup": "npm:^4.1.1"
-  checksum: 300de10a900706e3563a7cb1d02ef2bf769098a358ae6c1f1b544a9c16c81dddd158f55e4ccfe888544bdb4652530f81a3a0a6b3e6b734d9ff2df3514eb9c4a2
+  checksum: 133b011d89cb50c2c7242aec420642a249e148b25248d477f37bc2e47bd6cbf2f99d8219f33eda41836082ebcb2c1d6b4b36565ea9c575dfe189bb635a5b8ff5
   languageName: node
   linkType: hard
 
@@ -222,6 +222,15 @@ __metadata:
   peerDependencies:
     typescript: ">=3.0.0"
   checksum: 4670b7f7f3b5240fb9099bb423f5332f927904d1d489767c4658033a0bf273918e39c5fb2d20249cf762813f7798c6c4bd2efc6008f7f148917bc1fd16ab7c2f
+  languageName: node
+  linkType: hard
+
+"@1stg/tsconfig@npm:^2.3.3":
+  version: 2.3.3
+  resolution: "@1stg/tsconfig@npm:2.3.3"
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 84d225e11ae51b5cdb5b983ab505800874f77fee3f88901c5707bb3509584c3b7d22a4968d445e464ad943019f61cc22f4c18d62a35640308dbda390a848d64b
   languageName: node
   linkType: hard
 
@@ -6148,7 +6157,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eslint-import-resolver-typescript@workspace:."
   dependencies:
-    "@1stg/lib-config": "npm:^12.0.0"
+    "@1stg/lib-config": "npm:^12.0.1"
     "@changesets/changelog-github": "npm:^0.5.0"
     "@changesets/cli": "npm:^2.27.1"
     "@commitlint/cli": "npm:^17.8.1"
