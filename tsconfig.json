@@ -4,5 +4,6 @@
     "module": "Node16",
     "outDir": "./lib"
   },
-  "include": ["./src", "./shim.d.ts"]
+  "include": ["./src", "./shim.d.ts"],
+  "exclude": ["./node_modules/bun-types/**/*"]
 }

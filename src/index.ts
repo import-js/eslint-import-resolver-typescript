@@ -117,6 +117,29 @@ let resolver: Resolver | undefined
 const digestHashObject = (value: object | null | undefined) =>
   hashObject(value ?? {}).digest('hex')
 
+let bunCoreModules: Set<string> | undefined
+const getBunCoreModules = (): Set<string> => {
+  if (!bunCoreModules) {
+    bunCoreModules = new Set<string>()
+
+    const { found, path } = resolve('bun-types', 'bun-types')
+    if (found && path) {
+      const regex = /declare module ["'](bun:\w+)["']/g
+      const content = fs.readFileSync(path, 'utf8')
+      let match: RegExpExecArray | null
+
+      while ((match = regex.exec(content)) !== null) {
+        // The first captured group is at index 1
+        if (match[1]) {
+          bunCoreModules.add(match[1])
+        }
+      }
+    }
+  }
+
+  return bunCoreModules
+}
+
 /**
  * @param source the module to resolve; i.e './some-module'
  * @param file the importing file's full path; i.e. '/usr/local/bin/file.js'
@@ -162,6 +185,16 @@ export function resolve(
   // don't worry about core node modules
   if (isCore(source)) {
     log('matched core:', source)
+
+    return {
+      found: true,
+      path: null,
+    }
+  }
+
+  // match against bun core modules
+  if (getBunCoreModules().has(source)) {
+    log('matched bun core:', source)
 
     return {
       found: true,
