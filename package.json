@@ -91,7 +91,7 @@
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import": "npm:eslint-plugin-i@^2.29.0",
     "lint-staged": "^13.3.0",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all2": "^5.0.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "simple-git-hooks": "^2.9.0",
