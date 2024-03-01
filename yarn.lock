@@ -6190,7 +6190,7 @@ __metadata:
     eslint: "npm:^8.55.0"
     eslint-import-resolver-typescript: "link:."
     eslint-module-utils: "npm:^2.8.0"
-    eslint-plugin-import: "npm:eslint-plugin-i@^2.29.0"
+    eslint-plugin-import: "npm:eslint-plugin-i@^2.29.1"
     fast-glob: "npm:^3.3.2"
     get-tsconfig: "npm:^4.7.2"
     is-core-module: "npm:^2.13.1"
@@ -6273,7 +6273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:eslint-plugin-i@^2.27.5, eslint-plugin-import@npm:eslint-plugin-i@^2.29.0":
+"eslint-plugin-import@npm:eslint-plugin-i@^2.27.5":
   version: 2.29.0
   resolution: "eslint-plugin-i@npm:2.29.0"
   dependencies:
@@ -6289,6 +6289,24 @@ __metadata:
   peerDependencies:
     eslint: ^7.2.0 || ^8
   checksum: fb0e694b1e57962c97aa573223cec79fff72351d0f98d8ea28a6d31716a9f7224ae995f68b8d51ede5987add61582760fc137d7a7ec2bb7ce7d1f834c675adb8
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-import@npm:eslint-plugin-i@^2.29.1":
+  version: 2.29.1
+  resolution: "eslint-plugin-i@npm:2.29.1"
+  dependencies:
+    debug: "npm:^4.3.4"
+    doctrine: "npm:^3.0.0"
+    eslint-import-resolver-node: "npm:^0.3.9"
+    eslint-module-utils: "npm:^2.8.0"
+    get-tsconfig: "npm:^4.7.2"
+    is-glob: "npm:^4.0.3"
+    minimatch: "npm:^3.1.2"
+    semver: "npm:^7.5.4"
+  peerDependencies:
+    eslint: ^7.2.0 || ^8
+  checksum: 5dc6c0857abe766f32681706f21090aaa214ad93792e25f746e003f971ee727643a52a71c852851a14646434f9d0308197b7763a63cc5c42bb12681eb4119974
   languageName: node
   linkType: hard
 
