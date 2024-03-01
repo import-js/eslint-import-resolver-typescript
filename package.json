@@ -51,6 +51,7 @@
     "prepare": "simple-git-hooks",
     "release": "changeset publish",
     "test": "run-p 'test:*'",
+    "test:bun": "eslint --ext ts,tsx tests/bun",
     "test:multipleEslintrcs": "eslint --ext ts,tsx tests/multipleEslintrcs",
     "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
     "test:withJsExtension": "node tests/withJsExtension/test.js && eslint --ext ts,tsx tests/withJsExtension",
