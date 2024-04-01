@@ -84,7 +84,7 @@
     "@types/debug": "^4.1.12",
     "@types/is-core-module": "^2.2.2",
     "@types/is-glob": "^4.0.4",
-    "@types/node": "^18.19.21",
+    "@types/node": "^18.19.28",
     "@types/unist": "^2.0.10",
     "dummy.js": "link:dummy.js",
     "eslint": "^8.55.0",
