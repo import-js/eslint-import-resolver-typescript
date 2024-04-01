@@ -6196,7 +6196,7 @@ __metadata:
     is-core-module: "npm:^2.13.1"
     is-glob: "npm:^4.0.3"
     lint-staged: "npm:^13.3.0"
-    npm-run-all2: "npm:^5.0.0"
+    npm-run-all2: "npm:^5.0.2"
     prettier: "npm:^2.8.8"
     react: "npm:^18.2.0"
     simple-git-hooks: "npm:^2.9.0"
@@ -10475,7 +10475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-run-all2@npm:^5.0.0":
+"npm-run-all2@npm:^5.0.2":
   version: 5.0.2
   resolution: "npm-run-all2@npm:5.0.2"
   dependencies:
