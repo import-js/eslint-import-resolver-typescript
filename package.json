@@ -68,7 +68,7 @@
   "dependencies": {
     "debug": "^4.3.4",
     "enhanced-resolve": "^5.15.0",
-    "eslint-module-utils": "^2.8.0",
+    "eslint-module-utils": "^2.8.1",
     "fast-glob": "^3.3.2",
     "get-tsconfig": "^4.7.2",
     "is-core-module": "^2.13.1",

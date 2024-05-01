@@ -6189,7 +6189,7 @@ __metadata:
     enhanced-resolve: "npm:^5.15.0"
     eslint: "npm:^8.55.0"
     eslint-import-resolver-typescript: "link:."
-    eslint-module-utils: "npm:^2.8.0"
+    eslint-module-utils: "npm:^2.8.1"
     eslint-plugin-import: "npm:eslint-plugin-i@^2.29.1"
     fast-glob: "npm:^3.3.2"
     get-tsconfig: "npm:^4.7.2"
@@ -6243,6 +6243,18 @@ __metadata:
     eslint:
       optional: true
   checksum: a9a7ed93eb858092e3cdc797357d4ead2b3ea06959b0eada31ab13862d46a59eb064b9cb82302214232e547980ce33618c2992f6821138a4934e65710ed9cc29
+  languageName: node
+  linkType: hard
+
+"eslint-module-utils@npm:^2.8.1":
+  version: 2.8.1
+  resolution: "eslint-module-utils@npm:2.8.1"
+  dependencies:
+    debug: "npm:^3.2.7"
+  peerDependenciesMeta:
+    eslint:
+      optional: true
+  checksum: 3e7892c0a984c963632da56b30ccf8254c29b535467138f91086c2ecdb2ebd10e2be61b54e553f30e5abf1d14d47a7baa0dac890e3a658fd3cd07dca63afbe6d
   languageName: node
   linkType: hard
 
