@@ -5511,6 +5511,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.3.5":
+  version: 4.3.5
+  resolution: "debug@npm:4.3.5"
+  dependencies:
+    ms: "npm:2.1.2"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: cb6eab424c410e07813ca1392888589972ce9a32b8829c6508f5e1f25f3c3e70a76731610ae55b4bbe58d1a2fffa1424b30e97fa8d394e49cd2656a9643aedd2
+  languageName: node
+  linkType: hard
+
 "decamelize-keys@npm:^1.1.0":
   version: 1.1.1
   resolution: "decamelize-keys@npm:1.1.1"
@@ -6198,7 +6210,7 @@ __metadata:
     "@types/is-glob": "npm:^4.0.4"
     "@types/node": "npm:^18.19.28"
     "@types/unist": "npm:^2.0.10"
-    debug: "npm:^4.3.4"
+    debug: "npm:^4.3.5"
     dummy.js: "link:dummy.js"
     enhanced-resolve: "npm:^5.15.0"
     eslint: "npm:^8.55.0"
