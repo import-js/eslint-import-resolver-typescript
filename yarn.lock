@@ -6244,6 +6244,7 @@ __metadata:
     eslint-plugin-import: "npm:eslint-plugin-i@^2.29.1"
     fast-glob: "npm:^3.3.2"
     get-tsconfig: "npm:^4.7.5"
+    is-bun-module: "npm:^1.0.1"
     is-core-module: "npm:^2.13.1"
     is-glob: "npm:^4.0.3"
     lint-staged: "npm:^13.3.0"
@@ -8128,6 +8129,13 @@ __metadata:
   dependencies:
     builtin-modules: "npm:^3.3.0"
   checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
+  languageName: node
+  linkType: hard
+
+"is-bun-module@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "is-bun-module@npm:1.0.1"
+  checksum: bb378aec92eb847a67c70552dbeb70c6af2fd8993348331b1d85a9788ade52bd78228765ff553a6f8a06ed689d4c051140e543f16cb60d551fe4733e2aa7da00
   languageName: node
   linkType: hard
 
