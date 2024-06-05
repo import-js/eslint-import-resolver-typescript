@@ -22,7 +22,17 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Enable Corepack
+        if: matrix.node != '16'
         run: corepack enable
+
+      - name: Fix yarn install on Node 16
+        if: matrix.node == '16'
+        run: |
+          corepack disable
+          yarn_version=$(node -p "require('./package.json').packageManager.match(/\w+@([\d.]+)/)[1]")
+          npm pkg delete packageManager
+          npm install -g yarn --force
+          yarn set version $yarn_version
 
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
