@@ -241,6 +241,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@1stg/prettier-config@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@1stg/prettier-config@npm:4.0.1"
+  dependencies:
+    "@1stg/config": "npm:^0.2.2"
+    "@prettier/plugin-pug": "npm:^3.0.0"
+    "@prettier/plugin-ruby": "npm:^4.0.4"
+    "@prettier/plugin-xml": "npm:^3.2.2"
+    prettier-plugin-ini: "npm:^1.1.0"
+    prettier-plugin-pkg: "npm:^0.18.0"
+    prettier-plugin-properties: "npm:^0.3.0"
+    prettier-plugin-sh: "npm:^0.13.1"
+    prettier-plugin-stylus: "npm:^0.1.0"
+    prettier-plugin-svelte: "npm:^3.1.2"
+    prettier-plugin-toml: "npm:^2.0.1"
+  peerDependencies:
+    prettier: ">=1.18.0"
+  checksum: d4aed5b266df2a8bb994dbf627dad74e1eaf999ab54e89a31f434f105e0b2e4a26cfbf9232503048542351ddcf16a6b07b3ef3c2fa369b23580f4b03b803ab6a
+  languageName: node
+  linkType: hard
+
 "@1stg/remark-preset@npm:^2.0.0":
   version: 2.0.0
   resolution: "@1stg/remark-preset@npm:2.0.0"
@@ -3584,12 +3605,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prettier/plugin-pug@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@prettier/plugin-pug@npm:3.0.0"
+  dependencies:
+    pug-lexer: "npm:^5.0.1"
+  peerDependencies:
+    prettier: ^3.0.0
+  checksum: ba6e45ab488f4f3f98ed1e0ccaad759a1838a9be5446fe0e2a5d16f7d873e02c8e2f35c4d85d298d10761aacbc6a4eb461c23df2870e97260f4840d798126807
+  languageName: node
+  linkType: hard
+
 "@prettier/plugin-ruby@npm:^3.2.1":
   version: 3.2.2
   resolution: "@prettier/plugin-ruby@npm:3.2.2"
   dependencies:
     prettier: "npm:>=2.3.0"
   checksum: 128f545e578bc219ea034d8b5f1fc6cab74956959b6a1c8788c25ac7ef1f6507719a784d9c7170c9b1e7fe1689fc6de21cbdf65b710088f11d344b711c2658ef
+  languageName: node
+  linkType: hard
+
+"@prettier/plugin-ruby@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "@prettier/plugin-ruby@npm:4.0.4"
+  peerDependencies:
+    prettier: ^3.0.0
+  checksum: bbd80d174788ce4b77cdad68abf1265bc16a21c2ced4c4efee32d6fe0ff2ca4ebe5955d8e1da1db66afe3266e6b0bb0ea789803f190259acbf7333cf9e5e4a0f
   languageName: node
   linkType: hard
 
@@ -3600,6 +3641,17 @@ __metadata:
     "@xml-tools/parser": "npm:^1.0.11"
     prettier: "npm:>=2.4.0"
   checksum: e83239f335238551d7e696f3d92f5b1078426a1321ea01677c7aca0a5ed9f614e0f2709d4a5171f6ee560de6ddc8e98ae534e63dac726c4302b9ea0ea150c45a
+  languageName: node
+  linkType: hard
+
+"@prettier/plugin-xml@npm:^3.2.2":
+  version: 3.4.1
+  resolution: "@prettier/plugin-xml@npm:3.4.1"
+  dependencies:
+    "@xml-tools/parser": "npm:^1.0.11"
+  peerDependencies:
+    prettier: ^3.0.0
+  checksum: 3b90eb7e04747be40b7755003e502ec821e2349678fdc8b46ff58ebfa2ba86399e29545126a3df5e53e9ef450956ecd8ec66bb3a61c9e0ed47a05053b0ad8c18
   languageName: node
   linkType: hard
 
@@ -3724,6 +3776,22 @@ __metadata:
   peerDependencies:
     size-limit: 10.0.3
   checksum: e979602d9886a5a6925187845d0f8739aa32cbe4d3a9f2807ae81936996d64ffbedd2f6f8cfd252ac49e6973cdcff30a8c563cb1e55beb5c048ad2bae94c5a2b
+  languageName: node
+  linkType: hard
+
+"@taplo/core@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "@taplo/core@npm:0.1.1"
+  checksum: e4d5dd2a80c6bead07692d1b0e8f506b91b3474768aca7373d4dff94ad82f3d78e5401f46ca194343c63f474a69fc32cbb272570d506a995eab2214f88e66866
+  languageName: node
+  linkType: hard
+
+"@taplo/lib@npm:^0.4.0-alpha.2":
+  version: 0.4.0-alpha.2
+  resolution: "@taplo/lib@npm:0.4.0-alpha.2"
+  dependencies:
+    "@taplo/core": "npm:^0.1.0"
+  checksum: 926a31b2310f07172362f91f366617f9f94784f7fa1227c62e0753a034d885798bfcbd3cf73984148e42b6eda7c34fae235649f2cd71a84226caf17f1c35a73c
   languageName: node
   linkType: hard
 
@@ -6962,6 +7030,7 @@ __metadata:
   dependencies:
     "@1stg/eslint-config": "npm:^8.0.0"
     "@1stg/lib-config": "npm:^12.0.1"
+    "@1stg/prettier-config": "npm:^4.0.1"
     "@changesets/changelog-github": "npm:^0.5.0"
     "@changesets/cli": "npm:^2.27.5"
     "@commitlint/cli": "npm:^17.8.1"
@@ -12618,12 +12687,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-pkg@npm:^0.18.0":
+  version: 0.18.1
+  resolution: "prettier-plugin-pkg@npm:0.18.1"
+  peerDependencies:
+    prettier: ^3.0.3
+  checksum: f7bc257005aa399a27b1ccd31bc7c8fc66aba7711ab27969450f4895e13b9359e9a7509e05eafbe1a4bf39fb84a2f99c64c6d3c03acbaf48ef15ebc8a622d3f5
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-properties@npm:^0.2.0":
   version: 0.2.0
   resolution: "prettier-plugin-properties@npm:0.2.0"
   dependencies:
     dot-properties: "npm:^1.0.0"
   checksum: 993d835cef5ea632ecda52424c18b908f1e076b4d0f211a37215f487abb7ef1674f4d991c4e90728a80df925812e67019114f2b7a8cedb4702101942d2db0244
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-properties@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "prettier-plugin-properties@npm:0.3.0"
+  dependencies:
+    dot-properties: "npm:^1.0.0"
+  peerDependencies:
+    prettier: ">= 2.3.0"
+  checksum: 213feedd6ba1c074505a6c18b346991248c0f1bee5d079c652bc26799d9e1b51843d5e02617f17894d5a5b259411508cd90f6e465fd1131e22d13f4bbd3f51e4
   languageName: node
   linkType: hard
 
@@ -12640,6 +12729,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-sh@npm:^0.13.1":
+  version: 0.13.1
+  resolution: "prettier-plugin-sh@npm:0.13.1"
+  dependencies:
+    mvdan-sh: "npm:^0.10.1"
+    sh-syntax: "npm:^0.4.1"
+  peerDependencies:
+    prettier: ^3.0.0
+  checksum: 1cf824cf2e87e7f3517a69779a5d3224668a1628c34ac9a0acdc45bb8dbb6e9c717590c493e1bdc4983839a115febdb22f60070395edbbaaed1960e8da2eaf67
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-stylus@npm:^0.0.1-beta.8":
   version: 0.0.1-beta.9
   resolution: "prettier-plugin-stylus@npm:0.0.1-beta.9"
@@ -12648,6 +12749,17 @@ __metadata:
   peerDependencies:
     prettier: "*"
   checksum: df2e939b9bc4be37d25ba27a5a2936625e090fe97adab2c9aa2789b26fdeaf67ff43f48bc97b3eefc5538947bad61bc6573333f50d4c177b1582509dc65abb0f
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-stylus@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "prettier-plugin-stylus@npm:0.1.0"
+  dependencies:
+    stylus: "npm:^0.57.0"
+  peerDependencies:
+    prettier: "*"
+  checksum: e45f26b3d6f24815fd84182ccc1254becb77887efca49f8d15b7e8ba0f281bf88e4b338bd5aa39f5c2c2ee54bd4d59a5402bdaa63679348925bf50c58227d12d
   languageName: node
   linkType: hard
 
@@ -12661,6 +12773,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-svelte@npm:^3.1.2":
+  version: 3.2.3
+  resolution: "prettier-plugin-svelte@npm:3.2.3"
+  peerDependencies:
+    prettier: ^3.0.0
+    svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
+  checksum: 73cc11253602586c1bf21c07dea30bde22cd8ec2c2e7a4e0300a7b5ac4a82c03759feafdeeda5a4dce9d5c38c18ca89790880caf3d1e9fd71bb2232cceaf2ceb
+  languageName: node
+  linkType: hard
+
 "prettier-plugin-toml@npm:^0.3.1":
   version: 0.3.5
   resolution: "prettier-plugin-toml@npm:0.3.5"
@@ -12669,6 +12791,17 @@ __metadata:
     "@toml-tools/parser": "npm:^0.3.5"
     prettier: "npm:^1.16.0 || ^2.0.0"
   checksum: 1a9dff564fb1d3474423ca604942565835278aeb6e9a71cac52f5d05f83fa409f970503ba12c3fdf29056115143c13b7f0446595eb90ee5222e99f708e779b50
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-toml@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "prettier-plugin-toml@npm:2.0.1"
+  dependencies:
+    "@taplo/lib": "npm:^0.4.0-alpha.2"
+  peerDependencies:
+    prettier: ^3.0.3
+  checksum: cf6a6c4f386390d74924eaacff86d3ef97369749b986fe3b5229466e896ada9f6da4a4fef44059062ffebf6f9a25530d563cba73da2ba2aac0eee27b4fc8c279
   languageName: node
   linkType: hard
 
@@ -14439,6 +14572,15 @@ __metadata:
   dependencies:
     tslib: "npm:^2.4.0"
   checksum: 9dff08cab5b8d13a3acd4ccc1e42805275f2debdac60d649ffe96e2dc55c494003999510f868a4c40763a4bbc198656027d4d9e36c2216ab08fddad1792ca11a
+  languageName: node
+  linkType: hard
+
+"sh-syntax@npm:^0.4.1":
+  version: 0.4.2
+  resolution: "sh-syntax@npm:0.4.2"
+  dependencies:
+    tslib: "npm:^2.6.2"
+  checksum: 12aae8b6f57b86150a5a35975ef241cd6bb882347b732477a0cf562876e043d7a804c14e3ba602c9650c7024bd30a365a53a1538f6c3fa63d5d06d5714a2f2b3
   languageName: node
   linkType: hard
 
