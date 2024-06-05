@@ -352,8 +352,8 @@ function initMappers(options: InternalResolverOptions) {
     typeof options.project === 'string'
       ? [options.project]
       : Array.isArray(options.project)
-      ? options.project
-      : [process.cwd()]
+        ? options.project
+        : [process.cwd()]
 
   const ignore = ['!**/node_modules/**']
 
