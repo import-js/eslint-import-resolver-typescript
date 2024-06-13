@@ -69,11 +69,11 @@ Add the following to your `.eslintrc` config:
   "plugins": ["import"],
   "rules": {
     // turn on errors for missing imports
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts", ".tsx"],
     },
     "import/resolver": {
       "typescript": {
@@ -92,17 +92,17 @@ Add the following to your `.eslintrc` config:
         // use an array
         "project": [
           "packages/module-a/tsconfig.json",
-          "packages/module-b/tsconfig.json"
+          "packages/module-b/tsconfig.json",
         ],
 
         // use an array of glob patterns
         "project": [
           "packages/*/tsconfig.json",
-          "other-packages/*/tsconfig.json"
-        ]
-      }
-    }
-  }
+          "other-packages/*/tsconfig.json",
+        ],
+      },
+    },
+  },
 }
 ```
 
@@ -126,7 +126,7 @@ Default:
   "node",
   "node-addons",
   "browser",
-  "default"
+  "default",
 ]
 ```
 
@@ -143,7 +143,7 @@ Default:
   ".js",
   ".jsx",
   ".json",
-  ".node"
+  ".node",
 ]
 ```
 
@@ -158,11 +158,11 @@ Default:
     // `.tsx` can also be compiled as `.js`
     ".tsx",
     ".d.ts",
-    ".js"
+    ".js",
   ],
   ".jsx": [".tsx", ".d.ts", ".jsx"],
   ".cjs": [".cts", ".d.cts", ".cjs"],
-  ".mjs": [".mts", ".d.mts", ".mjs"]
+  ".mjs": [".mts", ".d.mts", ".mjs"],
 }
 ```
 
@@ -184,7 +184,7 @@ Default:
   "module",
   "jsnext:main",
 
-  "main"
+  "main",
 ]
 ```
 
