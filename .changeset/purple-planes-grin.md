@@ -1,5 +1,5 @@
 ---
-'eslint-import-resolver-typescript': minor
+'eslint-import-resolver-typescript': patch
 ---
 
-feat: add bun built-in module support
+fix: ignore bun built-in modules
