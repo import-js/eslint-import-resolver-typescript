@@ -362,18 +362,25 @@ function getMappedPaths(
     const isJs = JS_EXT_PATTERN.test(source)
     if (isJs) {
       const jsExt = path.extname(source)
+      // cjs -> cts, js -> ts, jsx -> tsx, mjs -> mts
       const tsExt = jsExt.replace('js', 'ts')
+
       const basename = source.replace(JS_EXT_PATTERN, '')
 
-      const mappedPaths = getMappedPaths(basename + tsExt, file)
+      let resolved = getMappedPaths(basename + tsExt, file)
 
-      const resolved =
-        mappedPaths.length > 0
-          ? mappedPaths
-          : getMappedPaths(
-              basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
-              file,
-            )
+      if (resolved.length === 0 && jsExt === '.js') {
+        // js -> tsx
+        const tsxExt = jsExt.replace('js', 'tsx')
+        resolved = getMappedPaths(basename + tsxExt, file)
+      }
+
+      if (resolved.length === 0) {
+        resolved = getMappedPaths(
+          basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
+          file,
+        )
+      }
 
       if (resolved.length > 0) {
         return resolved
