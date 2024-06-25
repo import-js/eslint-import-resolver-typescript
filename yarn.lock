@@ -6145,6 +6145,12 @@ __metadata:
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
+    eslint-plugin-import-x: "*"
+  peerDependenciesMeta:
+    eslint-plugin-import:
+      optional: true
+    eslint-plugin-import-x:
+      optional: true
   languageName: unknown
   linkType: soft
 
