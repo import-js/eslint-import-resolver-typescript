@@ -67,8 +67,12 @@
     "eslint-plugin-import-x": "*"
   },
   "peerDependenciesMeta": {
-    "eslint-plugin-import": { "optional": true },
-    "eslint-plugin-import-x": { "optional": true }
+    "eslint-plugin-import": {
+      "optional": true
+    },
+    "eslint-plugin-import-x": {
+      "optional": true
+    }
   },
   "dependencies": {
     "debug": "^4.3.5",
