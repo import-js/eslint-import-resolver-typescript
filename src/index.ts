@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { builtinModules } from 'node:module';
 
 import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
@@ -8,7 +9,6 @@ import { hashObject } from 'eslint-module-utils/hash.js'
 import fg from 'fast-glob'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
-import isCore from 'is-core-module'
 import isGlob from 'is-glob'
 
 const { globSync } = fg
@@ -118,6 +118,19 @@ const digestHashObject = (value: object | null | undefined) =>
   hashObject(value ?? {}).digest('hex')
 
 /**
+ * Checks if a module is a core module
+ * module.isBuiltin is available in Node.js 16.17.0 or later. Once we drop support for older
+ * versions of Node.js, we can use module.isBuiltin instead of this function.
+ */
+function isBuiltin(moduleName: string) {
+  const moduleNameWithoutPrefix = moduleName.startsWith('node:')
+    ? moduleName.slice(5)
+    : moduleName;
+
+  return builtinModules.includes(moduleNameWithoutPrefix);
+}
+
+/**
  * @param source the module to resolve; i.e './some-module'
  * @param file the importing file's full path; i.e. '/usr/local/bin/file.js'
  * @param options
@@ -160,7 +173,7 @@ export function resolve(
   source = removeQuerystring(source)
 
   // don't worry about core node modules
-  if (isCore(source)) {
+  if (isBuiltin(source)) {
     log('matched core:', source)
 
     return {
