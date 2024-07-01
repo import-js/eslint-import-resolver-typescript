@@ -3789,12 +3789,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.19.28":
-  version: 18.19.28
-  resolution: "@types/node@npm:18.19.28"
+"@types/node@npm:^18.19.39":
+  version: 18.19.39
+  resolution: "@types/node@npm:18.19.39"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: ee2320c51e00d620fde75c54c70ffd218c104fa3203fc143c9db67e9a26c88b6b28d226b5daa511c77fbaeb2a32bd88c70cabcd07e1fe2fbfda68225ecb06d9b
+  checksum: d2fe84adf087a4184217b666f675e99678060d15f84882a4a1c3e49c3dca521a7e99a201a3c073c2b60b00419f1f4c3b357d8f7397f65e400dc3b77b0145a1da
   languageName: node
   linkType: hard
 
@@ -6233,7 +6233,7 @@ __metadata:
     "@types/debug": "npm:^4.1.12"
     "@types/is-core-module": "npm:^2.2.2"
     "@types/is-glob": "npm:^4.0.4"
-    "@types/node": "npm:^18.19.28"
+    "@types/node": "npm:^18.19.39"
     "@types/unist": "npm:^2.0.10"
     debug: "npm:^4.3.5"
     dummy.js: "link:dummy.js"
