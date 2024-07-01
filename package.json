@@ -71,6 +71,7 @@
     "eslint-module-utils": "^2.8.1",
     "fast-glob": "^3.3.2",
     "get-tsconfig": "^4.7.5",
+    "is-bun-module": "^1.0.2",
     "is-core-module": "^2.13.1",
     "is-glob": "^4.0.3"
   },

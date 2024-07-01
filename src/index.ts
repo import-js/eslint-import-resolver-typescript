@@ -8,6 +8,8 @@ import { hashObject } from 'eslint-module-utils/hash.js'
 import fg from 'fast-glob'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
+import type { Version } from 'is-bun-module'
+import { isBunModule } from 'is-bun-module'
 import isCore from 'is-core-module'
 import isGlob from 'is-glob'
 
@@ -159,8 +161,11 @@ export function resolve(
 
   source = removeQuerystring(source)
 
-  // don't worry about core node modules
-  if (isCore(source)) {
+  // don't worry about core node/bun modules
+  if (
+    isCore(source) ||
+    isBunModule(source, (process.versions.bun ?? 'latest') as Version)
+  ) {
     log('matched core:', source)
 
     return {
