@@ -11,7 +11,7 @@
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/changesets/changesets)
 
-This plugin adds [`TypeScript`][] support to [`eslint-plugin-import`][] (Or maybe you want to try [`eslint-plugin-i`][] for faster speed)
+This plugin adds [`TypeScript`][] support to [`eslint-plugin-import`][] (Or maybe you want to try [`eslint-plugin-import-x`][] for faster speed)
 
 This means you can:
 
