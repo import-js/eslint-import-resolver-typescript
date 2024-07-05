@@ -123,11 +123,7 @@ const digestHashObject = (value: object | null | undefined) =>
  * versions of Node.js, we can use module.isBuiltin instead of this function.
  */
 function isBuiltin(moduleName: string) {
-  const moduleNameWithoutPrefix = moduleName.startsWith('node:')
-    ? moduleName.slice(5)
-    : moduleName;
-
-  return builtinModules.includes(moduleNameWithoutPrefix);
+  return builtinModules.includes(moduleName.replace(/^node:/, ''));
 }
 
 /**
