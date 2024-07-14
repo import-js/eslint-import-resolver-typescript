@@ -6123,6 +6123,7 @@ __metadata:
     eslint-plugin-import: "npm:eslint-plugin-i@^2.29.1"
     fast-glob: "npm:^3.3.2"
     get-tsconfig: "npm:^4.7.5"
+    is-bun-module: "npm:^1.0.2"
     is-glob: "npm:^4.0.3"
     lint-staged: "npm:^13.3.0"
     npm-run-all2: "npm:^5.0.2"
@@ -7924,6 +7925,15 @@ __metadata:
   dependencies:
     builtin-modules: "npm:^3.3.0"
   checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
+  languageName: node
+  linkType: hard
+
+"is-bun-module@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "is-bun-module@npm:1.0.2"
+  dependencies:
+    semver: "npm:^7.6.2"
+  checksum: be9685b33954c24f4bee648b21c58d8453842ff84bdffe0e2959e4e71b0861f81ef48fc9e1ed319faf57fd749bd2eed0718ab86f299e9a1ed987dda53890b691
   languageName: node
   linkType: hard
 
@@ -12723,6 +12733,15 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 1ef3a85bd02a760c6ef76a45b8c1ce18226de40831e02a00bad78485390b98b6ccaa31046245fc63bba4a47a6a592b6c7eedc65cc47126e60489f9cc1ce3ed7e
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.6.2":
+  version: 7.6.2
+  resolution: "semver@npm:7.6.2"
+  bin:
+    semver: bin/semver.js
+  checksum: 296b17d027f57a87ef645e9c725bff4865a38dfc9caf29b26aa084b85820972fbe7372caea1ba6857162fa990702c6d9c1d82297cecb72d56c78ab29070d2ca2
   languageName: node
   linkType: hard
 
