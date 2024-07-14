@@ -1,6 +1,6 @@
 import fs from 'node:fs'
+import { builtinModules } from 'node:module'
 import path from 'node:path'
-import { builtinModules } from 'node:module';
 
 import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
@@ -123,7 +123,7 @@ const digestHashObject = (value: object | null | undefined) =>
  * versions of Node.js, we can use module.isBuiltin instead of this function.
  */
 function isBuiltin(moduleName: string) {
-  return builtinModules.includes(moduleName.replace(/^node:/, ''));
+  return builtinModules.includes(moduleName.replace(/^node:/, ''))
 }
 
 /**
