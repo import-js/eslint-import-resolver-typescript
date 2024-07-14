@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.6.2
+
+### Patch Changes
+
+- [#294](https://github.com/import-js/eslint-import-resolver-typescript/pull/294) [`10f9b17`](https://github.com/import-js/eslint-import-resolver-typescript/commit/10f9b17d9ec96c9d38085894710f041bdce5aa86) Thanks [@RobinTail](https://github.com/RobinTail)! - Allow either eslint-plugin-import-x or eslint-plugin-import plugin as a peer dependency.
+
+- [#295](https://github.com/import-js/eslint-import-resolver-typescript/pull/295) [`ff3d3c6`](https://github.com/import-js/eslint-import-resolver-typescript/commit/ff3d3c6fc0bc8d88b4c33abe2d4449db47232d17) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - chore(deps): remove `is-core-module` dependency
+
 ## 3.6.1
 
 ### Patch Changes
