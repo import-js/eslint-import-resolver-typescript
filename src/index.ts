@@ -125,7 +125,7 @@ const digestHashObject = (value: object | null | undefined) =>
  * versions of Node.js, we can use module.isBuiltin instead of this function.
  */
 function isBuiltin(moduleName: string) {
-  return builtinModules.includes(moduleName.replace(/^node:/, ''))
+  return moduleName.startsWith('node:') || builtinModules.includes(moduleName)
 }
 
 /**
