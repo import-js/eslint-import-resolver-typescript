@@ -1,7 +1,7 @@
 import fs from 'node:fs'
-import { builtinModules } from 'node:module'
 import path from 'node:path'
 
+import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
 import enhancedResolve from 'enhanced-resolve'
@@ -120,15 +120,6 @@ const digestHashObject = (value: object | null | undefined) =>
   hashObject(value ?? {}).digest('hex')
 
 /**
- * Checks if a module is a core module
- * module.isBuiltin is available in Node.js 16.17.0 or later. Once we drop support for older
- * versions of Node.js, we can use module.isBuiltin instead of this function.
- */
-function isBuiltin(moduleName: string) {
-  return builtinModules.includes(moduleName.replace(/^node:/, ''))
-}
-
-/**
  * @param source the module to resolve; i.e './some-module'
  * @param file the importing file's full path; i.e. '/usr/local/bin/file.js'
  * @param options
@@ -172,7 +163,7 @@ export function resolve(
 
   // don't worry about core node/bun modules
   if (
-    isBuiltin(source) ||
+    isNodeCoreModule(source) ||
     isBunModule(source, (process.versions.bun ?? 'latest') as Version)
   ) {
     log('matched core:', source)
