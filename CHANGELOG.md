@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.6.3
+
+### Patch Changes
+
+- [#305](https://github.com/import-js/eslint-import-resolver-typescript/pull/305) [`f8d7b82`](https://github.com/import-js/eslint-import-resolver-typescript/commit/f8d7b82d3e1137c9537f3c4bd7d67044b310475d) Thanks [@SukkaW](https://github.com/SukkaW)! - Fix resolve for `node:test`, `node:sea`, and `node:sqlite` without sacrificing installation size
+
+- [#288](https://github.com/import-js/eslint-import-resolver-typescript/pull/288) [`a4c6c78`](https://github.com/import-js/eslint-import-resolver-typescript/commit/a4c6c78904e8e7123503f6784fdbded3d4a026ed) Thanks [@SunsetTechuila](https://github.com/SunsetTechuila)! - fix: ignore bun built-in modules
+
 ## 3.6.2
 
 ### Patch Changes
