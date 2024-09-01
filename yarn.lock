@@ -3798,10 +3798,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:^2, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.10, @types/unist@npm:^2.0.2":
+"@types/unist@npm:^2, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2":
   version: 2.0.10
   resolution: "@types/unist@npm:2.0.10"
   checksum: e2924e18dedf45f68a5c6ccd6015cd62f1643b1b43baac1854efa21ae9e70505db94290434a23da1137d9e31eb58e54ca175982005698ac37300a1c889f6c4aa
+  languageName: node
+  linkType: hard
+
+"@types/unist@npm:^2.0.11":
+  version: 2.0.11
+  resolution: "@types/unist@npm:2.0.11"
+  checksum: 6d436e832bc35c6dde9f056ac515ebf2b3384a1d7f63679d12358766f9b313368077402e9c1126a14d827f10370a5485e628bf61aa91117cf4fc882423191a4e
   languageName: node
   linkType: hard
 
@@ -6130,7 +6137,7 @@ __metadata:
     "@types/debug": "npm:^4.1.12"
     "@types/is-glob": "npm:^4.0.4"
     "@types/node": "npm:^18.19.47"
-    "@types/unist": "npm:^2.0.10"
+    "@types/unist": "npm:^2.0.11"
     debug: "npm:^4.3.5"
     dummy.js: "link:dummy.js"
     enhanced-resolve: "npm:^5.15.0"
