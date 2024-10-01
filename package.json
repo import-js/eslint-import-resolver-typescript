@@ -96,7 +96,7 @@
     "@types/node": "^18.19.54",
     "@types/unist": "^2.0.11",
     "dummy.js": "link:dummy.js",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import": "npm:eslint-plugin-i@^2.29.1",
     "lint-staged": "^13.3.0",
