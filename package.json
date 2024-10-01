@@ -76,7 +76,7 @@
   },
   "dependencies": {
     "@nolyfill/is-core-module": "1.0.39",
-    "debug": "^4.3.5",
+    "debug": "^4.3.7",
     "enhanced-resolve": "^5.15.0",
     "eslint-module-utils": "^2.8.1",
     "fast-glob": "^3.3.2",
