@@ -93,7 +93,7 @@
     "@pkgr/rollup": "^4.1.3",
     "@types/debug": "^4.1.12",
     "@types/is-glob": "^4.0.4",
-    "@types/node": "^18.19.54",
+    "@types/node": "^18.19.63",
     "@types/unist": "^2.0.11",
     "dummy.js": "link:dummy.js",
     "eslint": "^8.57.1",
