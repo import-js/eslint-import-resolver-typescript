@@ -41,3 +41,5 @@ module.exports = {
   },
 }
 ```
+
+Note that this only works with `eslint-plugin-import-x@>=4.5.0`. You can't use `createTypeScriptImportResolver` with the older versions of `eslint-plugin-import-x` or any existing versions of `eslint-plugin-import`.
