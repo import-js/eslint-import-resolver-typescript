@@ -5,15 +5,18 @@ import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
 import enhancedResolve from 'enhanced-resolve'
-import { hashObject } from 'eslint-module-utils/hash.js'
 import fg from 'fast-glob'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
 import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
 import isGlob from 'is-glob'
+import stableHashExports from 'stable-hash'
 
 const { globSync } = fg
+
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- esmodule interop
+const stableHash = stableHashExports.default || stableHashExports
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
@@ -114,10 +117,7 @@ let mappersCachedOptions: InternalResolverOptions
 let mappers: Array<((specifier: string) => string[]) | null> | undefined
 
 let resolverCachedOptions: InternalResolverOptions
-let resolver: Resolver | undefined
-
-const digestHashObject = (value: object | null | undefined) =>
-  hashObject(value ?? {}).digest('hex')
+let cachedResolver: Resolver | undefined
 
 /**
  * @param source the module to resolve; i.e './some-module'
@@ -129,13 +129,14 @@ export function resolve(
   source: string,
   file: string,
   options?: TsResolverOptions | null,
+  resolver: Resolver | null = null,
 ): {
   found: boolean
   path?: string | null
 } {
   if (
     !cachedOptions ||
-    previousOptionsHash !== (optionsHash = digestHashObject(options))
+    previousOptionsHash !== (optionsHash = stableHash(options))
   ) {
     previousOptionsHash = optionsHash
     cachedOptions = {
@@ -152,9 +153,13 @@ export function resolve(
     }
   }
 
-  if (!resolver || resolverCachedOptions !== cachedOptions) {
-    resolver = enhancedResolve.ResolverFactory.createResolver(cachedOptions)
-    resolverCachedOptions = cachedOptions
+  if (!resolver) {
+    if (!cachedResolver || resolverCachedOptions !== cachedOptions) {
+      cachedResolver =
+        enhancedResolve.ResolverFactory.createResolver(cachedOptions)
+      resolverCachedOptions = cachedOptions
+    }
+    resolver = cachedResolver
   }
 
   log('looking for:', source)
@@ -226,6 +231,28 @@ export function resolve(
 
   return {
     found: false,
+  }
+}
+
+export function createTypeScriptImportResolver(
+  options?: TsResolverOptions | null,
+) {
+  const resolver = enhancedResolve.ResolverFactory.createResolver({
+    ...options,
+    conditionNames: options?.conditionNames ?? defaultConditionNames,
+    extensions: options?.extensions ?? defaultExtensions,
+    extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
+    mainFields: options?.mainFields ?? defaultMainFields,
+    fileSystem: new enhancedResolve.CachedInputFileSystem(fileSystem, 5 * 1000),
+    useSyncFileSystemCalls: true,
+  })
+
+  return {
+    interfaceVersion: 3,
+    name: IMPORTER_NAME,
+    resolve(source: string, file: string) {
+      return resolve(source, file, options, resolver)
+    },
   }
 }
 

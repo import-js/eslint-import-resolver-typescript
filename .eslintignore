@@ -1,5 +1,6 @@
 dist
 lib
+tests
 CHANGELOG.md
 /shim.d.ts
 /pnpm-lock.yml
