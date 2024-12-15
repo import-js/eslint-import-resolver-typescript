@@ -5,15 +5,13 @@ import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
 import enhancedResolve from 'enhanced-resolve'
-import fg from 'fast-glob'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
 import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
 import isGlob from 'is-glob'
 import stableHashExports from 'stable-hash'
-
-const { globSync } = fg
+import { globSync } from 'tinyglobby'
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- esmodule interop
 const stableHash = stableHashExports.default || stableHashExports
@@ -393,7 +391,9 @@ function initMappers(options: InternalResolverOptions) {
   const projectPaths = [
     ...new Set([
       ...configPaths.filter(path => !isGlob(path)),
-      ...globSync([...configPaths.filter(path => isGlob(path)), ...ignore]),
+      ...globSync([...configPaths.filter(path => isGlob(path)), ...ignore], {
+        expandDirectories: false,
+      }),
     ]),
   ]
 
