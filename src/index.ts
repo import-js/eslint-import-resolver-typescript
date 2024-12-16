@@ -9,9 +9,8 @@ import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
 import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
-import isGlob from 'is-glob'
 import stableHashExports from 'stable-hash'
-import { globSync } from 'tinyglobby'
+import { globSync, isDynamicPattern } from 'tinyglobby'
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- esmodule interop
 const stableHash = stableHashExports.default || stableHashExports
@@ -390,10 +389,13 @@ function initMappers(options: InternalResolverOptions) {
   // turn glob patterns into paths
   const projectPaths = [
     ...new Set([
-      ...configPaths.filter(path => !isGlob(path)),
-      ...globSync([...configPaths.filter(path => isGlob(path)), ...ignore], {
-        expandDirectories: false,
-      }),
+      ...configPaths.filter(path => !isDynamicPattern(path)),
+      ...globSync(
+        [...configPaths.filter(path => isDynamicPattern(path)), ...ignore],
+        {
+          expandDirectories: false,
+        },
+      ),
     ]),
   ]
 
