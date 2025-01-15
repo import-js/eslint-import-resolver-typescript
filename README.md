@@ -100,7 +100,7 @@ module.exports = [{
           "other-packages/*/tsconfig.json"
         ]
       }),
-    ];
+    ]
   }
 }]
 ```
