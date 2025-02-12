@@ -3,7 +3,7 @@ import path from 'node:path'
 
 import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
-import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
+import type { ResolveOptions, Resolver } from 'enhanced-resolve'
 import enhancedResolve from 'enhanced-resolve'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
@@ -99,7 +99,8 @@ type InternalResolverOptions = Required<
   ResolveOptions &
   TsResolverOptions
 
-const fileSystem = fs as FileSystem
+// FIXME https://github.com/webpack/enhanced-resolve/issues/447
+const fileSystem = fs as ConstructorParameters<typeof enhancedResolve.CachedInputFileSystem>[0];
 
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
