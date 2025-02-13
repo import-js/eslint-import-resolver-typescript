@@ -468,6 +468,11 @@ function initMappers(options: InternalResolverOptions) {
                 : []),
             ]
 
+      if (files.length === 0) {
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        return undefined
+      }
+
       return {
         files: new Set(files.map(toNativePathSeparator)),
         mapperFn,
