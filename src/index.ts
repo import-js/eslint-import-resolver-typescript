@@ -111,7 +111,10 @@ let cachedOptions: InternalResolverOptions | undefined
 let prevCwd: string
 
 let mappersCachedOptions: InternalResolverOptions
-let mappers: Array<((specifier: string) => string[]) | null> | undefined
+let mappers: Array<{
+  files: Set<string>
+  mapperFn: NonNullable<ReturnType<typeof createPathsMatcher>>
+}> = []
 
 let resolverCachedOptions: InternalResolverOptions
 let cachedResolver: Resolver | undefined
@@ -159,7 +162,7 @@ export function resolve(
     resolver = cachedResolver
   }
 
-  log('looking for:', source)
+  log('looking for', source, 'in', file)
 
   source = removeQuerystring(source)
 
@@ -300,34 +303,35 @@ function getMappedPath(
       paths = [resolved]
     }
   } else {
-    paths = mappers!
-      .map(mapper =>
-        mapper?.(source).map(item => [
-          ...extensions.map(ext => `${item}${ext}`),
-          ...originalExtensions.map(ext => `${item}/index${ext}`),
-        ]),
-      )
-      .flat(2)
-      .filter(mappedPath => {
-        if (mappedPath === undefined) {
-          return false
+    paths = [
+      ...new Set(
+        mappers
+          .filter(({ files }) => files.has(file))
+          .map(({ mapperFn }) =>
+            mapperFn(source).map(item => [
+              ...extensions.map(ext => `${item}${ext}`),
+              ...originalExtensions.map(ext => `${item}/index${ext}`),
+            ]),
+          )
+          .flat(2)
+          .map(toNativePathSeparator),
+      ),
+    ].filter(mappedPath => {
+      try {
+        const stat = fs.statSync(mappedPath, { throwIfNoEntry: false })
+        if (stat === undefined) return false
+        if (stat.isFile()) return true
+
+        // Maybe this is a module dir?
+        if (stat.isDirectory()) {
+          return isModule(mappedPath)
         }
-
-        try {
-          const stat = fs.statSync(mappedPath, { throwIfNoEntry: false })
-          if (stat === undefined) return false
-          if (stat.isFile()) return true
-
-          // Maybe this is a module dir?
-          if (stat.isDirectory()) {
-            return isModule(mappedPath)
-          }
-        } catch {
-          return false
-        }
-
+      } catch {
         return false
-      })
+      }
+
+      return false
+    })
   }
 
   if (retry && paths.length === 0) {
@@ -367,9 +371,10 @@ function getMappedPath(
   return paths[0]
 }
 
+// eslint-disable-next-line sonarjs/cognitive-complexity
 function initMappers(options: InternalResolverOptions) {
   if (
-    mappers &&
+    mappers.length > 0 &&
     mappersCachedOptions === options &&
     prevCwd === process.cwd()
   ) {
@@ -377,40 +382,103 @@ function initMappers(options: InternalResolverOptions) {
   }
   prevCwd = process.cwd()
 
-  const configPaths =
+  const configPaths = (
     typeof options.project === 'string'
       ? [options.project]
       : Array.isArray(options.project)
       ? options.project
       : [process.cwd()]
+  ) // 'tinyglobby' pattern must have POSIX separator
+    .map(config => replacePathSeparator(config, path.sep, path.posix.sep))
 
-  const ignore = ['!**/node_modules/**']
+  // https://github.com/microsoft/TypeScript/blob/df342b7206cb56b56bb3b3aecbb2ee2d2ff7b217/src/compiler/commandLineParser.ts#L3006
+  const defaultInclude = ['**/*']
+  const defaultIgnore = ['**/node_modules/**']
 
-  // turn glob patterns into paths
+  // Turn glob patterns into paths
   const projectPaths = [
     ...new Set([
       ...configPaths.filter(path => !isDynamicPattern(path)),
       ...globSync(
-        [...configPaths.filter(path => isDynamicPattern(path)), ...ignore],
+        configPaths.filter(path => isDynamicPattern(path)),
         {
           expandDirectories: false,
+          ignore: defaultIgnore,
+          absolute: true,
         },
       ),
     ]),
   ]
 
-  mappers = projectPaths.map(projectPath => {
-    let tsconfigResult: TsConfigResult | null
+  mappers = projectPaths
+    .map(projectPath => {
+      let tsconfigResult: TsConfigResult | null
 
-    if (isFile(projectPath)) {
-      const { dir, base } = path.parse(projectPath)
-      tsconfigResult = getTsconfig(dir, base)
-    } else {
-      tsconfigResult = getTsconfig(projectPath)
-    }
+      if (isFile(projectPath)) {
+        const { dir, base } = path.parse(projectPath)
+        tsconfigResult = getTsconfig(dir, base)
+      } else {
+        tsconfigResult = getTsconfig(projectPath)
+      }
 
-    return tsconfigResult && createPathsMatcher(tsconfigResult)
-  })
+      if (!tsconfigResult) {
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        return undefined
+      }
+
+      const mapperFn = createPathsMatcher(tsconfigResult)
+
+      if (!mapperFn) {
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        return undefined
+      }
+
+      const files =
+        tsconfigResult.config.files === undefined &&
+        tsconfigResult.config.include === undefined
+          ? // Include everything if no files or include options
+            globSync(defaultInclude, {
+              ignore: [
+                ...(tsconfigResult.config.exclude ?? []),
+                ...defaultIgnore,
+              ],
+              absolute: true,
+              cwd: path.dirname(tsconfigResult.path),
+            })
+          : [
+              // https://www.typescriptlang.org/tsconfig/#files
+              ...(tsconfigResult.config.files !== undefined &&
+              tsconfigResult.config.files.length > 0
+                ? tsconfigResult.config.files.map(file =>
+                    path.normalize(
+                      path.resolve(path.dirname(tsconfigResult!.path), file),
+                    ),
+                  )
+                : []),
+              // https://www.typescriptlang.org/tsconfig/#include
+              ...(tsconfigResult.config.include !== undefined &&
+              tsconfigResult.config.include.length > 0
+                ? globSync(tsconfigResult.config.include, {
+                    ignore: [
+                      ...(tsconfigResult.config.exclude ?? []),
+                      ...defaultIgnore,
+                    ],
+                    absolute: true,
+                  })
+                : []),
+            ]
+
+      if (files.length === 0) {
+        // eslint-disable-next-line unicorn/no-useless-undefined
+        return undefined
+      }
+
+      return {
+        files: new Set(files.map(toNativePathSeparator)),
+        mapperFn,
+      }
+    })
+    .filter(isDefined)
 
   mappersCachedOptions = options
 }
@@ -426,4 +494,47 @@ function mangleScopedPackage(moduleName: string) {
     }
   }
   return moduleName
+}
+
+/**
+ * Replace path `p` from `from` to `to` separator.
+ *
+ * @param {string} p Path
+ * @param {typeof path.sep} from From separator
+ * @param {typeof path.sep} to To separator
+ * @returns Path with `to` separator
+ */
+function replacePathSeparator(
+  p: string,
+  from: typeof path.sep,
+  to: typeof path.sep,
+) {
+  return from === to ? p : p.replaceAll(from, to)
+}
+
+/**
+ * Replace path `p` separator to its native separator.
+ *
+ * @param {string} p Path
+ * @returns Path with native separator
+ */
+function toNativePathSeparator(p: string) {
+  return replacePathSeparator(
+    p,
+    path[process.platform === 'win32' ? 'posix' : 'win32'].sep,
+    path[process.platform === 'win32' ? 'win32' : 'posix'].sep,
+  )
+}
+
+/**
+ * Check if value is defined.
+ *
+ * Helper function for TypeScript.
+ * Should be removed when upgrading to TypeScript >= 5.5.
+ *
+ * @param {T | null | undefined} value Value
+ * @returns `true` if value is defined, `false` otherwise
+ */
+function isDefined<T>(value: T | null | undefined): value is T {
+  return value !== null && value !== undefined
 }
