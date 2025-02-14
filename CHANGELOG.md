@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.8.0
+
+### Minor Changes
+
+- [#345](https://github.com/import-js/eslint-import-resolver-typescript/pull/345) [`fcc8883`](https://github.com/import-js/eslint-import-resolver-typescript/commit/fcc8883c0f023247fcb9a453004f8bd3e6b7c0e2) Thanks [@carlocorradini](https://github.com/carlocorradini)! - Enable the mapper function just for a set of allowed files. Improves project discovery using glob and POSIX separator.
+
+- [#346](https://github.com/import-js/eslint-import-resolver-typescript/pull/346) [`c124e87`](https://github.com/import-js/eslint-import-resolver-typescript/commit/c124e874b6429167b230697ee9f0a69e2efa5f96) Thanks [@carlocorradini](https://github.com/carlocorradini)! - Update get-tsconfig to the the latest version. We now support the `${configDir}` variable, introduced in TypeScript 5.5.
+
 ## 3.7.0
 
 ### Minor Changes
