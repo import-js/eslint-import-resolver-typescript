@@ -3724,16 +3724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.0.0":
-  version: 18.19.67
-  resolution: "@types/node@npm:18.19.67"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 7bb1d06cd1483dd02462a3dd2894790e5c27ba0fa4cdd4a3da1062d66ed47b66affaab314aa72b346ff3e5538a74d5c3cb14bb1a634547504a1643679738f494
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.19.74":
+"@types/node@npm:^18.0.0, @types/node@npm:^18.19.74":
   version: 18.19.74
   resolution: "@types/node@npm:18.19.74"
   dependencies:
@@ -6169,7 +6160,7 @@ __metadata:
     eslint-import-resolver-typescript: "link:."
     eslint-plugin-import: "npm:eslint-plugin-i@^2.29.1"
     eslint-plugin-import-x: "npm:^4.5.0"
-    get-tsconfig: "npm:^4.7.5"
+    get-tsconfig: "npm:^4.10.0"
     is-bun-module: "npm:^1.0.2"
     lint-staged: "npm:^13.3.0"
     npm-run-all2: "npm:^5.0.2"
@@ -7331,12 +7322,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-tsconfig@npm:^4.7.0, get-tsconfig@npm:^4.7.2, get-tsconfig@npm:^4.7.3, get-tsconfig@npm:^4.7.5":
-  version: 4.8.1
-  resolution: "get-tsconfig@npm:4.8.1"
+"get-tsconfig@npm:^4.10.0, get-tsconfig@npm:^4.7.0, get-tsconfig@npm:^4.7.2, get-tsconfig@npm:^4.7.3":
+  version: 4.10.0
+  resolution: "get-tsconfig@npm:4.10.0"
   dependencies:
     resolve-pkg-maps: "npm:^1.0.0"
-  checksum: 3fb5a8ad57b9633eaea085d81661e9e5c9f78b35d8f8689eaf8b8b45a2a3ebf3b3422266d4d7df765e308cc1e6231648d114803ab3d018332e29916f2c1de036
+  checksum: 5259b5c99a1957114337d9d0603b4a305ec9e29fa6cac7d2fbf634ba6754a0cc88bfd281a02416ce64e604b637d3cb239185381a79a5842b17fb55c097b38c4b
   languageName: node
   linkType: hard
 
