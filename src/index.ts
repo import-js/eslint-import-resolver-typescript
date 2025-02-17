@@ -447,7 +447,6 @@ function initMappers(options: InternalResolverOptions) {
         .map(path => ({ path, config: parseTsconfig(path) }))
 
       for (const ref of references) {
-        processedPaths.add(ref.path)
         list.push(...getMapper(ref))
       }
     }
