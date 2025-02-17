@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.1
+
+### Patch Changes
+
+- [#352](https://github.com/import-js/eslint-import-resolver-typescript/pull/352) [`0c6303d`](https://github.com/import-js/eslint-import-resolver-typescript/commit/0c6303d336093ecdac522da0bc1f57ef3ba85f9d) Thanks [@carlocorradini](https://github.com/carlocorradini)! - Set cwd while resolving tsconfig include
+
 ## 3.8.0
 
 ### Minor Changes
