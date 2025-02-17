@@ -13,9 +13,9 @@ jobs:
           - 18
           - 20
         os:
-          # - macOS-latest
-          # - windows-latest # I don't have a Windows machine to debug
           - ubuntu-latest
+          - windows-latest
+          - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
