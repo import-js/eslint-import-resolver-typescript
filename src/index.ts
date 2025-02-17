@@ -438,6 +438,8 @@ function initMappers(options: InternalResolverOptions) {
       return list
     }
 
+    processedPaths.add(tsconfigResult.path)
+
     if (tsconfigResult.config.references) {
       const references = tsconfigResult.config.references
         .map(ref => path.resolve(path.dirname(tsconfigResult.path), ref.path))
