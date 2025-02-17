@@ -414,6 +414,8 @@ function initMappers(options: InternalResolverOptions) {
     ]),
   ]
 
+  const processedPaths = new Set<string>()
+
   mappers = projectPaths
     .flatMap(projectPath => {
       let tsconfigResult: TsConfigResult | null
@@ -428,8 +430,6 @@ function initMappers(options: InternalResolverOptions) {
       return getMapper(tsconfigResult)
     })
     .filter(isDefined)
-
-  const processedPaths = new Set<string>()
 
   function getMapper(tsconfigResult: TsConfigResult | null): Mapper[] {
     const list: Mapper[] = []
