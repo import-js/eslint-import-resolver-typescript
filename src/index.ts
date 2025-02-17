@@ -464,6 +464,7 @@ function initMappers(options: InternalResolverOptions) {
                       ...defaultIgnore,
                     ],
                     absolute: true,
+                    cwd: path.dirname(tsconfigResult.path),
                   })
                 : []),
             ]
