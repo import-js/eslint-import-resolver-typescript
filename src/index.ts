@@ -5,7 +5,7 @@ import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
 import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
 import enhancedResolve from 'enhanced-resolve'
-import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
+import { createPathsMatcher, getTsconfig, parseTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
 import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
@@ -111,10 +111,14 @@ let cachedOptions: InternalResolverOptions | undefined
 let prevCwd: string
 
 let mappersCachedOptions: InternalResolverOptions
-let mappers: Array<{
+let mappers: Mapper[] = []
+
+type MapperFn = NonNullable<ReturnType<typeof createPathsMatcher>>
+
+interface Mapper {
   files: Set<string>
-  mapperFn: NonNullable<ReturnType<typeof createPathsMatcher>>
-}> = []
+  mapperFn: MapperFn
+}
 
 let resolverCachedOptions: InternalResolverOptions
 let cachedResolver: Resolver | undefined
@@ -386,8 +390,8 @@ function initMappers(options: InternalResolverOptions) {
     typeof options.project === 'string'
       ? [options.project]
       : Array.isArray(options.project)
-      ? options.project
-      : [process.cwd()]
+        ? options.project
+        : [process.cwd()]
   ) // 'tinyglobby' pattern must have POSIX separator
     .map(config => replacePathSeparator(config, path.sep, path.posix.sep))
 
@@ -411,7 +415,7 @@ function initMappers(options: InternalResolverOptions) {
   ]
 
   mappers = projectPaths
-    .map(projectPath => {
+    .flatMap(projectPath => {
       let tsconfigResult: TsConfigResult | null
 
       if (isFile(projectPath)) {
@@ -421,65 +425,84 @@ function initMappers(options: InternalResolverOptions) {
         tsconfigResult = getTsconfig(projectPath)
       }
 
-      if (!tsconfigResult) {
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        return undefined
-      }
-
-      const mapperFn = createPathsMatcher(tsconfigResult)
-
-      if (!mapperFn) {
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        return undefined
-      }
-
-      const files =
-        tsconfigResult.config.files === undefined &&
-        tsconfigResult.config.include === undefined
-          ? // Include everything if no files or include options
-            globSync(defaultInclude, {
-              ignore: [
-                ...(tsconfigResult.config.exclude ?? []),
-                ...defaultIgnore,
-              ],
-              absolute: true,
-              cwd: path.dirname(tsconfigResult.path),
-            })
-          : [
-              // https://www.typescriptlang.org/tsconfig/#files
-              ...(tsconfigResult.config.files !== undefined &&
-              tsconfigResult.config.files.length > 0
-                ? tsconfigResult.config.files.map(file =>
-                    path.normalize(
-                      path.resolve(path.dirname(tsconfigResult!.path), file),
-                    ),
-                  )
-                : []),
-              // https://www.typescriptlang.org/tsconfig/#include
-              ...(tsconfigResult.config.include !== undefined &&
-              tsconfigResult.config.include.length > 0
-                ? globSync(tsconfigResult.config.include, {
-                    ignore: [
-                      ...(tsconfigResult.config.exclude ?? []),
-                      ...defaultIgnore,
-                    ],
-                    absolute: true,
-                  })
-                : []),
-            ]
-
-      if (files.length === 0) {
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        return undefined
-      }
-
-      return {
-        files: new Set(files.map(toNativePathSeparator)),
-        mapperFn,
-      }
+      return getMapper(tsconfigResult)
     })
     .filter(isDefined)
 
+  const processedPaths = new Set<string>()
+
+  function getMapper(tsconfigResult: TsConfigResult | null): Mapper[] {
+    const list: Mapper[] = []
+
+    if (!tsconfigResult) {
+      return list
+    }
+
+    if (tsconfigResult.config.references) {
+      const references = tsconfigResult.config.references
+        .map(ref => path.resolve(path.dirname(tsconfigResult.path), ref.path))
+        .filter(path => !processedPaths.has(path))
+        .map(path => ({ path, config: parseTsconfig(path) }))
+
+      for (const ref of references) {
+        processedPaths.add(ref.path)
+        list.push(...getMapper(ref))
+      }
+    }
+
+    const mapperFn = createPathsMatcher(tsconfigResult)
+
+    if (!mapperFn) {
+      return list
+    }
+
+    const files =
+      tsconfigResult.config.files === undefined &&
+      tsconfigResult.config.include === undefined
+        ? // Include everything if no files or include options
+          globSync(defaultInclude, {
+            ignore: [
+              ...(tsconfigResult.config.exclude ?? []),
+              ...defaultIgnore,
+            ],
+            absolute: true,
+            cwd: path.dirname(tsconfigResult.path),
+          })
+        : [
+            // https://www.typescriptlang.org/tsconfig/#files
+            ...(tsconfigResult.config.files !== undefined &&
+            tsconfigResult.config.files.length > 0
+              ? tsconfigResult.config.files.map(file =>
+                  path.normalize(
+                    path.resolve(path.dirname(tsconfigResult!.path), file),
+                  ),
+                )
+              : []),
+            // https://www.typescriptlang.org/tsconfig/#include
+            ...(tsconfigResult.config.include !== undefined &&
+            tsconfigResult.config.include.length > 0
+              ? globSync(tsconfigResult.config.include, {
+                  ignore: [
+                    ...(tsconfigResult.config.exclude ?? []),
+                    ...defaultIgnore,
+                  ],
+                  absolute: true,
+                })
+              : []),
+          ]
+
+    if (files.length === 0) {
+      return list
+    }
+
+    return [
+      ...list,
+      {
+        files: new Set(files.map(toNativePathSeparator)),
+        mapperFn,
+      },
+    ]
+  }
   mappersCachedOptions = options
 }
 
