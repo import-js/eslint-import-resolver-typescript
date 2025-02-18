@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.2
+
+### Patch Changes
+
+- [#357](https://github.com/import-js/eslint-import-resolver-typescript/pull/357) [`5fd349e`](https://github.com/import-js/eslint-import-resolver-typescript/commit/5fd349e17c3650aafcc804858a3c3b07cfda8e0d) Thanks [@carlocorradini](https://github.com/carlocorradini)! - Update the `tinyglobby` to the latest version to solve performance regressions.
+
 ## 3.8.1
 
 ### Patch Changes
