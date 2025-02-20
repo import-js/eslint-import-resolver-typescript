@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.8.3
+
+### Patch Changes
+
+- [#360](https://github.com/import-js/eslint-import-resolver-typescript/pull/360) [`8192976`](https://github.com/import-js/eslint-import-resolver-typescript/commit/81929767a9e440eaa730f4c76b932da7bbd9eed7) Thanks [@carlocorradini](https://github.com/carlocorradini)! - Force tiniglobby to expand dot directories
+
+- [#360](https://github.com/import-js/eslint-import-resolver-typescript/pull/360) [`8192976`](https://github.com/import-js/eslint-import-resolver-typescript/commit/81929767a9e440eaa730f4c76b932da7bbd9eed7) Thanks [@carlocorradini](https://github.com/carlocorradini)! - Update tinyglobby to latest version
+
 ## 3.8.2
 
 ### Patch Changes
