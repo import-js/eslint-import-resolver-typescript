@@ -6170,7 +6170,7 @@ __metadata:
     size-limit: "npm:^11.0.0"
     size-limit-preset-node-lib: "npm:^0.3.0"
     stable-hash: "npm:^0.0.4"
-    tinyglobby: "npm:^0.2.11"
+    tinyglobby: "npm:^0.2.12"
     type-coverage: "npm:^2.27.0"
     typescript: "npm:^5.3.2"
   peerDependencies:
@@ -13513,13 +13513,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.11":
-  version: 0.2.11
-  resolution: "tinyglobby@npm:0.2.11"
+"tinyglobby@npm:^0.2.12":
+  version: 0.2.12
+  resolution: "tinyglobby@npm:0.2.12"
   dependencies:
     fdir: "npm:^6.4.3"
     picomatch: "npm:^4.0.2"
-  checksum: 8f10a0cd527041155c0dadd9febb5afc97a95649521f550554868c09beb4cb62ceca1d97536108efe53957967eb54f83a7bed59867f666b325fc3f00ca72fd24
+  checksum: 4ad28701fa9118b32ef0e27f409e0a6c5741e8b02286d50425c1f6f71e6d6c6ded9dd5bbbbb714784b08623c4ec4d150151f1d3d996cfabe0495f908ab4f7002
   languageName: node
   linkType: hard
 
