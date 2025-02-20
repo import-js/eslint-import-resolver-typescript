@@ -402,9 +402,10 @@ function initMappers(options: InternalResolverOptions) {
       ...globSync(
         configPaths.filter(path => isDynamicPattern(path)),
         {
+          absolute: true,
+          dot: true,
           expandDirectories: false,
           ignore: defaultIgnore,
-          absolute: true,
         },
       ),
     ]),
@@ -438,12 +439,13 @@ function initMappers(options: InternalResolverOptions) {
         tsconfigResult.config.include === undefined
           ? // Include everything if no files or include options
             globSync(defaultInclude, {
+              absolute: true,
+              cwd: path.dirname(tsconfigResult.path),
+              dot: true,
               ignore: [
                 ...(tsconfigResult.config.exclude ?? []),
                 ...defaultIgnore,
               ],
-              absolute: true,
-              cwd: path.dirname(tsconfigResult.path),
             })
           : [
               // https://www.typescriptlang.org/tsconfig/#files
@@ -459,12 +461,13 @@ function initMappers(options: InternalResolverOptions) {
               ...(tsconfigResult.config.include !== undefined &&
               tsconfigResult.config.include.length > 0
                 ? globSync(tsconfigResult.config.include, {
+                    absolute: true,
+                    cwd: path.dirname(tsconfigResult.path),
+                    dot: true,
                     ignore: [
                       ...(tsconfigResult.config.exclude ?? []),
                       ...defaultIgnore,
                     ],
-                    absolute: true,
-                    cwd: path.dirname(tsconfigResult.path),
                   })
                 : []),
             ]
