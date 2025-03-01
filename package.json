@@ -96,7 +96,7 @@
     "@mozilla/glean": "^3.0.0",
     "@pkgr/rollup": "^4.1.3",
     "@types/debug": "^4.1.12",
-    "@types/node": "^18.19.74",
+    "@types/node": "^18.19.78",
     "@types/unist": "^2.0.11",
     "dummy.js": "link:dummy.js",
     "eslint": "^8.57.1",
