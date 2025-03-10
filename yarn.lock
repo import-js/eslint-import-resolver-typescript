@@ -2268,14 +2268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/types@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@changesets/types@npm:6.0.0"
-  checksum: 214c58ff3e3da019c578b94815ec6748729a38b665d950acddf53f3a23073ac7a57dce45812c4bec0cbcd6902c84a482c804457d4c903602005b2399de8a4021
-  languageName: node
-  linkType: hard
-
-"@changesets/types@npm:^6.1.0":
+"@changesets/types@npm:^6.0.0, @changesets/types@npm:^6.1.0":
   version: 6.1.0
   resolution: "@changesets/types@npm:6.1.0"
   checksum: 2dcd00712cb85d0c53afdd8d0e856b4bf9c0ce8dc36c838c918d44799aacd9ba8659b9ff610ff92b94fc03c8fd2b52c5b05418fcf8a1bd138cd9182414ede373
@@ -3731,16 +3724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.0.0":
-  version: 18.19.74
-  resolution: "@types/node@npm:18.19.74"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 2306bd0b41cdd528b890b210b96f287a5b5035c128f62636057d6616bd612b3f53d32d77f7e76ef41a9f130ea691e6980e6d5942dd625df05d3a641764fddb78
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.19.78":
+"@types/node@npm:^18.0.0, @types/node@npm:^18.19.78":
   version: 18.19.78
   resolution: "@types/node@npm:18.19.78"
   dependencies:
@@ -5373,6 +5357,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cross-env@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "cross-env@npm:7.0.3"
+  dependencies:
+    cross-spawn: "npm:^7.0.1"
+  bin:
+    cross-env: src/bin/cross-env.js
+    cross-env-shell: src/bin/cross-env-shell.js
+  checksum: e99911f0d31c20e990fd92d6fd001f4b01668a303221227cc5cb42ed155f086351b1b3bd2699b200e527ab13011b032801f8ce638e6f09f854bdf744095e604c
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^6.0.5":
   version: 6.0.5
   resolution: "cross-spawn@npm:6.0.5"
@@ -5386,7 +5382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3, cross-spawn@npm:^7.0.5":
+"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.1, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3, cross-spawn@npm:^7.0.5":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
   dependencies:
@@ -6169,6 +6165,7 @@ __metadata:
     "@types/debug": "npm:^4.1.12"
     "@types/node": "npm:^18.19.78"
     "@types/unist": "npm:^2.0.11"
+    cross-env: "npm:^7.0.3"
     debug: "npm:^4.3.7"
     dummy.js: "link:dummy.js"
     enhanced-resolve: "npm:^5.15.0"
@@ -6188,7 +6185,7 @@ __metadata:
     stable-hash: "npm:^0.0.4"
     tinyglobby: "npm:^0.2.12"
     type-coverage: "npm:^2.27.0"
-    typescript: "npm:^5.3.2"
+    typescript: "npm:~5.1.0"
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
@@ -13873,6 +13870,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:~5.1.0":
+  version: 5.1.6
+  resolution: "typescript@npm:5.1.6"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: f347cde665cf43dc4c1c7d9821c7d9bbec3c3914f4bdd82ee490e9fb9f6d99036ed8666463b6a192dd005eeef333c5087d5931bdd51ec853436ff9a670a7417e
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@npm%3A^4.6.4 || ^5.2.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
   version: 5.3.2
   resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"
@@ -13880,6 +13887,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 1b45cdfb577a78ae7a9a9d0b77a7b772142cb98ba05e4e5aefba7044a028ded885bcecef63166407a5986645cea816fe4986894336aacd5e791796ea79a6a7ed
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A~5.1.0#optional!builtin<compat/typescript>":
+  version: 5.1.6
+  resolution: "typescript@patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: f5481fa3ba0eee8970f46708d13c05650a865ad093b586fc9573f425c64c57ca97e3308e110bb528deb3ccebe83f6fd7b5a8ac90018038da96326a9ccdf8e77c
   languageName: node
   linkType: hard
 

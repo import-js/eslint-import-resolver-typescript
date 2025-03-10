@@ -181,22 +181,30 @@ export function resolve(
 
   initMappers(cachedOptions)
 
-  const mappedPath = getMappedPath(source, file, cachedOptions.extensions, true)
-  if (mappedPath) {
-    log('matched ts path:', mappedPath)
+  let mappedPaths = getMappedPaths(source, file, cachedOptions.extensions, true)
+
+  if (mappedPaths.length > 0) {
+    log('matched ts path:', ...mappedPaths)
+  } else {
+    mappedPaths = [source]
   }
 
   // note that even if we map the path, we still need to do a final resolve
-  let foundNodePath: string | null
-  try {
-    foundNodePath =
-      resolver.resolveSync(
+  let foundNodePath: string | undefined
+  for (const mappedPath of mappedPaths) {
+    try {
+      const resolved = resolver.resolveSync(
         {},
         path.dirname(path.resolve(file)),
-        mappedPath ?? source,
-      ) || null
-  } catch {
-    foundNodePath = null
+        mappedPath,
+      )
+      if (resolved) {
+        foundNodePath = resolved
+        break
+      }
+    } catch {
+      log('failed to resolve with', mappedPath)
+    }
   }
 
   // naive attempt at `@types/*` resolution,
@@ -286,16 +294,16 @@ const isModule = (modulePath?: string | undefined): modulePath is string => {
  * @returns The mapped path of the module or undefined
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
-function getMappedPath(
+function getMappedPaths(
   source: string,
   file: string,
   extensions: string[] = defaultExtensions,
   retry?: boolean,
-): string | undefined {
+): string[] {
   const originalExtensions = extensions
   extensions = ['', ...extensions]
 
-  let paths: Array<string | undefined> | undefined = []
+  let paths: string[] = []
 
   if (RELATIVE_PATH_PATTERN.test(source)) {
     const resolved = path.resolve(path.dirname(file), source)
@@ -341,34 +349,35 @@ function getMappedPath(
       const tsExt = jsExt.replace('js', 'ts')
       const basename = source.replace(JS_EXT_PATTERN, '')
 
-      const resolved =
-        getMappedPath(basename + tsExt, file) ||
-        getMappedPath(
-          basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
-          file,
-        )
+      const mappedPaths = getMappedPaths(basename + tsExt, file)
 
-      if (resolved) {
+      const resolved =
+        mappedPaths.length > 0
+          ? mappedPaths
+          : getMappedPaths(
+              basename + '.d' + (tsExt === '.tsx' ? '.ts' : tsExt),
+              file,
+            )
+
+      if (resolved.length > 0) {
         return resolved
       }
     }
 
     for (const ext of extensions) {
+      const mappedPaths = isJs ? [] : getMappedPaths(source + ext, file)
       const resolved =
-        (isJs ? null : getMappedPath(source + ext, file)) ||
-        getMappedPath(source + `/index${ext}`, file)
+        mappedPaths.length > 0
+          ? mappedPaths
+          : getMappedPaths(source + `/index${ext}`, file)
 
-      if (resolved) {
+      if (resolved.length > 0) {
         return resolved
       }
     }
   }
 
-  if (paths.length > 1) {
-    log('found multiple matching ts paths:', paths)
-  }
-
-  return paths[0]
+  return paths
 }
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
