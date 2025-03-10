@@ -4,10 +4,15 @@ on:
   pull_request:
     branches:
       - master
+      - v3.x
 
 permissions:
   contents: read
   pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   size-limit:
