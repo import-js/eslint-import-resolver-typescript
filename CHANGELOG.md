@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.4
+
+### Patch Changes
+
+- [#370](https://github.com/import-js/eslint-import-resolver-typescript/pull/370) [`c940785`](https://github.com/import-js/eslint-import-resolver-typescript/commit/c94078504cfb6fd17b775c53d268962a56a2d118) Thanks [@JounQin](https://github.com/JounQin)! - fix: support multiple matching ts paths
+
 ## 3.8.3
 
 ### Patch Changes
