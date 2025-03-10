@@ -1,20 +1,27 @@
 const path = require('path')
-const { createTypeScriptImportResolver } = require('../../lib/index.cjs')
+const importX = require('eslint-plugin-import-x')
+
+const { createTypeScriptImportResolver } = require('../..')
 
 const globPattern = './packages/*/tsconfig.json'
 
 // in normal cases this is not needed because the __dirname would be the root
 const absoluteGlobPath = path.join(__dirname, globPattern)
 
+const base = require('../baseEslintConfig.cjs')()
+
 module.exports = {
-  ...require('eslint-plugin-import-x').flatConfigs.typescript,
+  files: ['**/*.ts', '**/*.tsx'],
+  plugins: {
+    import: importX,
+  },
   settings: {
-    ...require('eslint-plugin-import-x').flatConfigs.typescript.settings,
+    ...importX.flatConfigs.typescript.settings,
     'import-x/resolver-next': [
       createTypeScriptImportResolver({
         project: absoluteGlobPath,
-        alwaysTryTypes: true,
       }),
     ],
   },
+  rules: base.rules,
 }
