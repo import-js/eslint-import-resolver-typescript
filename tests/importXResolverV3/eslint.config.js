@@ -10,18 +10,22 @@ const absoluteGlobPath = path.join(__dirname, globPattern)
 
 const base = require('../baseEslintConfig.cjs')()
 
-module.exports = {
-  files: ['**/*.ts', '**/*.tsx'],
-  plugins: {
-    import: importX,
-  },
-  settings: {
-    ...importX.flatConfigs.typescript.settings,
-    'import-x/resolver-next': [
-      createTypeScriptImportResolver({
-        project: absoluteGlobPath,
-      }),
-    ],
-  },
-  rules: base.rules,
-}
+module.exports =
+  // don't run on node 16 because lacking of `structuredClone`
+  +process.versions.node.split('.')[0] <= 16
+    ? {}
+    : {
+        files: ['**/*.ts', '**/*.tsx'],
+        plugins: {
+          import: importX,
+        },
+        settings: {
+          ...importX.flatConfigs.typescript.settings,
+          'import-x/resolver-next': [
+            createTypeScriptImportResolver({
+              project: absoluteGlobPath,
+            }),
+          ],
+        },
+        rules: base.rules,
+      }
