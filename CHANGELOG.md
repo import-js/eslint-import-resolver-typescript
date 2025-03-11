@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.5
+
+### Patch Changes
+
+- [#372](https://github.com/import-js/eslint-import-resolver-typescript/pull/372) [`366eeaf`](https://github.com/import-js/eslint-import-resolver-typescript/commit/366eeaf8ba87adf7c2e165b0a73406292c002ad9) Thanks [@carlocorradini](https://github.com/carlocorradini)! - fix: if file has no corresponding mapper function, apply all of them, starting with the nearest one.
+
 ## 3.8.4
 
 ### Patch Changes
