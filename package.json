@@ -57,6 +57,7 @@
     "test:importXResolverV3": "cross-env ESLINT_USE_FLAT_CONFIG=true eslint --config=tests/importXResolverV3/eslint.config.js tests/importXResolverV3",
     "test:multipleEslintrcs": "eslint --ext ts,tsx tests/multipleEslintrcs",
     "test:multipleTsconfigs": "eslint --ext ts,tsx tests/multipleTsconfigs",
+    "test:nearestTsconfig": "eslint --ext ts,tsx tests/nearestTsconfig",
     "test:withJsExtension": "node tests/withJsExtension/test.js && eslint --ext ts,tsx tests/withJsExtension",
     "test:withJsconfig": "eslint --ext js tests/withJsconfig",
     "test:withPaths": "eslint --ext ts,tsx tests/withPaths",

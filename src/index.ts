@@ -112,6 +112,7 @@ let prevCwd: string
 
 let mappersCachedOptions: InternalResolverOptions
 let mappers: Array<{
+  path: string
   files: Set<string>
   mapperFn: NonNullable<ReturnType<typeof createPathsMatcher>>
 }> = []
@@ -311,35 +312,50 @@ function getMappedPaths(
       paths = [resolved]
     }
   } else {
-    paths = [
-      ...new Set(
-        mappers
-          .filter(({ files }) => files.has(file))
-          .map(({ mapperFn }) =>
-            mapperFn(source).map(item => [
-              ...extensions.map(ext => `${item}${ext}`),
-              ...originalExtensions.map(ext => `${item}/index${ext}`),
-            ]),
-          )
-          .flat(2)
-          .map(toNativePathSeparator),
-      ),
-    ].filter(mappedPath => {
-      try {
-        const stat = fs.statSync(mappedPath, { throwIfNoEntry: false })
-        if (stat === undefined) return false
-        if (stat.isFile()) return true
+    // Filter mapper functions associated with file
+    let mapperFns: Array<NonNullable<ReturnType<typeof createPathsMatcher>>> =
+      mappers
+        .filter(({ files }) => files.has(file))
+        .map(({ mapperFn }) => mapperFn)
+    if (mapperFns.length === 0) {
+      // If empty, try all mapper functions, starting with the nearest one
+      mapperFns = mappers
+        .map(mapper => ({
+          mapperFn: mapper.mapperFn,
+          counter: equalChars(path.dirname(file), path.dirname(mapper.path)),
+        }))
+        .sort(
+          (a, b) =>
+            // Sort in descending order where the nearest one has the longest counter
+            b.counter - a.counter,
+        )
+        .map(({ mapperFn }) => mapperFn)
+    }
+    paths = mapperFns
+      .map(mapperFn =>
+        mapperFn(source).map(item => [
+          ...extensions.map(ext => `${item}${ext}`),
+          ...originalExtensions.map(ext => `${item}/index${ext}`),
+        ]),
+      )
+      .flat(2)
+      .map(toNativePathSeparator)
+      .filter(mappedPath => {
+        try {
+          const stat = fs.statSync(mappedPath, { throwIfNoEntry: false })
+          if (stat === undefined) return false
+          if (stat.isFile()) return true
 
-        // Maybe this is a module dir?
-        if (stat.isDirectory()) {
-          return isModule(mappedPath)
+          // Maybe this is a module dir?
+          if (stat.isDirectory()) {
+            return isModule(mappedPath)
+          }
+        } catch {
+          return false
         }
-      } catch {
-        return false
-      }
 
-      return false
-    })
+        return false
+      })
   }
 
   if (retry && paths.length === 0) {
@@ -487,6 +503,7 @@ function initMappers(options: InternalResolverOptions) {
       }
 
       return {
+        path: toNativePathSeparator(tsconfigResult.path),
         files: new Set(files.map(toNativePathSeparator)),
         mapperFn,
       }
@@ -550,4 +567,24 @@ function toNativePathSeparator(p: string) {
  */
 function isDefined<T>(value: T | null | undefined): value is T {
   return value !== null && value !== undefined
+}
+
+/**
+ * Counts how many characters in strings `a` and `b` are exactly the same and in the same position.
+ *
+ * @param {string} a First string
+ * @param {string} b Second string
+ * @returns Number of matching characters
+ */
+function equalChars(a: string, b: string): number {
+  if (a.length === 0 || b.length === 0) {
+    return 0
+  }
+
+  let i = 0
+  const length = Math.min(a.length, b.length)
+  while (i < length && a.charAt(i) === b.charAt(i)) {
+    i += 1
+  }
+  return i
 }
