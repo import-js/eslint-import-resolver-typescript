@@ -19,6 +19,13 @@ const config = [
       },
     },
   },
+  {
+    files: ['src/*'],
+    rules: {
+      'prefer-const': ['error', { destructuring: 'all' }],
+      'sonarjs/no-nested-assignment': 'off',
+    },
+  },
 ]
 
 export default config

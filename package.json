@@ -12,22 +12,18 @@
   "license": "ISC",
   "packageManager": "yarn@4.7.0",
   "engines": {
-    "node": "^14.18.0 || >=16.0.0"
+    "node": "^16.17.0 || >=18.6.0"
   },
   "main": "lib/index.cjs",
   "module": "lib/index.js",
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
-      "es2020": "./lib/index.es2020.mjs",
-      "fesm2020": "./lib/index.es2020.mjs",
       "import": "./lib/index.js",
       "require": "./lib/index.cjs"
     },
     "./package.json": "./package.json"
   },
-  "es2020": "lib/index.es2020.mjs",
-  "fesm2020": "lib/index.es2020.mjs",
   "types": "lib/index.d.ts",
   "files": [
     "lib",
@@ -42,7 +38,7 @@
     "plugin"
   ],
   "scripts": {
-    "build": "run-p 'build:*'",
+    "build": "run-p -c 'build:*'",
     "build:r": "r -f cjs,es2020",
     "build:ts": "tsc -b",
     "eslint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint --cache",
