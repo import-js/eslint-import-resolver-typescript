@@ -59,7 +59,7 @@ const oxcResolve = (
 export const resolve = (
   source: string,
   file: string,
-  options?: TypeScriptResolverOptions,
+  options?: TypeScriptResolverOptions | null,
   resolver?: ResolverFactory | null,
   // eslint-disable-next-line sonarjs/cognitive-complexity
 ): ResolvedResult => {
@@ -173,7 +173,7 @@ export const resolve = (
   // if path is neither absolute nor relative
   if (
     ((foundPath && JS_EXT_PATTERN.test(foundPath)) ||
-      (options?.alwaysTryTypes && !foundPath)) &&
+      (options.alwaysTryTypes !== false && !foundPath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     !source.startsWith('.')
@@ -204,7 +204,7 @@ export const resolve = (
 }
 
 export const createTypeScriptImportResolver = (
-  options?: TypeScriptResolverOptions,
+  options?: TypeScriptResolverOptions | null,
 ) => {
   options = normalizeOptions(options)
   const resolver = options.project ? null : new ResolverFactory(options)

@@ -2,30 +2,32 @@ import type { TsconfigOptions } from 'oxc-resolver'
 import { globSync, isDynamicPattern } from 'tinyglobby'
 
 import {
-  defaultConditionNames,
-  defaultExtensions,
-  defaultExtensionAlias,
-  defaultMainFields,
   DEFAULT_CONFIGS,
-  DEFAULT_TRY_PATHS,
   DEFAULT_IGNORE,
+  DEFAULT_TRY_PATHS,
+  defaultConditionNames,
+  defaultExtensionAlias,
+  defaultExtensions,
+  defaultMainFields,
 } from './constants.js'
 import { tryFile } from './helpers.js'
 import { log } from './logger.js'
-import type { TsResolverOptions, TypeScriptResolverOptions } from './types.js'
+import type { TypeScriptResolverOptions } from './types.js'
 
 export let defaultConfigFile: string
 
 const configFileMapping = new Map<string, TypeScriptResolverOptions>()
 
+let warned: boolean | undefined
+
 export function normalizeOptions(
   options?: TypeScriptResolverOptions | null,
-): TsResolverOptions
+): TypeScriptResolverOptions
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export function normalizeOptions(
-  options?: TsResolverOptions | null,
-): TsResolverOptions {
-  let { project, tsconfig } = (options ??= {})
+  options?: TypeScriptResolverOptions | null,
+): TypeScriptResolverOptions {
+  let { project, tsconfig, noWarnOnMultipleProjects } = (options ||= {})
 
   let { configFile, references }: Partial<TsconfigOptions> = tsconfig ?? {}
 
@@ -52,6 +54,11 @@ export function normalizeOptions(
     }
     if (project.length <= 1) {
       project = undefined
+    } else if (!warned && !noWarnOnMultipleProjects) {
+      warned = true
+      console.warn(
+        'Multiple projects found, consider using a single `tsconfig` with `references` to speed up, or use `noWarnOnMultipleProjects` to suppress this warning',
+      )
     }
   }
 

@@ -1,8 +1,10 @@
 import type { NapiResolveOptions } from 'rspack-resolver'
 
-export interface TsResolverOptions extends NapiResolveOptions {
+export interface TypeScriptResolverOptions extends NapiResolveOptions {
   project?: string[] | string
+  /**
+   * @default true - whether to always try to resolve `@types` packages
+   */
   alwaysTryTypes?: boolean
+  noWarnOnMultipleProjects?: boolean
 }
-
-export type TypeScriptResolverOptions = TsResolverOptions | null
