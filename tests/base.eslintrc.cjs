@@ -15,7 +15,7 @@ const base = project => ({
     'import-x/resolver': {
       typescript: {
         project,
-        alwaysTryTypes: true,
+        noWarnOnMultipleProjects: true,
       },
     },
   },

@@ -59,7 +59,7 @@ const oxcResolve = (
 export const resolve = (
   source: string,
   file: string,
-  options?: TypeScriptResolverOptions,
+  options?: TypeScriptResolverOptions | null,
   resolver?: ResolverFactory | null,
   // eslint-disable-next-line sonarjs/cognitive-complexity
 ): ResolvedResult => {
@@ -94,7 +94,7 @@ export const resolve = (
   // eslint-disable-next-line sonarjs/label-position, sonarjs/no-labels
   resolve: if (!resolver) {
     // must be a array with 2+ items here already ensured by `normalizeOptions`
-    const project = options!.project as string[]
+    const project = options.project as string[]
     for (const tsconfigPath of project) {
       const resolverCached = resolverCache.get(tsconfigPath)
       if (resolverCached) {
@@ -128,7 +128,7 @@ export const resolve = (
         ...options,
         tsconfig: {
           references: 'auto',
-          ...options!.tsconfig,
+          ...options.tsconfig,
           configFile: tsconfigPath,
         },
       }
@@ -171,7 +171,7 @@ export const resolve = (
   // if path is neither absolute nor relative
   if (
     ((foundPath && JS_EXT_PATTERN.test(foundPath)) ||
-      (options?.alwaysTryTypes && !foundPath)) &&
+      (options.alwaysTryTypes !== false && !foundPath)) &&
     !/^@types[/\\]/.test(source) &&
     !path.isAbsolute(source) &&
     !source.startsWith('.')
@@ -194,7 +194,7 @@ export const resolve = (
       "didn't find",
       source,
       'with',
-      options!.tsconfig?.configFile || options!.project,
+      options.tsconfig?.configFile || options.project,
     )
   }
 
@@ -202,7 +202,7 @@ export const resolve = (
 }
 
 export const createTypeScriptImportResolver = (
-  options?: TypeScriptResolverOptions,
+  options?: TypeScriptResolverOptions | null,
 ) => {
   options = normalizeOptions(options)
   const resolver = options.project ? null : new ResolverFactory(options)
