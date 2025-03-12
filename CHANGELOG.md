@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.6
+
+### Patch Changes
+
+- [#374](https://github.com/import-js/eslint-import-resolver-typescript/pull/374) [`c9d5ab0`](https://github.com/import-js/eslint-import-resolver-typescript/commit/c9d5ab0fa963bd891b6f2ae312ae3ec10a397b7c) Thanks [@JounQin](https://github.com/JounQin)! - fix: add support for importing with .js extension as tsx importee
+
 ## 3.8.5
 
 ### Patch Changes
