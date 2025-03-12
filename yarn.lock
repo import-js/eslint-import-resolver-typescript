@@ -3271,13 +3271,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nolyfill/is-core-module@npm:1.0.39":
-  version: 1.0.39
-  resolution: "@nolyfill/is-core-module@npm:1.0.39"
-  checksum: 10/0d6e098b871eca71d875651288e1f0fa770a63478b0b50479c99dc760c64175a56b5b04f58d5581bbcc6b552b8191ab415eada093d8df9597ab3423c8cac1815
-  languageName: node
-  linkType: hard
-
 "@npmcli/agent@npm:^2.0.0":
   version: 2.2.0
   resolution: "@npmcli/agent@npm:2.2.0"
@@ -6703,7 +6696,6 @@ __metadata:
     "@changesets/cli": "npm:^2.28.1"
     "@commitlint/cli": "npm:^19.8.0"
     "@mozilla/glean": "npm:^5.0.3"
-    "@nolyfill/is-core-module": "npm:1.0.39"
     "@pkgr/rollup": "npm:^6.0.0"
     "@total-typescript/ts-reset": "npm:^0.6.1"
     "@types/debug": "npm:^4.1.12"

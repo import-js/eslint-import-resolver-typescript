@@ -12,7 +12,7 @@ import { type Version, isBunModule } from 'is-bun-module'
 import { ResolverFactory } from 'rspack-resolver'
 import stableHash_ from 'stable-hash'
 
-import { JS_EXT_PATTERN } from './constants.js'
+import { IMPORT_RESOLVER_NAME, JS_EXT_PATTERN } from './constants.js'
 import {
   mangleScopedPackage,
   removeQuerystring,
@@ -93,15 +93,17 @@ export const resolve = (
 
   source = removeQuerystring(source)
 
+  options ||= {}
+
   // eslint-disable-next-line sonarjs/label-position, sonarjs/no-labels
-  resolve: if (!resolver) {
+  createResolver: if (!resolver) {
     // must be a array with 2+ items here already ensured by `normalizeOptions`
     const project = options.project as string[]
     for (const tsconfigPath of project) {
       const resolverCached = resolverCache.get(tsconfigPath)
       if (resolverCached) {
         resolver = resolverCached
-        break resolve
+        break createResolver
       }
       let tsconfigCached = tsconfigCache.get(tsconfigPath)
       if (!tsconfigCached) {
@@ -136,7 +138,7 @@ export const resolve = (
       }
       resolver = new ResolverFactory(options)
       resolverCache.set(tsconfigPath, resolver)
-      break resolve
+      break createResolver
     }
 
     log(
@@ -210,7 +212,7 @@ export const createTypeScriptImportResolver = (
   const resolver = options.project ? null : new ResolverFactory(options)
   return {
     interfaceVersion: 3,
-    name: 'eslint-import-resolver-typescript',
+    name: IMPORT_RESOLVER_NAME,
     resolve(source: string, file: string) {
       return resolve(source, file, options, resolver)
     },
