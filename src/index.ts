@@ -430,7 +430,9 @@ function initMappers(options: InternalResolverOptions) {
   // Turn glob patterns into paths
   const projectPaths = [
     ...new Set([
-      ...configPaths.filter(path => !isDynamicPattern(path)),
+      ...configPaths
+        .filter(p => !isDynamicPattern(p))
+        .map(p => path.resolve(process.cwd(), p)),
       ...globSync(
         configPaths.filter(path => isDynamicPattern(path)),
         {
@@ -503,11 +505,6 @@ function initMappers(options: InternalResolverOptions) {
                   })
                 : []),
             ]
-
-      if (files.length === 0) {
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        return undefined
-      }
 
       return {
         path: toNativePathSeparator(tsconfigResult.path),
