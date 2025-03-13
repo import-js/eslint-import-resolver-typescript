@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.7
+
+### Patch Changes
+
+- [#377](https://github.com/import-js/eslint-import-resolver-typescript/pull/377) [`a14fdd9`](https://github.com/import-js/eslint-import-resolver-typescript/commit/a14fdd95011c4c09b74f71854410f684c0f04bc5) Thanks [@carlocorradini](https://github.com/carlocorradini)! - fix: include mapper with no files and force non-dynamic projects to use absolute paths
+
 ## 3.8.6
 
 ### Patch Changes
