@@ -1,17 +1,18 @@
 /**
+ * @import {TSESLint} from '@typescript-eslint/utils'
  * @param {string} project
+ * @returns {TSESLint.ClassicConfig.Config}
  */
-module.exports = project => ({
-  parser: '@typescript-eslint/parser',
+const base = project => ({
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:import/errors',
-    'plugin:import/typescript',
+    'plugin:import-x/errors',
+    'plugin:import-x/typescript',
   ],
   settings: {
-    'import/resolver': {
+    'import-x/resolver': {
       typescript: {
         project,
         alwaysTryTypes: true,
@@ -19,9 +20,9 @@ module.exports = project => ({
     },
   },
   rules: {
-    'import/no-duplicates': 0,
-    'import/no-unresolved': 2,
-    'import/extensions': [
+    'import-x/no-duplicates': 0,
+    'import-x/no-unresolved': 2,
+    'import-x/extensions': [
       2,
       'ignorePackages',
       {
@@ -38,8 +39,10 @@ module.exports = project => ({
     {
       files: '**/.*.cjs',
       rules: {
-        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-require-imports': 'off',
       },
     },
   ],
 })
+
+module.exports = base

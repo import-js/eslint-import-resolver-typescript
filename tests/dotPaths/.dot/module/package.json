@@ -1,5 +1,5 @@
 {
   "type": "commonjs",
-  "typings": "./module.d.ts",
-  "private": true
+  "private": true,
+  "typings": "./module.d.ts"
 }
