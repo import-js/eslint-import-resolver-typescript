@@ -26,6 +26,7 @@ module.exports =
           'import-x/resolver-next': [
             createTypeScriptImportResolver({
               project: absoluteGlobPath,
+              noWarnOnMultipleProjects: true,
             }),
           ],
         },
