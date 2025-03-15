@@ -1,7 +1,0 @@
-dist
-lib
-CHANGELOG.md
-/shim.d.ts
-/pnpm-lock.yml
-!/.*.cjs
-!/.changeset

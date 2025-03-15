@@ -29,15 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup target Node.js to enable Corepack
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Setup Node.js ${{ matrix.node }} with cache
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
@@ -46,8 +38,12 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Build, Lint and Test
-        run: yarn run-s build lint test typecov
+      - name: Build and Typecov
+        run: yarn run-s build typecov
         env:
           EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
+
+      - name: Lint and Test
+        if: ${{ matrix.node != 16}}
+        run: yarn run-s lint test

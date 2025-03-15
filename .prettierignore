@@ -1,4 +1,6 @@
+.yarn
 dist
 lib
 node_modules
 /pnpm-lock.yaml
+**/*.svg

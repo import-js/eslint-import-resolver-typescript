@@ -72,37 +72,39 @@ const {
   createTypeScriptImportResolver,
 } = require('eslint-import-resolver-typescript')
 
-module.exports = [{
-  settings: {
-    "import-x/resolver-next": [
-      createTypeScriptImportResolver({
-        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+module.exports = [
+  {
+    settings: {
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
-        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+          // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
-        // use <root>/path/to/folder/tsconfig.json
-        project: "path/to/folder",
+          // use <root>/path/to/folder/tsconfig.json
+          project: 'path/to/folder',
 
-        // Multiple tsconfigs (Useful for monorepos)
+          // Multiple tsconfigs (Useful for monorepos)
 
-        // use a glob pattern
-        project: "packages/*/tsconfig.json",
+          // use a glob pattern
+          project: 'packages/*/tsconfig.json',
 
-        // use an array
-        project: [
-          "packages/module-a/tsconfig.json",
-          "packages/module-b/tsconfig.json"
-        ],
+          // use an array
+          project: [
+            'packages/module-a/tsconfig.json',
+            'packages/module-b/tsconfig.json',
+          ],
 
-        // use an array of glob patterns
-        project: [
-          "packages/*/tsconfig.json",
-          "other-packages/*/tsconfig.json"
-        ]
-      }),
-    ]
-  }
-}]
+          // use an array of glob patterns
+          project: [
+            'packages/*/tsconfig.json',
+            'other-packages/*/tsconfig.json',
+          ],
+        }),
+      ],
+    },
+  },
+]
 ```
 
 But if you are using `eslint-plugin-import` or the older version of `eslint-plugin-import-x`, you can't use require/import:
@@ -153,11 +155,11 @@ Add the following to your `.eslintrc` config:
   "plugins": ["import"],
   "rules": {
     // turn on errors for missing imports
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts", ".tsx"],
     },
     "import/resolver": {
       "typescript": {
@@ -176,17 +178,17 @@ Add the following to your `.eslintrc` config:
         // use an array
         "project": [
           "packages/module-a/tsconfig.json",
-          "packages/module-b/tsconfig.json"
+          "packages/module-b/tsconfig.json",
         ],
 
         // use an array of glob patterns
         "project": [
           "packages/*/tsconfig.json",
-          "other-packages/*/tsconfig.json"
-        ]
-      }
-    }
-  }
+          "other-packages/*/tsconfig.json",
+        ],
+      },
+    },
+  },
 }
 ```
 
@@ -210,7 +212,7 @@ Default:
   "node",
   "node-addons",
   "browser",
-  "default"
+  "default",
 ]
 ```
 
@@ -227,7 +229,7 @@ Default:
   ".js",
   ".jsx",
   ".json",
-  ".node"
+  ".node",
 ]
 ```
 
@@ -242,11 +244,11 @@ Default:
     // `.tsx` can also be compiled as `.js`
     ".tsx",
     ".d.ts",
-    ".js"
+    ".js",
   ],
   ".jsx": [".tsx", ".d.ts", ".jsx"],
   ".cjs": [".cts", ".d.cts", ".cjs"],
-  ".mjs": [".mts", ".d.mts", ".mjs"]
+  ".mjs": [".mts", ".d.mts", ".mjs"],
 }
 ```
 
@@ -268,7 +270,7 @@ Default:
   "module",
   "jsnext:main",
 
-  "main"
+  "main",
 ]
 ```
 

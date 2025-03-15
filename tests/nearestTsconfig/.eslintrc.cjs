@@ -7,4 +7,4 @@ const project = [
   'a/b/c/tsconfig.json',
 ].map(tsconfig => path.resolve(__dirname, tsconfig))
 
-module.exports = require('../baseEslintConfig.cjs')(project)
+module.exports = require('../base.eslintrc.cjs')(project)

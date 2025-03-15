@@ -245,13 +245,13 @@ export function createTypeScriptImportResolver(
 /** Remove any trailing querystring from module id. */
 function removeQuerystring(id: string) {
   const querystringIndex = id.lastIndexOf('?')
-  if (querystringIndex >= 0) {
+  if (querystringIndex !== -1) {
     return id.slice(0, querystringIndex)
   }
   return id
 }
 
-const isFile = (path?: string | undefined): path is string => {
+const isFile = (path?: string): path is string => {
   try {
     return !!(path && fs.statSync(path, { throwIfNoEntry: false })?.isFile())
   } catch {
@@ -260,9 +260,8 @@ const isFile = (path?: string | undefined): path is string => {
   }
 }
 
-const isModule = (modulePath?: string | undefined): modulePath is string => {
-  return !!modulePath && isFile(path.resolve(modulePath, 'package.json'))
-}
+const isModule = (modulePath?: string): modulePath is string =>
+  !!modulePath && isFile(path.resolve(modulePath, 'package.json'))
 
 /**
  * @param {string} source the module to resolve; i.e './some-module'
@@ -315,7 +314,7 @@ function getMappedPaths(
           ...originalExtensions.map(ext => `${item}/index${ext}`),
         ]),
       )
-      .flat(2)
+      .flat(/* The depth is always 2 */ 2)
       .map(toNativePathSeparator)
       .filter(mappedPath => {
         try {
@@ -380,7 +379,6 @@ function getMappedPaths(
   return paths
 }
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 function initMappers(options: InternalResolverOptions) {
   if (
     mappers.length > 0 &&
@@ -390,13 +388,13 @@ function initMappers(options: InternalResolverOptions) {
     return
   }
   prevCwd = process.cwd()
-
   const configPaths = (
     typeof options.project === 'string'
       ? [options.project]
-      : Array.isArray(options.project)
-      ? options.project
-      : [process.cwd()]
+      : // eslint-disable-next-line sonarjs/no-nested-conditional
+        Array.isArray(options.project)
+        ? options.project
+        : [process.cwd()]
   ) // 'tinyglobby' pattern must have POSIX separator
     .map(config => replacePathSeparator(config, path.sep, path.posix.sep))
 
@@ -464,7 +462,7 @@ function initMappers(options: InternalResolverOptions) {
               tsconfigResult.config.files.length > 0
                 ? tsconfigResult.config.files.map(file =>
                     path.normalize(
-                      path.resolve(path.dirname(tsconfigResult!.path), file),
+                      path.resolve(path.dirname(tsconfigResult.path), file),
                     ),
                   )
                 : []),

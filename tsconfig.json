@@ -6,5 +6,5 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": ["./src"]
+  "include": ["./src", "eslint.config.js"]
 }
