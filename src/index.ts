@@ -3,17 +3,14 @@ import path from 'node:path'
 
 import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
-import type { FileSystem, ResolveOptions, Resolver } from 'enhanced-resolve'
-import enhancedResolve from 'enhanced-resolve'
-import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { TsConfigResult } from 'get-tsconfig'
+import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
-import stableHashExports from 'stable-hash'
+import { type NapiResolveOptions, ResolverFactory } from 'oxc-resolver'
+import { stableHash } from 'stable-hash'
 import { globSync, isDynamicPattern } from 'tinyglobby'
-
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- esmodule interop
-const stableHash = stableHashExports.default || stableHashExports
+import type { SetRequired } from 'type-fest'
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
@@ -79,27 +76,16 @@ export const defaultMainFields = [
 
 export const interfaceVersion = 2
 
-export interface TsResolverOptions
-  extends Omit<ResolveOptions, 'fileSystem' | 'useSyncFileSystemCalls'> {
+export interface TsResolverOptions extends NapiResolveOptions {
   alwaysTryTypes?: boolean
   project?: string[] | string
-  extensions?: string[]
 }
 
-type InternalResolverOptions = Required<
-  Pick<
-    ResolveOptions,
-    | 'conditionNames'
-    | 'extensionAlias'
-    | 'extensions'
-    | 'mainFields'
-    | 'useSyncFileSystemCalls'
-  >
+type InternalResolverOptions = SetRequired<
+  NapiResolveOptions,
+  'conditionNames' | 'extensionAlias' | 'extensions' | 'mainFields'
 > &
-  ResolveOptions &
   TsResolverOptions
-
-const fileSystem = fs as FileSystem
 
 const JS_EXT_PATTERN = /\.(?:[cm]js|jsx?)$/
 const RELATIVE_PATH_PATTERN = /^\.{1,2}(?:\/.*)?$/
@@ -118,7 +104,7 @@ let mappers: Array<{
 }> = []
 
 let resolverCachedOptions: InternalResolverOptions
-let cachedResolver: Resolver | undefined
+let cachedResolver: ResolverFactory | undefined
 
 /**
  * @param source the module to resolve; i.e './some-module'
@@ -130,7 +116,7 @@ export function resolve(
   source: string,
   file: string,
   options?: TsResolverOptions | null,
-  resolver: Resolver | null = null,
+  resolver?: ResolverFactory | null,
 ): {
   found: boolean
   path?: string | null
@@ -146,18 +132,12 @@ export function resolve(
       extensions: options?.extensions ?? defaultExtensions,
       extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
       mainFields: options?.mainFields ?? defaultMainFields,
-      fileSystem: new enhancedResolve.CachedInputFileSystem(
-        fileSystem,
-        5 * 1000,
-      ),
-      useSyncFileSystemCalls: true,
     }
   }
 
   if (!resolver) {
     if (!cachedResolver || resolverCachedOptions !== cachedOptions) {
-      cachedResolver =
-        enhancedResolve.ResolverFactory.createResolver(cachedOptions)
+      cachedResolver = new ResolverFactory(cachedOptions)
       resolverCachedOptions = cachedOptions
     }
     resolver = cachedResolver
@@ -194,13 +174,12 @@ export function resolve(
   let foundNodePath: string | undefined
   for (const mappedPath of mappedPaths) {
     try {
-      const resolved = resolver.resolveSync(
-        {},
+      const resolved = resolver.sync(
         path.dirname(path.resolve(file)),
         mappedPath,
       )
-      if (resolved) {
-        foundNodePath = resolved
+      if (resolved.path) {
+        foundNodePath = resolved.path
         break
       }
     } catch {
@@ -246,14 +225,12 @@ export function resolve(
 export function createTypeScriptImportResolver(
   options?: TsResolverOptions | null,
 ) {
-  const resolver = enhancedResolve.ResolverFactory.createResolver({
+  const resolver = new ResolverFactory({
     ...options,
     conditionNames: options?.conditionNames ?? defaultConditionNames,
     extensions: options?.extensions ?? defaultExtensions,
     extensionAlias: options?.extensionAlias ?? defaultExtensionAlias,
     mainFields: options?.mainFields ?? defaultMainFields,
-    fileSystem: new enhancedResolve.CachedInputFileSystem(fileSystem, 5 * 1000),
-    useSyncFileSystemCalls: true,
   })
 
   return {
