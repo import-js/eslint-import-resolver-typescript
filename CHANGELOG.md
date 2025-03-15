@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.9.0
+
+### Minor Changes
+
+- [#379](https://github.com/import-js/eslint-import-resolver-typescript/pull/379) [`6814443`](https://github.com/import-js/eslint-import-resolver-typescript/commit/681444336fc66104b9b490838a67ea7bf8ac8b61) Thanks [@JounQin](https://github.com/JounQin)! - feat: migrate `enhanced-resolve` to `oxc-resolver`
+
 ## 3.8.7
 
 ### Patch Changes
