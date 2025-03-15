@@ -48,7 +48,7 @@
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint src --cache -f friendly",
     "lint:tsc": "tsc --noEmit",
-    "prepare": "simple-git-hooks",
+    "prepare": "simple-git-hooks && yarn-berry-deduplicate || exit 0",
     "release": "changeset publish",
     "test": "run-p 'test:*'",
     "test:dotInclude": "eslint --ext ts,tsx tests/dotInclude --ignore-pattern \"!.dot\"",
@@ -82,10 +82,10 @@
   "dependencies": {
     "@nolyfill/is-core-module": "1.0.39",
     "debug": "^4.3.7",
-    "enhanced-resolve": "^5.15.0",
     "get-tsconfig": "^4.10.0",
     "is-bun-module": "^1.0.2",
-    "stable-hash": "^0.0.4",
+    "oxc-resolver": "^5.0.0",
+    "stable-hash": "^0.0.5",
     "tinyglobby": "^0.2.12"
   },
   "devDependencies": {
@@ -104,7 +104,7 @@
     "eslint": "^8.57.1",
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import": "npm:eslint-plugin-i@^2.29.1",
-    "eslint-plugin-import-x": "^4.5.0",
+    "eslint-plugin-import-x": "^4.7.0",
     "lint-staged": "^13.3.0",
     "npm-run-all2": "^5.0.2",
     "prettier": "^2.8.8",
@@ -113,7 +113,9 @@
     "size-limit": "^11.0.0",
     "size-limit-preset-node-lib": "^0.3.0",
     "type-coverage": "^2.27.0",
-    "typescript": "~5.1.0"
+    "type-fest": "^4.37.0",
+    "typescript": "~5.1.0",
+    "yarn-berry-deduplicate": "^6.1.1"
   },
   "resolutions": {
     "eslint-import-resolver-typescript": "link:.",
