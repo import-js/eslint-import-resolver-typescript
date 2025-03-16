@@ -66,3 +66,8 @@ export const sortProjectsByAffinity = (projects: string[], file: string) => {
     .sort((a, b) => a.affinity - b.affinity)
     .map(item => item.project)
 }
+
+export const toGlobPath = (pathname: string) => pathname.replaceAll('\\', '/')
+
+export const toNativePath = (pathname: string) =>
+  '/' === path.sep ? pathname : pathname.replaceAll('/', '\\')

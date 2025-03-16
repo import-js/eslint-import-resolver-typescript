@@ -2,7 +2,7 @@
 "eslint-import-resolver-typescript": major
 ---
 
-feat!: rewrite, speed up by using `rspack-resolver` which supports `references` natively under the hood
+feat!: rewrite, speed up by using [`rspack-resolver`](https://github.com/unrs/rspack-resolver) which supports `references` natively under the hood
 
 BREAKING CHANGES:
 

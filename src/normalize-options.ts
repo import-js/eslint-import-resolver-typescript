@@ -10,7 +10,7 @@ import {
   defaultExtensions,
   defaultMainFields,
 } from './constants.js'
-import { tryFile } from './helpers.js'
+import { toGlobPath, toNativePath, tryFile } from './helpers.js'
 import { log } from './logger.js'
 import type { TypeScriptResolverOptions } from './types.js'
 
@@ -22,10 +22,12 @@ let warned: boolean | undefined
 
 export function normalizeOptions(
   options?: TypeScriptResolverOptions | null,
+  cwd?: string,
 ): TypeScriptResolverOptions
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export function normalizeOptions(
   options?: TypeScriptResolverOptions | null,
+  cwd = process.cwd(),
 ): TypeScriptResolverOptions {
   let { project, tsconfig, noWarnOnMultipleProjects } = (options ||= {})
 
@@ -37,16 +39,22 @@ export function normalizeOptions(
     configFile = tryFile(configFile)
     ensured = true
   } else if (project) {
-    project = Array.isArray(project) ? project : [project]
+    log('original projects:', ...project)
+    project = (Array.isArray(project) ? project : [project]).map(toGlobPath)
     if (project.some(p => isDynamicPattern(p))) {
       project = globSync(project, {
         absolute: true,
+        cwd,
         dot: true,
+        expandDirectories: false,
         onlyFiles: false,
         ignore: DEFAULT_IGNORE,
       })
     }
-    project = project.flatMap(p => tryFile(DEFAULT_TRY_PATHS, false, p) || [])
+    log('resolving projects:', ...project)
+    project = project.flatMap(
+      p => tryFile(DEFAULT_TRY_PATHS, false, toNativePath(p)) || [],
+    )
     log('resolved projects:', ...project)
     if (project.length === 1) {
       configFile = project[0]

@@ -89,9 +89,10 @@ export const resolve = (
 
   if (!resolver) {
     const optionsHash = stableHash(options)
-    options = normalizeOptions(options)
+    const cwd = process.cwd()
+    options = normalizeOptions(options, cwd)
     // take `cwd` into account -- #217
-    const cacheKey = `${optionsHash}:${process.cwd()}`
+    const cacheKey = `${optionsHash}:${cwd}`
     let cached = resolverCache.get(cacheKey)
     if (!cached && !options.project) {
       resolverCache.set(cacheKey, (cached = new ResolverFactory(options)))
