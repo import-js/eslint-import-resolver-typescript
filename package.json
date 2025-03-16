@@ -19,15 +19,14 @@
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
+      "require": "./lib/index.cjs",
+      "default": "./lib/index.js"
     },
     "./package.json": "./package.json"
   },
   "types": "lib/index.d.ts",
   "files": [
     "lib",
-    "shim.d.ts",
     "!**/*.tsbuildinfo"
   ],
   "keywords": [
@@ -39,9 +38,9 @@
   ],
   "scripts": {
     "build": "run-p -c 'build:*'",
-    "build:r": "r -f cjs,es2020",
+    "build:r": "r -f cjs",
     "build:ts": "tsc -b",
-    "eslint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint --cache",
+    "eslint": "ESLINT_USE_FLAT_CONFIG=false eslint --cache",
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
@@ -80,7 +79,7 @@
     "debug": "^4.4.0",
     "get-tsconfig": "^4.10.0",
     "is-bun-module": "^1.3.0",
-    "rspack-resolver": "^1.1.0",
+    "rspack-resolver": "^1.1.2",
     "stable-hash": "^0.0.5",
     "tinyglobby": "^0.2.12"
   },
@@ -97,7 +96,6 @@
     "@types/pnpapi": "^0.0.5",
     "@types/unist": "^3.0.3",
     "clean-pkg-json": "^1.2.1",
-    "cross-env": "^7.0.3",
     "dummy.js": "link:dummy.js",
     "eslint": "^9.22.0",
     "eslint-import-resolver-typescript": "link:.",
@@ -110,7 +108,6 @@
     "size-limit": "^11.2.0",
     "size-limit-preset-node-lib": "^0.3.0",
     "type-coverage": "^2.29.7",
-    "type-fest": "^4.37.0",
     "typescript": "~5.8.2",
     "yarn-berry-deduplicate": "^6.1.1"
   },

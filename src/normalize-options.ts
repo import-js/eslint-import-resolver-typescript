@@ -1,4 +1,4 @@
-import type { TsconfigOptions } from 'oxc-resolver'
+import type { TsconfigOptions } from 'rspack-resolver'
 import { globSync, isDynamicPattern } from 'tinyglobby'
 
 import {

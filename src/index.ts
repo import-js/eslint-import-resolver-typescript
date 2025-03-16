@@ -1,4 +1,4 @@
-import { isBuiltin } from 'node:module'
+import module from 'node:module'
 import path from 'node:path'
 
 import type { ResolvedResult } from 'eslint-plugin-import-x/types.js'
@@ -10,7 +10,7 @@ import {
 } from 'get-tsconfig'
 import { type Version, isBunModule } from 'is-bun-module'
 import { ResolverFactory } from 'rspack-resolver'
-import stableHash_ from 'stable-hash'
+import { stableHash } from 'stable-hash'
 
 import { IMPORT_RESOLVER_NAME, JS_EXT_PATTERN } from './constants.js'
 import {
@@ -26,9 +26,6 @@ export * from './constants.js'
 export * from './helpers.js'
 export * from './normalize-options.js'
 export type * from './types.js'
-
-// CJS <-> ESM interop
-const stableHash = 'default' in stableHash_ ? stableHash_.default : stableHash_
 
 const resolverCache = new Map<string, ResolverFactory>()
 
@@ -65,7 +62,7 @@ export const resolve = (
 ): ResolvedResult => {
   // don't worry about core node/bun modules
   if (
-    isBuiltin(source) ||
+    module.isBuiltin(source) ||
     (process.versions.bun &&
       isBunModule(source, process.versions.bun as Version))
   ) {
@@ -76,6 +73,17 @@ export const resolve = (
       path: null,
     }
   }
+
+  if (process.versions.pnp && source === 'pnpapi') {
+    return {
+      found: true,
+      path: module.findPnpApi(file).resolveToUnqualified(source, file, {
+        considerBuiltins: false,
+      }),
+    }
+  }
+
+  source = removeQuerystring(source)
 
   options ||= {}
 
@@ -90,8 +98,6 @@ export const resolve = (
     }
     resolver = cached
   }
-
-  source = removeQuerystring(source)
 
   options ||= {}
 
