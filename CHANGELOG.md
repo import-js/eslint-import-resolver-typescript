@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.9.1
+
+### Patch Changes
+
+- [#382](https://github.com/import-js/eslint-import-resolver-typescript/pull/382) [`4a9176e`](https://github.com/import-js/eslint-import-resolver-typescript/commit/4a9176e6e2b6013dc24b5634aea42feebd324e41) Thanks [@JounQin](https://github.com/JounQin)! - fix: use [`rspack-resolver`](https://github.com/unrs/rspack-resolver) fork for pnp support
+
 ## 3.9.0
 
 ### Minor Changes
