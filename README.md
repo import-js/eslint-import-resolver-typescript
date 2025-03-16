@@ -25,8 +25,12 @@ This means you can:
 
 - [Notice](#notice)
 - [Installation](#installation)
+  - [`eslint-plugin-import`](#eslint-plugin-import)
+  - [`eslint-plugin-import-x`](#eslint-plugin-import-x)
 - [Configuration](#configuration)
-- [Options from `enhanced-resolve`](#options-from-enhanced-resolve)
+  - [`eslint.config.js`](#eslintconfigjs)
+  - [`.eslintrc`](#eslintrc)
+- [Options from `rspack-resolver`](#options-from-rspack-resolver)
   - [`conditionNames`](#conditionnames)
   - [`extensions`](#extensions)
   - [`extensionAlias`](#extensionalias)
@@ -47,6 +51,8 @@ If you're facing some problems on rules `import/default` or `import/named` from 
 
 ## Installation
 
+### `eslint-plugin-import`
+
 ```sh
 # npm
 npm i -D eslint-plugin-import eslint-import-resolver-typescript
@@ -58,7 +64,18 @@ pnpm i -D eslint-plugin-import eslint-import-resolver-typescript
 yarn add -D eslint-plugin-import eslint-import-resolver-typescript
 ```
 
-**Important when using `eslint-plugin-import-x` and `npm`**: Use `npm i -D eslint-plugin-import@eslint-plugin-import-x@latest eslint-import-resolver-typescript`, or you will end up with both `eslint-plugin-import` and `eslint-plugin-import-x` in your node_modules.
+### `eslint-plugin-import-x`
+
+```sh
+# npm
+npm i -D eslint-plugin-import-x eslint-import-resolver-typescript
+
+# pnpm
+pnpm i -D eslint-plugin-import-x eslint-import-resolver-typescript
+
+# yarn
+yarn add -D eslint-plugin-import-x eslint-import-resolver-typescript
+```
 
 ## Configuration
 
@@ -67,12 +84,10 @@ yarn add -D eslint-plugin-import eslint-import-resolver-typescript
 If you are using `eslint-plugin-import-x@>=4.5.0`, you can use import/require to reference `eslint-import-resolver-typescript` directly in your ESLint flat config:
 
 ```js
-// eslint.config.js
-const {
-  createTypeScriptImportResolver,
-} = require('eslint-import-resolver-typescript')
+// eslint.config.js, CommonJS is also supported
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 
-module.exports = [
+export default [
   {
     settings: {
       'import-x/resolver-next': [
@@ -100,6 +115,9 @@ module.exports = [
             'packages/*/tsconfig.json',
             'other-packages/*/tsconfig.json',
           ],
+
+          // use <root>/jsconfig.json
+          project: 'jsconfig.json',
         }),
       ],
     },
@@ -110,8 +128,8 @@ module.exports = [
 But if you are using `eslint-plugin-import` or the older version of `eslint-plugin-import-x`, you can't use require/import:
 
 ```js
-// eslint.config.js
-module.exports = [
+// eslint.config.js, CommonJS is also supported
+export default [
   {
     settings: {
       'import/resolver': {
@@ -139,6 +157,9 @@ module.exports = [
             'packages/*/tsconfig.json',
             'other-packages/*/tsconfig.json',
           ],
+
+          // use <root>/jsconfig.json
+          project: 'jsconfig.json',
         },
       },
     },
@@ -186,13 +207,16 @@ Add the following to your `.eslintrc` config:
           "packages/*/tsconfig.json",
           "other-packages/*/tsconfig.json",
         ],
+
+        // use <root>/jsconfig.json
+        "project": "jsconfig.json",
       },
     },
   },
 }
 ```
 
-## Options from [`enhanced-resolve`][]
+## Options from [`rspack-resolver`][]
 
 ### `conditionNames`
 
@@ -276,7 +300,7 @@ Default:
 
 ### Other options
 
-You can pass through other options of [`enhanced-resolve`][] directly
+You can pass through other options of [`rspack-resolver`][] directly
 
 ### Default options
 
@@ -292,6 +316,8 @@ You can reuse `defaultConditionNames`, `defaultExtensions`, `defaultExtensionAli
 We have [GitHub Actions](https://github.com/import-js/eslint-import-resolver-typescript/actions) which will run the above commands on your PRs.
 
 If either fails, we won't be able to merge your PR until it's fixed.
+
+[![Sponsors](https://raw.githubusercontent.com/1stG/static/master/sponsors.svg)](https://github.com/sponsors/JounQin)
 
 ## Sponsors
 
@@ -315,6 +341,6 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [`eslint-plugin-import`]: https://github.com/import-js/eslint-plugin-import
 [`eslint-plugin-import-x`]: https://github.com/un-ts/eslint-plugin-import-x
-[`enhanced-resolve`]: https://github.com/webpack/enhanced-resolve
+[`rspack-resolver`]: https://github.com/unrs/rspack-resolver
 [`typescript`]: https://www.typescriptlang.org
 [isc]: https://opensource.org/licenses/ISC
