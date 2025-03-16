@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import module from 'node:module'
 import path from 'node:path'
 
 import isNodeCoreModule from '@nolyfill/is-core-module'
@@ -7,7 +8,7 @@ import type { TsConfigResult } from 'get-tsconfig'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
 import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
-import { type NapiResolveOptions, ResolverFactory } from 'oxc-resolver'
+import { type NapiResolveOptions, ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
 import { globSync, isDynamicPattern } from 'tinyglobby'
 import type { SetRequired } from 'type-fest'
@@ -94,7 +95,7 @@ let previousOptionsHash: string
 let optionsHash: string
 let cachedOptions: InternalResolverOptions | undefined
 
-let prevCwd: string
+let cachedCwd: string
 
 let mappersCachedOptions: InternalResolverOptions
 let mappers: Array<{
@@ -157,6 +158,18 @@ export function resolve(
     return {
       found: true,
       path: null,
+    }
+  }
+
+  /**
+   * {@link https://github.com/webpack/enhanced-resolve/blob/38e9fd9acb79643a70e7bcd0d85dabc600ea321f/lib/PnpPlugin.js#L81-L83}
+   */
+  if (process.versions.pnp && source === 'pnpapi') {
+    return {
+      found: true,
+      path: module.findPnpApi(file).resolveToUnqualified(source, file, {
+        considerBuiltins: false,
+      }),
     }
   }
 
@@ -383,18 +396,18 @@ function initMappers(options: InternalResolverOptions) {
   if (
     mappers.length > 0 &&
     mappersCachedOptions === options &&
-    prevCwd === process.cwd()
+    cachedCwd === process.cwd()
   ) {
     return
   }
-  prevCwd = process.cwd()
+  cachedCwd = process.cwd()
   const configPaths = (
     typeof options.project === 'string'
       ? [options.project]
       : // eslint-disable-next-line sonarjs/no-nested-conditional
         Array.isArray(options.project)
         ? options.project
-        : [process.cwd()]
+        : [cachedCwd]
   ) // 'tinyglobby' pattern must have POSIX separator
     .map(config => replacePathSeparator(config, path.sep, path.posix.sep))
 
@@ -432,20 +445,18 @@ function initMappers(options: InternalResolverOptions) {
       }
 
       if (!tsconfigResult) {
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        return undefined
+        return
       }
 
       const mapperFn = createPathsMatcher(tsconfigResult)
 
       if (!mapperFn) {
-        // eslint-disable-next-line unicorn/no-useless-undefined
-        return undefined
+        return
       }
 
       const files =
-        tsconfigResult.config.files === undefined &&
-        tsconfigResult.config.include === undefined
+        tsconfigResult.config.files == null &&
+        tsconfigResult.config.include == null
           ? // Include everything if no files or include options
             globSync(defaultInclude, {
               absolute: true,
@@ -458,7 +469,7 @@ function initMappers(options: InternalResolverOptions) {
             })
           : [
               // https://www.typescriptlang.org/tsconfig/#files
-              ...(tsconfigResult.config.files !== undefined &&
+              ...(tsconfigResult.config.files != null &&
               tsconfigResult.config.files.length > 0
                 ? tsconfigResult.config.files.map(file =>
                     path.normalize(
@@ -467,7 +478,7 @@ function initMappers(options: InternalResolverOptions) {
                   )
                 : []),
               // https://www.typescriptlang.org/tsconfig/#include
-              ...(tsconfigResult.config.include !== undefined &&
+              ...(tsconfigResult.config.include != null &&
               tsconfigResult.config.include.length > 0
                 ? globSync(tsconfigResult.config.include, {
                     absolute: true,
@@ -487,7 +498,7 @@ function initMappers(options: InternalResolverOptions) {
         mapperFn,
       }
     })
-    .filter(isDefined)
+    .filter(Boolean)
 
   mappersCachedOptions = options
 }
@@ -533,19 +544,6 @@ function toNativePathSeparator(p: string) {
     path[process.platform === 'win32' ? 'posix' : 'win32'].sep,
     path[process.platform === 'win32' ? 'win32' : 'posix'].sep,
   )
-}
-
-/**
- * Check if value is defined.
- *
- * Helper function for TypeScript.
- * Should be removed when upgrading to TypeScript >= 5.5.
- *
- * @param {T | null | undefined} value Value
- * @returns `true` if value is defined, `false` otherwise
- */
-function isDefined<T>(value: T | null | undefined): value is T {
-  return value !== null && value !== undefined
 }
 
 /**
