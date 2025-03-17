@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.1
+
+### Patch Changes
+
+- [#389](https://github.com/import-js/eslint-import-resolver-typescript/pull/389) [`1b97d8a`](https://github.com/import-js/eslint-import-resolver-typescript/commit/1b97d8a5913e15bdfcf5f64152e8a4173b18dab1) Thanks [@JounQin](https://github.com/JounQin)! - fix: should prefer `module.isBuiltin` when `process.versions.bun` available
+
 ## 4.1.0
 
 ### Minor Changes
