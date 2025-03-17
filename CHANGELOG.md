@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [#387](https://github.com/import-js/eslint-import-resolver-typescript/pull/387) [`ef5cd10`](https://github.com/import-js/eslint-import-resolver-typescript/commit/ef5cd1083207d560b35694b99ccfefa4a1234acb) Thanks [@JounQin](https://github.com/JounQin)! - feat: add a new `bun?: boolean` option for `bun` users - close #386
+
+  `process.versions.bun` is unavailable even with `bun eslint` due to its own design,
+  but checking `bun` modules for non-bun users is incorrect behavior and just wasting time,
+  so a new option is added for such case, you can still run with `bun --bun eslint` without this option enabled
+
 ## 4.0.0
 
 ### Major Changes
