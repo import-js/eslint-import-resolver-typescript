@@ -8,7 +8,7 @@ import {
   createFilesMatcher,
   parseTsconfig,
 } from 'get-tsconfig'
-import { type Version, isBunModule, isSupportedNodeModule } from 'is-bun-module'
+import { type Version } from 'is-bun-module'
 import { ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
 
@@ -53,6 +53,11 @@ const oxcResolve = (
   }
 }
 
+type IsBunModule = typeof import('is-bun-module')
+let isBunModule: IsBunModule | undefined
+
+const _filename = typeof __filename === 'string' ? __filename : import.meta.url
+
 export const resolve = (
   source: string,
   file: string,
@@ -69,8 +74,10 @@ export const resolve = (
     if (
       bunVersion
         ? module.isBuiltin(source)
-        : isBunModule(source, (bunVersion = 'latest')) ||
-          isSupportedNodeModule(source, bunVersion)
+        : (isBunModule ??= module.createRequire(_filename)(
+            'is-bun-module',
+          ) as IsBunModule).isBunModule(source, (bunVersion = 'latest')) ||
+          isBunModule.isSupportedNodeModule(source, bunVersion)
     ) {
       log('matched bun core:', source)
       return { found: true, path: null }
