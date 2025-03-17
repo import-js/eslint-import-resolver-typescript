@@ -8,7 +8,7 @@ import {
   createFilesMatcher,
   parseTsconfig,
 } from 'get-tsconfig'
-import { type Version, isBunModule } from 'is-bun-module'
+import { type Version, isBunModule, isSupportedNodeModule } from 'is-bun-module'
 import { ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
 
@@ -60,32 +60,36 @@ export const resolve = (
   resolver?: ResolverFactory | null,
   // eslint-disable-next-line sonarjs/cognitive-complexity
 ): ResolvedResult => {
-  // don't worry about core node/bun modules
-  if (
-    module.isBuiltin(source) ||
-    (process.versions.bun &&
-      isBunModule(source, process.versions.bun as Version))
-  ) {
-    log('matched core:', source)
+  options ||= {}
 
-    return {
-      found: true,
-      path: null,
+  let bunVersion = process.versions.bun as Version | undefined
+
+  // don't worry about bun core modules
+  if (bunVersion || options.bun) {
+    bunVersion ??= 'latest'
+    if (
+      isBunModule(source, bunVersion) ||
+      isSupportedNodeModule(source, bunVersion)
+    ) {
+      log('matched bun core:', source)
+      return { found: true, path: null }
     }
+  } else if (module.isBuiltin(source)) {
+    // don't worry about node core modules
+    log('matched node core:', source)
+    return { found: true, path: null }
   }
 
   if (process.versions.pnp && source === 'pnpapi') {
     return {
       found: true,
-      path: module.findPnpApi(file).resolveToUnqualified(source, file, {
-        considerBuiltins: false,
-      }),
+      path: module
+        .findPnpApi(file)
+        .resolveToUnqualified(source, file, { considerBuiltins: false }),
     }
   }
 
   source = removeQuerystring(source)
-
-  options ||= {}
 
   if (!resolver) {
     const optionsHash = stableHash(options)
