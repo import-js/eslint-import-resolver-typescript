@@ -63,8 +63,7 @@ export const resolve = (
   // don't worry about core node/bun modules
   if (
     module.isBuiltin(source) ||
-    (process.versions.bun &&
-      isBunModule(source, process.versions.bun as Version))
+    isBunModule(source, process.versions.bun as Version)
   ) {
     log('matched core:', source)
 
