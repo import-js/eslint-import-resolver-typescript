@@ -66,10 +66,11 @@ export const resolve = (
 
   // don't worry about bun core modules
   if (bunVersion || options.bun) {
-    bunVersion ??= 'latest'
     if (
-      isBunModule(source, bunVersion) ||
-      isSupportedNodeModule(source, bunVersion)
+      bunVersion
+        ? module.isBuiltin(source)
+        : isBunModule(source, (bunVersion = 'latest')) ||
+          isSupportedNodeModule(source, bunVersion)
     ) {
       log('matched bun core:', source)
       return { found: true, path: null }
