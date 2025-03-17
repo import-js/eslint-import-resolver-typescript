@@ -6,5 +6,9 @@ export interface TypeScriptResolverOptions extends NapiResolveOptions {
    * @default true - whether to always try to resolve `@types` packages
    */
   alwaysTryTypes?: boolean
+  /**
+   * Whether `bun` core modules should be accounted
+   */
+  bun?: boolean
   noWarnOnMultipleProjects?: boolean
 }
