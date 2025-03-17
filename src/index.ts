@@ -8,12 +8,12 @@ import {
   createFilesMatcher,
   parseTsconfig,
 } from 'get-tsconfig'
-import { type Version } from 'is-bun-module'
 import { ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
 
 import { IMPORT_RESOLVER_NAME, JS_EXT_PATTERN } from './constants.js'
 import {
+  isBunBuiltin,
   mangleScopedPackage,
   removeQuerystring,
   sortProjectsByAffinity,
@@ -53,11 +53,6 @@ const oxcResolve = (
   }
 }
 
-type IsBunModule = typeof import('is-bun-module')
-let isBunModule: IsBunModule | undefined
-
-const _filename = typeof __filename === 'string' ? __filename : import.meta.url
-
 export const resolve = (
   source: string,
   file: string,
@@ -67,24 +62,9 @@ export const resolve = (
 ): ResolvedResult => {
   options ||= {}
 
-  let bunVersion = process.versions.bun as Version | undefined
-
-  // don't worry about bun core modules
-  if (bunVersion || options.bun) {
-    if (
-      bunVersion
-        ? module.isBuiltin(source)
-        : (isBunModule ??= module.createRequire(_filename)(
-            'is-bun-module',
-          ) as IsBunModule).isBunModule(source, (bunVersion = 'latest')) ||
-          isBunModule.isSupportedNodeModule(source, bunVersion)
-    ) {
-      log('matched bun core:', source)
-      return { found: true, path: null }
-    }
-  } else if (module.isBuiltin(source)) {
-    // don't worry about node core modules
-    log('matched node core:', source)
+  // don't worry about node/bun core modules
+  if (module.isBuiltin(source) || (options.bun && isBunBuiltin(source))) {
+    log('matched core:', source)
     return { found: true, path: null }
   }
 
@@ -111,8 +91,6 @@ export const resolve = (
     }
     resolver = cached
   }
-
-  options ||= {}
 
   // eslint-disable-next-line sonarjs/label-position, sonarjs/no-labels
   createResolver: if (!resolver) {
