@@ -10,4 +10,4 @@ So for `bun` users, there are three options:
 
 1. install `is-bun-module` dependency manually and use `bun: true` option
 2. run `eslint` with `bun --bun eslint` w/o `bun: true` option
-3. enable `run#bun` in [`bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun)
+3. enable `run#bun` in [`bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun) w/o `bun: true` option
