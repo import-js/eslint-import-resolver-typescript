@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.1
+
+### Patch Changes
+
+- [#394](https://github.com/import-js/eslint-import-resolver-typescript/pull/394) [`9f11f6b`](https://github.com/import-js/eslint-import-resolver-typescript/commit/9f11f6bb94f1f9eae6794eea3e4624b80ceac305) Thanks [@JounQin](https://github.com/JounQin)! - fix: don't set empty `configFile` when no `tsconfig` found
+
+- [#394](https://github.com/import-js/eslint-import-resolver-typescript/pull/394) [`9f11f6b`](https://github.com/import-js/eslint-import-resolver-typescript/commit/9f11f6bb94f1f9eae6794eea3e4624b80ceac305) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump `rspack-resolver` to v1.2.0
+
 ## 4.2.0
 
 ### Minor Changes
