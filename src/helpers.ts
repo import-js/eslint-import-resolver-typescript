@@ -1,5 +1,8 @@
 import fs from 'node:fs'
+import { createRequire } from 'node:module'
 import path from 'node:path'
+
+import type { IsBunModule } from './types.js'
 
 /**
  * For a scoped package, we must look in `@types/foo__bar` instead of `@types/@foo/bar`.
@@ -71,3 +74,17 @@ export const toGlobPath = (pathname: string) => pathname.replaceAll('\\', '/')
 
 export const toNativePath = (pathname: string) =>
   '/' === path.sep ? pathname : pathname.replaceAll('/', '\\')
+
+let isBunModule: IsBunModule | undefined
+
+const _filename = typeof __filename === 'string' ? __filename : import.meta.url
+
+const DEFAULT_BUN_VERSION = 'latest'
+
+export const isBunBuiltin = (source: string) => {
+  isBunModule ??= createRequire(_filename)('is-bun-module')
+  return (
+    isBunModule!.isBunModule(source, DEFAULT_BUN_VERSION) ||
+    isBunModule!.isSupportedNodeModule(source, DEFAULT_BUN_VERSION)
+  )
+}

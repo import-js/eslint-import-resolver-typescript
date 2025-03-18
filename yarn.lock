@@ -6715,10 +6715,13 @@ __metadata:
     eslint: "*"
     eslint-plugin-import: "*"
     eslint-plugin-import-x: "*"
+    is-bun-module: "*"
   peerDependenciesMeta:
     eslint-plugin-import:
       optional: true
     eslint-plugin-import-x:
+      optional: true
+    is-bun-module:
       optional: true
   languageName: unknown
   linkType: soft
