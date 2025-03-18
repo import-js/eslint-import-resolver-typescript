@@ -94,10 +94,9 @@ export function normalizeOptions(
     mainFields: defaultMainFields,
     ...options,
     project,
-    tsconfig: {
-      references: references ?? 'auto',
-      configFile: configFile || '',
-    },
+    tsconfig: configFile
+      ? { references: references ?? 'auto', configFile: configFile }
+      : undefined,
   }
 
   if (configFile) {
