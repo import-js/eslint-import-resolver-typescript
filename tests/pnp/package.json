@@ -1,0 +1,8 @@
+{
+  "name": "pnp",
+  "type": "module",
+  "packageManager": "yarn@4.7.0",
+  "devDependencies": {
+    "lodash.zip": "^4.2.0"
+  }
+}

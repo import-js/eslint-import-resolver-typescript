@@ -1,0 +1,10 @@
+{
+  "extends": "@1stg/tsconfig/node16",
+  "compilerOptions": {
+    "module": "Node16",
+    "outDir": "./lib",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["tests"]
+}

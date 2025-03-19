@@ -1,10 +1,4 @@
 {
-  "extends": "@1stg/tsconfig/node16",
-  "compilerOptions": {
-    "module": "Node16",
-    "outDir": "./lib",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  },
-  "include": ["./src", "eslint.config.js"]
+  "extends": "./tsconfig.base",
+  "include": ["src", "eslint.config.js"]
 }

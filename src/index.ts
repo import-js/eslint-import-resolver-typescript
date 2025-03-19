@@ -1,4 +1,4 @@
-import module from 'node:module'
+import { isBuiltin } from 'node:module'
 import path from 'node:path'
 
 import type { ResolvedResult } from 'eslint-plugin-import-x/types.js'
@@ -63,18 +63,9 @@ export const resolve = (
   options ||= {}
 
   // don't worry about node/bun core modules
-  if (module.isBuiltin(source) || (options.bun && isBunBuiltin(source))) {
+  if (isBuiltin(source) || (options.bun && isBunBuiltin(source))) {
     log('matched core:', source)
     return { found: true, path: null }
-  }
-
-  if (process.versions.pnp && source === 'pnpapi') {
-    return {
-      found: true,
-      path: module
-        .findPnpApi(file)
-        .resolveToUnqualified(source, file, { considerBuiltins: false }),
-    }
   }
 
   source = removeQuerystring(source)

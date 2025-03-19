@@ -40,6 +40,9 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           queries: +security-and-quality
+          config: |
+            paths-ignore:
+              - tests/pnp/.pnp.*
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
