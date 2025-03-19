@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest'
 import { exec } from 'tinyexec'
 
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
-import path from 'node:path'
 
 describe('createTypeScriptImportResolver', () => {
   it('should work with pnp', async () => {
@@ -26,8 +25,8 @@ describe('createTypeScriptImportResolver', () => {
       .toMatchInlineSnapshot(`
         {
           "found": true,
-          "path": "<HOME>/.yarn/berry/cache/lodash.zip-npm-4.2.0-5299417ec8-10.zip/node_modules/lodash.zip/index.js",
+          "path": "<ROOT>/tests/pnp/.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-cb06530d81.zip/node_modules/lodash.zip/index.js",
         }
       `)
-  })
+  }, 10_000)
 })

@@ -43,7 +43,7 @@
     "eslint": "ESLINT_USE_FLAT_CONFIG=false eslint",
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint . --cache",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "tsc -b --noEmit",
     "prepare": "simple-git-hooks && yarn-berry-deduplicate || exit 0",
     "release": "clean-pkg-json && changeset publish",
     "test": "run-p 'test:*'",

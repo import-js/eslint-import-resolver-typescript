@@ -34,7 +34,7 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["lodash.zip", [\
       ["npm:4.2.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/lodash.zip-npm-4.2.0-5299417ec8-10.zip/node_modules/lodash.zip/",\
+        "packageLocation": "./.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-cb06530d81.zip/node_modules/lodash.zip/",\
         "packageDependencies": [\
           ["lodash.zip", "npm:4.2.0"]\
         ],\
