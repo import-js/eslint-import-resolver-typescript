@@ -3,6 +3,7 @@
 .yarn/*
 !.yarn/plugins
 !.yarn/releases
+coverage
 lib
 node_modules
 *.log

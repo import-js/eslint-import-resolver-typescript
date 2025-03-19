@@ -1,6 +1,4 @@
 .yarn
-dist
-lib
-node_modules
 /pnpm-lock.yaml
+/tests/pnp/.pnp.*
 **/*.svg
