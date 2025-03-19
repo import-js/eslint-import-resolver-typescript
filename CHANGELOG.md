@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.2
+
+### Patch Changes
+
+- [#397](https://github.com/import-js/eslint-import-resolver-typescript/pull/397) [`14a7688`](https://github.com/import-js/eslint-import-resolver-typescript/commit/14a76885499cf99b0e5ea588aeb916a881c4efcb) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump `rspack-resolver` for better P'n'P support
+
+  Now `rspack-resolver` resolves `pnpapi` natively.
+
 ## 4.2.1
 
 ### Patch Changes
