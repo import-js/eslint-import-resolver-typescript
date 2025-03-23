@@ -8,12 +8,12 @@ import {
   createFilesMatcher,
   parseTsconfig,
 } from 'get-tsconfig'
+import { isBunBuiltin } from 'is-bun-module'
 import { ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
 
 import { IMPORT_RESOLVER_NAME, JS_EXT_PATTERN } from './constants.js'
 import {
-  isBunBuiltin,
   mangleScopedPackage,
   removeQuerystring,
   sortProjectsByAffinity,
@@ -53,6 +53,8 @@ const oxcResolve = (
   }
 }
 
+const isBun = process.versions.bun !== undefined
+
 export const resolve = (
   source: string,
   file: string,
@@ -63,7 +65,7 @@ export const resolve = (
   options ||= {}
 
   // don't worry about node/bun core modules
-  if (isBuiltin(source) || (options.bun && isBunBuiltin(source))) {
+  if ((isBun || options.bun) ? isBunBuiltin(source) : isBuiltin(source)) {
     log('matched core:', source)
     return { found: true, path: null }
   }
