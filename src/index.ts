@@ -53,7 +53,7 @@ const oxcResolve = (
   }
 }
 
-const isBun = process.versions.bun !== undefined
+const isBun = !!process.versions.bun
 
 export const resolve = (
   source: string,

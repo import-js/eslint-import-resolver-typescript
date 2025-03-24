@@ -2,4 +2,6 @@
 "eslint-import-resolver-typescript": patch
 ---
 
-don't resolve not implemented node modules in bun
+fix: don't resolve not implemented node modules in `bun`
+
+`is-bun-module` is marked as `dependency`, again, for correctness
