@@ -66,8 +66,7 @@
   "peerDependencies": {
     "eslint": "*",
     "eslint-plugin-import": "*",
-    "eslint-plugin-import-x": "*",
-    "is-bun-module": "*"
+    "eslint-plugin-import-x": "*"
   },
   "peerDependenciesMeta": {
     "eslint-plugin-import": {
@@ -75,14 +74,12 @@
     },
     "eslint-plugin-import-x": {
       "optional": true
-    },
-    "is-bun-module": {
-      "optional": true
     }
   },
   "dependencies": {
     "debug": "^4.4.0",
     "get-tsconfig": "^4.10.0",
+    "is-bun-module": "^2.0.0",
     "rspack-resolver": "^1.2.2",
     "stable-hash": "^0.0.5",
     "tinyglobby": "^0.2.12"
@@ -105,7 +102,6 @@
     "eslint": "^9.22.0",
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import-x": "^4.9.0",
-    "is-bun-module": "^1.3.0",
     "lint-staged": "^15.5.0",
     "npm-run-all2": "^7.0.2",
     "path-serializer": "^0.3.4",

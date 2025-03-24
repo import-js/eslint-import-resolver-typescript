@@ -12,5 +12,3 @@ export interface TypeScriptResolverOptions extends NapiResolveOptions {
   bun?: boolean
   noWarnOnMultipleProjects?: boolean
 }
-
-export type IsBunModule = typeof import('is-bun-module')
