@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.3
+
+### Patch Changes
+
+- [#402](https://github.com/import-js/eslint-import-resolver-typescript/pull/402) [`f21bf15`](https://github.com/import-js/eslint-import-resolver-typescript/commit/f21bf152311cdaa85bdf390bba2824c56cb111da) Thanks [@SunsetTechuila](https://github.com/SunsetTechuila)! - fix: don't resolve not implemented node modules in `bun`
+
+  `is-bun-module` is marked as `dependency`, again, for correctness
+
 ## 4.2.2
 
 ### Patch Changes
