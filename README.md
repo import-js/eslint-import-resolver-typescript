@@ -228,9 +228,9 @@ Add the following to your `.eslintrc` config:
 
 #### Bun
 
-[Bun](https://bun.sh/) provides builtin modules such as `bun:test`, which are not resolved by default.
+[Bun](https://bun.sh/) provides built-in modules such as `bun:test`, which are not resolved by default.
 
-Enable Bun builtin module resolution by choosing one of these 3 options:
+Enable Bun built-in module resolution by choosing one of these 3 options:
 
 - Set the `bun: true` option, as shown in [Configuration](#configuration) above
 - Run ESLint with `bun --bun eslint`
