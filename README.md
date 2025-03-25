@@ -96,7 +96,7 @@ export default [
         createTypeScriptImportResolver({
           alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
-          bun: true, // resolve Bun modules, defaults to false
+          bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
           // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
@@ -140,7 +140,7 @@ export default [
         typescript: {
           alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
-          bun: true, // resolve Bun modules, defaults to false
+          bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
           // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
@@ -192,7 +192,7 @@ Add the following to your `.eslintrc` config:
       "typescript": {
         "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
-        "bun": true, // resolve Bun modules, defaults to false
+        "bun": true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
         // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
@@ -230,7 +230,7 @@ Add the following to your `.eslintrc` config:
 
 [Bun](https://bun.sh/) provides built-in modules such as `bun:test`, which are not resolved by default.
 
-Enable Bun built-in module resolution by choosing one of these 3 options:
+Enable Bun built-in module resolution by choosing 1 out of these 3 options:
 
 - Set the `bun: true` option, as shown in [Configuration](#configuration) above
 - Run ESLint with `bun --bun eslint`
