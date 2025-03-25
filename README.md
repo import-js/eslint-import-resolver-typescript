@@ -30,6 +30,8 @@ This means you can:
 - [Configuration](#configuration)
   - [`eslint.config.js`](#eslintconfigjs)
   - [`.eslintrc`](#eslintrc)
+  - [Other environments](#other-environments)
+    - [Bun](#bun)
 - [Options from `rspack-resolver`](#options-from-rspack-resolver)
   - [`conditionNames`](#conditionnames)
   - [`extensions`](#extensions)
@@ -94,6 +96,8 @@ export default [
         createTypeScriptImportResolver({
           alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
+          bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
+
           // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
           // use <root>/path/to/folder/tsconfig.json
@@ -135,6 +139,8 @@ export default [
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+
+          bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
           // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
@@ -186,6 +192,8 @@ Add the following to your `.eslintrc` config:
       "typescript": {
         "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
 
+        "bun": true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
+
         // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
 
         // use <root>/path/to/folder/tsconfig.json
@@ -215,6 +223,18 @@ Add the following to your `.eslintrc` config:
   },
 }
 ```
+
+### Other environments
+
+#### Bun
+
+[Bun](https://bun.sh/) provides built-in modules such as `bun:test`, which are not resolved by default.
+
+Enable Bun built-in module resolution by choosing 1 out of these 3 options:
+
+- Set the `bun: true` option, as shown in [Configuration](#configuration) above
+- Run ESLint with `bun --bun eslint`
+- [Configure `run.bun` in `bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun)
 
 ## Options from [`rspack-resolver`][]
 
