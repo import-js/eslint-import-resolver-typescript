@@ -222,6 +222,18 @@ Add the following to your `.eslintrc` config:
 }
 ```
 
+### Other environments
+
+#### Bun
+
+[Bun](https://bun.sh/) provides builtin modules such as `bun:test`, which are not resolved by default.
+
+Enable Bun builtin module resolution by choosing one of these 3 options:
+
+- Set the `bun: true` option, as shown in [Configuration](#configuration) above
+- Run ESLint with `bun --bun eslint`
+- [Configure `run.bun` in `bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun)
+
 ## Options from [`rspack-resolver`][]
 
 ### `conditionNames`
