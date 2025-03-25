@@ -6,7 +6,9 @@
 
 - [#402](https://github.com/import-js/eslint-import-resolver-typescript/pull/402) [`f21bf15`](https://github.com/import-js/eslint-import-resolver-typescript/commit/f21bf152311cdaa85bdf390bba2824c56cb111da) Thanks [@SunsetTechuila](https://github.com/SunsetTechuila)! - fix: don't resolve not implemented node modules in `bun`
 
-  `is-bun-module` is marked as `dependency`, again, for correctness
+  `is-bun-module` is marked as `dependency`, again, for correctness, see [`isBunImplementedNodeModule`](https://github.com/SunsetTechuila/is-bun-module#isbunimplementednodemodulemodulename-bunversion) for more details
+
+  For `Bun` users: you don't need to install `is-bun-module` any more but `bun: true` option is still required if you're running without `bun --bun` nor [`run#bun`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun) enabled
 
 ## 4.2.2
 
