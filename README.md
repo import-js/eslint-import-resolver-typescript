@@ -30,6 +30,8 @@ This means you can:
 - [Configuration](#configuration)
   - [`eslint.config.js`](#eslintconfigjs)
   - [`.eslintrc`](#eslintrc)
+  - [Other environments](#other-environments)
+    - [Bun](#bun)
 - [Options from `rspack-resolver`](#options-from-rspack-resolver)
   - [`conditionNames`](#conditionnames)
   - [`extensions`](#extensions)
