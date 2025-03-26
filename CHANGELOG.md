@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.10.0
+
+### Minor Changes
+
+- [#413](https://github.com/import-js/eslint-import-resolver-typescript/pull/413) [`89c2795`](https://github.com/import-js/eslint-import-resolver-typescript/commit/89c2795cde0ddf0c38c941ee4cf5d4ce1f3ac842) Thanks [@JounQin](https://github.com/JounQin)! - chore: housekeeping, bump all (dev) deps
+
+  Migrate `rspack-resolver` to rebranding [`unrs-resolver`](https://github.com/unrs/unrs-resolver) for more targets support and other bug fixes
+
 ## 3.9.1
 
 ### Patch Changes
