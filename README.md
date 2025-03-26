@@ -25,14 +25,14 @@ This means you can:
 
 - [Notice](#notice)
 - [Installation](#installation)
-  - [`eslint-plugin-import`](#eslint-plugin-import)
   - [`eslint-plugin-import-x`](#eslint-plugin-import-x)
+  - [`eslint-plugin-import`](#eslint-plugin-import)
 - [Configuration](#configuration)
   - [`eslint.config.js`](#eslintconfigjs)
   - [`.eslintrc`](#eslintrc)
   - [Other environments](#other-environments)
     - [Bun](#bun)
-- [Options from `rspack-resolver`](#options-from-rspack-resolver)
+- [Options from `unrs-resolver`](#options-from-unrs-resolver)
   - [`conditionNames`](#conditionnames)
   - [`extensions`](#extensions)
   - [`extensionAlias`](#extensionalias)
@@ -53,19 +53,6 @@ If you're facing some problems on rules `import/default` or `import/named` from 
 
 ## Installation
 
-### `eslint-plugin-import`
-
-```sh
-# npm
-npm i -D eslint-plugin-import eslint-import-resolver-typescript
-
-# pnpm
-pnpm i -D eslint-plugin-import eslint-import-resolver-typescript
-
-# yarn
-yarn add -D eslint-plugin-import eslint-import-resolver-typescript
-```
-
 ### `eslint-plugin-import-x`
 
 ```sh
@@ -77,6 +64,19 @@ pnpm i -D eslint-plugin-import-x eslint-import-resolver-typescript
 
 # yarn
 yarn add -D eslint-plugin-import-x eslint-import-resolver-typescript
+```
+
+### `eslint-plugin-import`
+
+```sh
+# npm
+npm i -D eslint-plugin-import eslint-import-resolver-typescript
+
+# pnpm
+pnpm i -D eslint-plugin-import eslint-import-resolver-typescript
+
+# yarn
+yarn add -D eslint-plugin-import eslint-import-resolver-typescript
 ```
 
 ## Configuration
@@ -98,30 +98,27 @@ export default [
 
           bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
-          // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+          // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json or <root>/jsconfig.json by default
 
-          // use <root>/path/to/folder/tsconfig.json
+          // use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
           project: 'path/to/folder',
 
-          // Multiple tsconfigs (Useful for monorepos)
+          // Multiple tsconfigs/jsconfigs (Useful for monorepos, but discouraged in favor of `references` supported)
 
           // use a glob pattern
-          project: 'packages/*/tsconfig.json',
+          project: 'packages/*/{ts,js}config.json',
 
           // use an array
           project: [
             'packages/module-a/tsconfig.json',
-            'packages/module-b/tsconfig.json',
+            'packages/module-b/jsconfig.json',
           ],
 
           // use an array of glob patterns
           project: [
             'packages/*/tsconfig.json',
-            'other-packages/*/tsconfig.json',
+            'other-packages/*/jsconfig.json',
           ],
-
-          // use <root>/jsconfig.json
-          project: 'jsconfig.json',
         }),
       ],
     },
@@ -142,30 +139,27 @@ export default [
 
           bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
-          // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+          // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json or <root>/jsconfig.json by default
 
-          // use <root>/path/to/folder/tsconfig.json
+          // use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
           project: 'path/to/folder',
 
-          // Multiple tsconfigs (Useful for monorepos)
+          // Multiple tsconfigs/jsconfigs (Useful for monorepos, but discouraged in favor of `references` supported)
 
           // use a glob pattern
-          project: 'packages/*/tsconfig.json',
+          project: 'packages/*/{ts,js}config.json',
 
           // use an array
           project: [
             'packages/module-a/tsconfig.json',
-            'packages/module-b/tsconfig.json',
+            'packages/module-b/jsconfig.json',
           ],
 
           // use an array of glob patterns
           project: [
             'packages/*/tsconfig.json',
-            'other-packages/*/tsconfig.json',
+            'other-packages/*/jsconfig.json',
           ],
-
-          // use <root>/jsconfig.json
-          project: 'jsconfig.json',
         },
       },
     },
@@ -194,30 +188,27 @@ Add the following to your `.eslintrc` config:
 
         "bun": true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
 
-        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json or <root>/jsconfig.json by default
 
-        // use <root>/path/to/folder/tsconfig.json
+        // use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
         "project": "path/to/folder",
 
-        // Multiple tsconfigs (Useful for monorepos)
+        // Multiple tsconfigs (Useful for monorepos, but discouraged in favor of `references` supported)
 
         // use a glob pattern
-        "project": "packages/*/tsconfig.json",
+        "project": "packages/*/{ts,js}config.json",
 
         // use an array
         "project": [
           "packages/module-a/tsconfig.json",
-          "packages/module-b/tsconfig.json",
+          "packages/module-b/jsconfig.json",
         ],
 
         // use an array of glob patterns
         "project": [
           "packages/*/tsconfig.json",
-          "other-packages/*/tsconfig.json",
+          "other-packages/*/jsconfig.json",
         ],
-
-        // use <root>/jsconfig.json
-        "project": "jsconfig.json",
       },
     },
   },
@@ -236,7 +227,7 @@ Enable Bun built-in module resolution by choosing 1 out of these 3 options:
 - Run ESLint with `bun --bun eslint`
 - [Configure `run.bun` in `bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun)
 
-## Options from [`rspack-resolver`][]
+## Options from [`unrs-resolver`][]
 
 ### `conditionNames`
 
@@ -320,7 +311,7 @@ Default:
 
 ### Other options
 
-You can pass through other options of [`rspack-resolver`][] directly
+You can pass through other options of [`unrs-resolver`][] directly
 
 ### Default options
 
@@ -361,6 +352,6 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [`eslint-plugin-import`]: https://github.com/import-js/eslint-plugin-import
 [`eslint-plugin-import-x`]: https://github.com/un-ts/eslint-plugin-import-x
-[`rspack-resolver`]: https://github.com/unrs/rspack-resolver
+[`unrs-resolver`]: https://github.com/unrs/unrs-resolver
 [`typescript`]: https://www.typescriptlang.org
 [isc]: https://opensource.org/licenses/ISC

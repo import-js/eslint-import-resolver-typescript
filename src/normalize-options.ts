@@ -1,5 +1,5 @@
-import type { TsconfigOptions } from 'rspack-resolver'
 import { globSync, isDynamicPattern } from 'tinyglobby'
+import type { TsconfigOptions } from 'unrs-resolver'
 
 import {
   DEFAULT_CONFIGS,
