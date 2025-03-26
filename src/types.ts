@@ -1,4 +1,4 @@
-import type { NapiResolveOptions } from 'rspack-resolver'
+import type { NapiResolveOptions } from 'unrs-resolver'
 
 export interface TypeScriptResolverOptions extends NapiResolveOptions {
   project?: string[] | string

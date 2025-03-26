@@ -9,8 +9,8 @@ import {
   parseTsconfig,
 } from 'get-tsconfig'
 import { isBunBuiltin } from 'is-bun-module'
-import { ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
+import { ResolverFactory } from 'unrs-resolver'
 
 import { IMPORT_RESOLVER_NAME, JS_EXT_PATTERN } from './constants.js'
 import {
@@ -65,7 +65,7 @@ export const resolve = (
   options ||= {}
 
   // don't worry about node/bun core modules
-  if ((isBun || options.bun) ? isBunBuiltin(source) : isBuiltin(source)) {
+  if (isBun || options.bun ? isBunBuiltin(source) : isBuiltin(source)) {
     log('matched core:', source)
     return { found: true, path: null }
   }
