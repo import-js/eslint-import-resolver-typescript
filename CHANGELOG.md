@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.5
+
+### Patch Changes
+
+- [#410](https://github.com/import-js/eslint-import-resolver-typescript/pull/410) [`ec59d22`](https://github.com/import-js/eslint-import-resolver-typescript/commit/ec59d22fdd1ec8093dcb97da626c28ea346f41e3) Thanks [@JounQin](https://github.com/JounQin)! - fix: absolute path aliasing should not be skipped
+
 ## 4.2.4
 
 ### Patch Changes
