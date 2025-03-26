@@ -6,12 +6,11 @@ import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
 import type { TsConfigResult } from 'get-tsconfig'
 import { createPathsMatcher, getTsconfig } from 'get-tsconfig'
-import type { Version } from 'is-bun-module'
 import { isBunModule } from 'is-bun-module'
-import { type NapiResolveOptions, ResolverFactory } from 'rspack-resolver'
 import { stableHash } from 'stable-hash'
 import { globSync, isDynamicPattern } from 'tinyglobby'
 import type { SetRequired } from 'type-fest'
+import { type NapiResolveOptions, ResolverFactory } from 'unrs-resolver'
 
 const IMPORTER_NAME = 'eslint-import-resolver-typescript'
 
@@ -149,10 +148,7 @@ export function resolve(
   source = removeQuerystring(source)
 
   // don't worry about core node/bun modules
-  if (
-    isNodeCoreModule(source) ||
-    isBunModule(source, (process.versions.bun ?? 'latest') as Version)
-  ) {
+  if (isNodeCoreModule(source) || isBunModule(source)) {
     log('matched core:', source)
 
     return {
