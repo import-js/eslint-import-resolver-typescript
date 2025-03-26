@@ -6649,7 +6649,6 @@ __metadata:
     eslint-import-resolver-typescript: "link:."
     eslint-plugin-import-x: "npm:^4.9.3"
     get-tsconfig: "npm:^4.10.0"
-    globals: "npm:^16.0.0"
     is-bun-module: "npm:^2.0.0"
     lint-staged: "npm:^15.5.0"
     npm-run-all2: "npm:^7.0.2"

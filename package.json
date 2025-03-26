@@ -103,7 +103,6 @@
     "eslint": "^9.23.0",
     "eslint-import-resolver-typescript": "link:.",
     "eslint-plugin-import-x": "^4.9.3",
-    "globals": "^16.0.0",
     "lint-staged": "^15.5.0",
     "npm-run-all2": "^7.0.2",
     "path-serializer": "^0.3.4",

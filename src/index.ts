@@ -72,8 +72,6 @@ export const resolve = (
 
   source = removeQuerystring(source)
 
-  console.log('source:', source)
-
   if (!resolver) {
     const optionsHash = stableHash(options)
     const cwd = process.cwd()
