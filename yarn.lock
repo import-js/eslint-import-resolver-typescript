@@ -4125,109 +4125,109 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-darwin-arm64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-darwin-arm64@npm:1.3.1"
+"@unrs/resolver-binding-darwin-arm64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-darwin-arm64@npm:1.3.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-darwin-x64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-darwin-x64@npm:1.3.1"
+"@unrs/resolver-binding-darwin-x64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-darwin-x64@npm:1.3.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-freebsd-x64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-freebsd-x64@npm:1.3.1"
+"@unrs/resolver-binding-freebsd-x64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-freebsd-x64@npm:1.3.2"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.3.1"
+"@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.3.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm-musleabihf@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-arm-musleabihf@npm:1.3.1"
+"@unrs/resolver-binding-linux-arm-musleabihf@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-arm-musleabihf@npm:1.3.2"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm64-gnu@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-arm64-gnu@npm:1.3.1"
+"@unrs/resolver-binding-linux-arm64-gnu@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-arm64-gnu@npm:1.3.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm64-musl@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-arm64-musl@npm:1.3.1"
+"@unrs/resolver-binding-linux-arm64-musl@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-arm64-musl@npm:1.3.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-ppc64-gnu@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-ppc64-gnu@npm:1.3.1"
+"@unrs/resolver-binding-linux-ppc64-gnu@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-ppc64-gnu@npm:1.3.2"
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-s390x-gnu@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-s390x-gnu@npm:1.3.1"
+"@unrs/resolver-binding-linux-s390x-gnu@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-s390x-gnu@npm:1.3.2"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-x64-gnu@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-x64-gnu@npm:1.3.1"
+"@unrs/resolver-binding-linux-x64-gnu@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-x64-gnu@npm:1.3.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-x64-musl@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-linux-x64-musl@npm:1.3.1"
+"@unrs/resolver-binding-linux-x64-musl@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-linux-x64-musl@npm:1.3.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-wasm32-wasi@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-wasm32-wasi@npm:1.3.1"
+"@unrs/resolver-binding-wasm32-wasi@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-wasm32-wasi@npm:1.3.2"
   dependencies:
     "@napi-rs/wasm-runtime": "npm:^0.2.7"
   conditions: cpu=wasm32
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-win32-arm64-msvc@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-win32-arm64-msvc@npm:1.3.1"
+"@unrs/resolver-binding-win32-arm64-msvc@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-win32-arm64-msvc@npm:1.3.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-win32-ia32-msvc@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-win32-ia32-msvc@npm:1.3.1"
+"@unrs/resolver-binding-win32-ia32-msvc@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-win32-ia32-msvc@npm:1.3.2"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-win32-x64-msvc@npm:1.3.1":
-  version: 1.3.1
-  resolution: "@unrs/resolver-binding-win32-x64-msvc@npm:1.3.1"
+"@unrs/resolver-binding-win32-x64-msvc@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@unrs/resolver-binding-win32-x64-msvc@npm:1.3.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -6649,6 +6649,7 @@ __metadata:
     eslint-import-resolver-typescript: "link:."
     eslint-plugin-import-x: "npm:^4.9.3"
     get-tsconfig: "npm:^4.10.0"
+    globals: "npm:^16.0.0"
     is-bun-module: "npm:^2.0.0"
     lint-staged: "npm:^15.5.0"
     npm-run-all2: "npm:^7.0.2"
@@ -6663,7 +6664,7 @@ __metadata:
     tinyglobby: "npm:^0.2.12"
     type-coverage: "npm:^2.29.7"
     typescript: "npm:~5.8.2"
-    unrs-resolver: "npm:^1.3.1"
+    unrs-resolver: "npm:^1.3.2"
     vitest: "npm:^3.0.9"
     yarn-berry-deduplicate: "npm:^6.1.1"
   peerDependencies:
@@ -14434,25 +14435,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unrs-resolver@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "unrs-resolver@npm:1.3.1"
+"unrs-resolver@npm:^1.3.1, unrs-resolver@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "unrs-resolver@npm:1.3.2"
   dependencies:
-    "@unrs/resolver-binding-darwin-arm64": "npm:1.3.1"
-    "@unrs/resolver-binding-darwin-x64": "npm:1.3.1"
-    "@unrs/resolver-binding-freebsd-x64": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-arm-gnueabihf": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-arm-musleabihf": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-arm64-gnu": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-arm64-musl": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-ppc64-gnu": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-s390x-gnu": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-x64-gnu": "npm:1.3.1"
-    "@unrs/resolver-binding-linux-x64-musl": "npm:1.3.1"
-    "@unrs/resolver-binding-wasm32-wasi": "npm:1.3.1"
-    "@unrs/resolver-binding-win32-arm64-msvc": "npm:1.3.1"
-    "@unrs/resolver-binding-win32-ia32-msvc": "npm:1.3.1"
-    "@unrs/resolver-binding-win32-x64-msvc": "npm:1.3.1"
+    "@unrs/resolver-binding-darwin-arm64": "npm:1.3.2"
+    "@unrs/resolver-binding-darwin-x64": "npm:1.3.2"
+    "@unrs/resolver-binding-freebsd-x64": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-arm-gnueabihf": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-arm-musleabihf": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-arm64-gnu": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-arm64-musl": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-ppc64-gnu": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-s390x-gnu": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-x64-gnu": "npm:1.3.2"
+    "@unrs/resolver-binding-linux-x64-musl": "npm:1.3.2"
+    "@unrs/resolver-binding-wasm32-wasi": "npm:1.3.2"
+    "@unrs/resolver-binding-win32-arm64-msvc": "npm:1.3.2"
+    "@unrs/resolver-binding-win32-ia32-msvc": "npm:1.3.2"
+    "@unrs/resolver-binding-win32-x64-msvc": "npm:1.3.2"
   dependenciesMeta:
     "@unrs/resolver-binding-darwin-arm64":
       optional: true
@@ -14484,7 +14485,7 @@ __metadata:
       optional: true
     "@unrs/resolver-binding-win32-x64-msvc":
       optional: true
-  checksum: 10/0614246309fd0ac9ad89b36753e006ee3ec36decda97e9cbd88b28b90637a2799e2b12f83cae16d5d0b06a2f8134ffd6760622952f3b2a682cc2a28c7f9dbaaa
+  checksum: 10/13dbee27cc3288437a798338c54de4cb3b249e46ee97d3d4ac1976276e040b0e3c43594ce818a7e66f69241bf042ad47a3c2ad548358613125111c55b4ba5469
   languageName: node
   linkType: hard
 

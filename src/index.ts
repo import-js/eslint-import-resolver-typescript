@@ -33,7 +33,7 @@ const tsconfigCache = new Map<string, TsConfigJsonResolved>()
 
 const matcherCache = new Map<string, FileMatcher>()
 
-const oxcResolve = (
+const unrsResolve = (
   source: string,
   file: string,
   resolver: ResolverFactory,
@@ -71,6 +71,8 @@ export const resolve = (
   }
 
   source = removeQuerystring(source)
+
+  console.log('source:', source)
 
   if (!resolver) {
     const optionsHash = stableHash(options)
@@ -157,7 +159,7 @@ export const resolve = (
     }
   }
 
-  const resolved = oxcResolve(source, file, resolver)
+  const resolved = unrsResolve(source, file, resolver)
 
   const foundPath = resolved.path
 
@@ -170,7 +172,7 @@ export const resolve = (
     !path.isAbsolute(source) &&
     !source.startsWith('.')
   ) {
-    const definitelyTyped = oxcResolve(
+    const definitelyTyped = unrsResolve(
       '@types/' + mangleScopedPackage(source),
       file,
       resolver,

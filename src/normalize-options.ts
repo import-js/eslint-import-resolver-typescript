@@ -39,8 +39,9 @@ export function normalizeOptions(
     configFile = tryFile(configFile)
     ensured = true
   } else if (project) {
+    project = Array.isArray(project) ? project : [project]
     log('original projects:', ...project)
-    project = (Array.isArray(project) ? project : [project]).map(toGlobPath)
+    project = project.map(toGlobPath)
     if (project.some(p => isDynamicPattern(p))) {
       project = globSync(project, {
         absolute: true,
