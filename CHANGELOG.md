@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.2.4
+
+### Patch Changes
+
+- [#407](https://github.com/import-js/eslint-import-resolver-typescript/pull/407) [`6b183ff`](https://github.com/import-js/eslint-import-resolver-typescript/commit/6b183fff1b42dfb1514545b91021dfa73ab4a1c5) Thanks [@JounQin](https://github.com/JounQin)! - chore: migrate to rebranding `unrs-resolver` with new targets supported:
+
+  - `i686-pc-windows-msvc`
+  - `armv7-unknown-linux-musleabihf`
+  - `powerpc64le-unknown-linux-gnu`
+  - `s390x-unknown-linux-gnu`
+
 ## 4.2.3
 
 ### Patch Changes
