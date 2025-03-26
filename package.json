@@ -101,7 +101,7 @@
     "dummy.js": "link:dummy.js",
     "eslint": "^9.23.0",
     "eslint-import-resolver-typescript": "link:.",
-    "eslint-plugin-import-x": "^4.9.2",
+    "eslint-plugin-import-x": "^4.9.3",
     "lint-staged": "^15.5.0",
     "npm-run-all2": "^7.0.2",
     "path-serializer": "^0.3.4",
