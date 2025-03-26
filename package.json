@@ -50,7 +50,7 @@
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
     "prepare": "simple-git-hooks && yarn-berry-deduplicate || exit 0",
-    "release": "clean-pkg-json && changeset publish",
+    "release": "clean-pkg-json && changeset publish --tag v3.x",
     "test": "run-p 'test:*'",
     "test:dotInclude": "yarn eslint --ext ts,tsx tests/dotInclude --ignore-pattern \"!.dot\"",
     "test:dotPaths": "yarn eslint --ext ts,tsx tests/dotPaths --ignore-pattern \"!.dot\"",
