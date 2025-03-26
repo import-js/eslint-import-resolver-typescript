@@ -13,7 +13,7 @@ const absoluteGlobPath = path.join(__dirname, globPattern)
 const base = require('../base.eslintrc.cjs')()
 
 module.exports =
-  // eslint-disable-next-line no-magic-numbers -- don't run on node 16 because lacking of `structuredClone`
+  // don't run on node 16 because lacking of `structuredClone`
   +process.versions.node.split('.')[0] <= 16
     ? {}
     : {
