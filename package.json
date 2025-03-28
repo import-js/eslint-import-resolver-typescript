@@ -5,7 +5,7 @@
   "description": "This plugin adds `TypeScript` support to `eslint-plugin-import`",
   "repository": "https://github.com/import-js/eslint-import-resolver-typescript",
   "author": "Alex Gorbatchev <alex.gorbatchev@gmail.com>",
-  "contributors": [
+  "maintainers": [
     "JounQin <admin@1stg.me> (https://www.1stG.me)"
   ],
   "funding": "https://opencollective.com/eslint-import-resolver-typescript",
@@ -39,6 +39,7 @@
   },
   "types": "lib/index.d.ts",
   "files": [
+    "index.d.cts",
     "lib",
     "!**/*.tsbuildinfo"
   ],

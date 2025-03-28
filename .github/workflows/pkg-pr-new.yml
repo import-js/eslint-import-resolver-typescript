@@ -27,4 +27,4 @@ jobs:
       - name: Build
         run: yarn build
 
-      - run: yarn dlx pkg-pr-new publish
+      - run: yarn dlx pkg-pr-new publish --compact
