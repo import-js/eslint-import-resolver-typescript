@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.7
+
+### Patch Changes
+
+- [`aeb558f`](https://github.com/import-js/eslint-import-resolver-typescript/commit/aeb558f0a5911217e8eff6fe6e1b4ac4d4038c71) Thanks [@JounQin](https://github.com/JounQin)! - fix: add missing `index.d.cts` file
+
 ## 4.2.6
 
 ### Patch Changes
