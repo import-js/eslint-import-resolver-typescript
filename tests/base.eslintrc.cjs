@@ -1,6 +1,6 @@
 /**
  * @import {TSESLint} from '@typescript-eslint/utils'
- * @param {string} project
+ * @param {string | string[]} project
  * @returns {TSESLint.ClassicConfig.Config}
  */
 const base = project => ({

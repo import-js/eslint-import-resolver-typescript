@@ -362,6 +362,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atlaskit/pragmatic-drag-and-drop@npm:^1.5.2":
+  version: 1.5.2
+  resolution: "@atlaskit/pragmatic-drag-and-drop@npm:1.5.2"
+  dependencies:
+    "@babel/runtime": "npm:^7.0.0"
+    bind-event-listener: "npm:^3.0.0"
+    raf-schd: "npm:^4.0.3"
+  checksum: 10/85009e9f819e8a6431632f4eff83b5f5928c708f51730d22590585600e000d26686cb03bb7a8e89a4f838e8d631786d81d82c71620f5c6d5d33ca51a205010c8
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.21.4, @babel/code-frame@npm:^7.22.13, @babel/code-frame@npm:^7.26.2":
   version: 7.26.2
   resolution: "@babel/code-frame@npm:7.26.2"
@@ -1821,12 +1832,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
-  version: 7.26.10
-  resolution: "@babel/runtime@npm:7.26.10"
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+  version: 7.27.0
+  resolution: "@babel/runtime@npm:7.27.0"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: 10/9d7ff8e96abe3791047c1138789c742411e3ef19c4d7ca18ce916f83cec92c06ec5dc64401759f6dd1e377cf8a01bbd2c62e033eb7550f435cf6579768d0d4a5
+  checksum: 10/e6966e03b695feb4c0ac0856a4355231c2580bf9ebd0298f47739f85c0ea658679dd84409daf26378d42c86c1cbe7e33feab709b14e784254b6c441d91606465
   languageName: node
   linkType: hard
 
@@ -3911,12 +3922,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.13.13":
-  version: 22.13.13
-  resolution: "@types/node@npm:22.13.13"
+"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.13.14":
+  version: 22.13.14
+  resolution: "@types/node@npm:22.13.14"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/1750518a26fe070dcd4aacd9869d8c72c5b315e3b2fc643e3604fa02b3adac2817eae7808ae34c6bdd6ac96bb5d25acea59656c4ac155b1ee47469a65d32eba4
+  checksum: 10/5fafad441c7bb27f963aa8fdfa0787ffb1142b27f4dd2047a2cc27a39f981b432acc71a9b5a428a258f93daeb72f12b7468ab9163a41fe4f98584bc5d42ade6e
   languageName: node
   linkType: hard
 
@@ -5165,6 +5176,13 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: 10/ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  languageName: node
+  linkType: hard
+
+"bind-event-listener@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "bind-event-listener@npm:3.0.0"
+  checksum: 10/3d442307ee906b79f041433b065e7b259bd1e5231a74519271cc5beb485f7c469609da9c7f20fdd0b3ab340e4691fee826b76d003c71cf5ad955186aba5c256e
   languageName: node
   linkType: hard
 
@@ -6638,7 +6656,7 @@ __metadata:
     "@pkgr/rollup": "npm:^6.0.1"
     "@total-typescript/ts-reset": "npm:^0.6.1"
     "@types/debug": "npm:^4.1.12"
-    "@types/node": "npm:^22.13.13"
+    "@types/node": "npm:^22.13.14"
     "@types/pnpapi": "npm:^0.0.5"
     "@types/unist": "npm:^3.0.3"
     "@vitest/coverage-v8": "npm:3.0.9"
@@ -6659,7 +6677,7 @@ __metadata:
     size-limit: "npm:^11.2.0"
     size-limit-preset-node-lib: "npm:^0.3.0"
     stable-hash: "npm:^0.0.5"
-    tinyexec: "npm:^1.0.0"
+    tinyexec: "npm:^1.0.1"
     tinyglobby: "npm:^0.2.12"
     type-coverage: "npm:^2.29.7"
     typescript: "npm:~5.8.2"
@@ -10736,6 +10754,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nested-package-json@workspace:tests/nestedPackageJson":
+  version: 0.0.0-use.local
+  resolution: "nested-package-json@workspace:tests/nestedPackageJson"
+  dependencies:
+    "@atlaskit/pragmatic-drag-and-drop": "npm:^1.5.2"
+  languageName: unknown
+  linkType: soft
+
 "next-tick@npm:^1.1.0":
   version: 1.1.0
   resolution: "next-tick@npm:1.1.0"
@@ -11659,6 +11685,13 @@ __metadata:
   version: 2.0.3
   resolution: "quotation@npm:2.0.3"
   checksum: 10/73900a34775a868c8eaa2a4fa8f3ef907f9b5b723eb33eba570fefe14fae44f9015f8e8adf6ea5853c90fd76504b699f6235b6b2e7c0bf13f5f641c8e5d785f7
+  languageName: node
+  linkType: hard
+
+"raf-schd@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "raf-schd@npm:4.0.3"
+  checksum: 10/45514041c5ad31fa96aef3bb3c572a843b92da2f2cd1cb4a47c9ad58e48761d3a4126e18daa32b2bfa0bc2551a42d8f324a0e40e536cb656969929602b4e8b58
   languageName: node
   linkType: hard
 
@@ -13868,10 +13901,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyexec@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "tinyexec@npm:1.0.0"
-  checksum: 10/2c3e8c6351380d80621f75eae722a25d46a08a993924d2238533185a7cb5e55bfbaf41f1742d2d80df45177a42a9549827b208ac902bb0ef87cff7454686d413
+"tinyexec@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "tinyexec@npm:1.0.1"
+  checksum: 10/1f3c3281912d4ab168e067baf46627bb85a803eba0bcea113bba9fe8bdfdcc279cad08052a600d4b8fb603dd57e1af0c500e50a5e7e6b29b2574c88556f41fa6
   languageName: node
   linkType: hard
 
