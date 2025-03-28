@@ -54,6 +54,7 @@
     "build:r": "r -f cjs",
     "build:ts": "tsc -b",
     "eslint": "ESLINT_USE_FLAT_CONFIG=false eslint",
+    "format": "prettier --write .",
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc -b --noEmit",
