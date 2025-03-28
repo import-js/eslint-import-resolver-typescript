@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.6
+
+### Patch Changes
+
+- [#417](https://github.com/import-js/eslint-import-resolver-typescript/pull/417) [`c3f678b`](https://github.com/import-js/eslint-import-resolver-typescript/commit/c3f678ba550f027bfb1f1b64a1750fc1fe83c5e3) Thanks [@JounQin](https://github.com/JounQin)! - fix: `require` entry types, add `module-sync` entry
+
 ## 4.2.5
 
 ### Patch Changes
