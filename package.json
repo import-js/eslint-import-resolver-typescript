@@ -10,10 +10,6 @@
   ],
   "funding": "https://opencollective.com/eslint-import-resolver-typescript",
   "license": "ISC",
-  "workspaces": [
-    ".",
-    "tests/nestedPackageJson"
-  ],
   "packageManager": "yarn@4.8.0",
   "engines": {
     "node": "^16.17.0 || >=18.6.0"
@@ -61,7 +57,7 @@
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc -b --noEmit",
-    "prepare": "simple-git-hooks && yarn-berry-deduplicate || exit 0",
+    "prepare": "simple-git-hooks && yarn-berry-deduplicate && cd tests/nestedPackageJson && yarn || exit 0",
     "release": "clean-pkg-json && changeset publish",
     "test": "run-p 'test:*'",
     "test:absoluteAlias": "yarn eslint --ext ts,tsx tests/absoluteAlias",
