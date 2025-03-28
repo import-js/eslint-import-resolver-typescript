@@ -362,17 +362,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atlaskit/pragmatic-drag-and-drop@npm:^1.5.2":
-  version: 1.5.2
-  resolution: "@atlaskit/pragmatic-drag-and-drop@npm:1.5.2"
-  dependencies:
-    "@babel/runtime": "npm:^7.0.0"
-    bind-event-listener: "npm:^3.0.0"
-    raf-schd: "npm:^4.0.3"
-  checksum: 10/85009e9f819e8a6431632f4eff83b5f5928c708f51730d22590585600e000d26686cb03bb7a8e89a4f838e8d631786d81d82c71620f5c6d5d33ca51a205010c8
-  languageName: node
-  linkType: hard
-
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.21.4, @babel/code-frame@npm:^7.22.13, @babel/code-frame@npm:^7.26.2":
   version: 7.26.2
   resolution: "@babel/code-frame@npm:7.26.2"
@@ -1832,7 +1821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
   version: 7.27.0
   resolution: "@babel/runtime@npm:7.27.0"
   dependencies:
@@ -5176,13 +5165,6 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: 10/ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
-  languageName: node
-  linkType: hard
-
-"bind-event-listener@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "bind-event-listener@npm:3.0.0"
-  checksum: 10/3d442307ee906b79f041433b065e7b259bd1e5231a74519271cc5beb485f7c469609da9c7f20fdd0b3ab340e4691fee826b76d003c71cf5ad955186aba5c256e
   languageName: node
   linkType: hard
 
@@ -10754,14 +10736,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nested-package-json@workspace:tests/nestedPackageJson":
-  version: 0.0.0-use.local
-  resolution: "nested-package-json@workspace:tests/nestedPackageJson"
-  dependencies:
-    "@atlaskit/pragmatic-drag-and-drop": "npm:^1.5.2"
-  languageName: unknown
-  linkType: soft
-
 "next-tick@npm:^1.1.0":
   version: 1.1.0
   resolution: "next-tick@npm:1.1.0"
@@ -11685,13 +11659,6 @@ __metadata:
   version: 2.0.3
   resolution: "quotation@npm:2.0.3"
   checksum: 10/73900a34775a868c8eaa2a4fa8f3ef907f9b5b723eb33eba570fefe14fae44f9015f8e8adf6ea5853c90fd76504b699f6235b6b2e7c0bf13f5f641c8e5d785f7
-  languageName: node
-  linkType: hard
-
-"raf-schd@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "raf-schd@npm:4.0.3"
-  checksum: 10/45514041c5ad31fa96aef3bb3c572a843b92da2f2cd1cb4a47c9ad58e48761d3a4126e18daa32b2bfa0bc2551a42d8f324a0e40e536cb656969929602b4e8b58
   languageName: node
   linkType: hard
 

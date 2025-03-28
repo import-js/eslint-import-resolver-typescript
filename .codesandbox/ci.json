@@ -1,7 +1,4 @@
 {
   "node": "18",
-  "sandboxes": [],
-  "packages": [
-    "."
-  ]
+  "sandboxes": []
 }

@@ -10,10 +10,6 @@
   ],
   "funding": "https://opencollective.com/eslint-import-resolver-typescript",
   "license": "ISC",
-  "workspaces": [
-    ".",
-    "tests/nestedPackageJson"
-  ],
   "packageManager": "yarn@4.8.0",
   "engines": {
     "node": "^16.17.0 || >=18.6.0"
@@ -22,9 +18,22 @@
   "module": "lib/index.js",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "require": "./lib/index.cjs",
-      "default": "./lib/index.js"
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "module-sync": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./lib/index.cjs"
+      },
+      "default": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
     },
     "./package.json": "./package.json"
   },
@@ -48,7 +57,7 @@
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc -b --noEmit",
-    "prepare": "simple-git-hooks && yarn-berry-deduplicate || exit 0",
+    "prepare": "simple-git-hooks && yarn-berry-deduplicate && cd tests/nestedPackageJson && yarn || exit 0",
     "release": "clean-pkg-json && changeset publish",
     "test": "run-p 'test:*'",
     "test:absoluteAlias": "yarn eslint --ext ts,tsx tests/absoluteAlias",
