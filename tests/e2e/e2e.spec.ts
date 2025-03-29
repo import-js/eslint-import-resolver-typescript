@@ -4,6 +4,8 @@ import path from 'node:path'
 import { tryFile } from '@pkgr/core'
 import { exec } from 'tinyexec'
 
+const TIMEOUT = 30_000
+
 describe('e2e cases', async () => {
   const { dirname } = import.meta
 
@@ -26,31 +28,35 @@ describe('e2e cases', async () => {
       })
     }
 
-    it('should exec eslint successfully', async () => {
-      const eslintConfig = tryFile('eslint.config.js', false, absoluteDir)
-      expect(
-        await exec(
-          'yarn',
-          [
-            'eslint',
-            ...(eslintConfig
-              ? ['-c', eslintConfig]
-              : ['--ignore-pattern', '!.dot']),
-            '--ext',
-            'cjs,cts,js,jsx,mjs,mts,ts,tsx',
-            '--report-unused-disable-directives',
-            absoluteDir,
-          ],
-          {
-            nodeOptions: {
-              env: {
-                ESLINT_USE_FLAT_CONFIG: eslintConfig ? undefined : 'false',
-                NODE_OPTIONS: '--no-warnings=ESLintRCWarning',
+    it(
+      `should exec eslint successfully > ${dirName}`,
+      async () => {
+        const eslintConfig = tryFile('eslint.config.js', false, absoluteDir)
+        expect(
+          await exec(
+            'yarn',
+            [
+              'eslint',
+              ...(eslintConfig
+                ? ['-c', eslintConfig]
+                : ['--ignore-pattern', '!.dot']),
+              '--ext',
+              'cjs,cts,js,jsx,mjs,mts,ts,tsx',
+              '--report-unused-disable-directives',
+              absoluteDir,
+            ],
+            {
+              nodeOptions: {
+                env: {
+                  ESLINT_USE_FLAT_CONFIG: eslintConfig ? undefined : 'false',
+                  NODE_OPTIONS: '--no-warnings=ESLintRCWarning',
+                },
               },
             },
-          },
-        ),
-      ).toMatchSnapshot(dirName)
-    })
+          ),
+        ).toMatchSnapshot()
+      },
+      TIMEOUT,
+    )
   }
 })

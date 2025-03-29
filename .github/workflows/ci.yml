@@ -9,12 +9,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  default:
+  ci:
     name: Lint and Test with Node.js ${{ matrix.node }} on ${{ matrix.os }}
     strategy:
       matrix:
         node:
-          - 16
           - 18
           - 20
           - 22
@@ -24,8 +23,6 @@ jobs:
           - macos-latest
       fail-fast: false
     runs-on: ${{ matrix.os }}
-    env:
-      YARN_IGNORE_NODE: 1
     steps:
       - uses: actions/checkout@v4
 
@@ -38,12 +35,14 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Build and Typecov
-        run: yarn run-s build typecov
+      - name: Build, Lint and Test
+        run: |
+          yarn build
+          yarn run-p lint test typecov
         env:
-          EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
 
-      - name: Lint and Test
-        if: ${{ matrix.node != 16}}
-        run: yarn run-s lint test
+      - name: Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
