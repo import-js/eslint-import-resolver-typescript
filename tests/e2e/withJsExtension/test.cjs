@@ -1,10 +1,7 @@
-/* eslint-env node */
-/* eslint-disable @typescript-eslint/no-var-requires */
+const assert = require('node:assert')
+const path = require('node:path')
 
-const path = require('path')
-const assert = require('assert')
-
-const { resolve } = require('../../')
+const { resolve } = require('../../..')
 
 const config = {
   project: path.join(__dirname, 'tsconfig.json'),
@@ -128,4 +125,4 @@ assertResolve(
 )
 
 // resolves symlinks by default
-assertResolve('dummy.js', '../../dummy.js/index.js')
+assertResolve('dummy.js', '../../../dummy.js/index.js')

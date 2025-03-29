@@ -1,4 +1,3 @@
-/* eslint-env node */
 const config = require('../base.eslintrc.cjs')(__dirname)
 
 module.exports = {

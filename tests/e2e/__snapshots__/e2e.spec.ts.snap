@@ -1,0 +1,121 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`e2e cases > should exec eslint successfully > absoluteAlias 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > dotInclude 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > dotPaths 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > dotProject 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > importXResolverV3 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > multipleEslintrcs 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > multipleTsconfigs 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > nearestTsconfig 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > nestedPackageJson 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > withJsExtension 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > withJsconfig 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > withPaths 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > withPathsAndNestedBaseUrl 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > withQuerystring 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
+exports[`e2e cases > should exec eslint successfully > withoutPaths 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;

@@ -1,5 +1,6 @@
 // import relative
 import './tsImportee.js'
+import './tsxImportee.js'
 import './tsxImportee.jsx'
 import './dtsImportee.js'
 import './dtsImportee.jsx'

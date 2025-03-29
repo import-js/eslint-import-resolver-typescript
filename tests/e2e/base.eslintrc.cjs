@@ -32,12 +32,19 @@ const base = project => ({
         tsx: 'never',
       },
     ],
-    'node/no-extraneous-import': 0,
-    'node/no-missing-import': 0,
+    'import-x/order': [
+      2,
+      {
+        alphabetize: {
+          order: 'asc',
+        },
+        'newlines-between': 'always',
+      },
+    ],
   },
   overrides: [
     {
-      files: '**/.*.cjs',
+      files: '**/*.{cjs,cts}',
       env: {
         node: true,
       },

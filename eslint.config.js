@@ -1,6 +1,6 @@
 // @ts-check
 
-import recommended from '@1stg/eslint-config'
+import base from '@1stg/eslint-config'
 
 /**
  * @import {TSESLint} from '@typescript-eslint/utils'
@@ -10,7 +10,7 @@ const config = [
   {
     ignores: ['tests'],
   },
-  ...recommended,
+  ...base,
   {
     files: ['dummy.js/*'],
     languageOptions: {
