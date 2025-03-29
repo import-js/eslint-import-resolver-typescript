@@ -1,4 +1,5 @@
 .yarn
+/auto-imports.d.ts
 /pnpm-lock.yaml
-/tests/pnp/.pnp.*
-**/*.svg
+.pnp.*
+*.svg

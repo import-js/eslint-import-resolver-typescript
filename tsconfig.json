@@ -1,4 +1,8 @@
 {
   "extends": "./tsconfig.base",
+  "compilerOptions": {
+    "outDir": "./lib",
+    "verbatimModuleSyntax": true
+  },
   "include": ["src", "eslint.config.js"]
 }
