@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.0
+
+### Minor Changes
+
+- [#423](https://github.com/import-js/eslint-import-resolver-typescript/pull/423) [`2fcb947`](https://github.com/import-js/eslint-import-resolver-typescript/commit/2fcb947803eeb096c9c59fa3ae9c34df1236c543) Thanks [@JounQin](https://github.com/JounQin)! - feat: throw error on malformed `tsconfig` reference
+
 ## 4.2.7
 
 ### Patch Changes

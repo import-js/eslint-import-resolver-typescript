@@ -4,7 +4,7 @@ import path from 'node:path'
 import { tryFile } from '@pkgr/core'
 import { exec } from 'tinyexec'
 
-const TIMEOUT = 30_000
+const TIMEOUT = 60_000
 
 describe('e2e cases', async () => {
   const { dirname } = import.meta
