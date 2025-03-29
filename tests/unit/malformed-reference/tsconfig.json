@@ -1,0 +1,7 @@
+{
+  "references": [
+    {
+      "path": "./non-existed"
+    }
+  ]
+}
