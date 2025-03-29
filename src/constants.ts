@@ -73,3 +73,5 @@ export const DEFAULT_TRY_PATHS = ['', ...DEFAULT_CONFIGS]
 export const MATCH_ALL = '**'
 
 export const DEFAULT_IGNORE = [MATCH_ALL, 'node_modules', MATCH_ALL].join('/')
+
+export const TSCONFIG_NOT_FOUND_REGEXP = /^Tsconfig not found\b/

@@ -12,7 +12,11 @@ import { isBunBuiltin } from 'is-bun-module'
 import { stableHash } from 'stable-hash'
 import { ResolverFactory } from 'unrs-resolver'
 
-import { IMPORT_RESOLVER_NAME, JS_EXT_PATTERN } from './constants.js'
+import {
+  IMPORT_RESOLVER_NAME,
+  JS_EXT_PATTERN,
+  TSCONFIG_NOT_FOUND_REGEXP,
+} from './constants.js'
 import {
   mangleScopedPackage,
   removeQuerystring,
@@ -47,6 +51,9 @@ const unrsResolve = (
   }
   if (result.error) {
     log('oxc resolve error:', result.error)
+    if (TSCONFIG_NOT_FOUND_REGEXP.test(result.error)) {
+      throw new Error(result.error)
+    }
   }
   return {
     found: false,
