@@ -1,4 +1,3 @@
-import autoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
@@ -10,12 +9,8 @@ export default defineConfig({
       ).pathname,
     },
   },
-  plugins: [
-    autoImport({
-      imports: ['vitest'],
-    }),
-  ],
   test: {
+    globals: true,
     coverage: {
       enabled: true,
       include: ['src/**/*.ts'],

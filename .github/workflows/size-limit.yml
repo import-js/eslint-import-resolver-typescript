@@ -6,10 +6,6 @@ on:
       - master
       - v3.x
 
-permissions:
-  contents: read
-  pull-requests: write
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -29,7 +25,8 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - uses: andresz1/size-limit-action@v1.8.0
+      - name: Check Size Limit
+        uses: andresz1/size-limit-action@94bc357df29c36c8f8d50ea497c3e225c3c95d1d # v1.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_step: install
