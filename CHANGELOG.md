@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.2
+
+### Patch Changes
+
+- [#427](https://github.com/import-js/eslint-import-resolver-typescript/pull/427) [`dabba8e`](https://github.com/import-js/eslint-import-resolver-typescript/commit/dabba8e97ec1f9a109b2e6fbd16372b63a4c455f) Thanks [@JounQin](https://github.com/JounQin)! - chore: bump `unrs-resolver` to v1.4.1
+
 ## 4.3.1
 
 ### Patch Changes
