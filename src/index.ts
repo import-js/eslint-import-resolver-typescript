@@ -1,7 +1,7 @@
 import { isBuiltin } from 'node:module'
 import path from 'node:path'
 
-import type { ResolvedResult } from 'eslint-plugin-import-x/types.js'
+import type { ResolvedResult } from 'eslint-plugin-import-x/types'
 import {
   type FileMatcher,
   type TsConfigJsonResolved,

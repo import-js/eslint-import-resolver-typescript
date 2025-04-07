@@ -1,5 +1,3 @@
 .yarn
-/auto-imports.d.ts
-/pnpm-lock.yaml
 .pnp.*
 *.svg

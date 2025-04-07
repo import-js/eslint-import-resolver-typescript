@@ -31,11 +31,11 @@ describe('createTypeScriptImportResolver', async () => {
       `)
 
     expect(resolver.resolve('lodash.zip', testfile)).toMatchInlineSnapshot(`
-        {
-          "found": true,
-          "path": "<ROOT>/tests/unit/pnp/.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-cb06530d81.zip/node_modules/lodash.zip/index.js",
-        }
-      `)
+      {
+        "found": true,
+        "path": "<ROOT>/tests/unit/pnp/.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-e596da80a6.zip/node_modules/lodash.zip/index.js",
+      }
+    `)
   })
 
   it('should error on malformed tsconfig reference', () => {
