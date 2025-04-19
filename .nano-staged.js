@@ -1,4 +1,4 @@
-import base from '@1stg/lint-staged/tsc'
+import base from '@1stg/nano-staged/tsc'
 
 export default {
   ...base,

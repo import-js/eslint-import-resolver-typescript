@@ -1,7 +1,7 @@
 /**
- * @import {TSESLint} from '@typescript-eslint/utils'
  * @param {string | string[]} project
  * @returns {TSESLint.ClassicConfig.Config}
+ * @import { TSESLint } from '@typescript-eslint/utils'
  */
 const base = project => ({
   extends: [
