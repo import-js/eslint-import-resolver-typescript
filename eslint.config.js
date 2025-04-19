@@ -3,8 +3,8 @@
 import base from '@1stg/eslint-config'
 
 /**
- * @import {TSESLint} from '@typescript-eslint/utils'
  * @type {TSESLint.FlatConfig.ConfigArray}
+ * @import { TSESLint } from '@typescript-eslint/utils'
  */
 const config = [
   {

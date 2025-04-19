@@ -15,7 +15,8 @@ export const defaultConditionNames = [
 ]
 
 /**
- * `.mts`, `.cts`, `.d.mts`, `.d.cts`, `.mjs`, `.cjs` are not included because `.cjs` and `.mjs` must be used explicitly
+ * `.mts`, `.cts`, `.d.mts`, `.d.cts`, `.mjs`, `.cjs` are not included because
+ * `.cjs` and `.mjs` must be used explicitly
  */
 export const defaultExtensions = [
   '.ts',

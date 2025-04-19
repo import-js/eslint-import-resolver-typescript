@@ -2,7 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 /**
- * For a scoped package, we must look in `@types/foo__bar` instead of `@types/@foo/bar`.
+ * For a scoped package, we must look in `@types/foo__bar` instead of
+ * `@types/@foo/bar`.
  */
 export function mangleScopedPackage(moduleName: string) {
   if (moduleName.startsWith('@')) {
