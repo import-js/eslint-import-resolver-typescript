@@ -36,6 +36,15 @@ describe('createTypeScriptImportResolver', async () => {
         "path": "<ROOT>/tests/unit/pnp/.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-e596da80a6.zip/node_modules/lodash.zip/index.js",
       }
     `)
+
+    expect(
+      resolver.resolve('@atlaskit/pragmatic-drag-and-drop/combine', testfile),
+    ).toMatchInlineSnapshot(`
+      {
+        "found": true,
+        "path": "<ROOT>/tests/unit/pnp/.yarn/cache/@atlaskit-pragmatic-drag-and-drop-npm-1.5.2-3241d4f843-1dace49fa3.zip/node_modules/@atlaskit/pragmatic-drag-and-drop/dist/types/entry-point/combine.d.ts",
+      }
+    `)
   })
 
   it('should resolve .d.ts with .ts extension', () => {

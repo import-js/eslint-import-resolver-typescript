@@ -1,8 +1,0 @@
-{
-  "name": "nested-package-json",
-  "version": "1.0.0",
-  "private": true,
-  "devDependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.5.2"
-  }
-}
