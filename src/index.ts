@@ -33,7 +33,8 @@ export const defaultConditionNames = [
 ]
 
 /**
- * `.mts`, `.cts`, `.d.mts`, `.d.cts`, `.mjs`, `.cjs` are not included because `.cjs` and `.mjs` must be used explicitly
+ * `.mts`, `.cts`, `.d.mts`, `.d.cts`, `.mjs`, `.cjs` are not included because
+ * `.cjs` and `.mjs` must be used explicitly
  */
 export const defaultExtensions = [
   '.ts',
@@ -107,8 +108,8 @@ let resolverCachedOptions: InternalResolverOptions
 let cachedResolver: ResolverFactory | undefined
 
 /**
- * @param source the module to resolve; i.e './some-module'
- * @param file the importing file's full path; i.e. '/usr/local/bin/file.js'
+ * @param source The module to resolve; i.e './some-module'
+ * @param file The importing file's full path; i.e. '/usr/local/bin/file.js'
  * @param options
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -157,9 +158,7 @@ export function resolve(
     }
   }
 
-  /**
-   * {@link https://github.com/webpack/enhanced-resolve/blob/38e9fd9acb79643a70e7bcd0d85dabc600ea321f/lib/PnpPlugin.js#L81-L83}
-   */
+  /** {@link https://github.com/webpack/enhanced-resolve/blob/38e9fd9acb79643a70e7bcd0d85dabc600ea321f/lib/PnpPlugin.js#L81-L83} */
   if (process.versions.pnp && source === 'pnpapi') {
     return {
       found: true,
@@ -273,10 +272,11 @@ const isModule = (modulePath?: string): modulePath is string =>
   !!modulePath && isFile(path.resolve(modulePath, 'package.json'))
 
 /**
- * @param {string} source the module to resolve; i.e './some-module'
- * @param {string} file the importing file's full path; i.e. '/usr/local/bin/file.js'
- * @param {string[]} extensions the extensions to try
- * @param {boolean} retry should retry on failed to resolve
+ * @param {string} source The module to resolve; i.e './some-module'
+ * @param {string} file The importing file's full path; i.e.
+ *   '/usr/local/bin/file.js'
+ * @param {string[]} extensions The extensions to try
+ * @param {boolean} retry Should retry on failed to resolve
  * @returns The mapped path of the module or undefined
  */
 // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -328,9 +328,12 @@ function getMappedPaths(
       .filter(mappedPath => {
         try {
           const stat = fs.statSync(mappedPath, { throwIfNoEntry: false })
-          if (stat === undefined) return false
-          if (stat.isFile()) return true
-
+          if (stat === undefined) {
+            return false
+          }
+          if (stat.isFile()) {
+            return true
+          }
           // Maybe this is a module dir?
           if (stat.isDirectory()) {
             return isModule(mappedPath)
@@ -500,7 +503,8 @@ function initMappers(options: InternalResolverOptions) {
 }
 
 /**
- * For a scoped package, we must look in `@types/foo__bar` instead of `@types/@foo/bar`.
+ * For a scoped package, we must look in `@types/foo__bar` instead of
+ * `@types/@foo/bar`.
  */
 function mangleScopedPackage(moduleName: string) {
   if (moduleName.startsWith('@')) {
@@ -543,7 +547,8 @@ function toNativePathSeparator(p: string) {
 }
 
 /**
- * Counts how many characters in strings `a` and `b` are exactly the same and in the same position.
+ * Counts how many characters in strings `a` and `b` are exactly the same and in
+ * the same position.
  *
  * @param {string} a First string
  * @param {string} b Second string

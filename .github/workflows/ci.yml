@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         node:
-          - 16
           - 18
           - 20
           - 22
@@ -24,10 +23,9 @@ jobs:
           - macos-latest
       fail-fast: false
     runs-on: ${{ matrix.os }}
-    env:
-      YARN_IGNORE_NODE: 1
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
@@ -41,9 +39,7 @@ jobs:
       - name: Build and Typecov
         run: yarn run-s build typecov
         env:
-          EFF_NO_LINK_RULES: true
           PARSER_NO_WATCH: true
 
       - name: Lint and Test
-        if: ${{ matrix.node != 16}}
         run: yarn run-s lint test
