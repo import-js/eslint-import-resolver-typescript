@@ -282,9 +282,19 @@ Default:
     ".d.ts",
     ".js",
   ],
+  ".ts": [".ts", ".d.ts", ".js"],
   ".jsx": [".tsx", ".d.ts", ".jsx"],
+  ".tsx": [
+    ".tsx",
+    ".d.ts",
+    ".jsx",
+    // `.tsx` can also be compiled as `.js`
+    ".js",
+  ],
   ".cjs": [".cts", ".d.cts", ".cjs"],
+  ".cts": [".cts", ".d.cts", ".cjs"],
   ".mjs": [".mts", ".d.mts", ".mjs"],
+  ".mts": [".mts", ".d.mts", ".mjs"],
 }
 ```
 

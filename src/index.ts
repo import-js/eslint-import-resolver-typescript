@@ -50,7 +50,7 @@ const unrsResolve = (
     }
   }
   if (result.error) {
-    log('oxc resolve error:', result.error)
+    log('unrs-resolver error:', result.error)
     if (TSCONFIG_NOT_FOUND_REGEXP.test(result.error)) {
       throw new Error(result.error)
     }
