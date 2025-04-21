@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.3.4
+
+### Patch Changes
+
+- [#442](https://github.com/import-js/eslint-import-resolver-typescript/pull/442) [`57611d9`](https://github.com/import-js/eslint-import-resolver-typescript/commit/57611d9818c5b98d792a03f7392d9c0802a7b961) Thanks [@JounQin](https://github.com/JounQin)! - fix: add more extension aliases for ts source/declaration files
+
+- [#444](https://github.com/import-js/eslint-import-resolver-typescript/pull/444) [`bd45fcd`](https://github.com/import-js/eslint-import-resolver-typescript/commit/bd45fcd5b4ff8e7cf4b9e5b0dbe8ed146de58c1b) Thanks [@JounQin](https://github.com/JounQin)! - fix(deps): bump `unrs-resolver` which resolves #406, #409, #437
+
 ## 4.3.3
 
 ### Patch Changes
