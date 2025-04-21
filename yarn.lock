@@ -162,8 +162,8 @@ __metadata:
   linkType: hard
 
 "@1stg/prettier-config@npm:^5.1.1":
-  version: 5.1.3
-  resolution: "@1stg/prettier-config@npm:5.1.3"
+  version: 5.1.4
+  resolution: "@1stg/prettier-config@npm:5.1.4"
   dependencies:
     "@1stg/config": "npm:^1.0.5"
     "@prettier/plugin-pug": "npm:^3.3.0"
@@ -172,7 +172,7 @@ __metadata:
     prettier-plugin-go-template: "npm:^0.0.15"
     prettier-plugin-ini: "npm:^1.3.0"
     prettier-plugin-jsdoc: "npm:^1.3.2"
-    prettier-plugin-jsdoc-type: "npm:^0.1.6"
+    prettier-plugin-jsdoc-type: "npm:^0.1.12"
     prettier-plugin-pkg: "npm:^0.19.0"
     prettier-plugin-properties: "npm:^0.3.0"
     prettier-plugin-sh: "npm:^0.17.2"
@@ -180,7 +180,7 @@ __metadata:
     prettier-plugin-toml: "npm:^2.0.4"
   peerDependencies:
     prettier: ^3.0.0
-  checksum: 10c0/df2a8ffa117458de163c1fecb1184ec57a24f24779865aa149abddab133af08aa3b41cfd5a073fb81b1600e006e99da2b2dab6af3cfa9575c35b9658cc16a414
+  checksum: 10c0/7950dca3881be0604eff57191b34a0f7efc0377b756225ba7ec969c81ef5cf5db2183d574679c4a1d9224e5597e110d5e78f476aab768e15d434b1c5509bbc3b
   languageName: node
   linkType: hard
 
@@ -3856,123 +3856,123 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-darwin-arm64@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-darwin-arm64@npm:1.6.0"
+"@unrs/resolver-binding-darwin-arm64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-darwin-arm64@npm:1.6.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-darwin-x64@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-darwin-x64@npm:1.6.0"
+"@unrs/resolver-binding-darwin-x64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-darwin-x64@npm:1.6.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-freebsd-x64@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-freebsd-x64@npm:1.6.0"
+"@unrs/resolver-binding-freebsd-x64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-freebsd-x64@npm:1.6.3"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.6.0"
+"@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-arm-gnueabihf@npm:1.6.3"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm-musleabihf@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-arm-musleabihf@npm:1.6.0"
+"@unrs/resolver-binding-linux-arm-musleabihf@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-arm-musleabihf@npm:1.6.3"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm64-gnu@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-arm64-gnu@npm:1.6.0"
+"@unrs/resolver-binding-linux-arm64-gnu@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-arm64-gnu@npm:1.6.3"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-arm64-musl@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-arm64-musl@npm:1.6.0"
+"@unrs/resolver-binding-linux-arm64-musl@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-arm64-musl@npm:1.6.3"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-ppc64-gnu@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-ppc64-gnu@npm:1.6.0"
+"@unrs/resolver-binding-linux-ppc64-gnu@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-ppc64-gnu@npm:1.6.3"
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-riscv64-gnu@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-riscv64-gnu@npm:1.6.0"
+"@unrs/resolver-binding-linux-riscv64-gnu@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-riscv64-gnu@npm:1.6.3"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-s390x-gnu@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-s390x-gnu@npm:1.6.0"
+"@unrs/resolver-binding-linux-s390x-gnu@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-s390x-gnu@npm:1.6.3"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-x64-gnu@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-x64-gnu@npm:1.6.0"
+"@unrs/resolver-binding-linux-x64-gnu@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-x64-gnu@npm:1.6.3"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-linux-x64-musl@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-linux-x64-musl@npm:1.6.0"
+"@unrs/resolver-binding-linux-x64-musl@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-linux-x64-musl@npm:1.6.3"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-wasm32-wasi@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-wasm32-wasi@npm:1.6.0"
+"@unrs/resolver-binding-wasm32-wasi@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-wasm32-wasi@npm:1.6.3"
   dependencies:
     "@napi-rs/wasm-runtime": "npm:^0.2.9"
   conditions: cpu=wasm32
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-win32-arm64-msvc@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-win32-arm64-msvc@npm:1.6.0"
+"@unrs/resolver-binding-win32-arm64-msvc@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-win32-arm64-msvc@npm:1.6.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-win32-ia32-msvc@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-win32-ia32-msvc@npm:1.6.0"
+"@unrs/resolver-binding-win32-ia32-msvc@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-win32-ia32-msvc@npm:1.6.3"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@unrs/resolver-binding-win32-x64-msvc@npm:1.6.0":
-  version: 1.6.0
-  resolution: "@unrs/resolver-binding-win32-x64-msvc@npm:1.6.0"
+"@unrs/resolver-binding-win32-x64-msvc@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@unrs/resolver-binding-win32-x64-msvc@npm:1.6.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@vitest/coverage-v8@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/coverage-v8@npm:3.1.1"
+"@vitest/coverage-v8@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/coverage-v8@npm:3.1.2"
   dependencies:
     "@ampproject/remapping": "npm:^2.3.0"
     "@bcoe/v8-coverage": "npm:^1.0.2"
@@ -3983,16 +3983,16 @@ __metadata:
     istanbul-reports: "npm:^3.1.7"
     magic-string: "npm:^0.30.17"
     magicast: "npm:^0.3.5"
-    std-env: "npm:^3.8.1"
+    std-env: "npm:^3.9.0"
     test-exclude: "npm:^7.0.1"
     tinyrainbow: "npm:^2.0.0"
   peerDependencies:
-    "@vitest/browser": 3.1.1
-    vitest: 3.1.1
+    "@vitest/browser": 3.1.2
+    vitest: 3.1.2
   peerDependenciesMeta:
     "@vitest/browser":
       optional: true
-  checksum: 10c0/0f852d8a438d27605955f2a1177e017f48b0dcdc7069318b2b1e031e3561d02a54e4d9a108afacbc8365c8b42f4bcb13282ae7cfaf380bce27741991321e83d9
+  checksum: 10c0/26f44a922262160ccb15ff3b5668b2b2c220845b41e84a5f601050be5f7d1d447be6bba7850dac12919acc9fd009c6b4c506469e88845f7da867ef14a5a7414a
   languageName: node
   linkType: hard
 
@@ -4013,23 +4013,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/expect@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/expect@npm:3.1.1"
+"@vitest/expect@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/expect@npm:3.1.2"
   dependencies:
-    "@vitest/spy": "npm:3.1.1"
-    "@vitest/utils": "npm:3.1.1"
+    "@vitest/spy": "npm:3.1.2"
+    "@vitest/utils": "npm:3.1.2"
     chai: "npm:^5.2.0"
     tinyrainbow: "npm:^2.0.0"
-  checksum: 10c0/ef4528d0ebb89eb3cc044cf597d051c35df8471bb6ba4029e9b3412aa69d0d85a0ce4eb49531fc78fe1ebd97e6428260463068cc96a8d8c1a80150dedfd1ab3a
+  checksum: 10c0/63507f77b225196d79f5aabedbb10f93974808a2b507661b66def95e803e6f7f958049e9b985d2d5fee83317f157f8018fea6e1240c64a5fec8e9753235ad081
   languageName: node
   linkType: hard
 
-"@vitest/mocker@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/mocker@npm:3.1.1"
+"@vitest/mocker@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/mocker@npm:3.1.2"
   dependencies:
-    "@vitest/spy": "npm:3.1.1"
+    "@vitest/spy": "npm:3.1.2"
     estree-walker: "npm:^3.0.3"
     magic-string: "npm:^0.30.17"
   peerDependencies:
@@ -4040,57 +4040,57 @@ __metadata:
       optional: true
     vite:
       optional: true
-  checksum: 10c0/9264558809e2d7c77ae9ceefad521dc5f886a567aaf0bdd021b73089b8906ffd92c893f3998d16814f38fc653c7413836f508712355c87749a0e86c7d435eec1
+  checksum: 10c0/4447962d7e160d774cf5b1eef03067230b5e36131e3441d3dd791ad38b6c06e16940f21fa20c311c58b635ba376ffb45d003b6f04d0d4cc0d7c4be854df4b8e4
   languageName: node
   linkType: hard
 
-"@vitest/pretty-format@npm:3.1.1, @vitest/pretty-format@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/pretty-format@npm:3.1.1"
+"@vitest/pretty-format@npm:3.1.2, @vitest/pretty-format@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/pretty-format@npm:3.1.2"
   dependencies:
     tinyrainbow: "npm:^2.0.0"
-  checksum: 10c0/540cd46d317fc80298c93b185f3fb48dfe90eaaa3942fd700fde6e88d658772c01b56ad5b9b36e4ac368a02e0fc8e0dc72bbdd6dd07a5d75e89ef99c8df5ba6e
+  checksum: 10c0/f4a79be6d5a1a0b3215ba66b3cc62b2e0fc3a81b4eee07b2644600450b796a8630ee86180691391a5597c9a792f3d213d54f2043f4a0809a9386473bfcca85fb
   languageName: node
   linkType: hard
 
-"@vitest/runner@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/runner@npm:3.1.1"
+"@vitest/runner@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/runner@npm:3.1.2"
   dependencies:
-    "@vitest/utils": "npm:3.1.1"
+    "@vitest/utils": "npm:3.1.2"
     pathe: "npm:^2.0.3"
-  checksum: 10c0/35a541069c3c94a2dd02fca2d70cc8d5e66ba2e891cfb80da354174f510aeb96774ffb34fff39cecde9d5c969be4dd20e240a900beb9b225b7512a615ecc5503
+  checksum: 10c0/7312013c87a6869d07380506e808f686ab04cb989f8ae6d3c7ea16a4990fce715801c8c4d5836612706a9e8a2e5ed01629d728360fba035d8f2570a90b0050cd
   languageName: node
   linkType: hard
 
-"@vitest/snapshot@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/snapshot@npm:3.1.1"
+"@vitest/snapshot@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/snapshot@npm:3.1.2"
   dependencies:
-    "@vitest/pretty-format": "npm:3.1.1"
+    "@vitest/pretty-format": "npm:3.1.2"
     magic-string: "npm:^0.30.17"
     pathe: "npm:^2.0.3"
-  checksum: 10c0/43e5fc5db580f20903eb1493d07f08752df8864f7b9b7293a202b2ffe93d8c196a5614d66dda096c6bacc16e12f1836f33ba41898812af6d32676d1eb501536a
+  checksum: 10c0/f3e451ec41eb54ace4c08f3dc3dbd3c283ff73b4c8eab899bb6bcd6589bf864bcaa33afb611751a76c87c5ca31fb3420511633fb7fb06af2692a70e6c8578db2
   languageName: node
   linkType: hard
 
-"@vitest/spy@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/spy@npm:3.1.1"
+"@vitest/spy@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/spy@npm:3.1.2"
   dependencies:
     tinyspy: "npm:^3.0.2"
-  checksum: 10c0/896659d4b42776cfa2057a1da2c33adbd3f2ebd28005ca606d1616d08d2e726dc1460fb37f1ea7f734756b5bccf926c7165f410e63f0a3b8d992eb5489528b08
+  checksum: 10c0/0f827970c34e256f3af964df5a5133c181ef1475b73a15b47565ad3187e4b2627e949e632c21e34a694e16b98ceb1e670f5e7dc99baeb53cb029578147d4ccee
   languageName: node
   linkType: hard
 
-"@vitest/utils@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vitest/utils@npm:3.1.1"
+"@vitest/utils@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vitest/utils@npm:3.1.2"
   dependencies:
-    "@vitest/pretty-format": "npm:3.1.1"
+    "@vitest/pretty-format": "npm:3.1.2"
     loupe: "npm:^3.1.3"
     tinyrainbow: "npm:^2.0.0"
-  checksum: 10c0/a9cfe0c0f095b58644ce3ba08309de5be8564c10dad9e62035bd378e60b2834e6a256e6e4ded7dcf027fdc2371301f7965040ad3e6323b747d5b3abbb7ceb0d6
+  checksum: 10c0/9e778ab7cf483396d650ddd079e702af6b9f087443a99045707865bf433cfa3c4f468d94d17a44173e6adcc5cce218a1b0073d1b94bbd84a03262033e427336d
   languageName: node
   linkType: hard
 
@@ -5185,12 +5185,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clean-pkg-json@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "clean-pkg-json@npm:1.2.1"
+"clean-pkg-json@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "clean-pkg-json@npm:1.3.0"
   bin:
     clean-pkg-json: dist/index.js
-  checksum: 10c0/57af16fd730ff4797c27ae178813202b356d9958d03c2ed381ef3a7e4129bc6571074386f338c178fb9686e21a992263e116ce2e2bfb4d6ab5824f5abac84297
+  checksum: 10c0/6d394cadd11bd1fa6d1becee0144e639f3915a9f523e9b4e6989e0576d227de7cc09a1779780d4803e50bc36ef982860bfb0ca79ec0b17e6640f9fb818878f29
   languageName: node
   linkType: hard
 
@@ -6127,14 +6127,14 @@ __metadata:
     "@types/node": "npm:^22.14.1"
     "@types/pnpapi": "npm:^0.0.5"
     "@types/unist": "npm:^3.0.3"
-    "@vitest/coverage-v8": "npm:3.1.1"
+    "@vitest/coverage-v8": "npm:3.1.2"
     "@vitest/eslint-plugin": "npm:^1.1.43"
-    clean-pkg-json: "npm:^1.2.1"
+    clean-pkg-json: "npm:^1.3.0"
     debug: "npm:^4.4.0"
     dummy.js: "link:dummy.js"
     eslint: "npm:^9.25.0"
     eslint-import-resolver-typescript: "workspace:*"
-    eslint-plugin-import-x: "npm:^4.10.5"
+    eslint-plugin-import-x: "npm:^4.10.6"
     get-tsconfig: "npm:^4.10.0"
     is-bun-module: "npm:^2.0.0"
     nano-staged: "npm:^0.8.0"
@@ -6150,8 +6150,8 @@ __metadata:
     tinyglobby: "npm:^0.2.13"
     type-coverage: "npm:^2.29.7"
     typescript: "npm:^5.8.3"
-    unrs-resolver: "npm:^1.6.0"
-    vitest: "npm:^3.1.1"
+    unrs-resolver: "npm:^1.6.3"
+    vitest: "npm:^3.1.2"
     yarn-berry-deduplicate: "npm:^6.1.3"
   peerDependencies:
     eslint: "*"
@@ -6236,9 +6236,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import-x@npm:^4.10.3, eslint-plugin-import-x@npm:^4.10.5":
-  version: 4.10.5
-  resolution: "eslint-plugin-import-x@npm:4.10.5"
+"eslint-plugin-import-x@npm:^4.10.3, eslint-plugin-import-x@npm:^4.10.6":
+  version: 4.10.6
+  resolution: "eslint-plugin-import-x@npm:4.10.6"
   dependencies:
     "@pkgr/core": "npm:^0.2.4"
     "@types/doctrine": "npm:^0.0.9"
@@ -6252,10 +6252,10 @@ __metadata:
     semver: "npm:^7.7.1"
     stable-hash: "npm:^0.0.5"
     tslib: "npm:^2.8.1"
-    unrs-resolver: "npm:^1.5.0"
+    unrs-resolver: "npm:^1.6.0"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
-  checksum: 10c0/956df89003c97b9fcc2632754495944905195da27ef050efc9a7e0e9670ef220dbc9dc6f689322fb6cb2e29bc7395b5452b83df0beb95f7432aaf052e43db129
+  checksum: 10c0/8bc2ad6b01d00c41b5e704d3156840957f1110b4b6937f7f88621eab5f51a42035182454e3430f49fb9b35dac0598c5b3197aa37e18bc788c640b2ff7874e75c
   languageName: node
   linkType: hard
 
@@ -6682,7 +6682,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect-type@npm:^1.2.0":
+"expect-type@npm:^1.2.1":
   version: 1.2.1
   resolution: "expect-type@npm:1.2.1"
   checksum: 10c0/b775c9adab3c190dd0d398c722531726cdd6022849b4adba19dceab58dda7e000a7c6c872408cd73d665baa20d381eca36af4f7b393a4ba60dd10232d1fb8898
@@ -9770,11 +9770,11 @@ __metadata:
   linkType: hard
 
 "napi-postinstall@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "napi-postinstall@npm:0.1.1"
+  version: 0.1.5
+  resolution: "napi-postinstall@npm:0.1.5"
   bin:
     napi-postinstall: lib/cli.js
-  checksum: 10c0/578c4c99380a7c9e58276de6b82dbda0b7f364928b25d635a385d1e815470faebd5da2aec7b1284be682c85bbbf2a2c121dd85a9d0f505a7c052226098fde443
+  checksum: 10c0/a6a6c8e26de4bbd5614496516c049ec90c34ab111c2cdbbd60c50b275512ccf85a1cceccefcb89dc26f149c33cc8cb272c0341623aa9ea12c37f725c36b95f56
   languageName: node
   linkType: hard
 
@@ -10495,7 +10495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-jsdoc-type@npm:^0.1.6":
+"prettier-plugin-jsdoc-type@npm:^0.1.12":
   version: 0.1.12
   resolution: "prettier-plugin-jsdoc-type@npm:0.1.12"
   dependencies:
@@ -12179,11 +12179,11 @@ __metadata:
   linkType: hard
 
 "sh-syntax@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "sh-syntax@npm:0.5.6"
+  version: 0.5.7
+  resolution: "sh-syntax@npm:0.5.7"
   dependencies:
     tslib: "npm:^2.8.1"
-  checksum: 10c0/0a545ca724da66b97ab24e01e39e46fe3d3819350c687a278bf147328c144a62b2c3632daeb87eb84dba705ef3d81ba46d5bb684cf77355411520153301502cd
+  checksum: 10c0/191be067717f81355f4a2959950ca1809ef20bf52e7f684d53a112dd9a7230bdaf14ec012bee2d0e8c056e50174f66dbb7af4bd90ccce49334b318760411eaae
   languageName: node
   linkType: hard
 
@@ -12530,7 +12530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"std-env@npm:^3.8.1":
+"std-env@npm:^3.9.0":
   version: 3.9.0
   resolution: "std-env@npm:3.9.0"
   checksum: 10c0/4a6f9218aef3f41046c3c7ecf1f98df00b30a07f4f35c6d47b28329bc2531eef820828951c7d7b39a1c5eb19ad8a46e3ddfc7deb28f0a2f3ceebee11bab7ba50
@@ -13396,26 +13396,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unrs-resolver@npm:^1.5.0, unrs-resolver@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "unrs-resolver@npm:1.6.0"
+"unrs-resolver@npm:^1.6.0, unrs-resolver@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "unrs-resolver@npm:1.6.3"
   dependencies:
-    "@unrs/resolver-binding-darwin-arm64": "npm:1.6.0"
-    "@unrs/resolver-binding-darwin-x64": "npm:1.6.0"
-    "@unrs/resolver-binding-freebsd-x64": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-arm-gnueabihf": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-arm-musleabihf": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-arm64-gnu": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-arm64-musl": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-ppc64-gnu": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-riscv64-gnu": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-s390x-gnu": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-x64-gnu": "npm:1.6.0"
-    "@unrs/resolver-binding-linux-x64-musl": "npm:1.6.0"
-    "@unrs/resolver-binding-wasm32-wasi": "npm:1.6.0"
-    "@unrs/resolver-binding-win32-arm64-msvc": "npm:1.6.0"
-    "@unrs/resolver-binding-win32-ia32-msvc": "npm:1.6.0"
-    "@unrs/resolver-binding-win32-x64-msvc": "npm:1.6.0"
+    "@unrs/resolver-binding-darwin-arm64": "npm:1.6.3"
+    "@unrs/resolver-binding-darwin-x64": "npm:1.6.3"
+    "@unrs/resolver-binding-freebsd-x64": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-arm-gnueabihf": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-arm-musleabihf": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-arm64-gnu": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-arm64-musl": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-ppc64-gnu": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-riscv64-gnu": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-s390x-gnu": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-x64-gnu": "npm:1.6.3"
+    "@unrs/resolver-binding-linux-x64-musl": "npm:1.6.3"
+    "@unrs/resolver-binding-wasm32-wasi": "npm:1.6.3"
+    "@unrs/resolver-binding-win32-arm64-msvc": "npm:1.6.3"
+    "@unrs/resolver-binding-win32-ia32-msvc": "npm:1.6.3"
+    "@unrs/resolver-binding-win32-x64-msvc": "npm:1.6.3"
     napi-postinstall: "npm:^0.1.1"
   dependenciesMeta:
     "@unrs/resolver-binding-darwin-arm64":
@@ -13450,7 +13450,7 @@ __metadata:
       optional: true
     "@unrs/resolver-binding-win32-x64-msvc":
       optional: true
-  checksum: 10c0/1fdb9cc0d2b7b74dee1f82cdf33d5788ef54cdc2c3bbf2a33e2971efe850c4f4d8356fcdaf93f93f911fdd642eb665a1d1380beee1debfedb11ae4dad85a9e2c
+  checksum: 10c0/6d1aac60eb3c25dadcebf87b4a3669194740ff02a403a678522264453d0bf7c811e2866b7ec3a14491961536569221e72d51836521cac97a6ffd1b26c6d76f21
   languageName: node
   linkType: hard
 
@@ -13599,9 +13599,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-node@npm:3.1.1":
-  version: 3.1.1
-  resolution: "vite-node@npm:3.1.1"
+"vite-node@npm:3.1.2":
+  version: 3.1.2
+  resolution: "vite-node@npm:3.1.2"
   dependencies:
     cac: "npm:^6.7.14"
     debug: "npm:^4.4.0"
@@ -13610,7 +13610,7 @@ __metadata:
     vite: "npm:^5.0.0 || ^6.0.0"
   bin:
     vite-node: vite-node.mjs
-  checksum: 10c0/15ee73c472ae00f042a7cee09a31355d2c0efbb2dab160377545be9ba4b980a5f4cb2841b98319d87bedf630bbbb075e6b40796b39f65610920cf3fde66fdf8d
+  checksum: 10c0/eb0788b43a241c69ca23ba6cf5ab5226157947938dc4e02247b2008e1fd425e45a347d3caac7d53e0b804beb4c9e97395908fd87c1f23bda1590e1b011c63edb
   languageName: node
   linkType: hard
 
@@ -13669,36 +13669,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "vitest@npm:3.1.1"
+"vitest@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "vitest@npm:3.1.2"
   dependencies:
-    "@vitest/expect": "npm:3.1.1"
-    "@vitest/mocker": "npm:3.1.1"
-    "@vitest/pretty-format": "npm:^3.1.1"
-    "@vitest/runner": "npm:3.1.1"
-    "@vitest/snapshot": "npm:3.1.1"
-    "@vitest/spy": "npm:3.1.1"
-    "@vitest/utils": "npm:3.1.1"
+    "@vitest/expect": "npm:3.1.2"
+    "@vitest/mocker": "npm:3.1.2"
+    "@vitest/pretty-format": "npm:^3.1.2"
+    "@vitest/runner": "npm:3.1.2"
+    "@vitest/snapshot": "npm:3.1.2"
+    "@vitest/spy": "npm:3.1.2"
+    "@vitest/utils": "npm:3.1.2"
     chai: "npm:^5.2.0"
     debug: "npm:^4.4.0"
-    expect-type: "npm:^1.2.0"
+    expect-type: "npm:^1.2.1"
     magic-string: "npm:^0.30.17"
     pathe: "npm:^2.0.3"
-    std-env: "npm:^3.8.1"
+    std-env: "npm:^3.9.0"
     tinybench: "npm:^2.9.0"
     tinyexec: "npm:^0.3.2"
+    tinyglobby: "npm:^0.2.13"
     tinypool: "npm:^1.0.2"
     tinyrainbow: "npm:^2.0.0"
     vite: "npm:^5.0.0 || ^6.0.0"
-    vite-node: "npm:3.1.1"
+    vite-node: "npm:3.1.2"
     why-is-node-running: "npm:^2.3.0"
   peerDependencies:
     "@edge-runtime/vm": "*"
     "@types/debug": ^4.1.12
     "@types/node": ^18.0.0 || ^20.0.0 || >=22.0.0
-    "@vitest/browser": 3.1.1
-    "@vitest/ui": 3.1.1
+    "@vitest/browser": 3.1.2
+    "@vitest/ui": 3.1.2
     happy-dom: "*"
     jsdom: "*"
   peerDependenciesMeta:
@@ -13718,7 +13719,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: 10c0/680f31d2a7ca59509f837acdbacd9dff405e1b00c606d7cd29717127c6b543f186055854562c2604f74c5cd668b70174968d28feb4ed948a7e013c9477a68d50
+  checksum: 10c0/14b9c99812282d88b6e1dafde8cca22b07dcefa0a00d240145cf5cb95b082c287807bd884f417a046992bc74246aaf64662fd07179e60547c9277fbc8986439b
   languageName: node
   linkType: hard
 
