@@ -7,19 +7,19 @@ import {
   TSCONFIG_NOT_FOUND_REGEXP,
 } from 'eslint-import-resolver-typescript'
 
+const { dirname } = import.meta
+
 describe('createTypeScriptImportResolver', async () => {
-  const { dirname } = import.meta
-
-  const pnpDir = path.resolve(dirname, 'pnp')
-
-  await exec('yarn', [], {
-    nodeOptions: {
-      cwd: pnpDir,
-    },
-  })
+  const resolver = createTypeScriptImportResolver()
 
   it('should work with pnp', async () => {
-    const resolver = createTypeScriptImportResolver()
+    const pnpDir = path.resolve(dirname, 'pnp')
+
+    await exec('yarn', [], {
+      nodeOptions: {
+        cwd: pnpDir,
+      },
+    })
 
     const testfile = path.resolve(pnpDir, '__test__.js')
 
@@ -34,6 +34,19 @@ describe('createTypeScriptImportResolver', async () => {
       {
         "found": true,
         "path": "<ROOT>/tests/unit/pnp/.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-e596da80a6.zip/node_modules/lodash.zip/index.js",
+      }
+    `)
+  })
+
+  it('should resolve .d.ts with .ts extension', () => {
+    const dtsDir = path.resolve(dirname, 'dts')
+
+    const testfile = path.resolve(dtsDir, '__test__.js')
+
+    expect(resolver.resolve('./foo.ts', testfile)).toMatchInlineSnapshot(`
+      {
+        "found": true,
+        "path": "<ROOT>/tests/unit/dts/foo.d.ts",
       }
     `)
   })
