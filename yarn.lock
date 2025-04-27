@@ -6139,7 +6139,7 @@ __metadata:
     is-bun-module: "npm:^2.0.0"
     nano-staged: "npm:^0.8.0"
     npm-run-all2: "npm:^7.0.2"
-    path-serializer: "npm:^0.3.4"
+    path-serializer: "npm:^0.4.0"
     prettier: "npm:^3.5.3"
     react: "npm:^19.1.0"
     simple-git-hooks: "npm:^2.12.1"
@@ -10338,10 +10338,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-serializer@npm:^0.3.4":
-  version: 0.3.4
-  resolution: "path-serializer@npm:0.3.4"
-  checksum: 10c0/ae42d4974c88d8cb13f9603a2c462b3beaa37b2c01f0791ee831054b30f71fc690f0bd193ad17083371184ab7d2433c636afbc55ee7e77fea11ff0d17d55dbbf
+"path-serializer@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "path-serializer@npm:0.4.0"
+  checksum: 10c0/fc617221253e5ac12a4a012ec7c442a5a02dbc557047ae7b2ba52837d59322fd59a827ea1eee06366d465f624673613d23b282a325cf378d8bfe3c309b7da2b8
   languageName: node
   linkType: hard
 

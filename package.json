@@ -106,7 +106,7 @@
     "eslint-plugin-import-x": "^4.10.6",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^7.0.2",
-    "path-serializer": "^0.3.4",
+    "path-serializer": "^0.4.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
     "simple-git-hooks": "^2.12.1",
