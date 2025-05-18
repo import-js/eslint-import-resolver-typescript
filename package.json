@@ -23,17 +23,9 @@
         "types": "./lib/index.d.ts",
         "default": "./lib/index.js"
       },
-      "module-sync": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
       "require": {
         "types": "./index.d.cts",
         "default": "./lib/index.cjs"
-      },
-      "default": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
       }
     },
     "./package.json": "./package.json"
