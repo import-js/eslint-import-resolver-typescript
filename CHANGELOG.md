@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.5
+
+### Patch Changes
+
+- [#450](https://github.com/import-js/eslint-import-resolver-typescript/pull/450) [`3f1aab1`](https://github.com/import-js/eslint-import-resolver-typescript/commit/3f1aab1d5e916714678d5dc3e34644f4aaea4efc) Thanks [@JounQin](https://github.com/JounQin)! - fix: remove buggy `module-sync` exports field
+
 ## 4.3.4
 
 ### Patch Changes
