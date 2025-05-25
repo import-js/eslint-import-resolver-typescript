@@ -1,7 +1,7 @@
 import { isBuiltin } from 'node:module'
 import path from 'node:path'
 
-import type { ResolvedResult } from 'eslint-plugin-import-x/types'
+import { useRuleContext, type ResolvedResult } from 'eslint-import-context'
 import {
   type FileMatcher,
   type TsConfigJsonResolved,
@@ -81,10 +81,11 @@ export const resolve = (
 
   if (!resolver) {
     const optionsHash = stableHash(options)
-    const cwd = process.cwd()
+    const context = useRuleContext()
+    const cwd = context?.cwd || process.cwd()
     options = normalizeOptions(options, cwd)
     // take `cwd` into account -- #217
-    const cacheKey = `${optionsHash}:${cwd}`
+    const cacheKey = `${optionsHash}\0${cwd}`
     let cached = resolverCache.get(cacheKey)
     if (!cached && !options.project) {
       resolverCache.set(cacheKey, (cached = new ResolverFactory(options)))
@@ -205,12 +206,23 @@ export const resolve = (
 export const createTypeScriptImportResolver = (
   options?: TypeScriptResolverOptions | null,
 ) => {
-  options = normalizeOptions(options)
-  const resolver = options.project ? null : new ResolverFactory(options)
+  let cwd = process.cwd()
+  options = normalizeOptions(options, cwd)
+  let resolver = options.project ? undefined : new ResolverFactory(options)
   return {
     interfaceVersion: 3,
     name: IMPORT_RESOLVER_NAME,
     resolve(source: string, file: string) {
+      const context = useRuleContext()
+      if (context && cwd !== context.cwd) {
+        cwd = context.cwd
+        options = normalizeOptions(options, cwd)
+        if (options.project) {
+          resolver = resolver
+            ? resolver.cloneWithOptions(options)
+            : new ResolverFactory(options)
+        }
+      }
       return resolve(source, file, options, resolver)
     },
   }

@@ -1,6 +1,7 @@
 const assert = require('node:assert')
 const path = require('node:path')
 
+// eslint-disable-next-line import-x/extensions
 const { resolve } = require('../../..')
 
 const config = {

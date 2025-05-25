@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.base",
-  "compilerOptions": {
-    "rootDir": "."
-  },
-  "exclude": ["tests/e2e/absoluteAlias"]
-}

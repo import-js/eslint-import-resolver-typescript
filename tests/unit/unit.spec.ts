@@ -9,43 +9,49 @@ import {
 
 const { dirname } = import.meta
 
+const TIMEOUT = 60_000
+
 describe('createTypeScriptImportResolver', async () => {
   const resolver = createTypeScriptImportResolver()
 
-  it('should work with pnp', async () => {
-    const pnpDir = path.resolve(dirname, 'pnp')
+  it(
+    'should work with pnp',
+    async () => {
+      const pnpDir = path.resolve(dirname, 'pnp')
 
-    await exec('yarn', [], {
-      nodeOptions: {
-        cwd: pnpDir,
-      },
-    })
+      await exec('yarn', [], {
+        nodeOptions: {
+          cwd: pnpDir,
+        },
+      })
 
-    const testfile = path.resolve(pnpDir, '__test__.js')
+      const testfile = path.resolve(pnpDir, '__test__.js')
 
-    expect(resolver.resolve('pnpapi', testfile)).toMatchInlineSnapshot(`
+      expect(resolver.resolve('pnpapi', testfile)).toMatchInlineSnapshot(`
         {
           "found": true,
           "path": "<ROOT>/tests/unit/pnp/.pnp.cjs",
         }
       `)
 
-    expect(resolver.resolve('lodash.zip', testfile)).toMatchInlineSnapshot(`
+      expect(resolver.resolve('lodash.zip', testfile)).toMatchInlineSnapshot(`
       {
         "found": true,
         "path": "<ROOT>/tests/unit/pnp/.yarn/cache/lodash.zip-npm-4.2.0-5299417ec8-e596da80a6.zip/node_modules/lodash.zip/index.js",
       }
     `)
 
-    expect(
-      resolver.resolve('@atlaskit/pragmatic-drag-and-drop/combine', testfile),
-    ).toMatchInlineSnapshot(`
+      expect(
+        resolver.resolve('@atlaskit/pragmatic-drag-and-drop/combine', testfile),
+      ).toMatchInlineSnapshot(`
       {
         "found": true,
-        "path": "<ROOT>/tests/unit/pnp/.yarn/cache/@atlaskit-pragmatic-drag-and-drop-npm-1.5.2-3241d4f843-1dace49fa3.zip/node_modules/@atlaskit/pragmatic-drag-and-drop/dist/types/entry-point/combine.d.ts",
+        "path": "<ROOT>/tests/unit/pnp/.yarn/cache/@atlaskit-pragmatic-drag-and-drop-npm-1.7.0-2fb827d798-dc5f297086.zip/node_modules/@atlaskit/pragmatic-drag-and-drop/dist/types/entry-point/combine.d.ts",
       }
     `)
-  })
+    },
+    TIMEOUT,
+  )
 
   it('should resolve .d.ts with .ts extension', () => {
     const dtsDir = path.resolve(dirname, 'dts')
