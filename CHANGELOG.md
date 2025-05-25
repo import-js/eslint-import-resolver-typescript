@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.0
+
+### Minor Changes
+
+- [#453](https://github.com/import-js/eslint-import-resolver-typescript/pull/453) [`7d87517`](https://github.com/import-js/eslint-import-resolver-typescript/commit/7d87517ae051c2deff038e276d4b15f40aa8f6b6) Thanks [@JounQin](https://github.com/JounQin)! - feat: integrate `eslint-import-context` to get correct `context.cwd`
+
 ## 4.3.5
 
 ### Patch Changes
