@@ -15,7 +15,7 @@
     "node": "^16.17.0 || >=18.6.0"
   },
   "main": "lib/index.cjs",
-  "types": "lib/index.d.ts",
+  "types": "lib/index.d.cts",
   "module": "lib/index.js",
   "exports": {
     ".": {
@@ -24,14 +24,13 @@
         "default": "./lib/index.js"
       },
       "require": {
-        "types": "./index.d.cts",
+        "types": "./lib/index.d.cts",
         "default": "./lib/index.cjs"
       }
     },
     "./package.json": "./package.json"
   },
   "files": [
-    "index.d.cts",
     "lib",
     "!**/*.tsbuildinfo"
   ],
@@ -44,12 +43,13 @@
   ],
   "scripts": {
     "build": "run-p -c 'build:*'",
-    "build:r": "r -f cjs",
-    "build:ts": "tsc -b",
+    "build:ts": "tsc -p src",
+    "build:tsdown": "tsdown --no-clean -d lib -f cjs src/index.ts",
+    "clean": "premove coverage lib .eslintcache",
     "format": "prettier --write .",
     "lint": "run-p 'lint:*'",
     "lint:es": "eslint . --cache",
-    "lint:tsc": "tsc -b --noEmit",
+    "lint:tsc": "tsc --noEmit",
     "prepare": "simple-git-hooks && yarn-berry-deduplicate || exit 0",
     "release": "clean-pkg-json && changeset publish",
     "test": "node tests/e2e/withJsExtension/test.cjs && vitest run",
@@ -69,45 +69,47 @@
     }
   },
   "dependencies": {
-    "debug": "^4.4.0",
-    "get-tsconfig": "^4.10.0",
+    "debug": "^4.4.1",
+    "eslint-import-context": "^0.1.3",
+    "get-tsconfig": "^4.10.1",
     "is-bun-module": "^2.0.0",
     "stable-hash": "^0.0.5",
     "tinyglobby": "^0.2.13",
-    "unrs-resolver": "^1.6.3"
+    "unrs-resolver": "^1.7.2"
   },
   "devDependencies": {
-    "@1stg/common-config": "^13.0.1",
+    "@1stg/common-config": "^14.0.0",
     "@changesets/changelog-github": "^0.5.1",
-    "@changesets/cli": "^2.29.2",
-    "@commitlint/cli": "^19.8.0",
+    "@changesets/cli": "^2.29.4",
+    "@commitlint/cli": "^19.8.1",
     "@mozilla/glean": "^5.0.4",
     "@pkgr/core": "^0.2.4",
-    "@pkgr/rollup": "^6.0.3",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/debug": "^4.1.12",
-    "@types/node": "^22.14.1",
+    "@types/node": "^22.15.21",
     "@types/pnpapi": "^0.0.5",
     "@types/unist": "^3.0.3",
-    "@vitest/coverage-v8": "3.1.2",
-    "@vitest/eslint-plugin": "^1.1.43",
+    "@vitest/coverage-v8": "3.1.4",
+    "@vitest/eslint-plugin": "^1.2.1",
     "clean-pkg-json": "^1.3.0",
     "dummy.js": "link:dummy.js",
-    "eslint": "^9.25.0",
+    "eslint": "^9.27.0",
     "eslint-import-resolver-typescript": "workspace:*",
-    "eslint-plugin-import-x": "^4.10.6",
+    "eslint-plugin-import-x": "^4.13.0",
     "nano-staged": "^0.8.0",
-    "npm-run-all2": "^7.0.2",
-    "path-serializer": "^0.3.4",
+    "npm-run-all2": "^8.0.3",
+    "path-serializer": "^0.4.0",
+    "premove": "^4.0.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
-    "simple-git-hooks": "^2.12.1",
+    "simple-git-hooks": "^2.13.0",
     "size-limit": "^11.2.0",
-    "size-limit-preset-node-lib": "^0.3.0",
+    "size-limit-preset-node-lib": "^0.4.0",
     "tinyexec": "^1.0.1",
+    "tsdown": "^0.12.3",
     "type-coverage": "^2.29.7",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.2",
+    "vitest": "^3.1.4",
     "yarn-berry-deduplicate": "^6.1.3"
   },
   "resolutions": {

@@ -42,7 +42,7 @@ describe('createTypeScriptImportResolver', async () => {
     ).toMatchInlineSnapshot(`
       {
         "found": true,
-        "path": "<ROOT>/tests/unit/pnp/.yarn/cache/@atlaskit-pragmatic-drag-and-drop-npm-1.5.2-3241d4f843-1dace49fa3.zip/node_modules/@atlaskit/pragmatic-drag-and-drop/dist/types/entry-point/combine.d.ts",
+        "path": "<ROOT>/tests/unit/pnp/.yarn/cache/@atlaskit-pragmatic-drag-and-drop-npm-1.7.0-2fb827d798-dc5f297086.zip/node_modules/@atlaskit/pragmatic-drag-and-drop/dist/types/entry-point/combine.d.ts",
       }
     `)
   })
