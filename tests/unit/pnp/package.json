@@ -3,7 +3,7 @@
   "type": "module",
   "packageManager": "yarn@4.8.1",
   "devDependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.5.2",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "lodash.zip": "^4.2.0"
   }
 }
