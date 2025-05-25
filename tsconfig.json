@@ -1,3 +1,13 @@
 {
-  "extends": "./tsconfig.lib"
+  "extends": "@1stg/tsconfig/node16",
+  "compilerOptions": {
+    // https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping#node-16
+    "lib": ["ES2021"],
+    "rootDir": "."
+  },
+  "exclude": [
+    "lib",
+    "tests/e2e/absoluteAlias",
+    "tests/e2e/withJsExtension/ctsImportee.cts"
+  ]
 }
