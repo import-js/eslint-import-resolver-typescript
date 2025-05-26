@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.1
+
+### Patch Changes
+
+- [#457](https://github.com/import-js/eslint-import-resolver-typescript/pull/457) [`d9f3e68`](https://github.com/import-js/eslint-import-resolver-typescript/commit/d9f3e687ec9cfdd8cda77943f173ffc6bd469ea6) Thanks [@JounQin](https://github.com/JounQin)! - fix(deps): bump `eslint-import-context` to v0.1.5
+
 ## 4.4.0
 
 ### Minor Changes
