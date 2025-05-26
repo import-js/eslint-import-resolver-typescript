@@ -3719,7 +3719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.32.1, @typescript-eslint/utils@npm:^8.24.0, @typescript-eslint/utils@npm:^8.31.0":
+"@typescript-eslint/utils@npm:8.32.1, @typescript-eslint/utils@npm:^8.24.0, @typescript-eslint/utils@npm:^8.32.1":
   version: 8.32.1
   resolution: "@typescript-eslint/utils@npm:8.32.1"
   dependencies:
@@ -5997,10 +5997,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-context@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "eslint-import-context@npm:0.1.3"
-  checksum: 10c0/1f8edd5c0417d93abe06e810188b0444f2eb839fc2185ff67b22819a8de77bcfaa6bee9b7fe87184d0ed4bbb35c6afc2e10c463b03d00737202803cf0b265bbb
+"eslint-import-context@npm:^0.1.4, eslint-import-context@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "eslint-import-context@npm:0.1.5"
+  dependencies:
+    get-tsconfig: "npm:^4.10.1"
+    stable-hash: "npm:^0.0.5"
+  peerDependencies:
+    unrs-resolver: ^1.0.0
+  peerDependenciesMeta:
+    unrs-resolver:
+      optional: true
+  checksum: 10c0/30de54045e60fc8f084e2100122c8a4d77317ef2df3d3340a5f00d05ba6f6609d2b6bcc2f13414334959d8997753a5f63f69022baa7e462285949eec762ce586
   languageName: node
   linkType: hard
 
@@ -6036,13 +6044,13 @@ __metadata:
     debug: "npm:^4.4.1"
     dummy.js: "link:dummy.js"
     eslint: "npm:^9.27.0"
-    eslint-import-context: "npm:^0.1.3"
+    eslint-import-context: "npm:^0.1.5"
     eslint-import-resolver-typescript: "workspace:*"
-    eslint-plugin-import-x: "npm:^4.13.0"
+    eslint-plugin-import-x: "npm:^4.13.1"
     get-tsconfig: "npm:^4.10.1"
     is-bun-module: "npm:^2.0.0"
     nano-staged: "npm:^0.8.0"
-    npm-run-all2: "npm:^8.0.3"
+    npm-run-all2: "npm:^8.0.4"
     path-serializer: "npm:^0.4.0"
     premove: "npm:^4.0.0"
     prettier: "npm:^3.5.3"
@@ -6052,7 +6060,7 @@ __metadata:
     size-limit-preset-node-lib: "npm:^0.4.0"
     stable-hash: "npm:^0.0.5"
     tinyexec: "npm:^1.0.1"
-    tinyglobby: "npm:^0.2.13"
+    tinyglobby: "npm:^0.2.14"
     tsdown: "npm:^0.12.3"
     type-coverage: "npm:^2.29.7"
     typescript: "npm:^5.8.3"
@@ -6142,24 +6150,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import-x@npm:^4.12.2, eslint-plugin-import-x@npm:^4.13.0":
-  version: 4.13.0
-  resolution: "eslint-plugin-import-x@npm:4.13.0"
+"eslint-plugin-import-x@npm:^4.12.2, eslint-plugin-import-x@npm:^4.13.1":
+  version: 4.13.1
+  resolution: "eslint-plugin-import-x@npm:4.13.1"
   dependencies:
-    "@typescript-eslint/utils": "npm:^8.31.0"
+    "@typescript-eslint/utils": "npm:^8.32.1"
     comment-parser: "npm:^1.4.1"
-    debug: "npm:^4.4.0"
-    eslint-import-context: "npm:^0.1.3"
+    debug: "npm:^4.4.1"
+    eslint-import-context: "npm:^0.1.4"
     eslint-import-resolver-node: "npm:^0.3.9"
     is-glob: "npm:^4.0.3"
     minimatch: "npm:^9.0.3 || ^10.0.1"
-    semver: "npm:^7.7.1"
+    semver: "npm:^7.7.2"
     stable-hash: "npm:^0.0.5"
     tslib: "npm:^2.8.1"
-    unrs-resolver: "npm:^1.7.0"
+    unrs-resolver: "npm:^1.7.2"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
-  checksum: 10c0/6abce8dbafc901b04acb42824b3cc266ece788bcfc4bb8d52b8d4e4c055ac24b94125ed769a80cdf3734ec908ddb716cf16edd5d3976d86373c565531d63625c
+  checksum: 10c0/a7f134d69f63c865c2147c4eaad180437d2643f48838bb24246ccd7cce878603b6cd2ea30d0ba5fb5980464dba82184be30622b937c04cb8ec52957344ad991a
   languageName: node
   linkType: hard
 
@@ -7154,9 +7162,9 @@ __metadata:
   linkType: hard
 
 "globals@npm:^16.0.0, globals@npm:^16.1.0":
-  version: 16.1.0
-  resolution: "globals@npm:16.1.0"
-  checksum: 10c0/51df6319b5b9e679338baf058ecf1125af0d3148b97e57592deabd65fca5c5dcdcca321d7589282bd6afbea9f5a40bc7329c746f46d56780813d7d1c457209a2
+  version: 16.2.0
+  resolution: "globals@npm:16.2.0"
+  checksum: 10c0/c2b3ea163faa6f8a38076b471b12f4bda891f7df7f7d2e8294fb4801d735a51a73431bf4c1696c5bf5dbca5e0a0db894698acfcbd3068730c6b12eef185dea25
   languageName: node
   linkType: hard
 
@@ -9309,7 +9317,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:10.0.1, minimatch@npm:6 || 7 || 8 || 9 || 10, minimatch@npm:^10.0.0, minimatch@npm:^10.0.1, minimatch@npm:^9.0.3 || ^10.0.1":
+"minimatch@npm:10.0.1, minimatch@npm:6 || 7 || 8 || 9 || 10, minimatch@npm:^10.0.0, minimatch@npm:^9.0.3 || ^10.0.1":
   version: 10.0.1
   resolution: "minimatch@npm:10.0.1"
   dependencies:
@@ -9698,14 +9706,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-run-all2@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "npm-run-all2@npm:8.0.3"
+"npm-run-all2@npm:^8.0.4":
+  version: 8.0.4
+  resolution: "npm-run-all2@npm:8.0.4"
   dependencies:
     ansi-styles: "npm:^6.2.1"
     cross-spawn: "npm:^7.0.6"
     memorystream: "npm:^0.3.1"
-    minimatch: "npm:^10.0.1"
+    picomatch: "npm:^4.0.2"
     pidtree: "npm:^0.6.0"
     read-package-json-fast: "npm:^4.0.0"
     shell-quote: "npm:^1.7.3"
@@ -9715,7 +9723,7 @@ __metadata:
     npm-run-all2: bin/npm-run-all/index.js
     run-p: bin/run-p/index.js
     run-s: bin/run-s/index.js
-  checksum: 10c0/22773c2144bf0477f2be464043e180c4b37078df63147a374a47b3bac9b5bc5825e7a7253d7b138a2a5e34d2ff13f0fc7cfff4f7d46170405728c373dd733855
+  checksum: 10c0/cfc2987df224e55456629301991b5fa6980cc644d1836fe3c22d74a4508512737d30389795b759bb5d659103e54281c59741ecdc0241cfd2615cb9bffbf7cceb
   languageName: node
   linkType: hard
 
@@ -12513,13 +12521,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyglobby@npm:^0.2.11, tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.13":
-  version: 0.2.13
-  resolution: "tinyglobby@npm:0.2.13"
+"tinyglobby@npm:^0.2.11, tinyglobby@npm:^0.2.12, tinyglobby@npm:^0.2.13, tinyglobby@npm:^0.2.14":
+  version: 0.2.14
+  resolution: "tinyglobby@npm:0.2.14"
   dependencies:
     fdir: "npm:^6.4.4"
     picomatch: "npm:^4.0.2"
-  checksum: 10c0/ef07dfaa7b26936601d3f6d999f7928a4d1c6234c5eb36896bb88681947c0d459b7ebe797022400e555fe4b894db06e922b95d0ce60cb05fd827a0a66326b18c
+  checksum: 10c0/f789ed6c924287a9b7d3612056ed0cda67306cd2c80c249fd280cf1504742b12583a2089b61f4abbd24605f390809017240e250241f09938054c9b363e51c0a6
   languageName: node
   linkType: hard
 
@@ -13077,7 +13085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unrs-resolver@npm:^1.7.0, unrs-resolver@npm:^1.7.2":
+"unrs-resolver@npm:^1.7.2":
   version: 1.7.2
   resolution: "unrs-resolver@npm:1.7.2"
   dependencies:

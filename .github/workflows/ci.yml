@@ -17,6 +17,7 @@ jobs:
           - 18
           - 20
           - 22
+          - 24
         os:
           - ubuntu-latest
           - windows-latest
@@ -43,6 +44,8 @@ jobs:
           PARSER_NO_WATCH: true
 
       - name: Codecov
+        # bad Windows -- https://github.com/codecov/codecov-action/issues/1787
+        if: ${{ !github.event.pull_request.head.repo.fork && matrix.os != 'windows-latest' }}
         uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
