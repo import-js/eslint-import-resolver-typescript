@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.2
+
+### Patch Changes
+
+- [#459](https://github.com/import-js/eslint-import-resolver-typescript/pull/459) [`f16150b`](https://github.com/import-js/eslint-import-resolver-typescript/commit/f16150b5e10ec24a3f1f107d6322816338c50dc8) Thanks [@carlocorradini](https://github.com/carlocorradini)! - fix: always sort projects by affinity before iterating
+
 ## 4.4.1
 
 ### Patch Changes
