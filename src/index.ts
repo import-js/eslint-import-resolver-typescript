@@ -95,9 +95,9 @@ export const resolve = (
 
   // eslint-disable-next-line sonarjs/label-position, sonarjs/no-labels
   createResolver: if (!resolver) {
-    // must be a array with 2+ items here already ensured by `normalizeOptions`
-    const project = options.project as string[]
-    for (const tsconfigPath of sortProjectsByAffinity(project, file)) {
+    // must be an array with 2+ items here already ensured by `normalizeOptions`
+    const projects = sortProjectsByAffinity(options.project as string[], file)
+    for (const tsconfigPath of projects) {
       const resolverCached = resolverCache.get(tsconfigPath)
       if (resolverCached) {
         resolver = resolverCached
@@ -135,11 +135,27 @@ export const resolve = (
         },
       }
       resolver = new ResolverFactory(options)
-      resolverCache.set(tsconfigPath, resolver)
-      break createResolver
+      const resolved = resolve(source, file, options, resolver)
+      if (resolved.found) {
+        resolverCache.set(tsconfigPath, resolver)
+        return resolved
+      }
     }
 
-    log('no tsconfig matched', file, 'with', ...project)
+    log(
+      'no tsconfig matched',
+      file,
+      'with',
+      ...projects,
+      ', trying from the the nearest one instead',
+    )
+
+    for (const project of projects) {
+      const resolved = resolve(source, file, { ...options, project }, resolver)
+      if (resolved.found) {
+        return resolved
+      }
+    }
   }
 
   if (!resolver) {
