@@ -97,7 +97,7 @@ export const resolve = (
   createResolver: if (!resolver) {
     // must be a array with 2+ items here already ensured by `normalizeOptions`
     const project = options.project as string[]
-    for (const tsconfigPath of project) {
+    for (const tsconfigPath of sortProjectsByAffinity(project, file)) {
       const resolverCached = resolverCache.get(tsconfigPath)
       if (resolverCached) {
         resolver = resolverCached
@@ -139,24 +139,7 @@ export const resolve = (
       break createResolver
     }
 
-    log(
-      'no tsconfig matched',
-      file,
-      'with',
-      ...project,
-      ', trying from the the nearest one',
-    )
-    for (const p of sortProjectsByAffinity(project, file)) {
-      const resolved = resolve(
-        source,
-        file,
-        { ...options, project: p },
-        resolver,
-      )
-      if (resolved.found) {
-        return resolved
-      }
-    }
+    log('no tsconfig matched', file, 'with', ...project)
   }
 
   if (!resolver) {
