@@ -45,6 +45,7 @@ This means you can:
   - [Backers](#backers)
 - [Changelog](#changelog)
 - [License](#license)
+- [Star History](#star-history)
 
 ## Notice
 
@@ -362,6 +363,16 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 ## License
 
 [ISC][]
+
+## Star History
+
+<a href="https://www.star-history.com/#import-js/eslint-import-resolver-typescript&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=import-js/eslint-import-resolver-typescript&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=import-js/eslint-import-resolver-typescript&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=import-js/eslint-import-resolver-typescript&type=Date" />
+ </picture>
+</a>
 
 [`eslint-plugin-import`]: https://github.com/import-js/eslint-plugin-import
 [`eslint-plugin-import-x`]: https://github.com/un-ts/eslint-plugin-import-x
