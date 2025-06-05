@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.3
+
+### Patch Changes
+
+- [#462](https://github.com/import-js/eslint-import-resolver-typescript/pull/462) [`43575e7`](https://github.com/import-js/eslint-import-resolver-typescript/commit/43575e7c59d979b396ca8bdd96e3e8464243ed8e) Thanks [@JounQin](https://github.com/JounQin)! - chore: migrate `stable-hash` to `stable-hash-x`
+
 ## 4.4.2
 
 ### Patch Changes
