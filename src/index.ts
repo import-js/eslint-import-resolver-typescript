@@ -9,7 +9,7 @@ import {
   parseTsconfig,
 } from 'get-tsconfig'
 import { isBunBuiltin } from 'is-bun-module'
-import { stableHash } from 'stable-hash'
+import { stableHash } from 'stable-hash-x'
 import { ResolverFactory } from 'unrs-resolver'
 
 import {
