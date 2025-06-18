@@ -12,14 +12,14 @@
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![changesets](https://img.shields.io/badge/maintained%20with-changesets-176de3.svg)](https://github.com/changesets/changesets)
 
-This is a resolver for `eslint-plugin-import(-x)` plugin, not an ESLint plugin itself, it adds [`TypeScript`][] support to [`eslint-plugin-import`][] (Or maybe you want to try [`eslint-plugin-import-x`][] for faster speed)
+This is a resolver for `eslint-plugin-import(-x)` plugin, not an ESLint plugin itself, it adds [`TypeScript`][] support to [`eslint-plugin-import`][]. (Or maybe you want to try [`eslint-plugin-import-x`][] for faster speed)
 
 This means you can:
 
 - `import`/`require` files with extension `.cts`/`.mts`/`.ts`/`.tsx`/`.d.cts`/`.d.mts`/`.d.ts`
 - Use [`paths`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in `tsconfig.json`
 - Prefer resolving `@types/*` definitions over plain `.js`/`.jsx`
-- Multiple tsconfigs support just like normal
+- Multiple tsconfigs support, just like normal
 - `imports/exports` fields support in `package.json`
 
 ## TOC <!-- omit in toc -->
@@ -50,9 +50,9 @@ This means you can:
 
 ## Notice
 
-After version 2.0.0, `.d.ts` will take higher priority then normal `.js`/`.jsx` files on resolving `node_modules` packages in favor of `@types/*` definitions or its own definition.
+After version 2.0.0, `.d.ts` will take higher priority than normal `.js`/`.jsx` files on resolving `node_modules` packages in favor of `@types/*` definitions or its own definition.
 
-If you're facing some problems on rules `import/default` or `import/named` from [`eslint-plugin-import`][], do not post any issue here, because they are just working exactly as [expected](https://github.com/import-js/eslint-import-resolver-typescript/issues/31#issuecomment-539751607) on our sides, take [import-js/eslint-plugin-import#1525](https://github.com/import-js/eslint-plugin-import/issues/1525) as reference or post a new issue to [`eslint-plugin-import`][] instead.
+If you're facing some problems with rules `import/default` or `import/named` from [`eslint-plugin-import`][], do not post any issue here, because they are working exactly as [expected](https://github.com/import-js/eslint-import-resolver-typescript/issues/31#issuecomment-539751607) on our side. Take [import-js/eslint-plugin-import#1525](https://github.com/import-js/eslint-plugin-import/issues/1525) as reference or post a new issue on [`eslint-plugin-import`][] instead.
 
 ## Installation
 
@@ -67,6 +67,9 @@ pnpm i -D eslint-plugin-import-x eslint-import-resolver-typescript
 
 # yarn
 yarn add -D eslint-plugin-import-x eslint-import-resolver-typescript
+
+# bun
+bun add -d eslint-plugin-import-x eslint-import-resolver-typescript
 ```
 
 ### `eslint-plugin-import`
@@ -80,16 +83,19 @@ pnpm i -D eslint-plugin-import eslint-import-resolver-typescript
 
 # yarn
 yarn add -D eslint-plugin-import eslint-import-resolver-typescript
+
+# bun
+bun add -d eslint-plugin-import eslint-import-resolver-typescript
 ```
 
 ## Configuration
 
 ### `eslint.config.js`
 
-If you are using `eslint-plugin-import-x@>=4.5.0`, you can use import/require to reference `eslint-import-resolver-typescript` directly in your ESLint flat config:
+If you are using `eslint-plugin-import-x@>=4.5.0`, you can use `import`/`require` to reference `eslint-import-resolver-typescript` directly in your ESLint flat config:
 
 ```js
-// eslint.config.js, CommonJS is also supported
+// eslint.config.js (CommonJS is also supported)
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 
 export default [
@@ -97,27 +103,27 @@ export default [
     settings: {
       'import-x/resolver-next': [
         createTypeScriptImportResolver({
-          alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+          alwaysTryTypes: true, // Always try to resolve types under `<root>@types` directory even if it doesn't contain any source code, like `@types/unist`
 
-          bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
+          bun: true, // Resolve Bun modules (https://github.com/import-js/eslint-import-resolver-typescript#bun)
 
           // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json or <root>/jsconfig.json by default
 
-          // use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
+          // Use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
           project: 'path/to/folder',
 
           // Multiple tsconfigs/jsconfigs (Useful for monorepos, but discouraged in favor of `references` supported)
 
-          // use a glob pattern
+          // Use a glob pattern
           project: 'packages/*/{ts,js}config.json',
 
-          // use an array
+          // Use an array
           project: [
             'packages/module-a/tsconfig.json',
             'packages/module-b/jsconfig.json',
           ],
 
-          // use an array of glob patterns
+          // Use an array of glob patterns
           project: [
             'packages/*/tsconfig.json',
             'other-packages/*/jsconfig.json',
@@ -129,36 +135,36 @@ export default [
 ]
 ```
 
-But if you are using `eslint-plugin-import` or the older version of `eslint-plugin-import-x`, you can't use require/import:
+But if you are using `eslint-plugin-import` or the older version of `eslint-plugin-import-x`, you can't use `require`/`import`:
 
 ```js
-// eslint.config.js, CommonJS is also supported
+// eslint.config.js (CommonJS is also supported)
 export default [
   {
     settings: {
       'import/resolver': {
         typescript: {
-          alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+          alwaysTryTypes: true, // Always try to resolve types under `<root>@types` directory even if it doesn't contain any source code, like `@types/unist`
 
-          bun: true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
+          bun: true, // Resolve Bun modules (https://github.com/import-js/eslint-import-resolver-typescript#bun)
 
           // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json or <root>/jsconfig.json by default
 
-          // use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
+          // Use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
           project: 'path/to/folder',
 
           // Multiple tsconfigs/jsconfigs (Useful for monorepos, but discouraged in favor of `references` supported)
 
-          // use a glob pattern
+          // Use a glob pattern
           project: 'packages/*/{ts,js}config.json',
 
-          // use an array
+          // Use an array
           project: [
             'packages/module-a/tsconfig.json',
             'packages/module-b/jsconfig.json',
           ],
 
-          // use an array of glob patterns
+          // Use an array of glob patterns
           project: [
             'packages/*/tsconfig.json',
             'other-packages/*/jsconfig.json',
@@ -178,7 +184,7 @@ Add the following to your `.eslintrc` config:
 {
   "plugins": ["import"],
   "rules": {
-    // turn on errors for missing imports
+    // Turn on errors for missing imports
     "import/no-unresolved": "error",
   },
   "settings": {
@@ -187,27 +193,27 @@ Add the following to your `.eslintrc` config:
     },
     "import/resolver": {
       "typescript": {
-        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        "alwaysTryTypes": true, // Always try to resolve types under `<root>@types` directory even if it doesn't contain any source code, like `@types/unist`
 
-        "bun": true, // resolve Bun modules https://github.com/import-js/eslint-import-resolver-typescript#bun
+        "bun": true, // Resolve Bun modules (https://github.com/import-js/eslint-import-resolver-typescript#bun)
 
         // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json or <root>/jsconfig.json by default
 
-        // use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
+        // Use <root>/path/to/folder/tsconfig.json or <root>/path/to/folder/jsconfig.json
         "project": "path/to/folder",
 
         // Multiple tsconfigs (Useful for monorepos, but discouraged in favor of `references` supported)
 
-        // use a glob pattern
+        // Use a glob pattern
         "project": "packages/*/{ts,js}config.json",
 
-        // use an array
+        // Use an array
         "project": [
           "packages/module-a/tsconfig.json",
           "packages/module-b/jsconfig.json",
         ],
 
-        // use an array of glob patterns
+        // Use an array of glob patterns
         "project": [
           "packages/*/tsconfig.json",
           "other-packages/*/jsconfig.json",
@@ -226,9 +232,9 @@ Add the following to your `.eslintrc` config:
 
 Enable Bun built-in module resolution by choosing 1 out of these 3 options:
 
-- Set the `bun: true` option, as shown in [Configuration](#configuration) above
-- Run ESLint with `bun --bun eslint`
-- [Configure `run.bun` in `bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun)
+- Set the `bun: true` option, as shown in [Configuration](#configuration) above.
+- Run ESLint with `bun --bun eslint`.
+- [Configure `run.bun` in `bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun).
 
 ## Options from [`unrs-resolver`][]
 
@@ -324,11 +330,11 @@ Default:
 
 ### Other options
 
-You can pass through other options of [`unrs-resolver`][] directly
+You can pass through other options of [`unrs-resolver`][] directly.
 
 ### Default options
 
-You can reuse `defaultConditionNames`, `defaultExtensions`, `defaultExtensionAlias` and `defaultMainFields` by `require/import` them directly
+You can reuse `defaultConditionNames`, `defaultExtensions`, `defaultExtensionAlias`, and `defaultMainFields` by directly using `require`/`import`.
 
 ## Contributing
 
@@ -337,7 +343,7 @@ You can reuse `defaultConditionNames`, `defaultExtensions`, `defaultExtensionAli
 - Make sure that `yarn lint` passes without conflicts.
 - Make sure your code changes match our [type-coverage](https://github.com/plantain-00/type-coverage) settings: `yarn type-coverage`.
 
-We have [GitHub Actions](https://github.com/import-js/eslint-import-resolver-typescript/actions) which will run the above commands on your PRs.
+We have [GitHub Actions](https://github.com/import-js/eslint-import-resolver-typescript/actions), which will run the above commands on your PRs.
 
 If either fails, we won't be able to merge your PR until it's fixed.
 
