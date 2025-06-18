@@ -96,7 +96,7 @@ If you are using `eslint-plugin-import-x@>=4.5.0`, you can use `import`/`require
 
 ```js
 // eslint.config.js (CommonJS is also supported.)
-import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 
 export default [
   {
