@@ -78,15 +78,11 @@ export function normalizeOptions(
   }
 
   const optionsHash = stableHash(options)
+  const cacheKey = `${configFile}\0${optionsHash}`
   if (configFile) {
-    const cachedOptions = configFileMapping.get(`${configFile}\0${optionsHash}`)
+    const cachedOptions = configFileMapping.get(cacheKey)
     if (cachedOptions) {
-      log(
-        'using cached options for',
-        configFile,
-        'with options hash',
-        optionsHash,
-      )
+      log('using cached options for', configFile, 'with options', options)
       return cachedOptions
     }
   }
@@ -108,7 +104,7 @@ export function normalizeOptions(
   }
 
   if (configFile) {
-    configFileMapping.set(`${configFile}\0${optionsHash}`, options)
+    configFileMapping.set(cacheKey, options)
   }
 
   return options
