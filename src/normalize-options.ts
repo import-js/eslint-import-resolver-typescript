@@ -1,3 +1,4 @@
+import { stableHash } from 'stable-hash-x'
 import { globSync, isDynamicPattern } from 'tinyglobby'
 import type { TsconfigOptions } from 'unrs-resolver'
 
@@ -16,7 +17,7 @@ import type { TypeScriptResolverOptions } from './types.js'
 
 export let defaultConfigFile: string
 
-const configFileMapping = new Map<string, string>()
+const configFileMapping = new Map<string, TypeScriptResolverOptions>()
 
 let warned: boolean | undefined
 
@@ -76,16 +77,22 @@ export function normalizeOptions(
     ensured = true
   }
 
+  const optionsHash = stableHash(options)
   if (configFile) {
-    let cachedConfigFile: string | undefined = configFileMapping.get(configFile)
-    if (cachedConfigFile) {
-      log('using cached config file for', configFile)
-      configFile = cachedConfigFile
-    } else if (!ensured && configFile !== defaultConfigFile) {
-      cachedConfigFile = tryFile(DEFAULT_TRY_PATHS, false, configFile)
-      configFileMapping.set(configFile, cachedConfigFile)
-      configFile = cachedConfigFile
+    const cachedOptions = configFileMapping.get(`${configFile}\0${optionsHash}`)
+    if (cachedOptions) {
+      log(
+        'using cached options for',
+        configFile,
+        'with options hash',
+        optionsHash,
+      )
+      return cachedOptions
     }
+  }
+
+  if (!ensured && configFile && configFile !== defaultConfigFile) {
+    configFile = tryFile(DEFAULT_TRY_PATHS, false, configFile)
   }
 
   options = {
@@ -98,6 +105,10 @@ export function normalizeOptions(
     tsconfig: configFile
       ? { references: references ?? 'auto', configFile: configFile }
       : undefined,
+  }
+
+  if (configFile) {
+    configFileMapping.set(`${configFile}\0${optionsHash}`, options)
   }
 
   return options

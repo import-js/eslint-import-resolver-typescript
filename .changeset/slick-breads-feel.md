@@ -2,4 +2,4 @@
 "eslint-import-resolver-typescript": patch
 ---
 
-fix: only cache filename lookup, not options
+fix: include options hash in cache key for options normalization
