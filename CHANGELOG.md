@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.4.4
+
+### Patch Changes
+
+- [#468](https://github.com/import-js/eslint-import-resolver-typescript/pull/468) [`93b39d2`](https://github.com/import-js/eslint-import-resolver-typescript/commit/93b39d2c4f6c67683e5eabed9fe3b7d61565d263) Thanks [@renovate](https://github.com/apps/renovate)! - chore(deps): bump `stable-hash-x` v0.2.0
+
+- [#466](https://github.com/import-js/eslint-import-resolver-typescript/pull/466) [`799f1ce`](https://github.com/import-js/eslint-import-resolver-typescript/commit/799f1ce2b23487c371470cac048ff76a736faf93) Thanks [@anomiex](https://github.com/anomiex)! - fix: include options hash in cache key for options normalization
+
 ## 4.4.3
 
 ### Patch Changes
