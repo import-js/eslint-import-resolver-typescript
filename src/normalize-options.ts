@@ -16,7 +16,7 @@ import type { TypeScriptResolverOptions } from './types.js'
 
 export let defaultConfigFile: string
 
-const configFileMapping = new Map<string, TypeScriptResolverOptions>()
+const configFileMapping = new Map<string, string>()
 
 let warned: boolean | undefined
 
@@ -77,15 +77,15 @@ export function normalizeOptions(
   }
 
   if (configFile) {
-    const cachedOptions = configFileMapping.get(configFile)
-    if (cachedOptions) {
-      log('using cached options for', configFile)
-      return cachedOptions
+    let cachedConfigFile: string | undefined = configFileMapping.get(configFile)
+    if (cachedConfigFile) {
+      log('using cached config file for', configFile)
+      configFile = cachedConfigFile
+    } else if (!ensured && configFile !== defaultConfigFile) {
+      cachedConfigFile = tryFile(DEFAULT_TRY_PATHS, false, configFile)
+      configFileMapping.set(configFile, cachedConfigFile)
+      configFile = cachedConfigFile
     }
-  }
-
-  if (!ensured && configFile && configFile !== defaultConfigFile) {
-    configFile = tryFile(DEFAULT_TRY_PATHS, false, configFile)
   }
 
   options = {
@@ -98,10 +98,6 @@ export function normalizeOptions(
     tsconfig: configFile
       ? { references: references ?? 'auto', configFile: configFile }
       : undefined,
-  }
-
-  if (configFile) {
-    configFileMapping.set(configFile, options)
   }
 
   return options

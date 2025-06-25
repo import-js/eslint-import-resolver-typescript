@@ -34,15 +34,9 @@ exports[`e2e cases > should exec eslint successfully > dotProject 1`] = `
 
 exports[`e2e cases > should exec eslint successfully > filesWithDifferentOptions 1`] = `
 {
-  "exitCode": 1,
+  "exitCode": 0,
   "stderr": "",
-  "stdout": "
-<ROOT>/tests/e2e/filesWithDifferentOptions/src/a.foo.js
-  1:15  error  Unable to resolve path to module './x'  import-x/no-unresolved
-
-✖ 1 problem (1 error, 0 warnings)
-
-",
+  "stdout": "",
 }
 `;
 
