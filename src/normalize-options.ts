@@ -1,3 +1,4 @@
+import { stableHash } from 'stable-hash-x'
 import { globSync, isDynamicPattern } from 'tinyglobby'
 import type { TsconfigOptions } from 'unrs-resolver'
 
@@ -76,10 +77,12 @@ export function normalizeOptions(
     ensured = true
   }
 
+  const optionsHash = stableHash(options)
+  const cacheKey = `${configFile}\0${optionsHash}`
   if (configFile) {
-    const cachedOptions = configFileMapping.get(configFile)
+    const cachedOptions = configFileMapping.get(cacheKey)
     if (cachedOptions) {
-      log('using cached options for', configFile)
+      log('using cached options for', configFile, 'with options', options)
       return cachedOptions
     }
   }
@@ -101,7 +104,7 @@ export function normalizeOptions(
   }
 
   if (configFile) {
-    configFileMapping.set(configFile, options)
+    configFileMapping.set(cacheKey, options)
   }
 
   return options

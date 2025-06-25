@@ -32,6 +32,14 @@ exports[`e2e cases > should exec eslint successfully > dotProject 1`] = `
 }
 `;
 
+exports[`e2e cases > should exec eslint successfully > filesWithDifferentOptions 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
 exports[`e2e cases > should exec eslint successfully > importXResolverV3 1`] = `
 {
   "exitCode": 0,
