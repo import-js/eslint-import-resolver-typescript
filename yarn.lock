@@ -6089,14 +6089,14 @@ __metadata:
     is-bun-module: "npm:^2.0.0"
     nano-staged: "npm:^0.8.0"
     npm-run-all2: "npm:^8.0.4"
-    path-serializer: "npm:^0.4.0"
+    path-serializer: "npm:^0.5.0"
     premove: "npm:^4.0.0"
     prettier: "npm:^3.5.3"
     react: "npm:^19.1.0"
     simple-git-hooks: "npm:^2.13.0"
     size-limit: "npm:^11.2.0"
     size-limit-preset-node-lib: "npm:^0.4.0"
-    stable-hash-x: "npm:^0.1.1"
+    stable-hash-x: "npm:^0.2.0"
     tinyexec: "npm:^1.0.1"
     tinyglobby: "npm:^0.2.14"
     tsdown: "npm:^0.12.7"
@@ -10150,10 +10150,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-serializer@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "path-serializer@npm:0.4.0"
-  checksum: 10c0/fc617221253e5ac12a4a012ec7c442a5a02dbc557047ae7b2ba52837d59322fd59a827ea1eee06366d465f624673613d23b282a325cf378d8bfe3c309b7da2b8
+"path-serializer@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "path-serializer@npm:0.5.0"
+  checksum: 10c0/822ca37d5cc9725b717b31a14a5b3094354315e156d05d3224364329813f2fe5efa6e942e14289cb4d2a0b467299f506521a1191150a057ed4a1d04f0d7ee528
   languageName: node
   linkType: hard
 
@@ -12294,6 +12294,13 @@ __metadata:
   version: 0.1.1
   resolution: "stable-hash-x@npm:0.1.1"
   checksum: 10c0/38744f4755026f2a2aa842c7d8c92c5a2cd708aac455faf8575cee7ce4218b5ffacf278797fed97d8240b956b687efb31ca92955280d07e7d6e16a8e58497daf
+  languageName: node
+  linkType: hard
+
+"stable-hash-x@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "stable-hash-x@npm:0.2.0"
+  checksum: 10c0/c757df58366ee4bb266a9486b8932eab7c1ba730469eaf4b68d2dee404814e9f84089c44c9b5205f8c7d99a0ab036cce2af69139ce5ed44b635923c011a8aea8
   languageName: node
   linkType: hard
 

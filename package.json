@@ -73,7 +73,7 @@
     "eslint-import-context": "^0.1.8",
     "get-tsconfig": "^4.10.1",
     "is-bun-module": "^2.0.0",
-    "stable-hash-x": "^0.1.1",
+    "stable-hash-x": "^0.2.0",
     "tinyglobby": "^0.2.14",
     "unrs-resolver": "^1.7.11"
   },
@@ -98,7 +98,7 @@
     "eslint-plugin-import-x": "^4.15.1",
     "nano-staged": "^0.8.0",
     "npm-run-all2": "^8.0.4",
-    "path-serializer": "^0.4.0",
+    "path-serializer": "^0.5.0",
     "premove": "^4.0.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",
