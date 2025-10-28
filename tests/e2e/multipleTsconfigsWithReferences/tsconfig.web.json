@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@frontend/*": ["frontend/*"],
+      "@shared/*": ["shared-utils/*"]
+    }
+  },
+  "include": ["frontend/**/*", "shared-utils/**/*"]
+}

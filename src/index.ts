@@ -98,11 +98,6 @@ export const resolve = (
     // must be an array with 2+ items here already ensured by `normalizeOptions`
     const projects = sortProjectsByAffinity(options.project as string[], file)
     for (const tsconfigPath of projects) {
-      const resolverCached = resolverCache.get(tsconfigPath)
-      if (resolverCached) {
-        resolver = resolverCached
-        break createResolver
-      }
       let tsconfigCached = tsconfigCache.get(tsconfigPath)
       if (!tsconfigCached) {
         tsconfigCache.set(
@@ -126,6 +121,13 @@ export const resolve = (
         continue
       }
       log('matched tsconfig at:', tsconfigPath, 'for', file)
+
+      const resolverCached = resolverCache.get(tsconfigPath)
+      if (resolverCached) {
+        resolver = resolverCached
+        break createResolver
+      }
+
       options = {
         ...options,
         tsconfig: {

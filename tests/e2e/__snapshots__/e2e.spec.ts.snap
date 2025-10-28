@@ -64,6 +64,14 @@ exports[`e2e cases > should exec eslint successfully > multipleTsconfigs 1`] = `
 }
 `;
 
+exports[`e2e cases > should exec eslint successfully > multipleTsconfigsWithReferences 1`] = `
+{
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
 exports[`e2e cases > should exec eslint successfully > nearestTsconfig 1`] = `
 {
   "exitCode": 0,
