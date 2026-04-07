@@ -1,6 +1,6 @@
+import type { TsconfigOptions } from 'oxc-resolver'
 import { stableHash } from 'stable-hash-x'
 import { globSync, isDynamicPattern } from 'tinyglobby'
-import type { TsconfigOptions } from 'unrs-resolver'
 
 import {
   DEFAULT_CONFIGS,
@@ -32,7 +32,8 @@ export function normalizeOptions(
 ): TypeScriptResolverOptions {
   let { project, tsconfig, noWarnOnMultipleProjects } = (options ||= {})
 
-  let { configFile, references }: Partial<TsconfigOptions> = tsconfig ?? {}
+  let { configFile, references }: Partial<TsconfigOptions> =
+    typeof tsconfig === 'object' ? tsconfig : {}
 
   let ensured: boolean | undefined
 

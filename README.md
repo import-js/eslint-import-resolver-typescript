@@ -33,7 +33,7 @@ This means you can:
   - [`.eslintrc`](#eslintrc)
   - [Other environments](#other-environments)
     - [Bun](#bun)
-- [Options from `unrs-resolver`](#options-from-unrs-resolver)
+- [Options from `oxc-resolver`](#options-from-oxc-resolver)
   - [`conditionNames`](#conditionnames)
   - [`extensions`](#extensions)
   - [`extensionAlias`](#extensionalias)
@@ -236,7 +236,7 @@ Enable Bun built-in module resolution by choosing 1 out of these 3 options:
 - Run ESLint with `bun --bun eslint`.
 - [Configure `run.bun` in `bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun).
 
-## Options from [`unrs-resolver`][]
+## Options from [`oxc-resolver`][]
 
 ### `conditionNames`
 
@@ -330,7 +330,7 @@ Default:
 
 ### Other options
 
-You can pass through other options of [`unrs-resolver`][] directly.
+You can pass through other options of [`oxc-resolver`][] directly.
 
 ### Default options
 
@@ -383,6 +383,6 @@ Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.m
 
 [`eslint-plugin-import`]: https://github.com/import-js/eslint-plugin-import
 [`eslint-plugin-import-x`]: https://github.com/un-ts/eslint-plugin-import-x
-[`unrs-resolver`]: https://github.com/unrs/unrs-resolver
+[`oxc-resolver`]: https://github.com/oxc-project/oxc-resolver
 [`typescript`]: https://www.typescriptlang.org
 [isc]: https://opensource.org/licenses/ISC
