@@ -14,7 +14,7 @@ const TIMEOUT = 60_000
 describe('createTypeScriptImportResolver', async () => {
   const resolver = createTypeScriptImportResolver()
 
-  it(
+  it.skipIf(!process.versions.pnp)(
     'should work with pnp',
     async () => {
       const pnpDir = path.resolve(dirname, 'pnp')
