@@ -9,8 +9,8 @@ import {
   parseTsconfig,
 } from 'get-tsconfig'
 import { isBunBuiltin } from 'is-bun-module'
+import { ResolverFactory } from 'oxc-resolver'
 import { stableHash } from 'stable-hash-x'
-import { ResolverFactory } from 'unrs-resolver'
 
 import {
   IMPORT_RESOLVER_NAME,
@@ -37,7 +37,7 @@ const tsconfigCache = new Map<string, TsConfigJsonResolved>()
 
 const matcherCache = new Map<string, FileMatcher>()
 
-const unrsResolve = (
+const oxcResolve = (
   source: string,
   file: string,
   resolver: ResolverFactory,
@@ -50,7 +50,7 @@ const unrsResolve = (
     }
   }
   if (result.error) {
-    log('unrs-resolver error:', result.error)
+    log('oxc-resolver error:', result.error)
     if (TSCONFIG_NOT_FOUND_REGEXP.test(result.error)) {
       throw new Error(result.error)
     }
@@ -132,7 +132,6 @@ export const resolve = (
         ...options,
         tsconfig: {
           references: 'auto',
-          ...options.tsconfig,
           configFile: tsconfigPath,
         },
       }
@@ -166,7 +165,7 @@ export const resolve = (
     }
   }
 
-  const resolved = unrsResolve(source, file, resolver)
+  const resolved = oxcResolve(source, file, resolver)
 
   const foundPath = resolved.path
 
@@ -179,7 +178,7 @@ export const resolve = (
     !path.isAbsolute(source) &&
     !source.startsWith('.')
   ) {
-    const definitelyTyped = unrsResolve(
+    const definitelyTyped = oxcResolve(
       '@types/' + mangleScopedPackage(source),
       file,
       resolver,
@@ -193,12 +192,7 @@ export const resolve = (
   if (foundPath) {
     log('matched path:', foundPath)
   } else {
-    log(
-      "didn't find",
-      source,
-      'with',
-      options.tsconfig?.configFile || options.project,
-    )
+    log("didn't find", source, 'with', options.tsconfig || options.project)
   }
 
   return resolved
