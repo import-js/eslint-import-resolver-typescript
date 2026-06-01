@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.5
+
+### Patch Changes
+
+- [#473](https://github.com/import-js/eslint-import-resolver-typescript/pull/473) [`32c61ab`](https://github.com/import-js/eslint-import-resolver-typescript/commit/32c61abccf26bd2a2267f2e0e67d82e6f88d149a) Thanks [@leey0818](https://github.com/leey0818)! - fix: check tsconfig matching before using resolver
+
 ## 4.4.4
 
 ### Patch Changes
