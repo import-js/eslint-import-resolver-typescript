@@ -93,7 +93,6 @@
 ### Patch Changes
 
 - [#407](https://github.com/import-js/eslint-import-resolver-typescript/pull/407) [`6b183ff`](https://github.com/import-js/eslint-import-resolver-typescript/commit/6b183fff1b42dfb1514545b91021dfa73ab4a1c5) Thanks [@JounQin](https://github.com/JounQin)! - chore: migrate to rebranding `unrs-resolver` with new targets supported:
-
   - `i686-pc-windows-msvc`
   - `armv7-unknown-linux-musleabihf`
   - `powerpc64le-unknown-linux-gnu`
@@ -134,7 +133,6 @@
   Technically this is a BREAKING CHANGE, but considering we just raise out v4 recently and this only affects `bun` users, `bun --bun eslint` even works without this dependency, so I'd consider this as a minor change.
 
   So for `bun` users, there are three options:
-
   1. install `is-bun-module` dependency manually and use `bun: true` option
   2. run `eslint` with `bun --bun eslint` w/o `bun: true` option
   3. enable `run#bun` in [`bunfig.toml`](https://bun.sh/docs/runtime/bunfig#run-bun-auto-alias-node-to-bun) w/o `bun: true` option
@@ -162,7 +160,6 @@
 - [#368](https://github.com/import-js/eslint-import-resolver-typescript/pull/368) [`2fd7c2e`](https://github.com/import-js/eslint-import-resolver-typescript/commit/2fd7c2ea63f30c9990e19a52dbd07fd8131558e9) Thanks [@JounQin](https://github.com/JounQin)! - feat!: rewrite, speed up by using [`rspack-resolver`](https://github.com/unrs/rspack-resolver) which supports `references` natively under the hood
 
   BREAKING CHANGES:
-
   - drop Node 14 support, Node `^16.17.0 || >=18.6` is now required
   - `alwaysTryTypes` is enabled by default, you can set it as `false` to opt-out
   - array type of `project` is discouraged but still supported, single `project` with `references` are encouraged for better performance, you can enable `noWarnOnMultipleProjects` option to supress the warning message
