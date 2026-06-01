@@ -106,7 +106,7 @@
     "size-limit": "^11.2.0",
     "size-limit-preset-node-lib": "^0.4.0",
     "tinyexec": "^1.0.1",
-    "tsdown": "^0.12.7",
+    "tsdown": "^0.13.0",
     "type-coverage": "^2.29.7",
     "typescript": "^5.8.3",
     "vitest": "^3.2.2",
