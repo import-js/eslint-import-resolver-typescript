@@ -336,6 +336,15 @@ You can pass through other options of [`unrs-resolver`][] directly.
 
 You can reuse `defaultConditionNames`, `defaultExtensions`, `defaultExtensionAlias`, and `defaultMainFields` by directly using `require`/`import`.
 
+Resolver-specific options use these defaults:
+
+| Option                     | Default                                                                                 |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| `project`                  | The first available `tsconfig.json` or `jsconfig.json` in the current working directory |
+| `alwaysTryTypes`           | `true`                                                                                  |
+| `bun`                      | Enabled automatically when running under Bun; otherwise `false`                         |
+| `noWarnOnMultipleProjects` | `false` (warn when an explicit `project` resolves to multiple files)                    |
+
 ## Contributing
 
 - Make sure your change is covered by a test import.
